@@ -2,12 +2,16 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.mateu</groupId>
-  <artifactId>opentravelapi</artifactId>
+  <groupId>org.easytravelapi</groupId>
+  <artifactId>parent</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <modules>
+    <module>core</module>
+    <module>web</module>
+  </modules>
+  <packaging>pom</packaging>
 
-  <name>opentravelapi</name>
+  <name>easytravelapi</name>
   <url>http://maven.apache.org</url>
 
   <properties>
@@ -73,6 +77,13 @@
         <version>${cxf.version}</version>
         <scope>test</scope>
       </dependency>
+
+
+    <dependency>
+      <groupId>io.swagger</groupId>
+      <artifactId>swagger-jersey2-jaxrs</artifactId>
+      <version>1.5.0</version>
+    </dependency>
 
   </dependencies>
 </project>
