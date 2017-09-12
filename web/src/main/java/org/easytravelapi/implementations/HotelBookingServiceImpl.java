@@ -9,7 +9,7 @@ import javax.ws.rs.FormParam;
  * Created by miguel on 27/7/17.
  */
 public class HotelBookingServiceImpl implements HotelBookingService {
-    public GetAvailableHotelsRS getAvailabeHotels(GetAvailableHotelsRQ rq) {
+    public GetAvailableHotelsRS getAvailableHotels(GetAvailableHotelsRQ rq) {
         System.out.println("rq = " + rq);
         return new GetAvailableHotelsRS();
     }

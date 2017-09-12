@@ -20,7 +20,7 @@ public interface HotelBookingService {
 
     @POST
     @Path("/getavailable")
-    public GetAvailableHotelsRS getAvailabeHotels(GetAvailableHotelsRQ rq);
+    public GetAvailableHotelsRS getAvailableHotels(GetAvailableHotelsRQ rq);
 
     @POST
     @Path("/pricedetails")
