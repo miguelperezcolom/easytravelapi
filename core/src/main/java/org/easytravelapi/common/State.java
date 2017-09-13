@@ -16,6 +16,8 @@ public class State {
     private String resourceId;
     @ApiModelProperty(value = "This state name")
     private String name;
+    @ApiModelProperty(value = "The name in a url friendly manner")
+    private String urlFriendlyName;
 
     @ApiModelProperty(value = "List of cities included in this state")
     private List<City> cities = new ArrayList<City>();
@@ -43,5 +45,13 @@ public class State {
 
     public void setCities(List<City> cities) {
         this.cities = cities;
+    }
+
+    public String getUrlFriendlyName() {
+        return urlFriendlyName;
+    }
+
+    public void setUrlFriendlyName(String urlFriendlyName) {
+        this.urlFriendlyName = urlFriendlyName;
     }
 }

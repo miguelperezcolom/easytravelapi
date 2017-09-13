@@ -1,28 +1,43 @@
 package org.easytravelapi.hotel;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.Amount;
 
 /**
  * Created by miguel on 26/7/17.
  */
+@ApiModel(description = "An availabe board basis and its price")
 public class BoardPrice {
 
+    @ApiModelProperty(value = "Identifier for this room combination and board basis. You will use it in next steps")
     private String key;
 
+    @ApiModelProperty(value = "Board basis id")
     private String boardBasisId;
+    @ApiModelProperty(value = "Board basis name")
     private String boardBasisName;
 
-    private Amount grossPrice;
+
+    @ApiModelProperty(value = "Retail price for this activity")
+    private Amount retailPrice;
+    @ApiModelProperty(value = "Net price for this activity")
     private Amount netPrice;
+    @ApiModelProperty(value = "Your commission for this activity")
     private Amount commission;
 
 
+    @ApiModelProperty(value = "A flag to state that this price is an offer")
     private boolean offer;
+    @ApiModelProperty(value = "The offer description, if this is an offer price")
     private String offerText;
 
+    @ApiModelProperty(value = "A flag to state that this price is only available on request")
     private boolean onRequest;
+    @ApiModelProperty(value = "Describes why this price is on request")
     private String onRequestText;
 
+    @ApiModelProperty(value = "A flag to state that this price is not refundable. No cancellation is allowed")
     private boolean nonRefundable;
 
 
@@ -50,12 +65,12 @@ public class BoardPrice {
         this.boardBasisName = boardBasisName;
     }
 
-    public Amount getGrossPrice() {
-        return grossPrice;
+    public Amount getRetailPrice() {
+        return retailPrice;
     }
 
-    public void setGrossPrice(Amount grossPrice) {
-        this.grossPrice = grossPrice;
+    public void setRetailPrice(Amount retailPrice) {
+        this.retailPrice = retailPrice;
     }
 
     public Amount getNetPrice() {

@@ -1,27 +1,46 @@
 package org.easytravelapi.transfer;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.Amount;
 
 /**
  * Created by miguel on 26/7/17.
  */
+@ApiModel(description = "An available transfer")
 public class AvailableTransfer {
 
+    @ApiModelProperty(value = "Identifier for this transfer price. You will use it in next steps")
     private String key;
 
+
+    //todo: revisar y completar la lista si hace falta
+    @ApiModelProperty(value = "Type of transfer. E.G. SHUTTLE, PRIVATE")
     private String type;
+    @ApiModelProperty(value = "Vehicle")
+    private String vehicle;
+    @ApiModelProperty(value = "Description of the service")
     private String description;
 
-    private Amount grossPrice;
+    @ApiModelProperty(value = "Retail price for this activity")
+    private Amount retailPrice;
+    @ApiModelProperty(value = "Net price for this activity")
     private Amount netPrice;
+    @ApiModelProperty(value = "Your commission for this activity")
     private Amount commission;
 
+
+    @ApiModelProperty(value = "A flag to state that this price is an offer")
     private boolean offer;
+    @ApiModelProperty(value = "The offer description, if this is an offer price")
     private String offerText;
 
+    @ApiModelProperty(value = "A flag to state that this price is only available on request")
     private boolean onRequest;
+    @ApiModelProperty(value = "Describes why this price is on request")
     private String onRequestText;
 
+    @ApiModelProperty(value = "A flag to state that this price is not refundable. No cancellation is allowed")
     private boolean nonRefundable;
 
 
@@ -41,6 +60,14 @@ public class AvailableTransfer {
         this.type = type;
     }
 
+    public String getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(String vehicle) {
+        this.vehicle = vehicle;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -49,12 +76,12 @@ public class AvailableTransfer {
         this.description = description;
     }
 
-    public Amount getGrossPrice() {
-        return grossPrice;
+    public Amount getRetailPrice() {
+        return retailPrice;
     }
 
-    public void setGrossPrice(Amount grossPrice) {
-        this.grossPrice = grossPrice;
+    public void setRetailPrice(Amount retailPrice) {
+        this.retailPrice = retailPrice;
     }
 
     public Amount getNetPrice() {

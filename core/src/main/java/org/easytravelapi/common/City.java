@@ -16,6 +16,8 @@ public class City {
     private String resourceId;
     @ApiModelProperty(value = "This city name")
     private String name;
+    @ApiModelProperty(value = "The name in a url friendly manner")
+    private String urlFriendlyName;
 
     @ApiModelProperty(value = "List of resources available inside this city. E.g. hotels, activities, car rental offices, ...")
     private List<Resource> resources = new ArrayList<Resource>();
@@ -43,5 +45,13 @@ public class City {
 
     public void setResources(List<Resource> resources) {
         this.resources = resources;
+    }
+
+    public String getUrlFriendlyName() {
+        return urlFriendlyName;
+    }
+
+    public void setUrlFriendlyName(String urlFriendlyName) {
+        this.urlFriendlyName = urlFriendlyName;
     }
 }

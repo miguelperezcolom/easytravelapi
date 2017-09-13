@@ -1,5 +1,7 @@
 package org.easytravelapi.transfer;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.AbstractAuthenticatedRQ;
 import org.easytravelapi.util.Helper;
 
@@ -9,20 +11,31 @@ import java.util.List;
 /**
  * Created by miguel on 26/7/17.
  */
+@ApiModel(description = "Container for the transfer availability request")
 public class GetAvailableTransfersRQ extends AbstractAuthenticatedRQ {
 
+    @ApiModelProperty(value = "Transfer origin, as got in the getportfolio response")
     private String fromTransferPointId;
+    @ApiModelProperty(value = "Transfer destination, as got in the getportfolio response")
     private String toTransferPointId;
 
+    @ApiModelProperty(value = "Number of pax")
     private int pax;
-    private List<Integer> ages = new ArrayList<Integer>();
+    @ApiModelProperty(value = "Pax ages. If not present we will assume they are adults")
+    private int[] ages;
 
+    @ApiModelProperty(value = "Number of bikes")
     private int bikes;
+    @ApiModelProperty(value = "Number of golf baggages")
     private int golfBaggages;
+    @ApiModelProperty(value = "Number of big luggages not bikes neither golf baggages")
     private int bigLuggages;
+    @ApiModelProperty(value = "Number of wheel chairs")
     private int wheelChairs;
 
+    @ApiModelProperty(value = "Locale date for the incoming side of the transfer, in YYYYMMDD format")
     private int incomingDate;
+    @ApiModelProperty(value = "Locale date for the outgoing / return side of the transfer, in YYYYMMDD format")
     private int outgoingDate;
 
 
@@ -60,11 +73,11 @@ public class GetAvailableTransfersRQ extends AbstractAuthenticatedRQ {
         this.pax = pax;
     }
 
-    public List<Integer> getAges() {
+    public int[] getAges() {
         return ages;
     }
 
-    public void setAges(List<Integer> ages) {
+    public void setAges(int[] ages) {
         this.ages = ages;
     }
 

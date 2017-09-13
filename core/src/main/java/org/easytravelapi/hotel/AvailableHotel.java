@@ -1,19 +1,30 @@
 package org.easytravelapi.hotel;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.List;
 
 /**
  * Created by miguel on 26/7/17.
  */
+@ApiModel(description = "An available hotel, including prices")
 public class AvailableHotel {
 
+    @ApiModelProperty(value = "The hotel id")
     private String hotelId;
+    @ApiModelProperty(value = "The hotel name")
     private String hotelName;
+    @ApiModelProperty(value = "The hotel category id")
     private String hotelCategoryId;
+    @ApiModelProperty(value = "The hotel category name")
     private String hotelCategoryName;
+    @ApiModelProperty(value = "Google longitude")
     private String longitude;
+    @ApiModelProperty(value = "Google latitude")
     private String latitude;
 
+    @ApiModelProperty(value = "List of available options")
     private List<Option> options;
 
 

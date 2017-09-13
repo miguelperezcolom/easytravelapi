@@ -8,14 +8,22 @@ import org.easytravelapi.util.Helper;
 /**
  * Created by miguel on 26/7/17.
  */
-@ApiModel
+@ApiModel(description = "Container for the hotel booking confirmation request")
 public class BookHotelRQ extends AbstractAuthenticatedRQ {
 
+    @ApiModelProperty(value = "The price id, as we got it when we asked for available hotels")
     public String key;
 
-    public String leadName;
+    @ApiModelProperty(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
+    private String bookingReference;
 
+    @ApiModelProperty(value = "The lead name")
+    private String leadName;
+
+    @ApiModelProperty(value = "Comments from the customer which should arrive to the activity provider")
     private String commentsToProvider;
+
+    @ApiModelProperty(value = "Your comments for us. They will not be visible to the customer neither to the activity provider")
     private String privateComments;
 
 
@@ -35,6 +43,14 @@ public class BookHotelRQ extends AbstractAuthenticatedRQ {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public String getBookingReference() {
+        return bookingReference;
+    }
+
+    public void setBookingReference(String bookingReference) {
+        this.bookingReference = bookingReference;
     }
 
     public String getLeadName() {

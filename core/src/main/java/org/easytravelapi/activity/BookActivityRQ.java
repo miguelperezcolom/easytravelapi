@@ -14,6 +14,9 @@ public class BookActivityRQ extends AbstractAuthenticatedRQ {
     @ApiModelProperty(value = "The activity price key, as provided in the /activities/getavailable step")
     private String key;
 
+    @ApiModelProperty(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
+    private String bookingReference;
+
     @ApiModelProperty(value = "The lead name")
     private String leadName;
 

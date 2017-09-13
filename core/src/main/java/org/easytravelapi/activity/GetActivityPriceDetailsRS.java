@@ -21,4 +21,20 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Remarks which should be visible for the customer")
     private List<Remark> remarks = new ArrayList<Remark>();
 
+
+    public List<CancellationCost> getCancellationCosts() {
+        return cancellationCosts;
+    }
+
+    public void setCancellationCosts(List<CancellationCost> cancellationCosts) {
+        this.cancellationCosts = cancellationCosts;
+    }
+
+    public List<Remark> getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(List<Remark> remarks) {
+        this.remarks = remarks;
+    }
 }

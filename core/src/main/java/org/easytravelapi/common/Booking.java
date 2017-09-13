@@ -1,30 +1,48 @@
 package org.easytravelapi.common;
 
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * Created by miguel on 26/7/17.
  */
 public class Booking {
 
+    @ApiModelProperty(value = "The booking id")
     private String bookingId;
+    @ApiModelProperty(value = "When this service was created. In ISO8651 format")
     private String created;
+    @ApiModelProperty(value = "Who created this service booking")
     private String createdBy;
+    @ApiModelProperty(value = "Last modification date for this service in ISO8651 format")
     private String modified;
 
+    //todo: revisar si esto es correcto
+    @ApiModelProperty(value = "Type of service. Intended to be HOTEL, TRANSFER, ACTIVITY, ...")
     private String serviceType;
+    @ApiModelProperty(value = "Description of the service")
     private String serviceDescription;
 
+    @ApiModelProperty(value = "When this service starts using locale. In YYYYMMDD format")
     private String start;
+    @ApiModelProperty(value = "When this service ends using locale. In YYYYMMDD format")
     private String end;
 
+    @ApiModelProperty(value = "Status for this service. E.g. OK, ONREQUEST, CANCELLED, ...")
     private String status;
 
+    @ApiModelProperty(value = "This service lead name")
     private String leadName;
 
-    private Amount grossValue;
+    @ApiModelProperty(value = "Price shown to the customer")
+    private Amount retailValue;
+    @ApiModelProperty(value = "Expected cost")
     private Amount netValue;
+    @ApiModelProperty(value = "Our expected commission")
     private Amount commissionValue;
 
+    @ApiModelProperty(value = "Comments from the customer")
     private String commentsToProvider;
+    @ApiModelProperty(value = "Comments for you. Not to be shown to the customer")
     private String privateComments;
 
 
@@ -108,12 +126,12 @@ public class Booking {
         this.leadName = leadName;
     }
 
-    public Amount getGrossValue() {
-        return grossValue;
+    public Amount getRetailValue() {
+        return retailValue;
     }
 
-    public void setGrossValue(Amount grossValue) {
-        this.grossValue = grossValue;
+    public void setRetailValue(Amount retailValue) {
+        this.retailValue = retailValue;
     }
 
     public Amount getNetValue() {

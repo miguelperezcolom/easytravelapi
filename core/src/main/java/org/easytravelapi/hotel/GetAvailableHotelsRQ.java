@@ -1,5 +1,7 @@
 package org.easytravelapi.hotel;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.AbstractAuthenticatedRQ;
 import org.easytravelapi.util.Helper;
 
@@ -9,15 +11,21 @@ import java.util.List;
 /**
  * Created by miguel on 26/7/17.
  */
+@ApiModel(description = "Container for the hotel availability request")
 public class GetAvailableHotelsRQ extends AbstractAuthenticatedRQ {
 
+    @ApiModelProperty(value = "The list of resorts you are interested in")
     private List<String> resorts = new ArrayList<String>();
 
+    @ApiModelProperty(value = "The locale checkin date in YYYYMMDD format")
     private int checkIn;
+    @ApiModelProperty(value = "The locale checkout date in YYYYMMDD format")
     private int checkout;
 
+    @ApiModelProperty(value = "List of occupancies you need")
     private List<Occupancy> occupancies = new ArrayList<Occupancy>();
 
+    @ApiModelProperty(value = "Set to true if you want the response to include static info (hotel description, main hotel image, ...). If false (default value) static info will not be included in order to make the response lighter")
     private boolean includeStaticInfo;
 
 

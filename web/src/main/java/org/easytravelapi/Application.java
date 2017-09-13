@@ -14,10 +14,10 @@ public class Application  extends javax.ws.rs.core.Application {
 
         BeanConfig beanConfig = new BeanConfig();
         beanConfig.setTitle("EasyTravelApi");
-        beanConfig.setDescription("API for travel agencies");
+        beanConfig.setDescription("API for travel agents");
         beanConfig.setVersion("0.0.5");
         beanConfig.setSchemes(new String[]{"http"});
-        beanConfig.setHost("test.easytravelapi:80");
+        beanConfig.setHost("test.easytravelapi.org:80");
         beanConfig.setBasePath("/api");
 //        beanConfig.classes().add(CommonsService.class);
 //        beanConfig.classes().add(ActivityBookingService.class);

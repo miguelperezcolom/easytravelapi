@@ -1,16 +1,23 @@
 package org.easytravelapi.common;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.util.Helper;
 
 /**
  * Created by miguel on 26/7/17.
  */
+@ApiModel(description = "Container for the getbookings request")
 public class GetBookingsRQ extends AbstractAuthenticatedRQ {
 
+    @ApiModelProperty(value = "Starting date you want service bookings confirmed from. In YYYYMMDD format")
     private int fromConfirmationDate;
+    @ApiModelProperty(value = "Ending date you want service bookings confirmed to. In YYYYMMDD format")
     private int toConfirmationDate;
 
+    @ApiModelProperty(value = "Starting date you want service bookings starting from. In YYYYMMDD format")
     private int fromStartDate;
+    @ApiModelProperty(value = "Ending date you want service bookings starting from. In YYYYMMDD format")
     private int toStartDate;
 
     public static GetBookingsRQ fromString(String json) {
