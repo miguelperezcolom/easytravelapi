@@ -1,18 +1,26 @@
 package org.easytravelapi.activity;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.util.Helper;
 import org.easytravelapi.common.AbstractAuthenticatedRQ;
 
 /**
  * Created by miguel on 26/7/17.
  */
+@ApiModel(description = "Parameters needed to confirm an activity booking")
 public class BookActivityRQ extends AbstractAuthenticatedRQ {
 
+    @ApiModelProperty(value = "The activity price key, as provided in the /activities/getavailable step")
     private String key;
 
+    @ApiModelProperty(value = "The lead name")
     private String leadName;
 
+    @ApiModelProperty(value = "Comments from the customer which should arrive to the activity provider")
     private String commentsToProvider;
+
+    @ApiModelProperty(value = "Your comments for us. They will not be visible to the customer neither to the activity provider")
     private String privateComments;
 
 

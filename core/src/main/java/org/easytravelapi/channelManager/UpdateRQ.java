@@ -1,5 +1,7 @@
 package org.easytravelapi.channelManager;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.AbstractAuthenticatedRQ;
 import org.easytravelapi.util.Helper;
 
@@ -9,8 +11,10 @@ import java.util.List;
 /**
  * Created by miguel on 26/7/17.
  */
+@ApiModel(description = "Container for the update request parameters")
 public class UpdateRQ extends AbstractAuthenticatedRQ {
 
+    @ApiModelProperty(value = "List of operations you want to perform on hote inventories")
     private List<UpdateOperation> operations = new ArrayList<UpdateOperation>();
 
 

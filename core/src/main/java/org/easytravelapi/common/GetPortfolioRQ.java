@@ -6,11 +6,11 @@ import org.easytravelapi.util.Helper;
 /**
  * Created by miguel on 26/7/17.
  */
-@ApiModel
-public class GetWorldRQ extends AbstractAuthenticatedRQ {
+@ApiModel(description = "Container for the getportfolio request")
+public class GetPortfolioRQ extends AbstractAuthenticatedRQ {
 
-    public static GetWorldRQ fromString(String json) {
-        return Helper.fromString(GetWorldRQ.class, json);
+    public static GetPortfolioRQ fromString(String json) {
+        return Helper.fromString(GetPortfolioRQ.class, json);
     }
 
     @Override

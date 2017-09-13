@@ -1,16 +1,23 @@
 package org.easytravelapi.common;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by miguel on 26/7/17.
  */
+@ApiModel(description = "A city inside our portfolio. This is the third and last level in our product hierarchy")
 public class City {
 
+    @ApiModelProperty(value = "This city resource id")
     private String resourceId;
+    @ApiModelProperty(value = "This city name")
     private String name;
 
+    @ApiModelProperty(value = "List of resources available inside this city. E.g. hotels, activities, car rental offices, ...")
     private List<Resource> resources = new ArrayList<Resource>();
 
 

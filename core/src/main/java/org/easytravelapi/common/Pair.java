@@ -11,8 +11,6 @@ public class Pair {
     private String key;
     private String value;
 
-    private List<Pair> childValues = new ArrayList<Pair>();
-
     public String getKey() {
         return key;
     }
@@ -27,13 +25,5 @@ public class Pair {
 
     public void setValue(String value) {
         this.value = value;
-    }
-
-    public List<Pair> getChildValues() {
-        return childValues;
-    }
-
-    public void setChildValues(List<Pair> childValues) {
-        this.childValues = childValues;
     }
 }

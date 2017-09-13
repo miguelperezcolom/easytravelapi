@@ -1,5 +1,6 @@
 package org.easytravelapi.activity;
 
+import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.util.Helper;
 import org.easytravelapi.common.AbstractAuthenticatedRQ;
 
@@ -8,6 +9,8 @@ import org.easytravelapi.common.AbstractAuthenticatedRQ;
  */
 public class GetActivityPriceDetailsRQ extends AbstractAuthenticatedRQ {
 
+
+    @ApiModelProperty(value = "The activity price key, as provided in the /activities/getavailable step")
     private String key;
 
 
