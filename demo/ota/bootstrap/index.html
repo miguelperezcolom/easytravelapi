@@ -1,0 +1,245 @@
+<html>
+<head>
+    <title>EasyTravelApi</title>
+
+    <meta name="description" content="EasyTravelApi is a REST web services specification for travel agencies to interoperate.">
+      <meta name="keywords" content="easy travel api,API,REST,Travel,Hotel,Transfer,Excursion,Channel manager">
+      <meta name="author" content="Miguel Pérez Colom">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+-->
+</head>
+<body>
+
+<div class="container">
+
+  <P></P>
+
+  <div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Demo OTA</h1>
+    <p class="lead">This is a sample website consuming the easy travel api.</p>
+  </div>
+</div>
+
+<form>
+  <div class="row">
+    <div class="col">
+      <label for="destino">Destination</label>
+      <input id="destino" type="text" class="form-control" placeholder="Destination">
+    </div>
+    <div class="col">
+      <label for="checkin">Check-in</label>
+      <input id="checkin" type="date" class="form-control" placeholder="Check-in">
+    </div>
+    <div class="col">
+      <label for="checkout">Check-out</label>
+      <input id="checkout" type="date" class="form-control" placeholder="Check-out">
+    </div>
+    <div class="col">
+      <label>Occupation</label>
+
+      <div class="input-group">
+      <input type="text" class="form-control" readonly placeholder="Search for..."
+      aria-label="Search for..." value="2 Adults">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Change</button>
+      </span>
+    </div>
+    </div>
+
+    <div class="col">
+    <button type="button" class="btn btn-info" style="margin-top: 32px;">
+        <span class="fa fa-search"></span> Search
+      </button>
+    </div>
+
+
+  </div>
+
+  </form>
+
+
+<hr>
+
+
+<p>234 results in 315 ms.</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Hotel</th>
+      <th>Rooms</th>
+      <th>Board</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row" rowspan="4">1</th>
+      <td rowspan="4">Hotel Don Juan</td>
+      <td rowspan="2">2 Adults in 1 DOBLE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-primary" onclick="location = 'pricedetails.html'">35 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">73 EUR</button></td>
+    </tr>
+    <tr>
+      <td rowspan="2">2 Adults in 1 SUITE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-warning">32,5 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">130 EUR</button></td>
+    </tr>
+
+
+
+
+
+    <tr>
+      <th scope="row" rowspan="4">1</th>
+      <td rowspan="4">Hotel Don Juan</td>
+      <td rowspan="2">2 Adults in 1 DOBLE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-primary">35 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">73 EUR</button></td>
+    </tr>
+    <tr>
+      <td rowspan="2">2 Adults in 1 SUITE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-warning">32,5 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">130 EUR</button></td>
+    </tr>
+
+
+    <tr>
+      <th scope="row" rowspan="4">1</th>
+      <td rowspan="4">Hotel Don Juan</td>
+      <td rowspan="2">2 Adults in 1 DOBLE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-primary">35 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">73 EUR</button></td>
+    </tr>
+    <tr>
+      <td rowspan="2">2 Adults in 1 SUITE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-warning">32,5 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">130 EUR</button></td>
+    </tr>
+
+
+    <tr>
+      <th scope="row" rowspan="4">1</th>
+      <td rowspan="4">Hotel Don Juan</td>
+      <td rowspan="2">2 Adults in 1 DOBLE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-primary">35 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">73 EUR</button></td>
+    </tr>
+    <tr>
+      <td rowspan="2">2 Adults in 1 SUITE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-warning">32,5 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">130 EUR</button></td>
+    </tr>
+
+
+    <tr>
+      <th scope="row" rowspan="4">1</th>
+      <td rowspan="4">Hotel Don Juan</td>
+      <td rowspan="2">2 Adults in 1 DOBLE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-primary">35 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">73 EUR</button></td>
+    </tr>
+    <tr>
+      <td rowspan="2">2 Adults in 1 SUITE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-warning">32,5 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">130 EUR</button></td>
+    </tr>
+
+
+    <tr>
+      <th scope="row" rowspan="4">1</th>
+      <td rowspan="4">Hotel Don Juan</td>
+      <td rowspan="2">2 Adults in 1 DOBLE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-primary">35 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">73 EUR</button></td>
+    </tr>
+    <tr>
+      <td rowspan="2">2 Adults in 1 SUITE</td>
+      <td>Half board</td>
+      <td><button type="button" class="btn btn-warning">32,5 EUR</button></td>
+    </tr>
+    <tr>
+      <td>Full board</td>
+      <td><button type="button" class="btn btn-primary">130 EUR</button></td>
+    </tr>
+
+
+  </tbody>
+</table>
+
+<hr>
+
+<nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="#" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active">
+      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>
+
+</div>
+
+</body>
+</html>
