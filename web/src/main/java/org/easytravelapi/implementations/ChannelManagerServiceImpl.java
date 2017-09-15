@@ -10,18 +10,22 @@ import javax.ws.rs.FormParam;
  */
 public class ChannelManagerServiceImpl implements ChannelManagerService {
     public GetGrantedHotelsRS getGrantedHotels(GetGrantedHotelsRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new GetGrantedHotelsRS();
     }
 
     public UpdateRS update(UpdateRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new UpdateRS();
     }
 
     public ConfirmServicesRS confirmServices(ConfirmServicesRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new ConfirmServicesRS();
     }
 
     public GetRoomingListRS getRoomingList(GetRoomingListRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new GetRoomingListRS();
     }
 }

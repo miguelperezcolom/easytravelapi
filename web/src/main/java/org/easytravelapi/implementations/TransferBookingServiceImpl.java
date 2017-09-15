@@ -10,14 +10,17 @@ import javax.ws.rs.FormParam;
  */
 public class TransferBookingServiceImpl implements TransferBookingService {
     public GetAvailableTransfersRS getAvailabeTransfers(GetAvailableTransfersRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new GetAvailableTransfersRS();
     }
 
     public GetTransferPriceDetailsRS getTransferPriceDetails(GetTransferPriceDetailsRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new GetTransferPriceDetailsRS();
     }
 
     public BookTransferRS bookTransfer(BookTransferRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new BookTransferRS();
     }
 }

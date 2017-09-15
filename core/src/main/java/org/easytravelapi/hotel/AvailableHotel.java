@@ -3,6 +3,7 @@ package org.easytravelapi.hotel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ public class AvailableHotel {
     private String latitude;
 
     @ApiModelProperty(value = "List of available options")
-    private List<Option> options;
+    private List<Option> options = new ArrayList<Option>();
 
 
     public String getHotelId() {

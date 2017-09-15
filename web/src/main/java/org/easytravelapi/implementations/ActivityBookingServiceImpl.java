@@ -11,14 +11,17 @@ import javax.ws.rs.FormParam;
 public class ActivityBookingServiceImpl implements ActivityBookingService {
 
     public GetAvailableActivitiesRS getAvailableActivities(GetAvailableActivitiesRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new GetAvailableActivitiesRS();
     }
 
     public GetActivityPriceDetailsRS getActivityPriceDetails(GetActivityPriceDetailsRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new GetActivityPriceDetailsRS();
     }
 
     public BookActivityRS bookActivity(BookActivityRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new BookActivityRS();
     }
 }

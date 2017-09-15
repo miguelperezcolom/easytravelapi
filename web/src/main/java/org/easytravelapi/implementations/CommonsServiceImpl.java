@@ -8,18 +8,27 @@ import org.easytravelapi.common.*;
  */
 public class CommonsServiceImpl implements CommonsService {
     public GetPortfolioRS getPortfolio(GetPortfolioRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new GetPortfolioRS();
     }
 
     public GetDataSheetRS getDataSheet(GetDataSheetRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new GetDataSheetRS();
     }
 
     public GetBookingsRS getBookings(GetBookingsRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+        return new GetBookingsRS();
     }
 
     public CancelBookingRS cancelBooking(CancelBookingRQ rq) {
-        return null;
+        System.out.println("rq = " + rq);
+
+        CancelBookingRS rs = new CancelBookingRS();
+
+
+
+        return rs;
     }
 }
