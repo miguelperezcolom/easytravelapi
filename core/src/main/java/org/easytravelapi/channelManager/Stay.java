@@ -23,7 +23,7 @@ public class Stay {
     private String roomName;
 
     @ApiModelProperty(value = "The board basis id")
-    private String bardBasisId;
+    private String boardBasisId;
     @ApiModelProperty(value = "The board basis name")
     private String boardBasisName;
 
@@ -67,12 +67,12 @@ public class Stay {
         this.roomName = roomName;
     }
 
-    public String getBardBasisId() {
-        return bardBasisId;
+    public String getBoardBasisId() {
+        return boardBasisId;
     }
 
-    public void setBardBasisId(String bardBasisId) {
-        this.bardBasisId = bardBasisId;
+    public void setBoardBasisId(String boardBasisId) {
+        this.boardBasisId = boardBasisId;
     }
 
     public String getBoardBasisName() {
