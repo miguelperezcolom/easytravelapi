@@ -16,7 +16,7 @@ import java.util.List;
  * Created by miguel on 26/7/17.
  */
 @WebService
-@Path("/{authtoken}/transfer")
+@Path("{authtoken}/transfer")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA})
 @Api(description = "Set of available operations related to transfer booking process")

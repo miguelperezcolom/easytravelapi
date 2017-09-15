@@ -17,7 +17,7 @@ import java.util.List;
  * Created by miguel on 26/7/17.
  */
 @WebService
-@Path("/{authtoken}/hotel")
+@Path("{authtoken}/hotel")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA})
 @Api(description = "Here you will find the booking service related methods")

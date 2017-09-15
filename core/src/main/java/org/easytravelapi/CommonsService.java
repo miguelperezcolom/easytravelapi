@@ -16,7 +16,7 @@ import javax.ws.rs.core.UriInfo;
  * Created by miguel on 26/7/17.
  */
 @WebService
-@Path("/{authtoken}/commons")
+@Path("{authtoken}/commons")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA})
 @Api(description = "Set of generic operations which do not fit any other place")
