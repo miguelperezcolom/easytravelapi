@@ -8,13 +8,15 @@ import org.easytravelapi.common.Booking;
 import javax.ws.rs.FormParam;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  * Created by miguel on 27/7/17.
  */
 public class ChannelManagerServiceImpl implements ChannelManagerService {
-    public GetGrantedHotelsRS getGrantedHotels(GetGrantedHotelsRQ rq) {
-        System.out.println("rq = " + rq);
+
+    @Override
+    public GetGrantedHotelsRS getGrantedHotels(String token) {
         GetGrantedHotelsRS rs = new GetGrantedHotelsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -52,8 +54,8 @@ public class ChannelManagerServiceImpl implements ChannelManagerService {
         return rs;
     }
 
-    public UpdateRS update(UpdateRQ rq) {
-        System.out.println("rq = " + rq);
+    @Override
+    public UpdateRS update(String token, List<UpdateOperation> operations) {
         UpdateRS rs = new UpdateRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -63,20 +65,8 @@ public class ChannelManagerServiceImpl implements ChannelManagerService {
         return rs;
     }
 
-    public ConfirmServicesRS confirmServices(ConfirmServicesRQ rq) {
-        System.out.println("rq = " + rq);
-
-        ConfirmServicesRS rs = new ConfirmServicesRS();
-
-        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-        rs.setStatusCode(200);
-        rs.setMsg("Done");
-
-        return rs;
-    }
-
-    public GetRoomingListRS getRoomingList(GetRoomingListRQ rq) {
-        System.out.println("rq = " + rq);
+    @Override
+    public GetRoomingListRS getRoomingList(String token, int fromConfirmationDate, int toConfirmationDate, int fromStartDate, int toStartDate) {
         GetRoomingListRS rs = new GetRoomingListRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -125,4 +115,17 @@ public class ChannelManagerServiceImpl implements ChannelManagerService {
 
         return rs;
     }
+
+    @Override
+    public ConfirmServicesRS confirmServices(String token, List<ServiceConfirmation> serviceConfirmations) {
+
+        ConfirmServicesRS rs = new ConfirmServicesRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+
+        rs.setMsg("Done");
+        return rs;
+    }
+
 }

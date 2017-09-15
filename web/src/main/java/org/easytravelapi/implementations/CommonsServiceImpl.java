@@ -10,8 +10,9 @@ import java.time.format.DateTimeFormatter;
  * Created by miguel on 27/7/17.
  */
 public class CommonsServiceImpl implements CommonsService {
-    public GetPortfolioRS getPortfolio(GetPortfolioRQ rq) {
-        System.out.println("rq = " + rq);
+
+    @Override
+    public GetPortfolioRS getPortfolio(String token) {
         GetPortfolioRS rs = new GetPortfolioRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -162,8 +163,8 @@ public class CommonsServiceImpl implements CommonsService {
         }
     }
 
-    public GetDataSheetRS getDataSheet(GetDataSheetRQ rq) {
-        System.out.println("rq = " + rq);
+    @Override
+    public GetDataSheetRS getDataSheet(String token, String resourceId) {
 
         GetDataSheetRS rs = new GetDataSheetRS();
 
@@ -218,8 +219,8 @@ public class CommonsServiceImpl implements CommonsService {
         return rs;
     }
 
-    public GetBookingsRS getBookings(GetBookingsRQ rq) {
-        System.out.println("rq = " + rq);
+    @Override
+    public GetBookingsRS getBookings(String token, int fromConfirmationDate, int toConfirmationDate, int fromStartDate, int toStartDate) {
 
         GetBookingsRS rs = new GetBookingsRS();
 
@@ -254,8 +255,8 @@ public class CommonsServiceImpl implements CommonsService {
         return rs;
     }
 
-    public CancelBookingRS cancelBooking(CancelBookingRQ rq) {
-        System.out.println("rq = " + rq);
+    @Override
+    public CancelBookingRS cancelBooking(String token, String bookingId) {
 
         CancelBookingRS rs = new CancelBookingRS();
 
@@ -265,5 +266,10 @@ public class CommonsServiceImpl implements CommonsService {
 
 
         return rs;
+    }
+
+    @Override
+    public String getToken(String user, String password) {
+        return "oefvoeoveo3r4ri34br34ir3b4br";
     }
 }

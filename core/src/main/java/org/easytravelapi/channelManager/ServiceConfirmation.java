@@ -2,6 +2,7 @@ package org.easytravelapi.channelManager;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.easytravelapi.util.Helper;
 
 /**
  * Created by miguel on 26/7/17.
@@ -15,6 +16,15 @@ public class ServiceConfirmation {
     private boolean confirmed;
     @ApiModelProperty(value = "Comments you want to supply. E.g. the reason to reject the service request")
     private String comments;
+
+    public static ServiceConfirmation fromString(String json) {
+        return Helper.fromString(ServiceConfirmation.class, json);
+    }
+
+    @Override
+    public String toString() {
+        return Helper.toJson(this);
+    }
 
 
     public String getBookingId() {

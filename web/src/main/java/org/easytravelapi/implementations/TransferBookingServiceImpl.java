@@ -9,13 +9,15 @@ import org.easytravelapi.transfer.*;
 import javax.ws.rs.FormParam;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  * Created by miguel on 27/7/17.
  */
 public class TransferBookingServiceImpl implements TransferBookingService {
-    public GetAvailableTransfersRS getAvailabeTransfers(GetAvailableTransfersRQ rq) {
-        System.out.println("rq = " + rq);
+
+    @Override
+    public GetAvailableTransfersRS getAvailabeTransfers(String fromTransferPointId, String toTransferPointId, int pax, List<Integer> ages, int bikes, int golfBaggages, int bigLuggages, int wheelChairs, int incomingDate, int outgoingDate) {
         GetAvailableTransfersRS rs = new GetAvailableTransfersRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -64,8 +66,8 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         return rs;
     }
 
-    public GetTransferPriceDetailsRS getTransferPriceDetails(GetTransferPriceDetailsRQ rq) {
-        System.out.println("rq = " + rq);
+    @Override
+    public GetTransferPriceDetailsRS getTransferPriceDetails(String token, String key) {
 
         GetTransferPriceDetailsRS rs = new GetTransferPriceDetailsRS();
 
@@ -114,8 +116,8 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         return rs;
     }
 
-    public BookTransferRS bookTransfer(BookTransferRQ rq) {
-        System.out.println("rq = " + rq);
+    @Override
+    public BookTransferRS bookTransfer(String token, String key, String bookingReference, String leadName, String commentsToProvider, String privateComments, String incomingFlightNumber, int incomingFlightTime, String incomingFlightOrigin, String outgoingFlightNumber, int outgoingFlightTime, String outgoingFlightDestination) {
 
         BookTransferRS rs = new BookTransferRS();
 
@@ -127,4 +129,6 @@ public class TransferBookingServiceImpl implements TransferBookingService {
 
         return rs;
     }
+
+
 }

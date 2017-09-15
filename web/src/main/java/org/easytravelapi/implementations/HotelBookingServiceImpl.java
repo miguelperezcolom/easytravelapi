@@ -10,13 +10,15 @@ import javax.ws.rs.FormParam;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by miguel on 27/7/17.
  */
 public class HotelBookingServiceImpl implements HotelBookingService {
-    public GetAvailableHotelsRS getAvailableHotels(GetAvailableHotelsRQ rq) {
-        System.out.println("rq = " + rq);
+
+    @Override
+    public GetAvailableHotelsRS getAvailableHotels(String token, List<String> resorts, int checkIn, int checkout, List<Occupancy> occupancies, boolean includeStaticInfo) {
         GetAvailableHotelsRS rs = new GetAvailableHotelsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -116,8 +118,8 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         return rs;
     }
 
-    public GetHotelPriceDetailsRS getHotelPriceDetails(GetHotelPriceDetailsRQ rq) {
-        System.out.println("rq = " + rq);
+    @Override
+    public GetHotelPriceDetailsRS getHotelPriceDetails(String token, String key) {
 
         GetHotelPriceDetailsRS rs = new GetHotelPriceDetailsRS();
 
@@ -166,8 +168,8 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         return rs;
     }
 
-    public BookHotelRS bookHotel(BookHotelRQ rq) {
-        System.out.println("rq = " + rq);
+    @Override
+    public BookHotelRS bookHotel(String token, String key, String bookingReference, String leadName, String commentsToProvider, String privateComments) {
 
         BookHotelRS rs = new BookHotelRS();
 
@@ -179,4 +181,5 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
         return rs;
     }
+
 }

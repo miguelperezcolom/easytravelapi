@@ -2,6 +2,7 @@ package org.easytravelapi.channelManager;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.easytravelapi.util.Helper;
 
 /**
  * Created by miguel on 26/7/17.
@@ -27,6 +28,18 @@ public class UpdateOperation {
 
     @ApiModelProperty(value = "New value to be set")
     private String newValue;
+
+
+    public static UpdateOperation fromString(String json) {
+        return Helper.fromString(UpdateOperation.class, json);
+    }
+
+    @Override
+    public String toString() {
+        return Helper.toJson(this);
+    }
+
+
 
     public String getHotelId() {
         return hotelId;

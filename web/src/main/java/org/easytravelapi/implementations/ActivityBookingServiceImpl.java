@@ -16,8 +16,9 @@ import java.time.format.DateTimeFormatter;
  */
 public class ActivityBookingServiceImpl implements ActivityBookingService {
 
-    public GetAvailableActivitiesRS getAvailableActivities(GetAvailableActivitiesRQ rq) {
-        System.out.println("rq = " + rq);
+
+    @Override
+    public GetAvailableActivitiesRS getAvailableActivities(String token, int start, int end, String resourceId, int pax, int[] ages) {
         GetAvailableActivitiesRS rs = new GetAvailableActivitiesRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -135,8 +136,8 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
         return rs;
     }
 
-    public GetActivityPriceDetailsRS getActivityPriceDetails(GetActivityPriceDetailsRQ rq) {
-        System.out.println("rq = " + rq);
+    @Override
+    public GetActivityPriceDetailsRS getActivityPriceDetails(String token, String key) {
         GetActivityPriceDetailsRS rs = new GetActivityPriceDetailsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -184,8 +185,8 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
         return rs;
     }
 
-    public BookActivityRS bookActivity(BookActivityRQ rq) {
-        System.out.println("rq = " + rq);
+    @Override
+    public BookActivityRS bookActivity(String token, String key, String bookingReference, String leadName, String commentsToProvider, String privateComments) {
         BookActivityRS rs = new BookActivityRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -197,4 +198,5 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
         return rs;
     }
+
 }

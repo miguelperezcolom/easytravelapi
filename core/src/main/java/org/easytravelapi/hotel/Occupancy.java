@@ -2,6 +2,8 @@ package org.easytravelapi.hotel;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.easytravelapi.channelManager.UpdateOperation;
+import org.easytravelapi.util.Helper;
 
 /**
  * Created by miguel on 26/7/17.
@@ -15,6 +17,16 @@ public class Occupancy {
     private int paxPerRoom;
     @ApiModelProperty(value = "Ages for each pax. If not stated the pax will be assumed to be an adult")
     private int[] ages;
+
+
+    public static Occupancy fromString(String json) {
+        return Helper.fromString(Occupancy.class, json);
+    }
+
+    @Override
+    public String toString() {
+        return Helper.toJson(this);
+    }
 
 
     public int getNumberOfRooms() {
