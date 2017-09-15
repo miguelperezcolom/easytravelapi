@@ -39,11 +39,8 @@ public class HotelBooking {
     @ApiModelProperty(value = "This service lead name")
     private String leadName;
 
-    @ApiModelProperty(value = "Price shown to the customer")
     private Amount retailValue;
-    @ApiModelProperty(value = "Expected cost")
     private Amount netValue;
-    @ApiModelProperty(value = "Our expected commission")
     private Amount commissionValue;
 
     @ApiModelProperty(value = "Comments from the customer")

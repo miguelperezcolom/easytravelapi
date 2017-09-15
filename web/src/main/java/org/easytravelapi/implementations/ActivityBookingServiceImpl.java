@@ -10,6 +10,7 @@ import org.easytravelapi.transfer.BookTransferRS;
 import javax.ws.rs.FormParam;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  * Created by miguel on 27/7/17.
@@ -18,7 +19,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
 
     @Override
-    public GetAvailableActivitiesRS getAvailableActivities(String token, int start, int end, String resourceId, int pax, int[] ages) {
+    public GetAvailableActivitiesRS getAvailableActivities(String token, int start, int end, String resourceId, int pax, List<Integer> ages) {
         GetAvailableActivitiesRS rs = new GetAvailableActivitiesRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));

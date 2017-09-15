@@ -22,11 +22,8 @@ public class AvailableTransfer {
     @ApiModelProperty(value = "Description of the service")
     private String description;
 
-    @ApiModelProperty(value = "Retail price for this activity")
     private Amount retailPrice;
-    @ApiModelProperty(value = "Net price for this activity")
     private Amount netPrice;
-    @ApiModelProperty(value = "Your commission for this activity")
     private Amount commission;
 
 

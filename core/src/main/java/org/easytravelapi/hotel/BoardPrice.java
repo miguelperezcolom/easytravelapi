@@ -19,11 +19,8 @@ public class BoardPrice {
     private String boardBasisName;
 
 
-    @ApiModelProperty(value = "Retail price for this activity")
     private Amount retailPrice;
-    @ApiModelProperty(value = "Net price for this activity")
     private Amount netPrice;
-    @ApiModelProperty(value = "Your commission for this activity")
     private Amount commission;
 
 

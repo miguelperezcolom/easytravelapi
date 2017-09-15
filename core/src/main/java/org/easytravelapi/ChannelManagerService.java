@@ -17,9 +17,9 @@ import java.util.List;
  * Created by miguel on 26/7/17.
  */
 @WebService
-@Path("/{authtoken}/channel/")
+@Path("/{authtoken}/channel")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA})
 @Api(description = "Operations related to the channel manager service")
 public interface ChannelManagerService {
 
@@ -27,14 +27,14 @@ public interface ChannelManagerService {
     @Path("/granted")
     @ApiOperation(value = "Use this method to know which hotels are you allowed to update. It provides the ids to be used by the channel manager")
     public GetGrantedHotelsRS getGrantedHotels(
-            @PathParam("authtoken") String token
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
     );
 
     @PUT
     @Path("/hotel/inventory")
     @ApiOperation(value = "Use this method to update hotel inventory")
     public UpdateRS update(
-            @PathParam("authtoken") String token,
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "List of operations you want to perform on hote inventories")
             @FormParam("operations") List<UpdateOperation> operations
     );
@@ -43,7 +43,7 @@ public interface ChannelManagerService {
     @Path("/confirm")
     @ApiOperation(value = "Use this method to confirm or reject services")
     public ConfirmServicesRS confirmServices(
-            @PathParam("authtoken") String token,
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "List of service confirmations (or rejections)")
             @FormParam("serviceconfirmations") List<ServiceConfirmation> serviceConfirmations
 
@@ -53,7 +53,7 @@ public interface ChannelManagerService {
     @Path("/roominglist")
     @ApiOperation(value = "Use this method to download the list of hotel bookings")
     public GetRoomingListRS getRoomingList(
-            @PathParam("authtoken") String token,
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "Starting date you want service bookings confirmed from. In YYYYMMDD format")
             @QueryParam("confirmedfrom") int fromConfirmationDate,
             @ApiParam(value = "Ending date you want service bookings confirmed to. In YYYYMMDD format")

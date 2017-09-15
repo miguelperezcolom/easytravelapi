@@ -18,11 +18,8 @@ public class ActivityDate {
     @ApiModelProperty(value = "Id for this price")
     private String key;
 
-    @ApiModelProperty(value = "Retail price for this activity")
     private Amount retailPrice;
-    @ApiModelProperty(value = "Net price for this activity")
     private Amount netPrice;
-    @ApiModelProperty(value = "Your commission for this activity")
     private Amount commission;
 
 

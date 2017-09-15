@@ -17,9 +17,9 @@ import java.util.List;
  * Created by miguel on 26/7/17.
  */
 @WebService
-@Path("/{authtoken}/hotel/")
+@Path("/{authtoken}/hotel")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA})
 @Api(description = "Here you will find the booking service related methods")
 public interface HotelBookingService {
 
@@ -27,7 +27,7 @@ public interface HotelBookingService {
     @Path("/available")
     @ApiOperation(value = "Use this method to know which hotels are available and their prices")
     public GetAvailableHotelsRS getAvailableHotels(
-            @PathParam("authtoken") String token,
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The list of resorts you are interested in")
             @QueryParam("resorts") List<String> resorts,
             @ApiParam(value = "The locale checkin date in YYYYMMDD format")
@@ -44,7 +44,7 @@ public interface HotelBookingService {
     @Path("/pricedetails")
     @ApiOperation(value = "Use this methos to guess cancellation costs and important remarks regarding a price")
     public GetHotelPriceDetailsRS getHotelPriceDetails(
-            @PathParam("authtoken") String token,
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The hotel price key, as provided in the /hotel/available step")
                     String key
     );
@@ -53,7 +53,7 @@ public interface HotelBookingService {
     @Path("/booking")
     @ApiOperation(value = "Use this method to confirm a hotel service")
     public BookHotelRS bookHotel(
-            @PathParam("authtoken") String token,
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activities/getavailable step")
             @FormParam("key") String key,
             @ApiParam(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
