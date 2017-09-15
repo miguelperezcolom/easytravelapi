@@ -40,12 +40,12 @@ public interface ActivityBookingService {
             );
 
     @GET
-    @Path("/pricedetails")
+    @Path("/pricedetails/{key}")
     @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
     public GetActivityPriceDetailsRS getActivityPriceDetails(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
-            String key
+            @PathParam("key") String key
     );
 
     @PUT
