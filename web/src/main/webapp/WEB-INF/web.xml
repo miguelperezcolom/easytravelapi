@@ -18,7 +18,7 @@
 
   <servlet-mapping>
     <servlet-name>MyApplication</servlet-name>
-    <url-pattern>/easytravelapi/rest/*</url-pattern>
+    <url-pattern>/rest/*</url-pattern>
   </servlet-mapping>
 
 </web-app>
