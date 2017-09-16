@@ -1,4 +1,4 @@
-# easytravelapi
+# easy travel api
 
 A travel web service specification to replace the unfortunately dead Caval.
 
