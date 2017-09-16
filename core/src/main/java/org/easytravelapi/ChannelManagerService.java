@@ -23,7 +23,7 @@ import java.util.List;
 @Api(description = "Operations related to the channel manager service")
 public interface ChannelManagerService {
 
-    @POST
+    @GET
     @Path("/granted")
     @ApiOperation(value = "Use this method to know which hotels are you allowed to update. It provides the ids to be used by the channel manager")
     public GetGrantedHotelsRS getGrantedHotels(

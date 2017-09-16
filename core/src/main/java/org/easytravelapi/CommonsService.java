@@ -34,7 +34,7 @@ public interface CommonsService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @PathParam("resourceid") String resourceId);
 
-    @POST
+    @GET
     @Path("/bookings")
     @ApiOperation(value = "Method to get a list of bookings")
     public GetBookingsRS getBookings(
