@@ -12,7 +12,7 @@ import java.util.List;
  * Created by miguel on 26/7/17.
  */
 @ApiModel(description = "Container for the confirm services request")
-public class ConfirmServicesRQ extends AbstractAuthenticatedRQ {
+public class ConfirmServicesRQ {
 
     @ApiModelProperty(value = "List of service confirmations (or rejections)")
     private List<ServiceConfirmation> serviceConfirmations = new ArrayList<ServiceConfirmation>();

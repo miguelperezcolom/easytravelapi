@@ -18,7 +18,7 @@ import java.util.List;
 @WebService
 @Path("{authtoken}/transfer")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA})
+@Consumes(MediaType.APPLICATION_JSON)
 @Api(description = "Set of available operations related to transfer booking process")
 public interface TransferBookingService {
 
@@ -63,30 +63,7 @@ public interface TransferBookingService {
     @ApiOperation(value = "Use this method to confirm a transfer service booking")
     public BookTransferRS bookTransfer(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "The activity price key, as provided in the /activities/getavailable step")
-            @FormParam("key") String key,
-            @ApiParam(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
-            @FormParam("bookingreference") String bookingReference,
-            @ApiParam(value = "The lead name")
-            @FormParam("leadname") String leadName,
-            @ApiParam(value = "Comments from the customer which should arrive to the activity provider")
-            @FormParam("commentstoprovider") String commentsToProvider,
-            @ApiParam(value = "Your comments for us. They will not be visible to the customer neither to the activity provider")
-            @FormParam("privatecomments") String privateComments,
-
-            @ApiParam(value = "Incoming flight number")
-            @FormParam("incflighno") String incomingFlightNumber,
-            @ApiParam(value = "Locale incoming flight time in YYYYMMDDHHMM format")
-            @FormParam("incflightime") int incomingFlightTime,
-            @ApiParam(value = "Incoming flight origin")
-            @FormParam("incflightorig") String incomingFlightOrigin,
-
-            @ApiParam(value = "Outgoing flight number")
-            @FormParam("outflightno") String outgoingFlightNumber,
-            @ApiParam(value = "Locale outgoing flight time in YYYYMMDDHHMM format")
-            @FormParam("outflighttime") int outgoingFlightTime,
-            @ApiParam(value = "Outgoing flight origin")
-            @FormParam("outflightdest") String outgoingFlightDestination
+            BookTransferRQ rq
 
     );
 

@@ -1,0 +1,45 @@
+<html>
+  <head></head>
+  <body>
+
+<div id='app'>
+
+<h1>Hola {{ nombre }}</h1>
+
+Entra tu nombre:
+
+<input v-model="nombre">
+
+
+<button v-show="nombre">
+Send word to allies for help!
+</button>
+
+
+<h1 v-if="!nombre">You must send a message for help!</h1>
+
+<pre>
+{{ $data }}
+</pre>
+
+</div>
+
+  </body>
+
+
+  <script src="../node_modules/vue/dist/vue.min.js"></script>
+
+  <script>
+
+
+new Vue({
+  el: '#app',
+  data: {
+    nombre: 'Mateu',
+  }
+});
+
+
+
+  </script>
+</html>

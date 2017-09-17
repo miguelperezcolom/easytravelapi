@@ -19,7 +19,7 @@ import java.util.List;
 @WebService
 @Path("{authtoken}/channel")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA})
+@Consumes(MediaType.APPLICATION_JSON)
 @Api(description = "Operations related to the channel manager service")
 public interface ChannelManagerService {
 
@@ -35,8 +35,7 @@ public interface ChannelManagerService {
     @ApiOperation(value = "Use this method to update hotel inventory")
     public UpdateRS update(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "List of operations you want to perform on hote inventories")
-            @FormParam("operations") List<UpdateOperation> operations
+            UpdateRQ rq
     );
 
     @POST
@@ -44,8 +43,7 @@ public interface ChannelManagerService {
     @ApiOperation(value = "Use this method to confirm or reject services")
     public ConfirmServicesRS confirmServices(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "List of service confirmations (or rejections)")
-            @FormParam("serviceconfirmations") List<ServiceConfirmation> serviceConfirmations
+            ConfirmServicesRQ rq
 
     );
 

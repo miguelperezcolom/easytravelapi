@@ -9,7 +9,7 @@ import org.easytravelapi.common.AbstractAuthenticatedRQ;
  * Created by miguel on 26/7/17.
  */
 @ApiModel(description = "Parameters needed to confirm an activity booking")
-public class BookActivityRQ extends AbstractAuthenticatedRQ {
+public class BookActivityRQ {
 
     @ApiModelProperty(value = "The activity price key, as provided in the /activities/getavailable step")
     private String key;

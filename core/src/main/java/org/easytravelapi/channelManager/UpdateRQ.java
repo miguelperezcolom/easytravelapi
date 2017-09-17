@@ -12,7 +12,7 @@ import java.util.List;
  * Created by miguel on 26/7/17.
  */
 @ApiModel(description = "Container for the update request parameters")
-public class UpdateRQ extends AbstractAuthenticatedRQ {
+public class UpdateRQ {
 
     @ApiModelProperty(value = "List of operations you want to perform on hote inventories")
     private List<UpdateOperation> operations = new ArrayList<UpdateOperation>();

@@ -117,7 +117,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
     }
 
     @Override
-    public BookTransferRS bookTransfer(String token, String key, String bookingReference, String leadName, String commentsToProvider, String privateComments, String incomingFlightNumber, int incomingFlightTime, String incomingFlightOrigin, String outgoingFlightNumber, int outgoingFlightTime, String outgoingFlightDestination) {
+    public BookTransferRS bookTransfer(String token, BookTransferRQ rq) {
 
         BookTransferRS rs = new BookTransferRS();
 

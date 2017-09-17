@@ -9,7 +9,7 @@ import org.easytravelapi.util.Helper;
  * Created by miguel on 26/7/17.
  */
 @ApiModel(description = "Container for the hotel booking confirmation request")
-public class BookHotelRQ extends AbstractAuthenticatedRQ {
+public class BookHotelRQ {
 
     @ApiModelProperty(value = "The price id, as we got it when we asked for available hotels")
     public String key;

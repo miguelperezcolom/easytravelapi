@@ -19,7 +19,7 @@ import java.util.List;
 @WebService
 @Path("{authtoken}/hotel")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA})
+@Consumes(MediaType.APPLICATION_JSON)
 @Api(description = "Here you will find the booking service related methods")
 public interface HotelBookingService {
 
@@ -52,18 +52,7 @@ public interface HotelBookingService {
     @PUT
     @Path("/booking")
     @ApiOperation(value = "Use this method to confirm a hotel service")
-    public BookHotelRS bookHotel(
-            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "The activity price key, as provided in the /activities/getavailable step")
-            @FormParam("key") String key,
-            @ApiParam(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
-            @FormParam("bookingreference") String bookingReference,
-            @ApiParam(value = "The lead name")
-            @FormParam("leadname") String leadName,
-            @ApiParam(value = "Comments from the customer which should arrive to the activity provider")
-            @FormParam("commentstoprovider") String commentsToProvider,
-            @ApiParam(value = "Your comments for us. They will not be visible to the customer neither to the activity provider")
-            @FormParam("privatecomments") String privateComments
-    );
+    public BookHotelRS bookHotel(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+                                 BookHotelRQ rq);
 
 }

@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>Hello Vue</title>
+</head>
+<body>
+
+  <div id="app">
+   <h1>{{ message }}</h1>
+
+
+   <input v-model="message">
+   
+  </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js"></script>
+<script>
+
+var data = {
+ message: 'Hola mundo!'
+};
+
+ new Vue({
+   el: '#app',
+   //data: data,
+   data: {
+     message: 'Hola Mateu!'
+   }
+ })
+</script>
+
+</html>

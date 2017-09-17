@@ -187,7 +187,9 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
     }
 
     @Override
-    public BookActivityRS bookActivity(String token, String key, String bookingReference, String leadName, String commentsToProvider, String privateComments) {
+    public BookActivityRS bookActivity(String token, BookActivityRQ rq) {
+        System.out.println("rq=" + rq);
+
         BookActivityRS rs = new BookActivityRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));

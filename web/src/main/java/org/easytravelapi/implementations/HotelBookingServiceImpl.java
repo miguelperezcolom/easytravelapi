@@ -169,7 +169,9 @@ public class HotelBookingServiceImpl implements HotelBookingService {
     }
 
     @Override
-    public BookHotelRS bookHotel(String token, String key, String bookingReference, String leadName, String commentsToProvider, String privateComments) {
+    public BookHotelRS bookHotel(String token, BookHotelRQ rq) {
+
+        System.out.println("rq=" + rq);
 
         BookHotelRS rs = new BookHotelRS();
 

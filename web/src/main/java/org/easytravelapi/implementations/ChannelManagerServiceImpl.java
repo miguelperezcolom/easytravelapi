@@ -54,8 +54,9 @@ public class ChannelManagerServiceImpl implements ChannelManagerService {
         return rs;
     }
 
+
     @Override
-    public UpdateRS update(String token, List<UpdateOperation> operations) {
+    public UpdateRS update(String token, UpdateRQ rq) {
         UpdateRS rs = new UpdateRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -117,7 +118,7 @@ public class ChannelManagerServiceImpl implements ChannelManagerService {
     }
 
     @Override
-    public ConfirmServicesRS confirmServices(String token, List<ServiceConfirmation> serviceConfirmations) {
+    public ConfirmServicesRS confirmServices(String token, ConfirmServicesRQ rq) {
 
         ConfirmServicesRS rs = new ConfirmServicesRS();
 

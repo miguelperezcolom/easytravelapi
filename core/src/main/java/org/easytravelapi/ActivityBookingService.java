@@ -18,7 +18,7 @@ import java.util.List;
 @WebService
 @Path("{authtoken}/activity")
 @Produces(MediaType.APPLICATION_JSON)
-@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_FORM_URLENCODED, MediaType.MULTIPART_FORM_DATA})
+@Consumes(MediaType.APPLICATION_JSON)
 @Api(description = "Operations related to the activity booking process")
 public interface ActivityBookingService {
 
@@ -53,16 +53,7 @@ public interface ActivityBookingService {
     @ApiOperation(value = "Book an activity", notes = "Here you can confirm an activity booking. You must provide a price key and some additional data (lead name, comments, ...)")
     public BookActivityRS bookActivity(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "The activity price key, as provided in the /activities/getavailable step")
-            @FormParam("key") String key,
-            @ApiParam(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
-            @FormParam("bookingreference") String bookingReference,
-            @ApiParam(value = "The lead name")
-            @FormParam("leadname") String leadName,
-            @ApiParam(value = "Comments from the customer which should arrive to the activity provider")
-            @FormParam("commentstoprovider") String commentsToProvider,
-            @ApiParam(value = "Your comments for us. They will not be visible to the customer neither to the activity provider")
-            @FormParam("privatecomments") String privateComments
+            BookActivityRQ rq
     );
 
 }
