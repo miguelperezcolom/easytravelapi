@@ -33,9 +33,9 @@
   <p></p>
 
 
-  <home v-show="paso == 1"></home>
-  <extrainfo v-show="paso == 2"></extrainfo>
-  <booked v-show="paso == 3"></booked>
+  <home v-if="paso == 1"></home>
+  <extrainfo v-if="paso == 2"></extrainfo>
+  <booked v-if="paso == 3"></booked>
 
 </div>
 
@@ -260,7 +260,7 @@
 
   <p>Congratulations!</p>
 
-  <p>Your booking has been confirmed with id <b>1923729037</b></p>
+  <p>Your booking has been confirmed with id <b>{{ resultado.bookingId }}</b></p>
 
 
   </div>
@@ -273,8 +273,18 @@ var data = {
   buscando: false,
   dispo: null,
   detalles: null,
+  resultado: null,
   paso: 1,
 }
+
+Vue.component(
+  'booked', {
+    template: '#booked',
+    data: function() {
+        return data;
+    },
+  }
+)
 
 Vue.component(
   'home', {
@@ -350,8 +360,7 @@ Vue.component(
 
         axios({
         method: 'put',
-        url: 'http://test.easytravelapi.com/rest/dewdcwed/hotel/booking',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+        url: 'http://test.easytravelapi.com/rest/dewdcwed/hotel/booking'
         })
         .then(function (response) {
           data.buscando = false;
@@ -368,6 +377,9 @@ Vue.component(
     }
   }
 );
+
+
+
 
 
 var vm = new Vue({
