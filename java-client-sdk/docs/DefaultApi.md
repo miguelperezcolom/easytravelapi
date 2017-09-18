@@ -82,7 +82,7 @@ Use this method to confirm a hotel service
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
+ApiException
 //import io.swagger.client.api.DefaultApi;
 
 
@@ -382,7 +382,7 @@ By passing a resort and holidays dates you get a list of the available activitie
 ### Example
 ```java
 // Import classes:
-//import io.swagger.client.ApiException;
+ApiException
 //import io.swagger.client.api.DefaultApi;
 
 

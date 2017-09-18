@@ -1,36 +1,37 @@
 package org.easytravelapi.swagger.client.api;
 
-import io.swagger.client.ApiException;
-import io.swagger.client.model.*;
-import io.swagger.client.model.BookActivityRQ;
-import io.swagger.client.model.BookActivityRS;
-import io.swagger.client.model.BookHotelRQ;
-import io.swagger.client.model.BookHotelRS;
-import io.swagger.client.model.BookTransferRQ;
-import io.swagger.client.model.BookTransferRS;
-import io.swagger.client.model.CancelBookingRS;
-import io.swagger.client.model.ConfirmServicesRQ;
-import io.swagger.client.model.ConfirmServicesRS;
-import io.swagger.client.model.GetActivityPriceDetailsRS;
-import io.swagger.client.model.GetAvailableActivitiesRS;
-import io.swagger.client.model.GetAvailableHotelsRS;
-import io.swagger.client.model.GetAvailableTransfersRS;
-import io.swagger.client.model.GetBookingsRS;
-import io.swagger.client.model.GetDataSheetRS;
-import io.swagger.client.model.GetGrantedHotelsRS;
-import io.swagger.client.model.GetHotelPriceDetailsRS;
-import io.swagger.client.model.GetPortfolioRS;
-import io.swagger.client.model.GetRoomingListRS;
-import io.swagger.client.model.GetTransferPriceDetailsRS;
-import io.swagger.client.model.ServiceConfirmation;
-import io.swagger.client.model.UpdateRQ;
-import io.swagger.client.model.UpdateRS;
+import org.easytravelapi.swagger.client.ApiException;
+import org.easytravelapi.swagger.client.model.BookActivityRQ;
+import org.easytravelapi.swagger.client.model.BookActivityRS;
+import org.easytravelapi.swagger.client.model.BookHotelRQ;
+import org.easytravelapi.swagger.client.model.BookHotelRS;
+import org.easytravelapi.swagger.client.model.BookTransferRQ;
+import org.easytravelapi.swagger.client.model.BookTransferRS;
+import org.easytravelapi.swagger.client.model.CancelBookingRS;
+import org.easytravelapi.swagger.client.model.ConfirmServicesRQ;
+import org.easytravelapi.swagger.client.model.ConfirmServicesRS;
+import org.easytravelapi.swagger.client.model.GetActivityPriceDetailsRS;
+import org.easytravelapi.swagger.client.model.GetAvailableActivitiesRS;
+import org.easytravelapi.swagger.client.model.GetAvailableHotelsRS;
+import org.easytravelapi.swagger.client.model.GetAvailableTransfersRS;
+import org.easytravelapi.swagger.client.model.GetBookingsRS;
+import org.easytravelapi.swagger.client.model.GetDataSheetRS;
+import org.easytravelapi.swagger.client.model.GetGrantedHotelsRS;
+import org.easytravelapi.swagger.client.model.GetHotelPriceDetailsRS;
+import org.easytravelapi.swagger.client.model.GetPortfolioRS;
+import org.easytravelapi.swagger.client.model.GetRoomingListRS;
+import org.easytravelapi.swagger.client.model.GetTransferPriceDetailsRS;
+import org.easytravelapi.swagger.client.model.ServiceConfirmation;
+import org.easytravelapi.swagger.client.model.UpdateOperation;
+import org.easytravelapi.swagger.client.model.UpdateRQ;
+import org.easytravelapi.swagger.client.model.UpdateRS;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * API tests for DefaultApi
@@ -203,7 +204,7 @@ public class DefaultApiTest {
         String from = "TP54654";
         String to = "TPEDWED";
         Integer pax = 5;
-        List<Integer> ages = null; //Arrays.asList(5,3);
+        List<Integer> ages = Arrays.asList(5,3);
         Integer bikes = null;
         Integer golfs = null;
         Integer bigs = null;
@@ -231,7 +232,7 @@ public class DefaultApiTest {
         Integer end = 20180515;
         String resourceid = "PMI";
         Integer pax = 5;
-        List<Integer> ages = null; //Arrays.asList(5,3);
+        List<Integer> ages = Arrays.asList(5,3);
         GetAvailableActivitiesRS response = api.getAvailableActivities(authtoken, start, end, resourceid, pax, ages);
 
         assertEquals(200, response.getStatusCode().longValue());
@@ -268,14 +269,14 @@ public class DefaultApiTest {
      */
     @Test
     public void getBookingsTest() throws ApiException {
-        String authtoken = null;
-        Integer confirmedfrom = null;
-        Integer confirmedto = null;
-        Integer startingfrom = null;
-        Integer startingto = null;
-        // GetBookingsRS response = api.getBookings(authtoken, confirmedfrom, confirmedto, startingfrom, startingto);
+        String authtoken = "iuweyiuewy";
+        Integer confirmedfrom = 20170101;
+        Integer confirmedto = 20171231;
+        Integer startingfrom = 20170101;
+        Integer startingto = 20181231;
+        GetBookingsRS response = api.getBookings(authtoken, confirmedfrom, confirmedto, startingfrom, startingto);
 
-        // TODO: test validations
+        assertEquals(200, response.getStatusCode().longValue());
     }
     
     /**
@@ -288,11 +289,11 @@ public class DefaultApiTest {
      */
     @Test
     public void getDataSheetTest() throws ApiException {
-        String authtoken = null;
-        String resourceid = null;
-        // GetDataSheetRS response = api.getDataSheet(authtoken, resourceid);
+        String authtoken = "rferifgierfgu";
+        String resourceid = "iuj827389e723";
+        GetDataSheetRS response = api.getDataSheet(authtoken, resourceid);
 
-        // TODO: test validations
+        assertEquals(200, response.getStatusCode().longValue());
     }
     
     /**
@@ -305,10 +306,10 @@ public class DefaultApiTest {
      */
     @Test
     public void getGrantedHotelsTest() throws ApiException {
-        String authtoken = null;
-        // GetGrantedHotelsRS response = api.getGrantedHotels(authtoken);
+        String authtoken = "ofw89fyrew";
+        GetGrantedHotelsRS response = api.getGrantedHotels(authtoken);
 
-        // TODO: test validations
+        assertEquals(200, response.getStatusCode().longValue());
     }
     
     /**
@@ -321,11 +322,11 @@ public class DefaultApiTest {
      */
     @Test
     public void getHotelPriceDetailsTest() throws ApiException {
-        String authtoken = null;
-        String key = null;
-        // GetHotelPriceDetailsRS response = api.getHotelPriceDetails(authtoken, key);
+        String authtoken = "wqyrfuhf9ryf9efer";
+        String key = "iwnuiwedhw9e7dywe9d";
+        GetHotelPriceDetailsRS response = api.getHotelPriceDetails(authtoken, key);
 
-        // TODO: test validations
+        assertEquals(200, response.getStatusCode().longValue());
     }
     
     /**
@@ -338,10 +339,10 @@ public class DefaultApiTest {
      */
     @Test
     public void getPortfolioTest() throws ApiException {
-        String authtoken = null;
-        // GetPortfolioRS response = api.getPortfolio(authtoken);
+        String authtoken = "ehnweoudfhweo8we7dfwe8";
+        GetPortfolioRS response = api.getPortfolio(authtoken);
 
-        // TODO: test validations
+        assertEquals(200, response.getStatusCode().longValue());
     }
     
     /**
@@ -354,14 +355,14 @@ public class DefaultApiTest {
      */
     @Test
     public void getRoomingListTest() throws ApiException {
-        String authtoken = null;
-        Integer confirmedfrom = null;
-        Integer confirmedto = null;
-        Integer startingfrom = null;
-        Integer startingto = null;
-        // GetRoomingListRS response = api.getRoomingList(authtoken, confirmedfrom, confirmedto, startingfrom, startingto);
+        String authtoken = "iuhwedfbweiqublwe98223jb";
+        Integer confirmedfrom = 20170101;
+        Integer confirmedto = 20171231;
+        Integer startingfrom = 20170101;
+        Integer startingto = 20181231;
+        GetRoomingListRS response = api.getRoomingList(authtoken, confirmedfrom, confirmedto, startingfrom, startingto);
 
-        // TODO: test validations
+        assertEquals(200, response.getStatusCode().longValue());
     }
     
     /**
@@ -374,11 +375,11 @@ public class DefaultApiTest {
      */
     @Test
     public void getTokenTest() throws ApiException {
-        String authtoken = null;
-        String user = null;
-        // String response = api.getToken(authtoken, user);
+        String authtoken = "oiwueyhdfewbdflwei67w78e6wedgwegd";
+        String user = "xxxxxxx";
+        String response = api.getToken(authtoken, user);
 
-        // TODO: test validations
+        assertNotNull(response);
     }
     
     /**
@@ -391,11 +392,11 @@ public class DefaultApiTest {
      */
     @Test
     public void getTransferPriceDetailsTest() throws ApiException {
-        String authtoken = null;
-        String key = null;
-        // GetTransferPriceDetailsRS response = api.getTransferPriceDetails(authtoken, key);
+        String authtoken = "kfivurefy89rewqpwerhw";
+        String key = "wiufhewdfbwe9f7dwheuf298323923";
+        GetTransferPriceDetailsRS response = api.getTransferPriceDetails(authtoken, key);
 
-        // TODO: test validations
+        assertEquals(200, response.getStatusCode().longValue());
     }
     
     /**
@@ -408,11 +409,27 @@ public class DefaultApiTest {
      */
     @Test
     public void updateTest() throws ApiException {
-        String authtoken = null;
-        UpdateRQ body = null;
-        // UpdateRS response = api.update(authtoken, body);
+        String authtoken = "oiweweofduwhefewofwe8789234yr32hg";
+        UpdateRQ body = new UpdateRQ();
+        {
+            UpdateOperation o;
+            body.addOperationsItem(o = new UpdateOperation());
+            o.setAction("OPEN");
+            o.setStartDate(20180101);
+            o.setEndDate(20181231);
+            o.setRoomId("876324i32gug");
+        }
+        {
+            UpdateOperation o;
+            body.addOperationsItem(o = new UpdateOperation());
+            o.setAction("CLOSE");
+            o.setStartDate(20180601);
+            o.setEndDate(20180615);
+            o.setRoomId("876324i32gug");
+        }
+        UpdateRS response = api.update(authtoken, body);
 
-        // TODO: test validations
+        assertEquals(200, response.getStatusCode().longValue());
     }
     
 }
