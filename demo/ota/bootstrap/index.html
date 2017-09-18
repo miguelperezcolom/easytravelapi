@@ -45,7 +45,7 @@
 <div>
 
 
-  <div class="jumbotron"> <div class="container"> <h1 class="display-3">Demo
+  <div v-show="nohabuscado" class="jumbotron"> <div class="container"> <h1 class="display-3">Demo
   OTA</h1> <p class="lead">This is a sample website consuming the easy travel
   api.</p> </div> </div>
 
@@ -198,7 +198,42 @@
 -->
 
   <div class="row">
-  <div class="col-8">
+
+    <div class="col-12 col-lg-4 push-lg-8">
+
+      <div v-for="r in detalles.remarks" v-bind:class="estiloaviso(r.type)" role="alert">
+        {{ r.text }}
+      </div>
+
+      </p>
+
+
+      <hr>
+
+      <p>Cancellation costs</p>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>After</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="c in detalles.cancellationCosts">
+            <th scope="row">1</th>
+            <td>{{c.gmttime}}</td>
+            <td>{{ c.net.value }} {{ c.net.currencyIsoCode}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+          </div>
+
+
+  <div class="col-12 col-lg-8 pull-lg-4">
 
 
     <form>
@@ -210,43 +245,13 @@
         <label for="name">Special requests</label>
         <textarea class="form-control" id="name" placeholder="If you have any"></textarea>
       </div>
+      <button type="button" class="btn btn-secondary" v-on:click="paso = 1;">&lt;&lt; &nbsp;Search again</button>
       <button type="button" class="btn btn-primary" v-on:click="book">Book</button>
     </form>
 
 
   </div>
-  <div class="col-4">
 
-    <div v-for="r in detalles.remarks" v-bind:class="estiloaviso(r.type)" role="alert">
-      {{ r.text }}
-    </div>
-
-    </p>
-
-
-    <hr>
-
-    <p>Cancellation costs</p>
-
-    <table class="table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>After</th>
-          <th>Cost</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="c in detalles.cancellationCosts">
-          <th scope="row">1</th>
-          <td>{{c.gmttime}}</td>
-          <td>{{ c.net.value }} {{ c.net.currencyIsoCode}}</td>
-        </tr>
-      </tbody>
-    </table>
-
-
-        </div>
 </div>
 
 </template>
@@ -263,6 +268,9 @@
   <p>Your booking has been confirmed with id <b>{{ resultado.bookingId }}</b></p>
 
 
+
+  <p><button type="button" class="btn btn-secondary" v-on:click="paso = 1;">&lt;&lt; &nbsp;Search again</button></p>
+
   </div>
 
 </template>
@@ -270,6 +278,7 @@
 <script>
 
 var data = {
+  nohabuscado: true,
   buscando: false,
   dispo: null,
   detalles: null,
@@ -295,6 +304,7 @@ Vue.component(
     methods: {
       buscar: function() {
         console.log('buscar');
+        data.nohabuscado = false;
         data.buscando = true;
         data.dispo = null;
         axios({
