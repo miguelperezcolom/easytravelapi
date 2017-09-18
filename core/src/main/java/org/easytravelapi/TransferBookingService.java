@@ -33,7 +33,7 @@ public interface TransferBookingService {
             @QueryParam("to") String toTransferPointId,
             @ApiParam(value = "Number of pax")
             @QueryParam("pax") int pax,
-            @ApiParam(value = "Pax ages. If not present we will assume they are adults")
+            @ApiParam(value = "Pax ages. If not present we will assume they are adults", allowMultiple = true, collectionFormat = "multi")
             @QueryParam("ages") List<Integer> ages,
             @ApiParam(value = "Number of bikes")
             @QueryParam("bikes") int bikes,

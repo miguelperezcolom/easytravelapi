@@ -34,7 +34,7 @@ public interface HotelBookingService {
             @QueryParam("checkin") int checkIn,
             @ApiParam(value = "The locale checkout date in YYYYMMDD format")
             @QueryParam("checkout") int checkout,
-            @ApiParam(value = "List of occupancies you need")
+            @ApiParam(value = "List of occupancies you need", allowMultiple = true, collectionFormat = "multi")
             @QueryParam("occupancies") List<Occupancy> occupancies,
             @ApiParam(value = "Set to true if you want the response to include static info (hotel description, main hotel image, ...). If false (default value) static info will not be included in order to make the response lighter")
             @QueryParam("includestaticinfo") boolean includeStaticInfo

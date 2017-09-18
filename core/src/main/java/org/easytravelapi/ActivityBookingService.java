@@ -35,8 +35,8 @@ public interface ActivityBookingService {
             @QueryParam("resourceid") String resourceId,
             @ApiParam(value = "Number of pax")
             @QueryParam("pax") int pax,
-            @ApiParam(value = "Ages for the paxes. You can include just children ages. If not present all pax will be treated as adults")
-            @QueryParam("ages") List<Integer> ages
+            @ApiParam(value = "Ages for the paxes. You can include just children ages. If not present all pax will be treated as adults", allowMultiple = true, collectionFormat = "multi")
+            @QueryParam("ages")List<Integer> ages
             );
 
     @GET
