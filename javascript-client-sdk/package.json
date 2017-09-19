@@ -1,0 +1,24 @@
+{
+  "name": "easytravelapi",
+  "version": "0.1.10",
+  "description": "API_for_travel_agents",
+  "license": "Apache-2.0",
+  "main": "dist/easytravelapi.min.js",
+  "scripts": {
+    "prepublish": "gulp",
+    "hola": "echo I run before the build script"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "pump": "^1.0.2",
+    "superagent": "1.7.1"
+  },
+  "devDependencies": {
+    "expect.js": "~0.3.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3"
+  }
+}

@@ -13,7 +13,7 @@
   <groupId>org.easytravelapi</groupId>
   <artifactId>easytravelapi-swagger-java-client</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.9</version>
+  <version>0.1.10</version>
 
 
   <name>Swagger generated java SDK for the easy travel api</name>
