@@ -9,7 +9,7 @@ import org.easytravelapi.common.AbstractAuthenticatedRQ;
  * Created by miguel on 26/7/17.
  */
 @ApiModel(description = "Container for the transfer service confirmation request")
-public class BookTransferRQ extends AbstractAuthenticatedRQ {
+public class BookTransferRQ {
 
     @ApiModelProperty(value = "The price id, as we got it when we asked for available hotels")
     public String key;
