@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "easytravelapi": "^0.1.10"
+    "easytravelapi": "^0.1.10",
+    "vue-router": "^2.7.0"
   }
 }
