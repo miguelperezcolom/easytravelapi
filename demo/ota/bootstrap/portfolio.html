@@ -1,0 +1,257 @@
+<html>
+<head>
+    <title>OTA Demo for the Easy Travel Api</title>
+
+    <meta name="description" content="EasyTravelApi is a REST web services specification for travel agencies to interoperate.">
+      <meta name="keywords" content="easy travel api,API,REST,Travel,Hotel,Transfer,Excursion,Channel manager">
+      <meta name="author" content="Miguel Pérez Colom">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+-->
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css">
+
+<script src="../../node_modules/axios/dist/axios.min.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.slim.min.js"></script>
+
+<script src="../../node_modules/vue/dist/vue.min.js"></script>
+
+</head>
+<body>
+
+<div class="container" id="app">
+
+
+
+  <p></p>
+
+  <div v-show="paso == 1"class="jumbotron"> <div class="container"> <h1 class="display-3">Our portfolio</h1> <p class="lead">This is a sample website consuming the easy travel
+  api.</p> </div> </div>
+
+
+
+  <div id="progreso" v-show="buscando">
+
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+    </div>
+
+  </div>
+
+  <home v-if="paso == 1"></home>
+  <ficha v-if="paso == 2"></ficha>
+
+</div>
+
+<footer>
+      <div class="container">
+        <a href="index.html">Home</a>
+      </div>
+    </footer>
+
+</body>
+
+<template id="home">
+<div>
+
+
+<div id="resultados" v-if="portfolio">
+
+<hr>
+
+
+<p>{{ portfolio.msg }}</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Country</th>
+      <th>State</th>
+      <th>City</th>
+      <th>Resource</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <template v-for="country in portfolio.countries">
+      <template v-for="state in country.states">
+        <template v-for="city in state.cities">
+        <template v-for="resource in city.resources">
+
+    <tr>
+      <th scope="row">1</th>
+      <td>{{country.name}}</td>
+      <td>{{ state.name }}</td>
+      <td>{{ city.name }}</td>
+      <td>{{ resource.type }}  {{ resource.name}}</td>
+      <td><button type="button" class="btn btn-primary" v-on:click="verdetalles(resource)">See details »</button></td>
+
+    </tr>
+
+        </template>
+      </template>
+    </template>
+  </template>
+
+  </tbody>
+</table>
+
+</div>
+
+
+</div>
+</template>
+
+<template id="ficha">
+
+
+<div>
+
+<h1>Resource data sheet</h1>
+
+
+  <p><button type="button" class="btn btn-secondary" v-on:click="paso = 1;">&lt;&lt; &nbsp;Back to portfolio</button></p>
+
+
+  <div id="z" v-if="datasheet">
+
+
+
+  <p>{{ datasheet.msg }}</p>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <template v-for="value in datasheet.values">
+
+      <tr>
+        <td>{{value.key}}</td>
+        <td>{{ value.value }}</td>
+
+      </tr>
+
+    </template>
+
+    </tbody>
+  </table>
+
+  </div>
+
+
+<p><button type="button" class="btn btn-secondary" v-on:click="paso = 1;">&lt;&lt; &nbsp;Back to portfolio</button></p>
+
+</div>
+
+</template>
+
+
+<script>
+
+var data = {
+  nohabuscado: true,
+  buscando: false,
+  portfolio: null,
+  datasheet: null,
+  paso: 1,
+}
+
+Vue.component(
+  'ficha', {
+    template: '#ficha',
+    data: function() {
+        return data;
+    },
+  }
+)
+
+Vue.component(
+  'home', {
+    template: '#home',
+    data: function() {
+        return data;
+    },
+    created: function () {
+      if (!data.portfolio) this.cargarPortfolio();
+    },
+    methods: {
+      cargarPortfolio: function() {
+        console.log('buscar');
+        data.nohabuscado = false;
+        data.buscando = true;
+        data.portfolio = null;
+        axios({
+        method: 'get',
+        url: 'http://test.easytravelapi.com/rest/yourauthtoken/commons/portfolio',
+        })
+        .then(function (response) {
+          data.buscando = false;
+          console.log(response.data);
+          data.portfolio = response.data;
+        //Vue.set(vm, 'dispo.data', response.data)
+        })
+        .catch(function (error) {
+          data.buscando = false;
+          console.log(error);
+        });
+
+        //$('#resultados').show();
+      },
+
+      verdetalles: function(recurso) {
+        console.log('detalles');
+        data.nohabuscado = false;
+        data.buscando = true;
+        data.detalles = null;
+        data.paso = 2;
+        axios({
+        method: 'get',
+        url: 'http://test.easytravelapi.com/rest/yourauthtoken/commons/datasheet/' + recurso.resourceId,
+        })
+        .then(function (response) {
+          data.buscando = false;
+          console.log(response.data);
+          data.datasheet = response.data;
+        //Vue.set(vm, 'dispo.data', response.data)
+        })
+        .catch(function (error) {
+          data.buscando = false;
+          console.log(error);
+        });
+
+        //$('#resultados').show();
+      },
+    }
+  }
+);
+
+
+var vm = new Vue({
+  el: '#app',
+  data: data,
+  /*
+  data: {
+    mensaje: 'hola!',
+  }
+  */
+});
+
+</script>
+
+</html>

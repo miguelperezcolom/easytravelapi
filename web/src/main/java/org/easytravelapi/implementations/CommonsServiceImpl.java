@@ -269,7 +269,7 @@ public class CommonsServiceImpl implements CommonsService {
     }
 
     @Override
-    public String getToken(String token, String user) {
+    public String renewToken(String token, String user) {
         return "oefvoeoveo3r4ri34br34ir3b4br";
     }
 }

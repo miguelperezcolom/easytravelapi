@@ -7,422 +7,51 @@
       <meta name="author" content="Miguel Pérez Colom">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
--->
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css">
 
-<script src="../../node_modules/axios/dist/axios.min.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.slim.min.js"></script>
-
-<script src="../../node_modules/vue/dist/vue.min.js"></script>
-
 </head>
 <body>
 
-<div class="container" id="app">
+  <div class="jumbotron"> <div class="container"> <h1 class="display-3">Demo
+  OTA</h1> <p class="lead">This is a sample website consuming the easy travel
+  api.</p> </div> </div>
+
+<div class="container">
 
 
+<div class="row">
 
-  <p></p>
+<div class="col-md-4"> <h2>Portfolio</h2> <p>Explore our portfolio to know what
+we can offer to you.</p> <p><a class="btn btn-secondary" href="portfolio.html"
+role="button">View Portfolio »</a></p> </div>
 
 
-  <home v-if="paso == 1"></home>
-  <extrainfo v-if="paso == 2"></extrainfo>
-  <booked v-if="paso == 3"></booked>
+<div class="col-md-4"> <h2>Hotel</h2> <p>Looking for a hotel? check our bed bank and choose over our exclusive product and prices.</p> <p><a class="btn btn-secondary" href="hotel.html"
+role="button">Book »</a></p> </div>
+
+
+<div class="col-md-4"> <h2>Transfer</h2> <p>Do you need a transfer? we can provide it to you.</p> <p><a class="btn btn-secondary" href="transfer.html"
+role="button">Book »</a></p> </div>
+
+<div class="col-md-4"> <h2>Acitivities</h2> <p>Looking for excursions or tickets? we can provide it to you.</p> <p><a class="btn btn-secondary" href="javascript: alert('Soon');"
+role="button">Book »</a></p> </div>
+
+<div class="col-md-4"> <h2>Circuits</h2> <p>Thinking about a circuit? we can provide it to you.</p> <p><a class="btn btn-secondary" href="javascript: alert('Soon');"
+role="button">Book »</a></p> </div>
+
+<div class="col-md-4"> <h2>Rent a car</h2> <p>Do you need to rent a car? we can provide it to you.</p> <p><a class="btn btn-secondary" href="javascript: alert('Soon');"
+role="button">Book »</a></p> </div>
+
+<div class="col-md-4"> <h2>Packages</h2> <p>Looking for flight + hotel? we can provide it to you.</p> <p><a class="btn btn-secondary" href="javascript: alert('Soon');"
+role="button">Book »</a></p> </div>
+
+</div>
+
+
 
 </div>
 
 </body>
-
-<template id="home">
-<div>
-
-
-  <div v-show="nohabuscado" class="jumbotron"> <div class="container"> <h1 class="display-3">Demo
-  OTA</h1> <p class="lead">This is a sample website consuming the easy travel
-  api.</p> </div> </div>
-
-<form>
-  <div class="row">
-    <div class="col">
-      <label for="destino">Destination</label>
-      <input id="destino" type="text" class="form-control" placeholder="Destination" v-model="parametros.resort">
-    </div>
-    <div class="col">
-      <label for="checkin">Check-in</label>
-      <input id="checkin" type="date" class="form-control" placeholder="Check-in" v-model="parametros.checkin">
-    </div>
-    <div class="col">
-      <label for="checkout">Check-out</label>
-      <input id="checkout" type="date" class="form-control" placeholder="Check-out" v-model="parametros.checkout">
-    </div>
-    <div class="col">
-      <label>Occupation</label>
-
-      <div class="input-group">
-      <input type="text" class="form-control" readonly placeholder="Search for..."
-      aria-label="Search for..." value="2 Adults" v-model="parametros.ocupacion">
-      <span class="input-group-btn">
-        <button class="btn btn-secondary" type="button">Change</button>
-      </span>
-    </div>
-    </div>
-
-    <div class="col">
-    <button type="button" class="btn btn-info"
-    style="margin-top: 32px;"  v-on:click="buscar">
-        <span class="fa fa-search"></span> Search
-      </button>
-    </div>
-
-
-  </div>
-
-  </form>
-
-<div id="progreso" v-show="buscando">
-
-  <div class="progress">
-    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-  </div>
-
-</div>
-
-<div id="resultados" v-if="dispo">
-
-<hr>
-
-
-<p>{{ dispo.msg }}</p>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>Hotel</th>
-      <th>Rooms</th>
-      <th>Board</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-    <!--
-<tr>
-<th scope="row" rowspan="4">1</th>
-<td rowspan="4">{{hotel.hotelName}}</td>
-<td rowspan="2">2 Adults in 1 DOBLE</td>
-<td>Half board</td>
-<td><button type="button" class="btn btn-primary" v-on:click="extrainfo">35 EUR</button></td>
-</tr>
-<tr>
-<td>Full board</td>
-<td><button type="button" class="btn btn-primary">73 EUR</button></td>
-</tr>
-<tr>
-<td rowspan="2">2 Adults in 1 SUITE</td>
-<td>Half board</td>
-<td><button type="button" class="btn btn-warning">32,5 EUR</button></td>
-</tr>
-<tr>
-<td>Full board</td>
-<td><button type="button" class="btn btn-primary">130 EUR</button></td>
-</tr>
--->
-
-    <template v-for="hotel in dispo.hotels">
-      <template v-for="option in hotel.options">
-        <template v-for="distribution in option.distribution">
-        <template v-for="price in distribution.prices">
-
-    <tr>
-      <th scope="row">1</th>
-      <td>{{hotel.hotelName}}</td>
-
-      <td>{{ distribution.roomName }}</td>
-      <td>{{ price.boardBasisName }}</td>
-      <td><button type="button" class="btn btn-primary" v-on:click="extrainfo(price)">{{ price.netPrice.value }}  {{ price.netPrice.currencyIsoCode}}</button></td>
-
-    </tr>
-
-        </template>
-      </template>
-    </template>
-  </template>
-
-  </tbody>
-</table>
-
-
-
-<hr>
-
-<!--
-
-<nav aria-label="...">
-  <ul class="pagination">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item active">
-      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav>
-
--->
-
-</div>
-
-
-</div>
-</template>
-
-
-<template id="extrainfo">
-
-<!--
-  <div id="progreso" v-show="buscando">
-
-    <div class="progress">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-    </div>
-
-  </div>
--->
-
-  <div class="row">
-
-    <div class="col-12 col-lg-4 push-lg-8">
-
-      <div v-for="r in detalles.remarks" v-bind:class="estiloaviso(r.type)" role="alert">
-        {{ r.text }}
-      </div>
-
-      </p>
-
-
-      <hr>
-
-      <p>Cancellation costs</p>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>After</th>
-            <th>Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="c in detalles.cancellationCosts">
-            <th scope="row">1</th>
-            <td>{{c.gmttime}}</td>
-            <td>{{ c.net.value }} {{ c.net.currencyIsoCode}}</td>
-          </tr>
-        </tbody>
-      </table>
-
-
-          </div>
-
-
-  <div class="col-12 col-lg-8 pull-lg-4">
-
-
-    <form>
-      <div class="form-group">
-        <label for="name">Your name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter your name" v-model="parametros.titular">
-      </div>
-      <div class="form-group">
-        <label for="name">Special requests</label>
-        <textarea class="form-control" id="name" placeholder="If you have any" v-model="parametros.comentarios"></textarea>
-      </div>
-      <button type="button" class="btn btn-secondary" v-on:click="paso = 1;">&lt;&lt; &nbsp;Search again</button>
-      <button type="button" class="btn btn-primary" v-on:click="book">Book</button>
-    </form>
-
-
-  </div>
-
-</div>
-
-</template>
-
-<template id="booked">
-
-  <div class="container text-center" style="padding-top: 60px">
-
-  <i class="fa fa-check-circle" aria-hidden="true" style="color:green; font-size: 10em;"></i>
-
-
-  <p>Congratulations!</p>
-
-  <p>Your booking has been confirmed with id <b>{{ resultado.bookingId }}</b></p>
-
-
-
-  <p><button type="button" class="btn btn-secondary" v-on:click="paso = 1;">&lt;&lt; &nbsp;Search again</button></p>
-
-  </div>
-
-</template>
-
-<script>
-
-var data = {
-  nohabuscado: true,
-  buscando: false,
-  parametros: {
-    resort: 'PMI',
-    ocupacion: '1ROOM2AD'
-  },
-  dispo: null,
-  detalles: null,
-  resultado: null,
-  paso: 1,
-}
-
-Vue.component(
-  'booked', {
-    template: '#booked',
-    data: function() {
-        return data;
-    },
-  }
-)
-
-Vue.component(
-  'home', {
-    template: '#home',
-    data: function() {
-        return data;
-    },
-    methods: {
-      buscar: function() {
-        console.log('buscar');
-        data.nohabuscado = false;
-        data.buscando = true;
-        data.dispo = null;
-        axios({
-        method: 'get',
-        url: 'http://test.easytravelapi.com/rest/hshshshsh/hotel/available',
-        params: {
-          resorts: data.parametros.resort,
-          checkin: data.parametros.checkin?data.parametros.checkin.replace(/-/g, ""):null,
-          checkout: data.parametros.checkout?data.parametros.checkout.replace(/-/g, ""):null,
-          occupancies: data.parametros.ocupacion,
-          incudestaticinfo: false,
-        }
-        })
-        .then(function (response) {
-          data.buscando = false;
-                  console.log(response.data.hotels);
-        data.dispo = response.data;
-        //Vue.set(vm, 'dispo.data', response.data)
-        })
-        .catch(function (error) {
-          data.buscando = false;
-        console.log(error);
-        });
-
-        //$('#resultados').show();
-      },
-      extrainfo: function(price) {
-        console.log('extrainfo ' + price.key);
-        data.seleccion = price;
-
-        axios({
-        method: 'get',
-        url: 'http://test.easytravelapi.com/rest/dewdcwed/hotel/pricedetails/' + price.key
-        })
-        .then(function (response) {
-          data.buscando = false;
-          console.log(response.data);
-          data.detalles = response.data;
-          data.paso = 2;
-        //Vue.set(vm, 'dispo.data', response.data)
-        })
-        .catch(function (error) {
-          data.buscando = false;
-        console.log(error);
-        });
-      }
-    }
-  }
-);
-
-
-
-Vue.component(
-  'extrainfo', {
-    template: '#extrainfo',
-    data: function() {
-        return data;
-    },
-    methods: {
-      estiloaviso: function(tipo) {
-        switch(tipo) {
-          case 'IMPORTANT': return 'alert alert-danger';
-          case 'WARNING': return 'alert alert-warning';
-          case 'INFO': return 'alert alert-info';
-          default: return '';
-        }
-      },
-      book: function() {
-        console.log('book ' + data.seleccion);
-
-        axios({
-        method: 'put',
-        url: 'http://test.easytravelapi.com/rest/dewdcwed/hotel/booking',
-        data: {
-          key: data.seleccion.key,
-          leadName: data.parametros.titular,
-          commentsToProvider: data.parametros.comentarios,          
-        }
-        })
-        .then(function (response) {
-          data.buscando = false;
-          console.log(response.data);
-          data.resultado = response.data;
-          data.paso = 3;
-        //Vue.set(vm, 'dispo.data', response.data)
-        })
-        .catch(function (error) {
-          data.buscando = false;
-        console.log(error);
-        });
-      }
-    }
-  }
-);
-
-
-
-
-
-var vm = new Vue({
-  el: '#app',
-  data: data,
-  /*
-  data: {
-    mensaje: 'hola!',
-  }
-  */
-});
-
-</script>
-
 </html>

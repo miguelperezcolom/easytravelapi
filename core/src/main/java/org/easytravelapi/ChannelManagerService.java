@@ -28,7 +28,7 @@ public interface ChannelManagerService {
     @ApiOperation(value = "Use this method to know which hotels are you allowed to update. It provides the ids to be used by the channel manager")
     public GetGrantedHotelsRS getGrantedHotels(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
-    );
+    ) throws Throwable;
 
     @PUT
     @Path("/hotel/inventory")
@@ -36,7 +36,7 @@ public interface ChannelManagerService {
     public UpdateRS update(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             UpdateRQ rq
-    );
+    ) throws Throwable;
 
     @POST
     @Path("/confirm")
@@ -45,7 +45,7 @@ public interface ChannelManagerService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             ConfirmServicesRQ rq
 
-    );
+    ) throws Throwable;
 
     @GET
     @Path("/roominglist")
@@ -60,5 +60,5 @@ public interface ChannelManagerService {
             @QueryParam("startingfrom") int fromStartDate,
             @ApiParam(value = "Ending date you want service bookings starting from. In YYYYMMDD format")
             @QueryParam("startingto") int toStartDate
-    );
+    ) throws Throwable;
 }

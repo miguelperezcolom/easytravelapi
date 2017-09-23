@@ -37,7 +37,7 @@ public interface ActivityBookingService {
             @QueryParam("pax") int pax,
             @ApiParam(value = "Ages for the paxes. You can include just children ages. If not present all pax will be treated as adults", allowMultiple = true, collectionFormat = "multi")
             @QueryParam("ages")List<Integer> ages
-            );
+            ) throws Throwable;
 
     @GET
     @Path("/pricedetails/{key}")
@@ -46,7 +46,7 @@ public interface ActivityBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
             @PathParam("key") String key
-    );
+    ) throws Throwable;
 
     @PUT
     @Path("/booking")
@@ -54,6 +54,6 @@ public interface ActivityBookingService {
     public BookActivityRS bookActivity(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             BookActivityRQ rq
-    );
+    ) throws Throwable;
 
 }

@@ -47,7 +47,7 @@ public interface TransferBookingService {
             @QueryParam("incomingdate") int incomingDate,
             @ApiParam(value = "Locale date for the outgoing / return side of the transfer, in YYYYMMDD format")
             @QueryParam("outgoingdate") int outgoingDate
-    );
+    ) throws Throwable;
 
     @GET
     @Path("/pricedetails/{key}")
@@ -56,7 +56,7 @@ public interface TransferBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The hotel price key, as provided in the /transfer/available step")
             @PathParam("key") String key
-    );
+    ) throws Throwable;
 
     @PUT
     @Path("/booking")
@@ -65,6 +65,6 @@ public interface TransferBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             BookTransferRQ rq
 
-    );
+    ) throws Throwable;
 
 }

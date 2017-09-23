@@ -25,14 +25,14 @@ public interface CommonsService {
     @GET
     @Path("/portfolio")
     @ApiOperation(value = "Method to get the whole product tree")
-    public GetPortfolioRS getPortfolio(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token);
+    public GetPortfolioRS getPortfolio(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token) throws Throwable;
 
     @GET
     @Path("/datasheet/{resourceid}")
     @ApiOperation(value = "Method to get a resource data sheet. E.g. descriptions, images, features")
     public GetDataSheetRS getDataSheet(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @PathParam("resourceid") String resourceId);
+            @PathParam("resourceid") String resourceId) throws Throwable;
 
     @GET
     @Path("/bookings")
@@ -47,20 +47,20 @@ public interface CommonsService {
             @QueryParam("startingfrom") int fromStartDate,
             @ApiParam(value = "Ending date you want service bookings starting from. In YYYYMMDD format")
             @QueryParam("startingto") int toStartDate
-    );
+    ) throws Throwable;
 
     @DELETE
     @Path("/booking/{bookingid}")
     @ApiOperation(value = "Method to cancel a service booking")
     public CancelBookingRS cancelBooking(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
                                          @ApiParam(value = "The service booking id you want to cancel")
-                                         @PathParam("bookingid") String bookingId);
+                                         @PathParam("bookingid") String bookingId) throws Throwable;
 
 
     @GET
     @Path("/newtoken")
     @ApiOperation(value = "Use this method to get or renew your authentication token")
-    public String getToken(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token, @QueryParam("user") String user);
+    public String renewToken(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token, @QueryParam("user") String user) throws Throwable;
 
 
 }

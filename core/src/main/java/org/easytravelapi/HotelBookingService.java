@@ -38,7 +38,7 @@ public interface HotelBookingService {
             @QueryParam("occupancies") List<Occupancy> occupancies,
             @ApiParam(value = "Set to true if you want the response to include static info (hotel description, main hotel image, ...). If false (default value) static info will not be included in order to make the response lighter")
             @QueryParam("includestaticinfo") boolean includeStaticInfo
-    );
+    ) throws Throwable;
 
     @GET
     @Path("/pricedetails/{key}")
@@ -47,12 +47,12 @@ public interface HotelBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The hotel price key, as provided in the /hotel/available step")
             @PathParam("key") String key
-    );
+    ) throws Throwable;
 
     @PUT
     @Path("/booking")
     @ApiOperation(value = "Use this method to confirm a hotel service")
     public BookHotelRS bookHotel(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-                                 BookHotelRQ rq);
+                                 BookHotelRQ rq) throws Throwable;
 
 }
