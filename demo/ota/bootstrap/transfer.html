@@ -48,6 +48,7 @@
 <footer>
       <div class="container">
         <a href="index.html">Home</a>
+        <a href="config.html">Config</a>
       </div>
     </footer>
 
@@ -302,6 +303,10 @@
 
 <script>
 
+if (!localStorage.getItem("baseurl")) {
+  localStorage.setItem("baseurl", 'http://test.easytravelapi.com/rest/yourauthtoken');
+}
+
 var data = {
   nohabuscado: true,
   buscando: false,
@@ -314,7 +319,12 @@ var data = {
   resultado: null,
   bookingId: null,
   paso: 1,
+  baseurl: localStorage.getItem("baseurl"),
 }
+
+window.addEventListener('storage', function(e) {
+  data.baseurl = e.baseurl;
+});
 
 var _booked = Vue.component(
   'booked', {
@@ -345,7 +355,7 @@ var _home = Vue.component(
         axios({
         method: 'get',
         xx: 'http://test.easytravelapi.com/rest/yourauthtoken/transfer/available?from=tp-1234&to=tp-1114&pax=3&ages=5&bikes=1&incomingdate=20180601&outgoingdate=20180615',
-        url: 'http://test.easytravelapi.com/rest/hshshshsh/transfer/available',
+        url: data.baseurl + '/transfer/available',
         params: {
           from: data.parametros.resort,
           to: data.parametros.resort,
@@ -401,7 +411,7 @@ var _extrainfo = Vue.component(
 
         axios({
         method: 'put',
-        url: 'http://test.easytravelapi.com/rest/dewdcwed/transfer/booking',
+        url: data.baseurl + '/transfer/booking',
         data: {
           key: this.$route.params.key,
           leadName: data.parametros.titular,
@@ -426,7 +436,7 @@ var _extrainfo = Vue.component(
 
       axios({
       method: 'get',
-      url: 'http://test.easytravelapi.com/rest/dewdcwed/transfer/pricedetails/' + this.$route.params.key
+      url: data.baseurl + '/transfer/pricedetails/' + this.$route.params.key
       })
       .then(function (response) {
         data.buscando = false;

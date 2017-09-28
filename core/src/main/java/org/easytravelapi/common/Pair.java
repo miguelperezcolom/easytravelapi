@@ -17,6 +17,15 @@ public class Pair {
     @ApiModelProperty(value = "The associated value")
     private String value;
 
+    public Pair() {
+
+    }
+
+    public Pair(String key, String value) {
+        this.key = key;
+        this.value = value;
+    }
+
     public String getKey() {
         return key;
     }

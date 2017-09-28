@@ -31,8 +31,6 @@
 
 <div class="container" id="app">
 
-
-
   <p></p>
 
   <div v-show="paso == 1"class="jumbotron"> <div class="container"> <h1 class="display-3">Our portfolio</h1> <p class="lead">This is a sample website consuming the easy travel
@@ -60,6 +58,7 @@
 <footer>
       <div class="container">
         <a href="index.html">Home</a>
+        <a href="config.html">Config</a>
       </div>
     </footer>
 
@@ -172,13 +171,22 @@
 <script>
 
 
+if (!localStorage.getItem("baseurl")) {
+  localStorage.setItem("baseurl", 'http://test.easytravelapi.com/rest/yourauthtoken');
+}
+
 var data = {
   nohabuscado: true,
   buscando: false,
   portfolio: null,
   datasheet: null,
   paso: 1,
+  baseurl: localStorage.getItem("baseurl"),
 }
+
+window.addEventListener('storage', function(e) {
+  data.baseurl = e.baseurl;
+});
 
 var _ficha = Vue.component(
   'ficha', {
@@ -197,7 +205,7 @@ var _ficha = Vue.component(
       axios({
       method: 'get',
 //      url: 'http://test.easytravelapi.com/rest/yourauthtoken/commons/datasheet/' + recurso.resourceId,
-      url: 'http://test.easytravelapi.com/rest/yourauthtoken/commons/datasheet/' + this.$route.params.resourceId,
+      url: data.baseurl + '/commons/datasheet/' + this.$route.params.resourceId,
       })
       .then(function (response) {
         data.buscando = false;
@@ -231,7 +239,7 @@ var _home = Vue.component(
         data.portfolio = null;
         axios({
         method: 'get',
-        url: 'http://test.easytravelapi.com/rest/yourauthtoken/commons/portfolio',
+        url: data.baseurl + '/commons/portfolio',
         })
         .then(function (response) {
           data.buscando = false;
@@ -284,6 +292,12 @@ var vm = new Vue({
     mensaje: 'hola!',
   }
   */
+  watch: {
+    baseurl: function (val) {
+      console.log('baseurl ha cambiado a ' + val);
+      localStorage.setItem("baseurl", val);
+    },
+  }
 });
 
 </script>

@@ -14,6 +14,13 @@ public class Amount {
     @ApiModelProperty(value = "The amount value, expressed in this currency")
     private double value;
 
+    public Amount() {
+    }
+
+    public Amount(String currencyIsoCode, double value) {
+        this.currencyIsoCode = currencyIsoCode;
+        this.value = value;
+    }
 
     public String getCurrencyIsoCode() {
         return currencyIsoCode;

@@ -1,0 +1,103 @@
+<html>
+<head>
+    <title>OTA Demo for the Easy Travel Api</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="description" content="EasyTravelApi is a REST web services specification for travel agencies to interoperate.">
+      <meta name="keywords" content="easy travel api,API,REST,Travel,Hotel,Transfer,Excursion,Channel manager">
+      <meta name="author" content="Miguel Pérez Colom">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+-->
+<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css">
+
+<script src="../../node_modules/axios/dist/axios.min.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.slim.min.js"></script>
+
+<script src="../../node_modules/vue/dist/vue.min.js"></script>
+<script src="../../node_modules/vue-router/dist/vue-router.min.js"></script>
+
+</head>
+<body>
+
+<div class="container" id="app">
+
+  <h1>Set the base url of your Easy Travel Api server</h1>
+
+  <p></p><p></p>
+  <form>
+    <div class="row">
+      <div class="col">
+        <label for="destino">Base url</label>
+        <input id="destino" type="text" class="form-control" placeholder="Destination" v-model="baseurl">
+      </div>
+    </div>
+    <p></p>
+    <div class="row">
+      <div class="col">
+        <button type="button" class="btn btn-primary" v-on:click="baseurl =  'http://test.easytravelapi.com/rest/yourauthtokenhere';">Mock</button>
+        <button type="button" class="btn btn-primary" v-on:click="baseurl = 'http://busso.easytravelapi.com/ewogICJhZ2VudElkIiA6ICIzIiwKICAicGFzcyIgOiAidzM4a1dwIiwKICAibGFuIiA6ICJlbiIsCiAgImxvZ2luIiA6ICJERU1PIFhNTCBBR0VOVCIKfQ==';">Busso</button>
+      </div>
+    </div>
+
+    </div>
+
+  </form>
+
+
+
+
+</div>
+
+<footer>
+      <div class="container">
+        <a href="index.html">Home</a>
+      </div>
+    </footer>
+
+</body>
+
+<script>
+
+
+if (!localStorage.getItem("baseurl")) {
+  localStorage.setItem("baseurl", 'http://test.easytravelapi.com/rest/yourauthtoken');
+}
+
+var data = {
+  baseurl: localStorage.getItem("baseurl"),
+}
+
+window.addEventListener('storage', function(e) {
+  data.baseurl = e.baseurl;
+});
+
+
+var vm = new Vue({
+  el: '#app',
+  data: data,
+  /*
+  data: {
+    mensaje: 'hola!',
+  }
+  */
+  watch: {
+    baseurl: function (val) {
+      console.log('baseurl ha cambiado a ' + val);
+      localStorage.setItem("baseurl", val);
+    },
+  }
+});
+
+</script>
+
+</html>
