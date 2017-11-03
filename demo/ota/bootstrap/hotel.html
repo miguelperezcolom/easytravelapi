@@ -458,7 +458,7 @@ var _extrainfo = Vue.component(
           data.resultado = response.data;
           data.bookingId = response.data.bookingId;
           data.msg = response.data.msg
-          if (response.statusCode == 200) vm.$router.push({ name: 'booked', params: {bookingId: data.bookingId } });
+          if (data.resultado.statusCode == 200) vm.$router.push({ name: 'booked', params: {bookingId: data.bookingId } });
           else vm.$router.push({ name: 'error', params: {msg: data.msg } });
         //Vue.set(vm, 'dispo.data', response.data)
         })
