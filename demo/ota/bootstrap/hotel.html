@@ -26,6 +26,18 @@
 <script src="../../node_modules/vue-router/dist/vue-router.min.js"></script>
 
 
+<style>
+
+.jumbotron {
+background-image: url("images/fondohotel1_1920.jpg");
+background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: black;
+  }
+
+</style>
+
 </head>
 <body>
 
@@ -129,46 +141,22 @@
     </tr>
   </thead>
   <tbody>
-    <!--
-<tr>
-<th scope="row" rowspan="4">1</th>
-<td rowspan="4">{{hotel.hotelName}}</td>
-<td rowspan="2">2 Adults in 1 DOBLE</td>
-<td>Half board</td>
-<td><button type="button" class="btn btn-primary" v-on:click="extrainfo">35 EUR</button></td>
-</tr>
-<tr>
-<td>Full board</td>
-<td><button type="button" class="btn btn-primary">73 EUR</button></td>
-</tr>
-<tr>
-<td rowspan="2">2 Adults in 1 SUITE</td>
-<td>Half board</td>
-<td><button type="button" class="btn btn-warning">32,5 EUR</button></td>
-</tr>
-<tr>
-<td>Full board</td>
-<td><button type="button" class="btn btn-primary">130 EUR</button></td>
-</tr>
--->
 
     <template v-for="hotel in dispo.hotels">
       <template v-for="option in hotel.options">
-        <template v-for="distribution in option.distribution">
-        <template v-for="price in distribution.prices">
+        <template v-for="price in option.prices">
 
     <tr>
       <th scope="row">1</th>
       <td>{{hotel.hotelName}}</td>
 
-      <td>{{ distribution.roomName }}</td>
+      <td>{{ option.distribution.roomName }}</td>
       <td>{{ price.boardBasisName }}</td>
       <td><button type="button" class="btn btn-primary" v-on:click="extrainfo(price)">{{ price.netPrice.value }}  {{ price.netPrice.currencyIsoCode}}</button></td>
 
     </tr>
 
         </template>
-      </template>
     </template>
   </template>
 

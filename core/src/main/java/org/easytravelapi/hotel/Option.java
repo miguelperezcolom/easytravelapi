@@ -15,6 +15,10 @@ public class Option {
     @ApiModelProperty(value = "A list of occupations (pax - room pairs)")
     private List<Allocation> distribution = new ArrayList<Allocation>();
 
+    @ApiModelProperty(value = "List of available board basis and prices for each board")
+    private List<BoardPrice> prices = new ArrayList<BoardPrice>();
+
+
 
     public List<Allocation> getDistribution() {
         return distribution;
@@ -22,5 +26,13 @@ public class Option {
 
     public void setDistribution(List<Allocation> distribution) {
         this.distribution = distribution;
+    }
+
+    public List<BoardPrice> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(List<BoardPrice> prices) {
+        this.prices = prices;
     }
 }

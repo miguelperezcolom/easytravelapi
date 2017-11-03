@@ -53,7 +53,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 a.setPaxPerRoom(2);
                 {
                     BoardPrice p;
-                    a.getPrices().add(p = new BoardPrice());
+                    o.getPrices().add(p = new BoardPrice());
                     p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
                     p.setBoardBasisId("HB");
                     p.setBoardBasisName("Half board");
@@ -64,7 +64,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 }
                 {
                     BoardPrice p;
-                    a.getPrices().add(p = new BoardPrice());
+                    o.getPrices().add(p = new BoardPrice());
                     p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
                     p.setBoardBasisId("FB");
                     p.setBoardBasisName("Full board");
@@ -89,7 +89,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 a.setPaxPerRoom(2);
                 {
                     BoardPrice p;
-                    a.getPrices().add(p = new BoardPrice());
+                    o.getPrices().add(p = new BoardPrice());
                     p.setKey("IGE7FT8473RG324RGBWDEGFL3WGF817FIUERQFVLEFQLFBLFY7747");
                     p.setBoardBasisId("HB");
                     p.setBoardBasisName("Half board");
@@ -100,7 +100,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 }
                 {
                     BoardPrice p;
-                    a.getPrices().add(p = new BoardPrice());
+                    o.getPrices().add(p = new BoardPrice());
                     p.setKey("WIYUFGLIWEFWIWHWWWEHQEURFPEY9Y4Q33HF9P9FH934HFH3F9ÑFRERF");
                     p.setBoardBasisId("FB");
                     p.setBoardBasisName("Full board");

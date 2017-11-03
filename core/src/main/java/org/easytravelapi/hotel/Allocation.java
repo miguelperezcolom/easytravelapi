@@ -10,7 +10,7 @@ import java.util.List;
  * Created by miguel on 26/7/17.
  */
 @ApiModel(description = "An occupied room and the available board basis")
-public class Allocation extends Occupancy {
+public class Allocation {
 
     @ApiModelProperty(value = "This room type id")
     private String roomId;
@@ -23,9 +23,16 @@ public class Allocation extends Occupancy {
     @ApiModelProperty(value = "Ages. If not present we will assume the pax is an adult")
     private int[] ages;
 
-    @ApiModelProperty(value = "List of available board basis and prices for each board")
-    private List<BoardPrice> prices = new ArrayList<BoardPrice>();
+    public Allocation(int numberOfRooms, int paxPerRoom, int[] ages, String roomId, String roomName) {
+        this.roomId = roomId;
+        this.roomName = roomName;
+        this.numberOfRooms = numberOfRooms;
+        this.paxPerRoom = paxPerRoom;
+        this.ages = ages;
+    }
 
+    public Allocation() {
+    }
 
     public String getRoomId() {
         return roomId;
@@ -43,11 +50,28 @@ public class Allocation extends Occupancy {
         this.roomName = roomName;
     }
 
-    public List<BoardPrice> getPrices() {
-        return prices;
+
+    public int getNumberOfRooms() {
+        return numberOfRooms;
     }
 
-    public void setPrices(List<BoardPrice> prices) {
-        this.prices = prices;
+    public void setNumberOfRooms(int numberOfRooms) {
+        this.numberOfRooms = numberOfRooms;
+    }
+
+    public int getPaxPerRoom() {
+        return paxPerRoom;
+    }
+
+    public void setPaxPerRoom(int paxPerRoom) {
+        this.paxPerRoom = paxPerRoom;
+    }
+
+    public int[] getAges() {
+        return ages;
+    }
+
+    public void setAges(int[] ages) {
+        this.ages = ages;
     }
 }

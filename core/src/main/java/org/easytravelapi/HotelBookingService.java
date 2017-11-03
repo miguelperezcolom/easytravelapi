@@ -28,14 +28,14 @@ public interface HotelBookingService {
     @ApiOperation(value = "Use this method to know which hotels are available and their prices")
     public GetAvailableHotelsRS getAvailableHotels(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "The list of resorts you are interested in")
-            @QueryParam("resorts") List<String> resorts,
+            @ApiParam(value = "The comma separated list of resorts you are interested in")
+            @QueryParam("resorts") String resorts,
             @ApiParam(value = "The locale checkin date in YYYYMMDD format")
             @QueryParam("checkin") int checkIn,
             @ApiParam(value = "The locale checkout date in YYYYMMDD format")
             @QueryParam("checkout") int checkout,
-            @ApiParam(value = "List of occupancies you need", allowMultiple = true, collectionFormat = "multi")
-            @QueryParam("occupancies") List<Occupancy> occupancies,
+            @ApiParam(value = "List comma separated list of occupancies you need in <nr of rooms>x<pax>[-<age>]* format")
+            @QueryParam("occupancies") String occupancies,
             @ApiParam(value = "Set to true if you want the response to include static info (hotel description, main hotel image, ...). If false (default value) static info will not be included in order to make the response lighter")
             @QueryParam("includestaticinfo") boolean includeStaticInfo
     ) throws Throwable;

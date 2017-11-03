@@ -26,6 +26,18 @@
 <script src="../../node_modules/vue/dist/vue.min.js"></script>
 <script src="../../node_modules/vue-router/dist/vue-router.min.js"></script>
 
+
+<style>
+
+.jumbotron {
+background-image: url("images/fondotransfer1_1920.jpg");
+background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: black;
+  }
+
+</style>
 </head>
 <body>
 
@@ -58,8 +70,7 @@
 <div>
 
 
-  <div v-show="nohabuscado" class="jumbotron"> <div class="container"> <h1 class="display-3">Demo
-  OTA</h1> <p class="lead">This is a sample website consuming the easy travel
+  <div v-show="nohabuscado" class="jumbotron"> <div class="container"> <h1 class="display-3">Book your transfer</h1> <p class="lead">This is a sample website consuming the easy travel
   api.</p> </div> </div>
 
   <h1 v-show="!nohabuscado">Step 1: Find transfers and choose</h1>
