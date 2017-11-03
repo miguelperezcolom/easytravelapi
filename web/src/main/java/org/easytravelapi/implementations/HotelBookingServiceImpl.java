@@ -18,7 +18,7 @@ import java.util.List;
 public class HotelBookingServiceImpl implements HotelBookingService {
 
     @Override
-    public GetAvailableHotelsRS getAvailableHotels(String token, List<String> resorts, int checkIn, int checkout, List<Occupancy> occupancies, boolean includeStaticInfo) {
+    public GetAvailableHotelsRS getAvailableHotels(String token, String resorts, int checkIn, int checkout, String occupancies, boolean includeStaticInfo) {
         GetAvailableHotelsRS rs = new GetAvailableHotelsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));

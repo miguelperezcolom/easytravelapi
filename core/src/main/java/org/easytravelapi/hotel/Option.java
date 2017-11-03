@@ -12,6 +12,9 @@ import java.util.List;
 @ApiModel(description = "An available room combination the fits your occcupation")
 public class Option {
 
+    @ApiModelProperty(value = "A list of occupations (pax - room pairs) serialized in 1 string")
+    private String distributionString;
+
     @ApiModelProperty(value = "A list of occupations (pax - room pairs)")
     private List<Allocation> distribution = new ArrayList<Allocation>();
 
