@@ -150,7 +150,7 @@ background-repeat: no-repeat;
       <th scope="row">1</th>
       <td>{{hotel.hotelName}}</td>
 
-      <td>{{ option.distribution.roomName }}</td>
+      <td>{{ option.distributionString }}</td>
       <td>{{ price.boardBasisName }}</td>
       <td><button type="button" class="btn btn-primary" v-on:click="extrainfo(price)">{{ price.netPrice.value }}  {{ price.netPrice.currencyIsoCode}}</button></td>
 
