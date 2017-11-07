@@ -1,9 +1,10 @@
 package org.easytravelapi;
 
-import io.swagger.client.ApiException;
-import io.swagger.client.api.DefaultApi;
-import io.swagger.client.model.BookActivityRQ;
-import io.swagger.client.model.BookActivityRS;
+
+import org.easytravelapi.swagger.client.ApiException;
+import org.easytravelapi.swagger.client.api.DefaultApi;
+import org.easytravelapi.swagger.client.model.BookActivityRQ;
+import org.easytravelapi.swagger.client.model.BookActivityRS;
 
 /**
  * Hello world!
@@ -21,7 +22,7 @@ public class App
 
         BookActivityRQ body = new BookActivityRQ(); // BookActivityRQ |
         try {
-            BookActivityRS result = apiInstance.bookActivity(body);
+            BookActivityRS result = apiInstance.bookActivity("xxx", body);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#bookActivity");
