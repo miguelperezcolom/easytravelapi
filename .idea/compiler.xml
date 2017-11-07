@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
         <module name="opentravelapi" />
+        <module name="swagger-java-client" />
+        <module name="swaggertester" />
         <module name="web" />
       </profile>
     </annotationProcessing>
@@ -15,7 +17,9 @@
       <module name="core" target="1.5" />
       <module name="easytravelapi" target="1.5" />
       <module name="opentravelapi" target="1.5" />
-      <module name="web" target="1.5" />
+      <module name="swagger-java-client" target="1.7" />
+      <module name="swaggertester" target="1.5" />
+      <module name="web" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

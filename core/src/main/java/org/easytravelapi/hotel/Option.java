@@ -38,4 +38,12 @@ public class Option {
     public void setPrices(List<BoardPrice> prices) {
         this.prices = prices;
     }
+
+    public String getDistributionString() {
+        return distributionString;
+    }
+
+    public void setDistributionString(String distributionString) {
+        this.distributionString = distributionString;
+    }
 }
