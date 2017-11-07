@@ -164,6 +164,7 @@
       </plugin>
 
 
+      <!-- comentado para no desplegar en maven central
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -180,6 +181,10 @@
         </executions>
       </plugin>
 
+
+
+      -->
+
       <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -191,6 +196,8 @@
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
+
+
 
     </plugins>
   </build>
@@ -247,6 +254,7 @@
   </properties>
 
 
+  <!-- comentado para no desplegar en maven central
 
   <distributionManagement>
     <snapshotRepository>
@@ -258,5 +266,7 @@
       <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
+
+  -->
 
 </project>
