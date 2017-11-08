@@ -186,42 +186,6 @@
 
   <div>
 
-  <h1>Step 1: Choose your room and board</h1>
-
-  <form>
-    <div class="row">
-      <div class="col">
-        <label for="checkin">Check-in</label>
-        <input id="checkin" type="date" class="form-control" placeholder="Check-in" v-model="parametros.checkin">
-      </div>
-      <div class="col">
-        <label for="checkout">Check-out</label>
-        <input id="checkout" type="date" class="form-control" placeholder="Check-out" v-model="parametros.checkout">
-      </div>
-      <div class="col">
-        <label>Occupation</label>
-
-        <div class="input-group">
-        <input type="text" class="form-control" readonly placeholder="Search for..."
-        aria-label="Search for..." value="2 Adults" v-model="parametros.ocupacion">
-        <span class="input-group-btn">
-          <button class="btn btn-secondary" type="button">Change</button>
-        </span>
-      </div>
-      </div>
-
-      <div class="col">
-      <button type="button" class="btn btn-info"
-      style="margin-top: 32px;"  v-on:click="buscar">
-          <span class="fa fa-search"></span> Check
-        </button>
-      </div>
-
-
-    </div>
-
-    </form>
-
 
   <div id="progreso" v-show="buscando">
 
@@ -233,7 +197,7 @@
 
   <div id="calendario" v-if="dispo && !haydispo">
 
-<h3>No hay disponibilidad en las fechas elegidas. Por favor cambia las fechas de tu reserva.</h3>
+<h1>No hay disponibilidad en las fechas elegidas. Por favor cambia las fechas de tu reserva.</h1>
 
 <p v-if="calendario">{{ calendario.msg }}</p>
 
@@ -269,6 +233,10 @@
   </div>
 
   <div id="resultados" v-if="dispo && haydispo">
+
+
+  <h1>Step 1: Choose room and board.</h1>
+
 
   <hr>
 
