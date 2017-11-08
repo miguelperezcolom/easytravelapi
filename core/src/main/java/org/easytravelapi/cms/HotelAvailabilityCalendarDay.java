@@ -5,17 +5,25 @@ import io.swagger.annotations.ApiModel;
 @ApiModel(description = "A calendar day")
 public class HotelAvailabilityCalendarDay {
 
+    private int id;
+
+    private int posInWeek;
+
     private int day;
 
     private String date;
 
     private String styleName;
 
+    private boolean blank;
+
     public HotelAvailabilityCalendarDay() {
 
     }
 
-    public HotelAvailabilityCalendarDay(int day, String date, String styleName) {
+    public HotelAvailabilityCalendarDay(int id, int posInWeek, int day, String date, String styleName) {
+        this.id = id;
+        this.posInWeek = posInWeek;
         this.day = day;
         this.date = date;
         this.styleName = styleName;
@@ -43,5 +51,29 @@ public class HotelAvailabilityCalendarDay {
 
     public void setStyleName(String styleName) {
         this.styleName = styleName;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getPosInWeek() {
+        return posInWeek;
+    }
+
+    public void setPosInWeek(int posInWeek) {
+        this.posInWeek = posInWeek;
+    }
+
+    public boolean isBlank() {
+        return blank;
+    }
+
+    public void setBlank(boolean blank) {
+        this.blank = blank;
     }
 }

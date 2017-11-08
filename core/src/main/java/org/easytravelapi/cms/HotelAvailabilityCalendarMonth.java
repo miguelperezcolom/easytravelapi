@@ -8,6 +8,8 @@ import java.util.List;
 @ApiModel(description = "A calendar month")
 public class HotelAvailabilityCalendarMonth {
 
+    private String title;
+
     private int year;
 
     private int month;
@@ -19,7 +21,8 @@ public class HotelAvailabilityCalendarMonth {
 
     }
 
-    public HotelAvailabilityCalendarMonth(int year, int month) {
+    public HotelAvailabilityCalendarMonth(String title, int year, int month) {
+        this.title = title;
         this.year = year;
         this.month = month;
     }
@@ -47,5 +50,13 @@ public class HotelAvailabilityCalendarMonth {
 
     public void setMonth(int month) {
         this.month = month;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

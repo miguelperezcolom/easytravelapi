@@ -19,12 +19,6 @@
 
 
 
-<script src="../../node_modules/axios/dist/axios.min.js"></script>
-<script src="../../node_modules/jquery/dist/jquery.slim.min.js"></script>
-
-<script src="../../node_modules/vue/dist/vue.min.js"></script>
-<script src="../../node_modules/vue-router/dist/vue-router.min.js"></script>
-
 </head>
 <body>
 
@@ -54,18 +48,69 @@
               <li class="nav-item">
                 <a class="nav-link" href="contacto.html">Contacto</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="reserva.html">Reserva</a>
+              </li>
             </ul>
           </nav>
-          <h3 class="text-muted">Hotel Don Juan</h3>
+          <h3 class="text-muted">Puro Hotel</h3>
         </header>
 
         <main role="main">
 
-<div class="container" id="app">
+          <div class="jumbotron">
+            <h1 class="display-3">Bienvenido</h1>
+            <p class="lead">Estamos deseando tenerle con nosotros.</p>
 
-<router-view></router-view>
+          </div>
 
-</div>
+          <form action="#" method="get">
+            <div class="row">
+              <div class="col">
+                <label for="checkin">Check-in</label>
+                <input id="checkin" name="checkin" type="date" class="form-control" placeholder="Check-in" value="2018-01-01" >
+              </div>
+              <div class="col">
+                <label for="checkout">Check-out</label>
+                <input id="checkout" name="checkout" type="date" class="form-control" placeholder="Check-out" value="2018-01-15" >
+              </div>
+              <div class="col">
+                <label>Occupation</label>
+
+                <div class="input-group">
+                <input type="text" name="ocupacion" class="form-control" readonly placeholder="Search for..."
+                aria-label="Search for..." value="1x2">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">Change</button>
+                </span>
+              </div>
+              </div>
+
+              <div class="col">
+              <button type="button" class="btn btn-info"
+              style="margin-top: 32px;"  onclick="location='reserva.html#/available?checkin=' + checkin.value + '&checkout=' + checkout.value + '&ocupacion=' + ocupacion.value">
+                  <span class="fa fa-search"></span> Check
+                </button>
+              </div>
+
+
+            </div>
+
+            </form>
+
+
+          <div class="row marketing" v-show="nohabuscado">
+            <div class="col-lg-6">
+              <h4>Mejor precio garantizado</h4>
+              <p>No encontrará un precio mejor.</p>
+            </div>
+
+            <div class="col-lg-6">
+              <h4>Ventajas reserva online</h4>
+              <p>Late checkout, cocktail de bienvenida, las mejores habitaciones disponibles y otras ventajas si reserva en nuestra web.</p>
+            </div>
+          </div>
+
 
         </main>
 
@@ -77,596 +122,4 @@
       </div> <!-- /container -->
 
 </body>
-
-<template id="home">
-
-  <div>
-
-  <div class="jumbotron">
-    <h1 class="display-3">Bienvenido</h1>
-    <p class="lead">Estamos deseando tenerle con nosotros.</p>
-
-  </div>
-
-  <form>
-    <div class="row">
-      <div class="col">
-        <label for="checkin">Check-in</label>
-        <input id="checkin" type="date" class="form-control" placeholder="Check-in" v-model="parametros.checkin">
-      </div>
-      <div class="col">
-        <label for="checkout">Check-out</label>
-        <input id="checkout" type="date" class="form-control" placeholder="Check-out" v-model="parametros.checkout">
-      </div>
-      <div class="col">
-        <label>Occupation</label>
-
-        <div class="input-group">
-        <input type="text" class="form-control" readonly placeholder="Search for..."
-        aria-label="Search for..." value="2 Adults" v-model="parametros.ocupacion">
-        <span class="input-group-btn">
-          <button class="btn btn-secondary" type="button">Change</button>
-        </span>
-      </div>
-      </div>
-
-      <div class="col">
-      <button type="button" class="btn btn-info"
-      style="margin-top: 32px;"  v-on:click="buscar">
-          <span class="fa fa-search"></span> Check
-        </button>
-      </div>
-
-
-    </div>
-
-    </form>
-
-
-  <div class="row marketing" v-show="nohabuscado">
-    <div class="col-lg-6">
-      <h4>Mejor precio garantizado</h4>
-      <p>No encontrará un precio mejor.</p>
-    </div>
-
-    <div class="col-lg-6">
-      <h4>Ventajas reserva online</h4>
-      <p>Late checkout, cocktail de bienvenida, las mejores habitaciones disponibles y otras ventajas si reserva en nuestra web.</p>
-    </div>
-  </div>
-
-
-
-</div>
-
-</template>
-
-
-<template id="available">
-
-  <div>
-
-  <h1>Step 1: Choose your room and board</h1>
-
-  <form>
-    <div class="row">
-      <div class="col">
-        <label for="checkin">Check-in</label>
-        <input id="checkin" type="date" class="form-control" placeholder="Check-in" v-model="parametros.checkin">
-      </div>
-      <div class="col">
-        <label for="checkout">Check-out</label>
-        <input id="checkout" type="date" class="form-control" placeholder="Check-out" v-model="parametros.checkout">
-      </div>
-      <div class="col">
-        <label>Occupation</label>
-
-        <div class="input-group">
-        <input type="text" class="form-control" readonly placeholder="Search for..."
-        aria-label="Search for..." value="2 Adults" v-model="parametros.ocupacion">
-        <span class="input-group-btn">
-          <button class="btn btn-secondary" type="button">Change</button>
-        </span>
-      </div>
-      </div>
-
-      <div class="col">
-      <button type="button" class="btn btn-info"
-      style="margin-top: 32px;"  v-on:click="buscar">
-          <span class="fa fa-search"></span> Check
-        </button>
-      </div>
-
-
-    </div>
-
-    </form>
-
-
-  <div id="progreso" v-show="buscando">
-
-    <div class="progress">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-    </div>
-
-  </div>
-
-  <div id="calendario" v-if="dispo && !haydispo">
-
-<h3>No hay disponibilidad en las fechas elegidas. Por favor cambia las fechas de tu reserva.</h3>
-
-
-
-
-
-
-  </div>
-
-  <div id="resultados" v-if="dispo && haydispo">
-
-  <hr>
-
-
-  <p>{{ dispo.msg }}</p>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Rooms</th>
-        <th>Board</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-
-      <template v-for="hotel in dispo.hotels">
-        <template v-for="option in hotel.options">
-          <template v-for="price in option.prices">
-
-      <tr>
-
-        <td>{{ option.distributionString }}</td>
-        <td>{{ price.boardBasisName }}</td>
-        <td><button type="button" class="btn btn-primary" v-on:click="extrainfo(price)">{{ price.netPrice.value }}  {{ price.netPrice.currencyIsoCode}}</button></td>
-
-      </tr>
-
-          </template>
-      </template>
-    </template>
-
-    </tbody>
-  </table>
-
-
-
-  <hr>
-
-  <!--
-
-  <nav aria-label="...">
-    <ul class="pagination">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item active">
-        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#">Next</a>
-      </li>
-    </ul>
-  </nav>
-
-  -->
-
-  </div>
-
-</div>
-
-</template>
-
-
-<template id="extrainfo">
-
-<!--
-  <div id="progreso" v-show="buscando">
-
-    <div class="progress">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
-    </div>
-
-  </div>
--->
-
-<div>
-
-<h1>Step 2: Check important info, fill and book</h1>
-
-  <div v-if="detalles" class="row">
-
-    <div class="col-12 col-lg-4 push-lg-8">
-
-      <div v-for="r in detalles.remarks" v-bind:class="estiloaviso(r.type)" role="alert">
-        {{ r.text }}
-      </div>
-
-      </p>
-
-
-      <hr>
-
-      <p>Cancellation costs</p>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>After</th>
-            <th>Cost</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="c in detalles.cancellationCosts">
-            <th scope="row">1</th>
-            <td>{{c.gmttime}}</td>
-            <td>{{ c.net.value }} {{ c.net.currencyIsoCode}}</td>
-          </tr>
-        </tbody>
-      </table>
-
-
-          </div>
-
-
-  <div class="col-12 col-lg-8 pull-lg-4">
-
-
-    <form>
-      <div class="form-group">
-        <label for="name">Your name</label>
-        <input type="text" class="form-control" id="name" placeholder="Enter your name" v-model="parametros.titular">
-      </div>
-      <div class="form-group">
-        <label for="name">Special requests</label>
-        <textarea class="form-control" id="name" placeholder="If you have any" v-model="parametros.comentarios"></textarea>
-      </div>
-      <router-link tag="button" type="button" class="btn btn-secondary" :to="{name: 'home'}">&lt;&lt; &nbsp;Search again</router-link>
-      <button type="button" class="btn btn-primary" v-on:click="book">Book</button>
-    </form>
-
-
-  </div>
-
-</div>
-
-</div>
-</template>
-
-<template id="booked">
-
-  <div class="container text-center" style="padding-top: 60px">
-
-
-
-      <i class="fa fa-check-circle" aria-hidden="true" style="color:green; font-size: 10em;"></i>
-
-
-      <p>Congratulations!</p>
-
-      <p>Your booking has been confirmed with id <b>{{ bookingId }}</b></p>
-
-
-
-      <p>
-        <router-link tag="button" type="button" class="btn btn-secondary" :to="{name: 'home'}">&lt;&lt; &nbsp;Search again</router-link>
-      </p>
-
-
-  </div>
-
-</template>
-
-<template id="error">
-
-  <div class="container text-center" style="padding-top: 60px">
-
-
-
-      <i class="fa fa-window-close" aria-hidden="true" style="color:red; font-size: 10em;"></i>
-
-
-      <p>Oops!</p>
-
-      <p>Something went wrong: <b>{{ msg }}</b></p>
-
-
-
-      <p>
-        <router-link tag="button" type="button" class="btn btn-secondary" :to="{name: 'home'}">&lt;&lt; &nbsp;Search again</router-link>
-      </p>
-
-
-  </div>
-
-</template>
-
-
-<script>
-
-if (!localStorage.getItem("baseurl")) {
-  localStorage.setItem("baseurl", 'http://admin.test.quoon.net/resources/eyAiY3JlYXRlZCI6ICJXZWQgTm92IDA4IDEyOjE4OjQ3IENFVCAyMDE3IiwgInVzZXJJZCI6ICJhZG1pbiIsICJhY3RvcklkIjogIjMiLCAiaG90ZWxJZCI6ICIxMiJ9');
-}
-
-var data = {
-  nohabuscado: true,
-  buscando: false,
-  haydispo: false,
-  parametros: {
-    resort: '1',
-    ocupacion: '1x2',
-    checkin: '2018-01-15',
-    checkout: '2018-01-23',
-  },
-  dispo: null,
-  detalles: null,
-  resultado: null,
-  bookingId: null,
-  paso: 1,
-  baseurl: localStorage.getItem("baseurl"),
-  msg: null,
-}
-
-window.addEventListener('storage', function(e) {
-  data.baseurl = e.baseurl;
-});
-
-var _error = Vue.component(
-  'error', {
-    template: '#error',
-    data: function() {
-        return data;
-    },
-    mounted() {
-      data.paso = 4;
-      console.log(this.$route.params);
-      data.msg = this.$route.params.msg;
-    }
-  }
-)
-
-var _booked = Vue.component(
-  'booked', {
-    template: '#booked',
-    data: function() {
-        return data;
-    },
-    mounted() {
-      data.paso = 3;
-      console.log(this.$route.params);
-      data.bookingId = this.$route.params.bookingId;
-    }
-  }
-)
-
-var _home = Vue.component(
-  'home', {
-    template: '#home',
-    data: function() {
-        return data;
-    },
-    methods: {
-      buscar: function() {
-        console.log('buscar!');
-        this.$router.push({ name: 'available', query: {checkin: data.parametros.checkin, checkout: data.parametros.checkout, ocupacion: data.parametros.ocupacion} });
-        console.log('pushed!');
-      }
-    },
-    mounted () {
-      data.paso = 0;
-    }
-  }
-);
-
-
-var _available = Vue.component(
-  'available', {
-    template: '#available',
-    data: function() {
-        return data;
-    },
-    methods: {
-
-      buscar: function() {
-        console.log('buscar!');
-        this.$router.push({ name: 'available', query: {checkin: data.parametros.checkin, checkout: data.parametros.checkout, ocupacion: data.parametros.ocupacion} });
-        this.disporx();
-        console.log('pushed!');
-      },
-
-      cargarcalendario: function() {
-        console.log('cargar calendario');
-
-        data.calendario = null;
-        axios({
-        method: 'get',
-        url: data.baseurl + '/hotel/available',
-        params: {
-          resorts: data.parametros.resort,
-          checkin: data.parametros.checkin?data.parametros.checkin.replace(/-/g, ""):null,
-          checkout: data.parametros.checkout?data.parametros.checkout.replace(/-/g, ""):null,
-          occupancies: data.parametros.ocupacion,
-          incudestaticinfo: false,
-        }
-        })
-        .then(function (response) {
-          data.buscando = false;
-                  console.log(response.data.hotels);
-        data.calendario = response.data;
-
-        
-        //Vue.set(vm, 'dispo.data', response.data)
-        })
-        .catch(function (error) {
-          data.buscando = false;
-        console.log(error);
-        });
-
-      },
-
-
-      disporx: function() {
-        zzz = this;
-        console.log('buscar');
-        data.nohabuscado = false;
-        data.buscando = true;
-        data.dispo = null;
-        axios({
-        method: 'get',
-        url: data.baseurl + '/hotel/available',
-        params: {
-          resorts: data.parametros.resort,
-          checkin: data.parametros.checkin?data.parametros.checkin.replace(/-/g, ""):null,
-          checkout: data.parametros.checkout?data.parametros.checkout.replace(/-/g, ""):null,
-          occupancies: data.parametros.ocupacion,
-          incudestaticinfo: false,
-        }
-        })
-        .then(function (response) {
-          data.buscando = false;
-                  console.log(response.data.hotels);
-        data.dispo = response.data;
-        data.haydispo = data.dispo.hotels.length > 0;
-
-        if (!data.haydispo) {
-          data.buscando = true;
-          zzz.cargarcalendario();
-        }
-        //Vue.set(vm, 'dispo.data', response.data)
-        })
-        .catch(function (error) {
-          data.buscando = false;
-        console.log(error);
-        });
-
-        //$('#resultados').show();
-      },
-      extrainfo: function(price) {
-
-        this.$router.push({ name: 'extrainfo', params: {key: price.key} });
-
-      }
-    },
-    mounted () {
-      console.log('available ' + this.$route.params.checkin);
-
-      data.checkin = this.$route.params.checkin;
-      data.checkout = this.$route.params.checkout;
-      data.ocupacion = this.$route.params.ocupacion;
-
-      this.disporx();
-    }
-  }
-);
-
-
-var _extrainfo = Vue.component(
-  'extrainfo', {
-    template: '#extrainfo',
-    data: function() {
-        return data;
-    },
-    methods: {
-      estiloaviso: function(tipo) {
-        switch(tipo) {
-          case 'IMPORTANT': return 'alert alert-danger';
-          case 'WARNING': return 'alert alert-warning';
-          case 'INFO': return 'alert alert-info';
-          default: return '';
-        }
-      },
-      book: function() {
-        console.log('book ' + data.seleccion);
-
-        axios({
-        method: 'put',
-        url: data.baseurl + '/hotel/booking',
-        data: {
-          key: this.$route.params.key,
-          leadName: data.parametros.titular,
-          commentsToProvider: data.parametros.comentarios,
-        }
-        })
-        .then(function (response) {
-          data.buscando = false;
-          console.log(response.data);
-          data.resultado = response.data;
-          data.bookingId = response.data.bookingId;
-          data.msg = response.data.msg
-          if (data.resultado.statusCode == 200) vm.$router.push({ name: 'booked', params: {bookingId: data.bookingId } });
-          else vm.$router.push({ name: 'error', params: {msg: data.msg } });
-        //Vue.set(vm, 'dispo.data', response.data)
-        })
-        .catch(function (error) {
-          data.buscando = false;
-        console.log(error);
-        });
-      }
-    },
-    mounted () {
-      console.log('extrainfo ' + this.$route.params.key);
-
-      axios({
-      method: 'get',
-      url: data.baseurl + '/hotel/pricedetails/' + this.$route.params.key
-      })
-      .then(function (response) {
-        data.buscando = false;
-        console.log(response.data);
-        data.detalles = response.data;
-        data.paso = 2;
-      //Vue.set(vm, 'dispo.data', response.data)
-      })
-      .catch(function (error) {
-        data.buscando = false;
-      console.log(error);
-      });
-
-    }
-  }
-);
-
-
-Vue.use(VueRouter);
-
-const rutas = [
-  { path: '/', name: 'home', component: _home, },
-  { path: '/available', name: 'available', component: _available, },
-  { path: '/extrainfo/:key', name: 'extrainfo', component: _extrainfo, },
-  { path: '/booked/:bookingId', name: 'booked', component: _booked, },
-  { path: '/error/:msg', name: 'error', component: _error, },
-]
-
-const router = new VueRouter(
-  {
-    routes: rutas,
-  }
-);
-
-
-
-var vm = new Vue({
-  el: '#app',
-  data: data,
-  router,
-  /*
-  data: {
-    mensaje: 'hola!',
-  }
-  */
-});
-
-</script>
 </html>
