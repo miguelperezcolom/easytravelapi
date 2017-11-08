@@ -23,7 +23,7 @@
         <dependency>
             <groupId>org.easytravelapi</groupId>
             <artifactId>core</artifactId>
-            <version>0.1.11</version>
+            <version>0.1.12</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
