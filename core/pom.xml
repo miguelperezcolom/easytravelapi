@@ -9,6 +9,7 @@
 
     <groupId>org.easytravelapi</groupId>
     <artifactId>core</artifactId>
+    <version>0.1.11</version>
     <packaging>jar</packaging>
 
     <name>core</name>
