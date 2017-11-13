@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css">
 
-<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+<script src="../../node_modules/tether/dist/js/tether.min.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.slim.min.js"></script>
 
 <!-- Custom styles for this template -->
@@ -124,17 +124,25 @@
   .ocupacion {
     margin-top: 1px;
   }
+
 </style>
 
 
 </head>
 <body>
 
-
       <div class="container">
         <header class="header clearfix">
-          <nav>
-            <ul class="nav nav-pills float-right">
+
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">Hotel Don Juan</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <a class="nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
               </li>
@@ -160,8 +168,10 @@
                 <a class="nav-link" href="reserva.html">Reserva</a>
               </li>
             </ul>
-          </nav>
-          <h3 class="text-muted">Puro Hotel</h3>
+          </div>
+        </nav>
+
+
         </header>
 
         <main role="main">
@@ -277,7 +287,7 @@
       </div> <!-- /container -->
 
 
-<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
