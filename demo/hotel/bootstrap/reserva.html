@@ -1,4 +1,5 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
     <title>OTA Demo for the Easy Travel Api</title>
 
@@ -12,11 +13,35 @@
 <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.min.css">
 
+<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.slim.min.js"></script>
 
 <!-- Custom styles for this template -->
 <link href="narrow-jumbotron.css" rel="stylesheet">
 
+
+<script>
+
+
+
+    $( document ).ready(function() {
+// zzzzz
+    });
+
+
+</script>
+
+<style type="text/css">
+  .habitaciones, .pax, .edades {
+    margin-top: 4px;
+  }
+  .edades {
+    width: 100%;
+  }
+  .ocupacion {
+    margin-top: 1px;
+  }
+</style>
 
 
 <script src="../../node_modules/axios/dist/axios.min.js"></script>
@@ -120,6 +145,8 @@
 
       </div> <!-- /container -->
 
+<script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </body>
 
 <template id="home">
@@ -127,6 +154,54 @@
   <div>
 
     <h1>Step 0: choose dates and click on check</h1>
+
+
+    <div id="templateocupacion" style="display: none;">
+      <div class="row ocupacion">
+        <div class="col-3">
+        <select name="habitaciones" class="habitaciones"><option value="1">1</option><option value="2">2</option></select>
+      </div><div class="col-3">
+        <select name="pax" class="pax"><option value="1">1</option><option value="2" selected="selected">2</option><option value="3">3</option></select>
+      </div><div class="col-5">
+        <input type="text" name="edades" class="edades">
+      </div><div class="col-1">
+        <button type="button" class="btn btn-danger eliminarocupacion" aria-label="Delete">
+<span aria-hidden="true">&times;</span>
+</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true" style="display: none;">
+<div class="modal-dialog" role="document">
+<div class="modal-content" style="width: 800px;">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLiveLabel">Change occupation</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-3 habitaciones">Nr of rooms</div>
+    <div class="col-3 pax">Pax per room</div>
+    <div class="col-5 edades">Children ages (sepparated by white space)</div>
+  </div>
+  <div id="divocupaciones">
+
+  </div>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" id="addocupacion">Add</button>
+  <!--
+  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary" id="grabarocupacion">Save changes</button>
+-->
+</div>
+</div>
+</div>
+</div>
 
     <form>
       <div class="row">
@@ -138,14 +213,14 @@
           <label for="checkout">Check-out</label>
           <input id="checkout" type="date" class="form-control" placeholder="Check-out" v-model="parametros.checkout">
         </div>
-        <div class="col">
+        <div class="col-4">
           <label>Occupation</label>
 
           <div class="input-group">
-          <input type="text" class="form-control" readonly placeholder="Search for..."
-          aria-label="Search for..." value="2 Adults" v-model="parametros.ocupacion">
+          <input type="text" name="ocupacion" id="ocupacion" class="form-control" readonly placeholder="Search for..."
+          aria-label="Search for..." v-model="parametros.ocupacion">
           <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button">Change</button>
+            <button class="btn btn-secondary" type="button" id="cambiarocupacion" data-toggle="modal" data-target="#exampleModalLive">Change</button>
           </span>
         </div>
         </div>
@@ -243,7 +318,7 @@
 
   <p>{{ dispo.msg }}</p>
 
-  <table class="table">
+  <table class="table" style="margin-top: 50px;margin-bottom: 50px;">
     <thead>
       <tr>
         <th>Rooms</th>
@@ -319,7 +394,7 @@
 
 <h1>Step 2: Check important info, fill and book</h1>
 
-  <div v-if="detalles" class="row">
+  <div v-if="detalles" class="row" style="margin-top: 50px;margin-bottom: 50px;">
 
     <div class="col-12 col-lg-4 push-lg-8">
 
@@ -506,6 +581,92 @@ var _home = Vue.component(
     },
     mounted () {
       data.paso = 0;
+
+      console.log( "ready!" );
+
+      // $('#cambiarocupacion').on('click', function(e) {
+      //   console.log('clicked');
+      // });
+
+      $('#exampleModalLive').on('show.bs.modal', function () {
+        console.log('modal');
+
+        $('#divocupaciones').hide();
+        $('#divocupaciones').html('');
+
+
+        var a = data.parametros.ocupacion.split(',');
+        for (var b = 0; b < a.length; b++) {
+          var c = a[b];
+          var d = c.split('x');
+          var habs = d[0];
+
+          var e = d[1].split('-');
+          var pax = e[0];
+          var edades = '';
+          for (var f = 1; f < e.length; f++) {
+            if (edades != '') edades += ' ';
+            edades += e[f];
+          }
+
+          $('#divocupaciones').append($('#templateocupacion').children('.ocupacion').first().clone());
+          var elem = $('#divocupaciones').children('.ocupacion').last();
+          var xa = elem.find('.habitaciones');
+          var xb = elem.find('.pax');
+          var xc = elem.find('.edades');
+
+          xa.val(habs);
+          xb.val(pax);
+          xc.val(edades);
+
+        }
+
+        $('#divocupaciones').show();
+
+      })
+
+      $('#exampleModalLive').on('hide.bs.modal', function () {
+        console.log('modal');
+//$('#myInput').trigger('focus')
+        var s = '';
+        $('#divocupaciones').children('.ocupacion').each(function(i) {
+
+          var a = $(this).find('.habitaciones');
+          var b = $(this).find('.pax');
+          var c = $(this).find('.edades');
+          console.log(a.html());
+          if (a.val() != '0') {
+            if (s != '') s += ',';
+            s += '' + a.val() + 'x' + b.val();
+
+            if (c.val().trim() != '') {
+              var y = c.val().split(/[\s,]+/);
+              for (var q = 0; q < y.length; q++) {
+                var e = parseInt(y[q]);
+                 if (!isNaN(e)) s += '-' + y[q];
+              }
+            }
+
+          }
+
+        });
+        Vue.set(data.parametros, 'ocupacion', s);
+      })
+
+
+      $('#divocupaciones').on('click', '.eliminarocupacion', function(e) {
+          if ($('#divocupaciones').children('.ocupacion').length == 1) {
+              alert('You must leave at least 1 occupation');
+          } else {
+              $(this).parents('.ocupacion').remove();
+          }
+
+      });
+
+      $('#addocupacion').on('click', function(e) {
+          $('#divocupaciones').append($('#templateocupacion').children('.ocupacion').first().clone());
+      });
+
     }
   }
 );
