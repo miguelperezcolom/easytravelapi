@@ -24,6 +24,8 @@ public class AvailableHotel {
     private String longitude;
     @ApiModelProperty(value = "Google latitude")
     private String latitude;
+    @ApiModelProperty(value = "Best available rate. E.g. 153.45 EUR. NOTAVAILABLE when this hotel is not available.")
+    private String bestDeal;
 
     @ApiModelProperty(value = "List of available options")
     private List<Option> options = new ArrayList<Option>();
@@ -83,5 +85,13 @@ public class AvailableHotel {
 
     public void setOptions(List<Option> options) {
         this.options = options;
+    }
+
+    public String getBestDeal() {
+        return bestDeal;
+    }
+
+    public void setBestDeal(String bestDeal) {
+        this.bestDeal = bestDeal;
     }
 }
