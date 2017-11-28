@@ -1,16 +1,13 @@
 package org.easytravelapi;
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.easytravelapi.common.*;
 
 import javax.jws.WebService;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.UriInfo;
 
 /**
  * Created by miguel on 26/7/17.
@@ -49,6 +46,13 @@ public interface CommonsService {
             @QueryParam("startingto") int toStartDate
     ) throws Throwable;
 
+    @GET
+    @Path("/booking/{bookingid}")
+    @ApiOperation(value = "Method to get a booking")
+    public GetBookingRS getBooking(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @PathParam("bookingid") String bookingId) throws Throwable;
+
     @DELETE
     @Path("/booking/{bookingid}")
     @ApiOperation(value = "Method to cancel a service booking")
@@ -61,6 +65,16 @@ public interface CommonsService {
     @Path("/newtoken")
     @ApiOperation(value = "Use this method to get or renew your authentication token")
     public String renewToken(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token, @QueryParam("user") String user) throws Throwable;
+
+
+
+    @GET
+    @Path("/mealplans")
+    @ApiOperation(value = "Method to get a list of board types")
+    public MealPlansListRS getMealPlans(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
+    ) throws Throwable;
+
 
 
 }
