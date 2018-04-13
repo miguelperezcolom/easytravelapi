@@ -145,7 +145,7 @@ background-repeat: no-repeat;
     <template v-for="hotel in dispo.hotels">
       <template v-for="option in hotel.options">
           <template v-for="z in option.distribution">
-        <template v-for="price in z.prices">
+        <template v-for="price in option.prices">
     <tr>
       <th scope="row">1</th>
       <td>{{hotel.hotelName}}</td>
