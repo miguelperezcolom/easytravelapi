@@ -256,6 +256,11 @@ public class CommonsServiceImpl implements CommonsService {
     }
 
     @Override
+    public GetBookingRS getBooking(String token, String bookingId) throws Throwable {
+        return null;
+    }
+
+    @Override
     public CancelBookingRS cancelBooking(String token, String bookingId) {
 
         CancelBookingRS rs = new CancelBookingRS();
@@ -271,5 +276,10 @@ public class CommonsServiceImpl implements CommonsService {
     @Override
     public String renewToken(String token, String user) {
         return "oefvoeoveo3r4ri34br34ir3b4br";
+    }
+
+    @Override
+    public MealPlansListRS getMealPlans(String token) throws Throwable {
+        return null;
     }
 }
