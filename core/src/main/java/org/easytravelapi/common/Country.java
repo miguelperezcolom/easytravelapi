@@ -15,7 +15,7 @@ public class Country {
     @ApiModelProperty(value = "This country resource id")
     private String resourceId;
     @ApiModelProperty(value = "This country name")
-    private String name;
+    private MultilingualText name;
     @ApiModelProperty(value = "The name in a url friendly manner")
     private String urlFriendlyName;
 
@@ -31,11 +31,11 @@ public class Country {
         this.resourceId = resourceId;
     }
 
-    public String getName() {
+    public MultilingualText getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(MultilingualText name) {
         this.name = name;
     }
 

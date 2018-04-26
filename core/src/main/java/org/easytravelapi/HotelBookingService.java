@@ -28,6 +28,8 @@ public interface HotelBookingService {
     @ApiOperation(value = "Use this method to know which hotels are available and their prices")
     public GetAvailableHotelsRS getAvailableHotels(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "2 chars language iso code")
+            @QueryParam("language") String language,
             @ApiParam(value = "The comma separated list of resorts you are interested in")
             @QueryParam("resorts") String resorts,
             @ApiParam(value = "The locale checkin date in YYYYMMDD format")
@@ -41,12 +43,21 @@ public interface HotelBookingService {
     ) throws Throwable;
 
     @GET
-    @Path("/pricedetails/{key}")
+    @Path("/rates/{hotelkey}")
+    @ApiOperation(value = "Use this method to get available room rates for a hotel")
+    public GetHotelRatesRS getRates(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "The hotel price key, as provided in the /hotel/available step")
+            @PathParam("hotelkey") String hotelkey
+    ) throws Throwable;
+
+    @GET
+    @Path("/pricedetails/{ratekeys}")
     @ApiOperation(value = "Use this methos to guess cancellation costs and important remarks regarding a price")
     public GetHotelPriceDetailsRS getHotelPriceDetails(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "The hotel price key, as provided in the /hotel/available step")
-            @PathParam("key") String key
+            @ApiParam(value = "Comma separated list of rooom rate keys, as provided in the get hotel rates call")
+            @PathParam("ratekeys") String ratekeys
     ) throws Throwable;
 
     @PUT

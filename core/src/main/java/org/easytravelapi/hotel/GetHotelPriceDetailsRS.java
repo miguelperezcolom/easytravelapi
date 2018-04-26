@@ -15,11 +15,22 @@ import java.util.List;
 @ApiModel(description = "Container for the hotel price details response")
 public class GetHotelPriceDetailsRS extends AbstractRS {
 
+    private List<Service> availableServices = new ArrayList<Service>();
+
     @ApiModelProperty(value = "Cancellation costs for this activity")
     private List<CancellationCost> cancellationCosts = new ArrayList<CancellationCost>();
 
     @ApiModelProperty(value = "Remarks which should be visible for the customer")
     private List<Remark> remarks = new ArrayList<Remark>();
+
+
+    public List<Service> getAvailableServices() {
+        return availableServices;
+    }
+
+    public void setAvailableServices(List<Service> availableServices) {
+        this.availableServices = availableServices;
+    }
 
     public List<CancellationCost> getCancellationCosts() {
         return cancellationCosts;

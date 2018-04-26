@@ -17,6 +17,7 @@ public class Server {
             ActivityBookingServiceImpl implementor = new ActivityBookingServiceImpl();
             String address = "http://localhost:9000/activity";
             Endpoint.publish(address, implementor);
+
         }
 
 

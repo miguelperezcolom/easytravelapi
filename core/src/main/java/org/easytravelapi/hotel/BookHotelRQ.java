@@ -5,6 +5,9 @@ import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.AbstractAuthenticatedRQ;
 import org.easytravelapi.util.Helper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by miguel on 26/7/17.
  */
@@ -12,7 +15,7 @@ import org.easytravelapi.util.Helper;
 public class BookHotelRQ {
 
     @ApiModelProperty(value = "The price id, as we got it when we asked for available hotels")
-    public String key;
+    public List<String> rateKeys = new ArrayList<String>();
 
     @ApiModelProperty(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
     private String bookingReference;
@@ -26,6 +29,9 @@ public class BookHotelRQ {
     @ApiModelProperty(value = "Your comments for us. They will not be visible to the customer neither to the activity provider")
     private String privateComments;
 
+    @ApiModelProperty(value = "Your desired optional services ids")
+    private List<String> services = new ArrayList<String>();
+
 
     public static BookHotelRQ fromString(String json) {
         return Helper.fromString(BookHotelRQ.class, json);
@@ -36,13 +42,12 @@ public class BookHotelRQ {
         return Helper.toJson(this);
     }
 
-
-    public String getKey() {
-        return key;
+    public List<String> getRateKeys() {
+        return rateKeys;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setRateKeys(List<String> rateKeys) {
+        this.rateKeys = rateKeys;
     }
 
     public String getBookingReference() {
@@ -75,5 +80,13 @@ public class BookHotelRQ {
 
     public void setPrivateComments(String privateComments) {
         this.privateComments = privateComments;
+    }
+
+    public List<String> getServices() {
+        return services;
+    }
+
+    public void setServices(List<String> services) {
+        this.services = services;
     }
 }

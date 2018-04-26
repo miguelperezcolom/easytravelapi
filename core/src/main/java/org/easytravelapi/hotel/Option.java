@@ -12,23 +12,18 @@ import java.util.List;
 @ApiModel(description = "An available room combination the fits your occcupation")
 public class Option {
 
-    @ApiModelProperty(value = "A list of occupations (pax - room pairs) serialized in 1 string")
-    private String distributionString;
-
     @ApiModelProperty(value = "A list of occupations (pax - room pairs)")
-    private List<Allocation> distribution = new ArrayList<Allocation>();
+    private Allocation allocation;
 
     @ApiModelProperty(value = "List of available board basis and prices for each board")
     private List<BoardPrice> prices = new ArrayList<BoardPrice>();
 
-
-
-    public List<Allocation> getDistribution() {
-        return distribution;
+    public Allocation getAllocation() {
+        return allocation;
     }
 
-    public void setDistribution(List<Allocation> distribution) {
-        this.distribution = distribution;
+    public void setAllocation(Allocation allocation) {
+        this.allocation = allocation;
     }
 
     public List<BoardPrice> getPrices() {
@@ -37,13 +32,5 @@ public class Option {
 
     public void setPrices(List<BoardPrice> prices) {
         this.prices = prices;
-    }
-
-    public String getDistributionString() {
-        return distributionString;
-    }
-
-    public void setDistributionString(String distributionString) {
-        this.distributionString = distributionString;
     }
 }

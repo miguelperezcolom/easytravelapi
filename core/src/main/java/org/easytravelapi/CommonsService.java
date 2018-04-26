@@ -25,6 +25,15 @@ public interface CommonsService {
     public GetPortfolioRS getPortfolio(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token) throws Throwable;
 
     @GET
+    @Path("/search")
+    @ApiOperation(value = "Method to get the whole product tree")
+    public SearchPortfolioRS searchPortfolio(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+                                             @ApiParam(value = "2 chars language iso code")
+                                             @QueryParam("language") String language,
+                                             @ApiParam(value="Search text")@QueryParam("query") String query) throws Throwable;
+
+
+    @GET
     @Path("/datasheet/{resourceid}")
     @ApiOperation(value = "Method to get a resource data sheet. E.g. descriptions, images, features")
     public GetDataSheetRS getDataSheet(

@@ -4,6 +4,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.Amount;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by miguel on 26/7/17.
  */
@@ -18,10 +21,12 @@ public class BoardPrice {
     @ApiModelProperty(value = "Board basis name")
     private String boardBasisName;
 
+    private String rateClass;
 
     private Amount retailPrice;
     private Amount netPrice;
     private Amount commission;
+    private List<PaymentLine> paymentLines = new ArrayList<PaymentLine>();
 
 
     @ApiModelProperty(value = "A flag to state that this price is an offer")
@@ -37,6 +42,21 @@ public class BoardPrice {
     @ApiModelProperty(value = "A flag to state that this price is not refundable. No cancellation is allowed")
     private boolean nonRefundable;
 
+    public String getRateClass() {
+        return rateClass;
+    }
+
+    public void setRateClass(String rateClass) {
+        this.rateClass = rateClass;
+    }
+
+    public List<PaymentLine> getPaymentLines() {
+        return paymentLines;
+    }
+
+    public void setPaymentLines(List<PaymentLine> paymentLines) {
+        this.paymentLines = paymentLines;
+    }
 
     public String getKey() {
         return key;

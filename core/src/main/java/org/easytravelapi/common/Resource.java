@@ -12,7 +12,7 @@ public class Resource {
     @ApiModelProperty(value = "This resouce id")
     private String resourceId;
     @ApiModelProperty(value = "This resource name")
-    private String name;
+    private MultilingualText name;
     //todo: revisar la lista
     @ApiModelProperty(value = "Type of resource. E.g. HOTEL, ACTIVITY, TICKET, CARRENTALOFFICE, ...")
     private String type;
@@ -21,7 +21,7 @@ public class Resource {
     @ApiModelProperty(value = "Resource latitude accorging to google maps")
     private String latitude;
     @ApiModelProperty(value = "Resource description")
-    private String description;
+    private MultilingualText description;
 
 
     public String getResourceId() {
@@ -32,11 +32,11 @@ public class Resource {
         this.resourceId = resourceId;
     }
 
-    public String getName() {
+    public MultilingualText getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(MultilingualText name) {
         this.name = name;
     }
 
@@ -64,11 +64,11 @@ public class Resource {
         this.latitude = latitude;
     }
 
-    public String getDescription() {
+    public MultilingualText getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(MultilingualText description) {
         this.description = description;
     }
 }

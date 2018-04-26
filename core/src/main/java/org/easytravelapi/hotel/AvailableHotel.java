@@ -25,10 +25,10 @@ public class AvailableHotel {
     @ApiModelProperty(value = "Google latitude")
     private String latitude;
     @ApiModelProperty(value = "Best available rate. E.g. 153.45 EUR. NOTAVAILABLE when this hotel is not available.")
-    private String bestDeal;
+    private BestDeal bestDeal;
 
-    @ApiModelProperty(value = "List of available options")
-    private List<Option> options = new ArrayList<Option>();
+    @ApiModelProperty(value = "Key for using in next step (get hotel rates)")
+    private String hotelKey;
 
 
     public String getHotelId() {
@@ -79,19 +79,19 @@ public class AvailableHotel {
         this.latitude = latitude;
     }
 
-    public List<Option> getOptions() {
-        return options;
-    }
-
-    public void setOptions(List<Option> options) {
-        this.options = options;
-    }
-
-    public String getBestDeal() {
+    public BestDeal getBestDeal() {
         return bestDeal;
     }
 
-    public void setBestDeal(String bestDeal) {
+    public void setBestDeal(BestDeal bestDeal) {
         this.bestDeal = bestDeal;
+    }
+
+    public String getHotelKey() {
+        return hotelKey;
+    }
+
+    public void setHotelKey(String hotelKey) {
+        this.hotelKey = hotelKey;
     }
 }

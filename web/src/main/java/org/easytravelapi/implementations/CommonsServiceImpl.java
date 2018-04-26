@@ -24,7 +24,7 @@ public class CommonsServiceImpl implements CommonsService {
             rs.getCountries().add(c = new Country());
 
             c.setResourceId("cou_es");
-            c.setName("Spain");
+            c.setName(new MultilingualText("es", "España", "en", "Spain"));
             c.setUrlFriendlyName("spain");
             
             {
@@ -32,14 +32,14 @@ public class CommonsServiceImpl implements CommonsService {
                 c.getStates().add(s = new State());
 
                 s.setResourceId("sta_6363");
-                s.setName("Majorca");
+                s.setName(new MultilingualText("es", "Mallorca", "en", "Majorca"));
                 s.setUrlFriendlyName("majorca");
 
                 {
                     City l;
                     s.getCities().add(l = new City());
                     l.setResourceId("cty_2843");
-                    l.setName("Palma");
+                    l.setName(new MultilingualText("es", "Palma de Mallorca", "en", "Palma"));
                     l.setUrlFriendlyName("palma");
 
                     completar(l);
@@ -50,7 +50,7 @@ public class CommonsServiceImpl implements CommonsService {
                     City l;
                     s.getCities().add(l = new City());
                     l.setResourceId("cty_2842");
-                    l.setName("Alcudia");
+                    l.setName(new MultilingualText("es", "Alcúdia", "en", "Alcudia"));
                     l.setUrlFriendlyName("alcudia");
 
                     completar(l);
@@ -61,7 +61,7 @@ public class CommonsServiceImpl implements CommonsService {
                     City l;
                     s.getCities().add(l = new City());
                     l.setResourceId("cty_2813");
-                    l.setName("Cala Millor");
+                    l.setName(new MultilingualText("es", "Cala Millor", "en", "Cala Millor"));
                     l.setUrlFriendlyName("cala-millor");
 
                     completar(l);
@@ -75,14 +75,14 @@ public class CommonsServiceImpl implements CommonsService {
                 c.getStates().add(s = new State());
 
                 s.setResourceId("sta_6163");
-                s.setName("Ibiza");
+                s.setName(new MultilingualText("es", "Isla de Ibiza", "en", "Ibiza Island"));
                 s.setUrlFriendlyName("ibiza");
 
                 {
                     City l;
                     s.getCities().add(l = new City());
                     l.setResourceId("cty_28x43");
-                    l.setName("Ibiza");
+                    l.setName(new MultilingualText("es", "Ibiza", "en", "Ibiza"));
                     l.setUrlFriendlyName("ibiza");
 
                     completar(l);
@@ -93,7 +93,7 @@ public class CommonsServiceImpl implements CommonsService {
                     City l;
                     s.getCities().add(l = new City());
                     l.setResourceId("cty_28412");
-                    l.setName("San Antonio");
+                    l.setName(new MultilingualText("es", "San Antonio", "en", "San Antonio"));
                     l.setUrlFriendlyName("san-antonio");
 
                     completar(l);
@@ -108,7 +108,7 @@ public class CommonsServiceImpl implements CommonsService {
             rs.getCountries().add(c = new Country());
 
             c.setResourceId("cou_gb");
-            c.setName("Great Britain");
+            c.setName(new MultilingualText("es", "Gran Bretaña", "en", "Great Britain"));
             c.setUrlFriendlyName("great-britain");
 
             {
@@ -116,14 +116,14 @@ public class CommonsServiceImpl implements CommonsService {
                 c.getStates().add(s = new State());
 
                 s.setResourceId("sta_63e63");
-                s.setName("London");
+                s.setName(new MultilingualText("es", "Londres", "en", "London"));
                 s.setUrlFriendlyName("london");
 
                 {
                     City l;
                     s.getCities().add(l = new City());
                     l.setResourceId("cty_28d43");
-                    l.setName("London City");
+                    l.setName(new MultilingualText("es", "Londres", "en", "London City"));
                     l.setUrlFriendlyName("london-city");
 
                     completar(l);
@@ -137,17 +137,50 @@ public class CommonsServiceImpl implements CommonsService {
         return rs;
     }
 
+    @Override
+    public SearchPortfolioRS searchPortfolio(String token, String language, String query) throws Throwable {
+        SearchPortfolioRS rs = new SearchPortfolioRS();
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("4 matches");
+
+        Match m;
+        rs.getMatches().add(m = new Match());
+        m.setResourceId("cou_es");
+        m.setName("España");
+        m.setDescription("España es un país de la UE");
+
+
+        rs.getMatches().add(m = new Match());
+        m.setResourceId("hot_213");
+        m.setName("Hotel Playa de Palma");
+        m.setDescription("Hotel de 4 estrellas ubicado es Palma de Mallorca, España");
+
+        rs.getMatches().add(m = new Match());
+        m.setResourceId("hot_546546");
+        m.setName("Hotel Bellver");
+        m.setDescription("Hotel de 5 estrellas ubicado es Alcudia, Baleares");
+
+        rs.getMatches().add(m = new Match());
+        m.setResourceId("hot_3424234");
+        m.setName("Hotel Valparaiso");
+        m.setDescription("Hotel de 2 estrellas ubicado es Palma de Mallorca, España");
+
+
+        return rs;
+    }
+
     private void completar(City l) {
         for (int i = 0; i < 100; i++)
         {
             Resource r;
             l.getResources().add(r = new Resource());
             r.setResourceId("hot_376472" + i);
-            r.setName("Hotel Quonext " + i);
+            r.setName(new MultilingualText("es", "Hotel Quonext " + i, "en", "Hotel Quonext " + i));
             r.setLatitude("39.6359261");
             r.setLongitude("2.629556");
             r.setType("hotel");
-            r.setDescription("City hotel. 4 stars");
+            r.setDescription(new MultilingualText("es", "Hotel de ciudad de 4 estrellas", "en", "City hotel. 4 stars"));
         }
 
         for (int i = 0; i < 80; i++)
@@ -155,11 +188,11 @@ public class CommonsServiceImpl implements CommonsService {
             Resource r;
             l.getResources().add(r = new Resource());
             r.setResourceId("tp_1212" + i);
-            r.setName("Hotel Quonext " + i);
+            r.setName(new MultilingualText("es", "Hotel Quonext " + i, "en", "Hotel Quonext " + i));
             r.setLatitude("39.6359261");
             r.setLongitude("2.629556");
             r.setType("transferpoint");
-            r.setDescription("Transfer point for Hotel Quonext " + i);
+            r.setDescription(new MultilingualText("es", "Recepción del Hotel Quonext " + i, "en", "Transfer point for Hotel Quonext " + i));
         }
     }
 

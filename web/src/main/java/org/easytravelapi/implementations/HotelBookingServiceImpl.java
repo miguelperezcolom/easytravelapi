@@ -11,22 +11,27 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by miguel on 27/7/17.
  */
 public class HotelBookingServiceImpl implements HotelBookingService {
 
+
     @Override
-    public GetAvailableHotelsRS getAvailableHotels(String token, String resorts, int checkIn, int checkout, String occupancies, boolean includeStaticInfo) {
+    public GetAvailableHotelsRS getAvailableHotels(String token, String language, String resorts, int checkIn, int checkout, String occupancies, boolean includeStaticInfo) throws Throwable {
+
         GetAvailableHotelsRS rs = new GetAvailableHotelsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
-        rs.setMsg("215 hotels returned. It consumed 34 ms in the server.");
+        rs.setMsg("215 hotels returned. It took 34 ms in the server.");
 
 
         String[] nombres = {"Java", "Javascript", ".Net", "Scala", "Go", "Kotlin"};
+
+        Random r = new Random(90000);
 
         for (int i = 0; i < 215; i++) {
 
@@ -42,77 +47,98 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             h.setLatitude("39.6359261");
             h.setLongitude("2.629556");
 
-            {
-                Option o;
-                h.getOptions().add(o = new Option());
-                Allocation a;
-                o.getDistribution().add(a = new Allocation());
-                a.setRoomId("DBL");
-                a.setRoomName("Double Room");
-                a.setNumberOfRooms(1);
-                a.setPaxPerRoom(2);
-                {
-                    BoardPrice p;
-                    o.getPrices().add(p = new BoardPrice());
-                    p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
-                    p.setBoardBasisId("HB");
-                    p.setBoardBasisName("Half board");
-                    Amount n;
-                    p.setNetPrice(n = new Amount());
-                    n.setCurrencyIsoCode("EUR");
-                    n.setValue(200.35);
-                }
-                {
-                    BoardPrice p;
-                    o.getPrices().add(p = new BoardPrice());
-                    p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
-                    p.setBoardBasisId("FB");
-                    p.setBoardBasisName("Full board");
-                    Amount n;
-                    p.setNetPrice(n = new Amount());
-                    n.setCurrencyIsoCode("EUR");
-                    n.setValue(500.15);
-                    p.setOffer(true);
-                    p.setOfferText("SPECIAL OFFER -30%");
-                    p.setNonRefundable(true);
-                }
-            }
+            BestDeal bd;
+            h.setBestDeal(bd = new BestDeal());
 
-            {
-                Option o;
-                h.getOptions().add(o = new Option());
-                Allocation a;
-                o.getDistribution().add(a = new Allocation());
-                a.setRoomId("SUI");
-                a.setRoomName("Suite");
-                a.setNumberOfRooms(1);
-                a.setPaxPerRoom(2);
-                {
-                    BoardPrice p;
-                    o.getPrices().add(p = new BoardPrice());
-                    p.setKey("IGE7FT8473RG324RGBWDEGFL3WGF817FIUERQFVLEFQLFBLFY7747");
-                    p.setBoardBasisId("HB");
-                    p.setBoardBasisName("Half board");
-                    Amount n;
-                    p.setNetPrice(n = new Amount());
-                    n.setCurrencyIsoCode("EUR");
-                    n.setValue(850);
-                }
-                {
-                    BoardPrice p;
-                    o.getPrices().add(p = new BoardPrice());
-                    p.setKey("WIYUFGLIWEFWIWHWWWEHQEURFPEY9Y4Q33HF9P9FH934HFH3F9ÑFRERF");
-                    p.setBoardBasisId("FB");
-                    p.setBoardBasisName("Full board");
-                    Amount n;
-                    p.setNetPrice(n = new Amount());
-                    n.setCurrencyIsoCode("EUR");
-                    n.setValue(1240.2);
-                }
-            }
-
+            double rp;
+            bd.setRetailPrice(new Amount("EUR", rp = 100 + r.nextDouble() / 100));
+            bd.setNetPrice(new Amount("EUR", rp * 0.85));
 
         }
+
+
+        return rs;
+    }
+
+
+    @Override
+    public GetHotelRatesRS getRates(String token, String hotelkey) throws Throwable {
+        GetHotelRatesRS rs = new GetHotelRatesRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("4 rates returned. It took 15 ms in the server.");
+
+        {
+            Option o;
+            rs.getRates().add(o = new Option());
+            Allocation a;
+            o.setAllocation(a = new Allocation());
+            a.setRoomId("DBL");
+            a.setRoomName("Double Room");
+            a.setNumberOfRooms(1);
+            a.setPaxPerRoom(2);
+            {
+                BoardPrice p;
+                o.getPrices().add(p = new BoardPrice());
+                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
+                p.setBoardBasisId("HB");
+                p.setBoardBasisName("Half board");
+                Amount n;
+                p.setNetPrice(n = new Amount());
+                n.setCurrencyIsoCode("EUR");
+                n.setValue(200.35);
+            }
+            {
+                BoardPrice p;
+                o.getPrices().add(p = new BoardPrice());
+                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
+                p.setBoardBasisId("FB");
+                p.setBoardBasisName("Full board");
+                Amount n;
+                p.setNetPrice(n = new Amount());
+                n.setCurrencyIsoCode("EUR");
+                n.setValue(500.15);
+                p.setOffer(true);
+                p.setOfferText("SPECIAL OFFER -30%");
+                p.setNonRefundable(true);
+            }
+        }
+
+        {
+            Option o;
+            rs.getRates().add(o = new Option());
+            Allocation a;
+            o.setAllocation(a = new Allocation());
+            a.setRoomId("SUI");
+            a.setRoomName("Suite");
+            a.setNumberOfRooms(1);
+            a.setPaxPerRoom(2);
+            {
+                BoardPrice p;
+                o.getPrices().add(p = new BoardPrice());
+                p.setKey("IGE7FT8473RG324RGBWDEGFL3WGF817FIUERQFVLEFQLFBLFY7747");
+                p.setBoardBasisId("HB");
+                p.setBoardBasisName("Half board");
+                Amount n;
+                p.setNetPrice(n = new Amount());
+                n.setCurrencyIsoCode("EUR");
+                n.setValue(850);
+            }
+            {
+                BoardPrice p;
+                o.getPrices().add(p = new BoardPrice());
+                p.setKey("WIYUFGLIWEFWIWHWWWEHQEURFPEY9Y4Q33HF9P9FH934HFH3F9ÑFRERF");
+                p.setBoardBasisId("FB");
+                p.setBoardBasisName("Full board");
+                Amount n;
+                p.setNetPrice(n = new Amount());
+                n.setCurrencyIsoCode("EUR");
+                n.setValue(1240.2);
+            }
+        }
+
+
 
 
         return rs;
