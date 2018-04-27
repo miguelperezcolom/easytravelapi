@@ -31,7 +31,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
         String[] nombres = {"Java", "Javascript", ".Net", "Scala", "Go", "Kotlin"};
 
-        Random r = new Random(90000);
+        Random r = new Random();
 
         for (int i = 0; i < 215; i++) {
 
@@ -51,8 +51,10 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             h.setBestDeal(bd = new BestDeal());
 
             double rp;
-            bd.setRetailPrice(new Amount("EUR", rp = 100 + r.nextDouble() / 100));
-            bd.setNetPrice(new Amount("EUR", rp * 0.85));
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
 
         }
 
