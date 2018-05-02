@@ -12,18 +12,29 @@ import java.util.List;
 @ApiModel(description = "An available room combination the fits your occcupation")
 public class Option {
 
-    @ApiModelProperty(value = "A list of occupations (pax - room pairs)")
-    private Allocation allocation;
+    @ApiModelProperty(value = "This room type id")
+    private String roomId;
+    @ApiModelProperty(value = "This room type name")
+    private String roomName;
 
     @ApiModelProperty(value = "List of available board basis and prices for each board")
     private List<BoardPrice> prices = new ArrayList<BoardPrice>();
 
-    public Allocation getAllocation() {
-        return allocation;
+
+    public String getRoomId() {
+        return roomId;
     }
 
-    public void setAllocation(Allocation allocation) {
-        this.allocation = allocation;
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
+    }
+
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
     }
 
     public List<BoardPrice> getPrices() {

@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div v-if="dispo">
 
 
     <ul class="collection with-header">
@@ -30,7 +30,7 @@
       , methods: {
           abrirdetalle(e) {
             console.log(e.srcElement.getAttribute("data-hotelKey"));
-            this.$router.push({ name: 'hotel_detalle', query: {hotelkey: e.srcElement.getAttribute("data-hotelKey")} });
+            this.$router.push({ name: 'hotel_rates', query: {hotelkey: e.srcElement.getAttribute("data-hotelKey")} });
           }
       }
       , mounted() {

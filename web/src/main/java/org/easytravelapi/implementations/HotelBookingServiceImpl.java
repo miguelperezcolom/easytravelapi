@@ -72,12 +72,12 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         rs.setMsg("4 rates returned. It took 15 ms in the server.");
 
         {
-            Option o;
-            rs.getRates().add(o = new Option());
             Allocation a;
-            o.setAllocation(a = new Allocation());
-            a.setRoomId("DBL");
-            a.setRoomName("Double Room");
+            rs.getRates().add(a = new Allocation());
+            Option o;
+            a.getOptions().add(o = new Option());
+            o.setRoomId("DBL");
+            o.setRoomName("Double Room");
             a.setNumberOfRooms(1);
             a.setPaxPerRoom(2);
             {
@@ -105,40 +105,108 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 p.setOfferText("SPECIAL OFFER -30%");
                 p.setNonRefundable(true);
             }
-        }
 
-        {
-            Option o;
-            rs.getRates().add(o = new Option());
-            Allocation a;
-            o.setAllocation(a = new Allocation());
-            a.setRoomId("SUI");
-            a.setRoomName("Suite");
+            a.getOptions().add(o = new Option());
+            o.setRoomId("SUI");
+            o.setRoomName("Suite");
             a.setNumberOfRooms(1);
             a.setPaxPerRoom(2);
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("IGE7FT8473RG324RGBWDEGFL3WGF817FIUERQFVLEFQLFBLFY7747");
+                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
                 p.setNetPrice(n = new Amount());
                 n.setCurrencyIsoCode("EUR");
-                n.setValue(850);
+                n.setValue(230.35);
             }
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("WIYUFGLIWEFWIWHWWWEHQEURFPEY9Y4Q33HF9P9FH934HFH3F9ÑFRERF");
+                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
                 p.setNetPrice(n = new Amount());
                 n.setCurrencyIsoCode("EUR");
-                n.setValue(1240.2);
+                n.setValue(610.15);
+                p.setOffer(true);
+                p.setOfferText("SPECIAL OFFER -30%");
+                p.setNonRefundable(true);
             }
         }
+
+
+        {
+            Allocation a;
+            rs.getRates().add(a = new Allocation());
+            Option o;
+            a.getOptions().add(o = new Option());
+            o.setRoomId("DBL");
+            o.setRoomName("Double Room");
+            a.setNumberOfRooms(1);
+            a.setPaxPerRoom(3);
+            a.setAges(new int[]{4});
+            {
+                BoardPrice p;
+                o.getPrices().add(p = new BoardPrice());
+                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
+                p.setBoardBasisId("HB");
+                p.setBoardBasisName("Half board");
+                Amount n;
+                p.setNetPrice(n = new Amount());
+                n.setCurrencyIsoCode("EUR");
+                n.setValue(260.35);
+            }
+            {
+                BoardPrice p;
+                o.getPrices().add(p = new BoardPrice());
+                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
+                p.setBoardBasisId("FB");
+                p.setBoardBasisName("Full board");
+                Amount n;
+                p.setNetPrice(n = new Amount());
+                n.setCurrencyIsoCode("EUR");
+                n.setValue(570.15);
+                p.setOffer(true);
+                p.setOfferText("SPECIAL OFFER -30%");
+                p.setNonRefundable(true);
+            }
+
+            a.getOptions().add(o = new Option());
+            o.setRoomId("SUI");
+            o.setRoomName("Suite");
+            a.setNumberOfRooms(1);
+            a.setPaxPerRoom(2);
+            {
+                BoardPrice p;
+                o.getPrices().add(p = new BoardPrice());
+                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
+                p.setBoardBasisId("HB");
+                p.setBoardBasisName("Half board");
+                Amount n;
+                p.setNetPrice(n = new Amount());
+                n.setCurrencyIsoCode("EUR");
+                n.setValue(320.35);
+            }
+            {
+                BoardPrice p;
+                o.getPrices().add(p = new BoardPrice());
+                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
+                p.setBoardBasisId("FB");
+                p.setBoardBasisName("Full board");
+                Amount n;
+                p.setNetPrice(n = new Amount());
+                n.setCurrencyIsoCode("EUR");
+                n.setValue(1020.15);
+                p.setOffer(true);
+                p.setOfferText("SPECIAL OFFER -30%");
+                p.setNonRefundable(true);
+            }
+        }
+
 
 
 
@@ -154,6 +222,108 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
         rs.setMsg("Price details");
+
+        {
+            Amount a;
+            rs.setRetail(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(1500.32);
+        }
+
+        {
+            Amount a;
+            rs.setCommission(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(250.31);
+        }
+
+        {
+            Amount a;
+            rs.setNet(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(1250.01);
+        }
+
+        {
+            Service c;
+            rs.getAvailableServices().add(c = new Service());
+            c.setDescription("Continental Buffet");
+            c.setId("deiuwed8ewud890u23");
+
+            {
+                PaymentLine l;
+                c.getPaymentLines().add(l = new PaymentLine());
+                Amount a;
+                l.setAmount(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(30.45);
+                l.setDate(20180601);
+                l.setPaymentMethod("WEB");
+            }
+
+            {
+                Amount a;
+                c.setRetailPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(30.45);
+            }
+
+            {
+                Amount a;
+                c.setCommission(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(5);
+            }
+
+            {
+                Amount a;
+                c.setNetPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(25.45);
+            }
+
+        }
+
+        {
+            Service c;
+            rs.getAvailableServices().add(c = new Service());
+            c.setDescription("Spa");
+            c.setId("deiuwed8ewud890u23");
+
+            {
+                PaymentLine l;
+                c.getPaymentLines().add(l = new PaymentLine());
+                Amount a;
+                l.setAmount(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(130.45);
+                l.setDate(20180601);
+                l.setPaymentMethod("WEB");
+            }
+
+            {
+                Amount a;
+                c.setRetailPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(130.45);
+            }
+
+            {
+                Amount a;
+                c.setCommission(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(15);
+            }
+
+            {
+                Amount a;
+                c.setNetPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(215.45);
+            }
+
+        }
+
 
         {
             CancellationCost c;
