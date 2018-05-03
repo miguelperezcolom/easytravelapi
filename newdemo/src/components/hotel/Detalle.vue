@@ -3,25 +3,38 @@
   <div>
     <h1>Choose your supplements and fill</h1>
 
-    <div v-if="detalles" class="row">
+    <div v-if="detalles">
 
       <form>
 
 
-      <div>
+      <div class="row">
 
-        <h2 v-if=" detalles.retail">Total retail {{ detalles.retail.value }} {{ detalles.retail.currencyIsoCode}}</h2>
-        <h2 v-if=" detalles.commission">Total comission {{ detalles.commission.value }} {{ detalles.commission.currencyIsoCode}}</h2>
-        <h2 v-if=" detalles.net">Total net {{ detalles.net.value }} {{ detalles.net.currencyIsoCode}}</h2>
+        <div class="col m6 s12">
+          <h4>Totals</h4>
+          <table>
+            <thead>
+            <tr>
+              <th>Description</th>
+              <th>Cost</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-if=" detalles.retail"><td>Retail</td><td> {{ detalles.retail.value }} {{ detalles.retail.currencyIsoCode}}</td></tr>
+            <tr v-if=" detalles.commission"><td>Comission</td><td> {{ detalles.commission.value }} {{ detalles.commission.currencyIsoCode}}</td></tr>
+            <tr v-if=" detalles.net"><td>Net</td><td> {{ detalles.net.value }} {{ detalles.net.currencyIsoCode}}</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-        <div>
 
-          <p>Available supplements:</p>
+        <div class="col m6 s12">
+
+          <h4>Available supplements:</h4>
 
           <table>
             <thead>
             <tr>
-              <th>#</th>
               <th>Description</th>
               <th>Cost</th>
               <th width="60">Selected</th>
@@ -29,7 +42,6 @@
             </thead>
             <tbody>
             <tr v-for="c in detalles.availableServices">
-              <th scope="row">{{ c.id }}</th>
               <td>{{c.description}}</td>
               <td>{{ c.retailPrice.value }} {{ c.retailPrice.currencyIsoCode}}</td>
               <td><select v-model="c.cantidad">
@@ -45,39 +57,42 @@
 
         </div>
 
+      </div><div class="row">
 
-        <div v-for="r in detalles.remarks">
+        <div class="col m6 s12">
+          <h4>Remarks</h4>
+          <div v-for="r in detalles.remarks">
           {{ r.text }}
-        </div>
+        </div></div>
 
 
-        <hr>
 
-        <p>Cancellation costs</p>
+
+        <div class="col m6 s12">
+
+        <h4>Cancellation costs</h4>
 
         <table>
           <thead>
           <tr>
-            <th>#</th>
             <th>After</th>
             <th>Cost</th>
           </tr>
           </thead>
           <tbody>
           <tr v-for="c in detalles.cancellationCosts">
-            <th scope="row">1</th>
             <td>{{c.gmttime}}</td>
             <td>{{ c.net.value }} {{ c.net.currencyIsoCode}}</td>
           </tr>
           </tbody>
         </table>
 
+        </div>
 
-      </div>
 
+      <div class="col s12">
 
-      <div>
-
+        <h4>Please fill</h4>
 
           <div>
             <label for="name">Your name</label>
@@ -88,6 +103,8 @@
             <textarea id="comentarios" placeholder="If you have any" v-model="comentarios"></textarea>
           </div>
 
+
+      </div>
 
       </div>
 
@@ -109,7 +126,6 @@
 
   import axios from 'axios';
 
-  var baseurl = 'http://localhost:9998/xxx';
   var lan = 'es';
 
 
@@ -135,7 +151,7 @@
 
             axios({
               method: 'put',
-              url: baseurl + '/hotel/booking',
+              url: globaldata.baseurl + '/hotel/booking',
               data: {
                 key: this.$route.params.key,
                 leadName: this.$data.titular,
@@ -161,7 +177,7 @@
 
         axios({
           method: 'get',
-          url: baseurl + '/hotel/pricedetails/' + this.$route.query.keys,
+          url: globaldata.baseurl + '/hotel/pricedetails/' + this.$route.query.keys,
           params: {
 
           }

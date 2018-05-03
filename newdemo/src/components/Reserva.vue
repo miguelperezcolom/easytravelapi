@@ -1,18 +1,57 @@
 <template>
 
-  <nav>
-    <ul>
-      <li><router-link to="hotel">Hotel</router-link></li>
-      <li><router-link to="traslado">Traslado</router-link></li>
-    </ul>
-  </nav>
+  <div>
 
+    <nav>
+
+      <div class="nav-wrapper">
+
+      <a class="brand-logo" style="margin-left: 10px;">Atenea2</a>
+
+        <a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <router-link :to="{name: 'hotel_formulario'}" tag="li" active-class="active"><a>Hotel</a></router-link>
+        <router-link :to="{name: 'traslado'}" tag="li" active-class="active"><a>Traslado</a></router-link>
+        <router-link :to="{name: 'excursion'}" tag="li" active-class="active"><a>Excursion</a></router-link>
+        <router-link :to="{name: 'config'}" tag="li" active-class="active"><a>{{ baseurl }}</a></router-link>
+      </ul>
+    </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+      <li><a v-on:click="ir('hotel_formulario')">Hotel</a></li>
+      <li><a v-on:click="ir('traslado')">Traslado</a></li>
+      <li><a v-on:click="ir('excursion')">Excursion</a></li>
+      <li><a v-on:click="ir('config')">{{ baseurl }}</a></li>
+    </ul>
+
+    <router-view/>
+
+  </div>
 
 </template>
 
 <script>
+
+  console.log(globaldata);
+
+  var sidenav;
+
     export default {
-        name: "Reserva"
+        name: "Reserva",
+      data: function() {
+          return globaldata;
+      },
+      methods: {
+          ir: function(n) {
+            sidenav.close();
+            this.$router.push({name: n,});
+          }
+      },
+      mounted: function() {
+        sidenav = M.Sidenav.init(document.querySelector('.sidenav'), {});
+      }
     }
 </script>
 

@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <h1>Aquí la reserva de traslado</h1>
+    <h1>Aquí la reserva de excursión</h1>
   </div>
 </template>
 
 <script>
     export default {
-        name: "Traslado"
+        name: "Excursión"
     }
 </script>
 

@@ -1,14 +1,12 @@
 <template>
-<div>
+<div class="container">
 
-  <formulario></formulario>
+  <router-view/>
 
 </div>
 </template>
 
 <script>
-
-  import Formulario from "./Formulario.vue"
 
     export default {
         name: "Hotel"
@@ -17,9 +15,6 @@
           count: 0
         }
       },
-      components: {
-          Formulario
-      }
     }
 </script>
 

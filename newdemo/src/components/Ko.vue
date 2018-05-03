@@ -1,6 +1,7 @@
 <template>
-  <div><h1>Error</h1>
-    <h2>{{error}}</h2>
+  <div class="container center"><h1>We are sorry. It did not work</h1>
+    <i class="material-icons red large circle">error</i>
+    <h4>{{ error }}</h4>
   </div>
 </template>
 

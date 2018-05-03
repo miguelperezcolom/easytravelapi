@@ -1,6 +1,7 @@
 <template>
-<div><h1>Ok</h1>
-<h2>Booking ID: {{bookingId}}</h2>
+<div class="container center"><h1>Thank you!</h1>
+  <i class="material-icons green large circle">done</i>
+<h4>Your booking has been confirmed with ID: {{bookingId}}</h4>
 </div>
 </template>
 

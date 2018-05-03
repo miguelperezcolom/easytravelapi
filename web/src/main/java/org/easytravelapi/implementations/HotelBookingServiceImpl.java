@@ -41,6 +41,8 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             h.setHotelId("hot_" + i);
             h.setHotelName("Hotel " + nombres[i % nombres.length] + " " + i);
 
+            h.setHotelKey("ied987yde9h29deb238eyb2389ev239evt2ed76f1329d");
+
             h.setHotelCategoryId("4s");
             h.setHotelCategoryName("****");
 

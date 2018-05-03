@@ -28,7 +28,6 @@
 
   import axios from 'axios';
 
-  var baseurl = 'http://localhost:9998/xxx';
   var lan = 'es';
 
     export default {
@@ -57,7 +56,7 @@
 
         axios({
           method: 'get',
-          url: baseurl + '/hotel/rates/' + this.$router.hotelKey,
+          url: globaldata.baseurl + '/hotel/rates/' + this.$route.query.hotelkey,
           params: {
 
           }

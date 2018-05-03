@@ -16,7 +16,6 @@
 
   import axios from 'axios';
 
-  var baseurl = 'http://localhost:9998/xxx';
   var lan = 'es';
 
 
@@ -30,7 +29,7 @@
       , methods: {
           abrirdetalle(e) {
             console.log(e.srcElement.getAttribute("data-hotelKey"));
-            this.$router.push({ name: 'hotel_rates', query: {hotelkey: e.srcElement.getAttribute("data-hotelKey")} });
+            this.$router.push({ name: 'hotel_rates', query: {hotelkey: e.srcElement.getAttribute("data-hotelkey")} });
           }
       }
       , mounted() {
@@ -40,12 +39,12 @@
 
         axios({
           method: 'get',
-          url: baseurl + '/hotel/available',
+          url: globaldata.baseurl + '/hotel/available',
           params: {
             language: lan,
             resorts: this.$router.destino,
-            checkin: this.$router.entrada,
-            checkout: this.$router.salida,
+            checkin: this.$router.entrada?this.$router.entrada.replace(/-/g, ""):null,
+            checkout: this.$router.salida?this.$router.salida.replace(/-/g, ""):null,
             occupancies: this.$router.ocupacion,
           }
         })
