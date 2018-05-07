@@ -160,7 +160,9 @@
             ocupacion: '1x2',
             portfolio: null,
             busqueda: null,
-            coincidencias: {},
+            coincidencias: {
+              matches:[],
+            },
             ocupaciones: [
               {
                 habitaciones: 1,
