@@ -270,7 +270,7 @@
           buscar: function(e) {
             e.preventDefault();
             console.log(this.$data);
-            this.$router.push({ name: 'hotel_dispo', query: {destino: this.$data.iddestino, checkin: this.$data.entrada, checkout: this.$data.salida, ocupacion: this.$data.ocupacion} });
+            this.$router.push({ name: 'hotel_dispo', query: {destino: this.$data.iddestino, entrada: this.$data.entrada, salida: this.$data.salida, ocupacion: this.$data.ocupacion} });
           }
       }
       , mounted () {
