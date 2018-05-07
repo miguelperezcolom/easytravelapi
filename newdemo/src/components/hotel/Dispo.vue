@@ -42,10 +42,10 @@
           url: globaldata.baseurl + '/hotel/available',
           params: {
             language: lan,
-            resorts: this.$router.destino,
-            checkin: this.$router.entrada?this.$router.entrada.replace(/-/g, ""):null,
-            checkout: this.$router.salida?this.$router.salida.replace(/-/g, ""):null,
-            occupancies: this.$router.ocupacion,
+            resorts: this.$route.destino,
+            checkin: this.$route.entrada?this.$route.entrada.replace(/-/g, ""):null,
+            checkout: this.$route.salida?this.$route.salida.replace(/-/g, ""):null,
+            occupancies: this.$route.ocupacion,
           }
         })
           .then(function (response) {
