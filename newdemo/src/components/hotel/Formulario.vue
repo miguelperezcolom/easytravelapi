@@ -318,8 +318,10 @@
             console.log(d.portfolio);
             console.log(d.portfolio.countries[0]);
             console.log(d.portfolio.countries[0].states[0]);
+            console.log(d.portfolio.countries[0].states[0].name);
             d.destino = d.portfolio.countries[0].states[0].name.en;
             d.iddestino = d.portfolio.countries[0].states[0].resourceId;
+            console.log('destino ok');
           })
           .catch(function (error) {
             console.log(error);
