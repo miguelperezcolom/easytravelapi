@@ -309,15 +309,16 @@
 
         axios({
           method: 'get',
-          url: globaldata.baseurl + '/commons/portfolio',
-          params: {
-            language: lan,
-          }
+          url: globaldata.baseurl + '/commons/portfolio'
         })
           .then(function (response) {
             console.log(d)
             d.portfolio = response.data;
-            d.destino = d.portfolio.countries[0].states[0].name.es;
+            console.log('************************');
+            console.log(d.portfolio);
+            console.log(d.portfolio.countries[0]);
+            console.log(d.portfolio.countries[0].states[0]);
+            d.destino = d.portfolio.countries[0].states[0].name.en;
             d.iddestino = d.portfolio.countries[0].states[0].resourceId;
           })
           .catch(function (error) {
