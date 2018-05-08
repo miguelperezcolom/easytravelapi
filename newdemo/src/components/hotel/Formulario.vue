@@ -53,14 +53,15 @@
       <div id="elegir" class="col s12">
 
         <ul v-if="portfolio" class="browser-default">
-          <li v-for="pais in portfolio.countries"><a v-on:click="seleccionardestino" :data-key="pais.resourceId" :data-name="pais.name.en">{{ pais.name.en }}</a>
+          <li v-for="pais in portfolio.countries">
+            <template v-if="pais.name"><a v-on:click="seleccionardestino" :data-key="pais.resourceId" :data-name="pais.name.en">{{ pais.name.en }}</a>
 
             <ul class="browser-default">
-              <li v-for="prov in pais.states"><a v-on:click="seleccionardestino" :data-key="prov.resourceId" :data-name="prov.name.en">{{ prov.name.en }}</a>
+              <li v-for="prov in pais.states"><template v-if="prov.name"><a v-on:click="seleccionardestino" :data-key="prov.resourceId" :data-name="prov.name.en">{{ prov.name.en }}</a>
 
                 <ul class="browser-default">
 
-                  <li v-for="loc in prov.cities"><a v-on:click="seleccionardestino" :data-key="loc.resourceId" :data-name="loc.name.en">{{ loc.name.en }}</a>
+                  <li v-for="loc in prov.cities"><template v-if="LOC.name"><a v-on:click="seleccionardestino" :data-key="loc.resourceId" :data-name="loc.name.en">{{ loc.name.en }}</a>
 
                     <!--
                     <ul class="browser-default">
@@ -70,12 +71,21 @@
                     </ul>
   -->
 
+                  </template>
+                    <template v-else>FALTA EL NOMBRE DE LA CIUDAD {{ loc }}</template>
+
                   </li>
 
                 </ul>
 
+              </template>
+                <template v-else>FALTA EL NOMBRE DE LA PROVINCIA {{ prov }}</template>
+
               </li>
             </ul>
+
+            </template>
+            <template v-else>FALTA EL NOMBRE DEL PAIS {{ pais }}</template>
 
           </li>
         </ul>
