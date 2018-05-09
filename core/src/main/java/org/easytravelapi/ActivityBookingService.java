@@ -36,6 +36,33 @@ public interface ActivityBookingService {
             @QueryParam("language") String language
             ) throws Throwable;
 
+
+    @GET
+    @Path("/rates/{key}")
+    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
+    public GetActivityRatesRS getActivityRates(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "The activity price key, as provided in the /activity/available step")
+            @PathParam("key") String key,
+            @QueryParam("language") String language
+    ) throws Throwable;
+
+    @GET
+    @Path("/price/{key}")
+    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
+    public GetActivityPriceRS getExcursionPrice(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "The activity price key, as provided in the /activity/available step")
+            @PathParam("key") String key,
+            @QueryParam("language") String language,
+            @ApiParam(value = "Number of pax")
+            @QueryParam("adults") int adults,
+            @QueryParam("ages")int children,
+            @QueryParam("vehicles")int vehicles,
+            @QueryParam("supplements")String supplements
+    ) throws Throwable;
+
+
     @GET
     @Path("/pricedetails/{key}")
     @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
@@ -44,12 +71,13 @@ public interface ActivityBookingService {
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
             @PathParam("key") String key,
             @QueryParam("language") String language,
-            @ApiParam(value = "Number of pax")
-            @QueryParam("pax") int pax,
-            @ApiParam(value = "Ages for the paxes. You can include just children ages. If not present all pax will be treated as adults", allowMultiple = true, collectionFormat = "multi")
-            @QueryParam("ages")List<Integer> ages
-
+            @QueryParam("adults") int adults,
+            @QueryParam("ages")int children,
+            @QueryParam("vehicles")int vehicles,
+            @QueryParam("supplements")String supplements
     ) throws Throwable;
+
+
 
     @PUT
     @Path("/booking")

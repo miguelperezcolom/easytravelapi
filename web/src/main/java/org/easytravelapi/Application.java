@@ -19,6 +19,7 @@ public class Application  extends javax.ws.rs.core.Application {
         beanConfig.setSchemes(new String[]{"http"});
         beanConfig.setHost("test.easytravelapi.com");
         beanConfig.setBasePath("/rest");
+
 //        beanConfig.classes().add(CommonsService.class);
 //        beanConfig.classes().add(ActivityBookingService.class);
         beanConfig.setResourcePackage("org.easytravelapi");
@@ -34,6 +35,8 @@ public class Application  extends javax.ws.rs.core.Application {
         s.add(ActivityBookingServiceImpl.class);
         s.add(HotelBookingServiceImpl.class);
         s.add(TransferBookingServiceImpl.class);
+
+        s.add(CORSFilter.class);
 
         s.add(io.swagger.jaxrs.listing.ApiListingResource.class);
         s.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);

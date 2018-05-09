@@ -1,15 +1,24 @@
 <template>
   <div class="container">
-    <h1>Aquí la reserva de excursión</h1>
+
+    <router-view/>
+
   </div>
 </template>
 
 <script>
-    export default {
-        name: "Excursión"
-    }
+
+  export default {
+    name: "Excursion"
+    , data: function () {
+      return {
+        count: 0
+      }
+    },
+  }
 </script>
 
 <style scoped>
 
 </style>
+

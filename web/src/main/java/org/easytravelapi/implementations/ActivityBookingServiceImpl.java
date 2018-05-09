@@ -5,6 +5,8 @@ import org.easytravelapi.activity.*;
 import org.easytravelapi.common.Amount;
 import org.easytravelapi.common.CancellationCost;
 import org.easytravelapi.common.Remark;
+import org.easytravelapi.hotel.PaymentLine;
+import org.easytravelapi.hotel.Service;
 import org.easytravelapi.transfer.BookTransferRS;
 
 import javax.ws.rs.FormParam;
@@ -94,8 +96,8 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
     }
 
     @Override
-    public GetActivityPriceDetailsRS getActivityPriceDetails(String token, String key, String language, int pax, List<Integer> ages) {
-        GetActivityPriceDetailsRS rs = new GetActivityPriceDetailsRS();
+    public GetActivityRatesRS getActivityRates(String token, String key, String language) throws Throwable {
+        GetActivityRatesRS rs = new GetActivityRatesRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
@@ -112,46 +114,182 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             ad.setDate(20180715 + i);
             ArrayList<Shift> ss;
             ad.setShifts(ss = new ArrayList<>());
-            {
+
+            if (i % 2 == 0) {
                 Shift s;
                 ss.add(s = new Shift());
                 s.setName("Mañana");
-                s.setTime(1000);
+                s.setTime(1000 + i);
             }
-            {
+            if (i % 4 == 0) {
                 Shift s;
                 ss.add(s = new Shift());
                 s.setName("Tarde");
-                s.setTime(1500);
+                s.setTime(1500 + i);
             }
-        }
 
 
-        ArrayList<Option> os;
-        rs.setOptions(os = new ArrayList<>());
-
-        for (int i = 0; i < 4; i++) {
-            Option o;
-            os.add(o = new Option());
-            o.setDescription("Merienda en restaurante Pepito, con unas vistas estupendas sobre la bahía de Palma.");
-            o.setId("6546546");
-            o.setName("Opción " + i);
-            o.setOptional(i % 2 == 0);
-            o.setPrice(Math.round(2500 + rand.nextDouble() * 300) / 100);
             ArrayList<Variant> vs;
-            o.setVariants(vs = new ArrayList<>());
+            ad.setVariants(vs = new ArrayList<>());
 
-            if (i % 3 == 0) for (int j = 0; i < 3; j++) {
+            if (i % 3 == 0) for (int j = 0; j < 3; j++) {
                 Variant v;
                 vs.add(v = new Variant());
                 v.setId("qswq");
                 v.setName("Variante " + j);
                 v.setDescription("Opción VIP, con acceso a todas las atracciones sin restricción");
-                v.setPrice(Math.round(2500 + rand.nextDouble() * 300) / 100);
+
+                v.setPricePer("PAX");
+
+                BestDeal bd;
+                v.setPrice(bd = new BestDeal());
+
+                double rp;
+                double x = rand.nextDouble();
+                bd.setRetailPrice(new Amount("EUR", rp = Math.round(100d + x * 900d) / 100d));
+                System.out.println("x=" + x + ", rp=" + rp);
+                bd.setNetPrice(new Amount("EUR", Math.round(rp * 85d) / 100d));
             }
+
+            if (vs.size() == 0) {
+                BestDeal bd;
+                ad.setPrice(bd = new BestDeal());
+
+                ad.setPricePer("PAX");
+
+                double rp;
+                double x = rand.nextDouble();
+                bd.setRetailPrice(new Amount("EUR", rp = Math.round(100d + x * 900d) / 100d));
+                System.out.println("x=" + x + ", rp=" + rp);
+                bd.setNetPrice(new Amount("EUR", Math.round(rp * 85d) / 100d));
+            }
+
+        }
+
+        {
+            Remark r;
+            rs.getRemarks().add(r = new Remark());
+            r.setType("IMPORTANT");
+            r.setText("This service must be paid in 24 hors. Otherwise it will be automatically cancelled.");
+        }
+        {
+            Remark r;
+            rs.getRemarks().add(r = new Remark());
+            r.setType("WARNING");
+            r.setText("You must present the voucher that you will receive by email, after payment.");
+        }        {
+            Remark r;
+            rs.getRemarks().add(r = new Remark());
+            r.setType("INFO");
+            r.setText("Have a nice day");
+        }
+
+        {
+            Supplement c;
+            rs.getSupplements().add(c = new Supplement());
+            c.setDescription("Continental Buffet");
+            c.setId("deiuwed8ewud890u23");
+
+            {
+                Amount a;
+                c.setRetailPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(30.45);
+            }
+
+            {
+                Amount a;
+                c.setCommission(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(5);
+            }
+
+            {
+                Amount a;
+                c.setNetPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(25.45);
+            }
+
         }
 
 
+        return rs;
+    }
+
+    @Override
+    public GetActivityPriceRS getExcursionPrice(String token, String key, String language, int adults, int children, int vehicles, String supplements) throws Throwable {
+        GetActivityPriceRS rs = new GetActivityPriceRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("Price total");
+
+        Random rand = new Random();
+
+        rs.setAvailable(rand.nextBoolean());
+
+        BestDeal bd;
+        rs.setTotal(bd = new BestDeal());
+
+
+        double rp;
+        double x = rand.nextDouble();
+        bd.setRetailPrice(new Amount("EUR", rp = Math.round(100d + x * 900d) / 100d));
+        System.out.println("x=" + x + ", rp=" + rp);
+        bd.setNetPrice(new Amount("EUR", Math.round(rp * 85d) / 100d));
+
+        return rs;
+    }
+
+    @Override
+    public GetActivityPriceDetailsRS getActivityPriceDetails(String token, String key, String language, int adults, int children, int vehicles, String supplements) {
+        GetActivityPriceDetailsRS rs = new GetActivityPriceDetailsRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("Price details");
+
+        Random rand = new Random();
+
+
+        ArrayList<PaymentMethod> pms;
+        rs.setPaymentMethods(pms = new ArrayList<>());
+        {
+            PaymentMethod pm;
+            pms.add(pm = new PaymentMethod());
+            pm.setKey("1");
+            pm.setName("Cash");
+            pm.setCurrencyIsoCode("EUR");
+        }
+        {
+            PaymentMethod pm;
+            pms.add(pm = new PaymentMethod());
+            pm.setKey("1");
+            pm.setName("Cash");
+            pm.setCurrencyIsoCode("USD");
+        }
+        {
+            PaymentMethod pm;
+            pms.add(pm = new PaymentMethod());
+            pm.setKey("1");
+            pm.setName("Cash");
+            pm.setCurrencyIsoCode("GBP");
+        }
+        {
+            PaymentMethod pm;
+            pms.add(pm = new PaymentMethod());
+            pm.setKey("1");
+            pm.setName("VISA");
+            pm.setCurrencyIsoCode("EUR");
+        }
+        {
+            PaymentMethod pm;
+            pms.add(pm = new PaymentMethod());
+            pm.setKey("1");
+            pm.setName("VISA");
+            pm.setCurrencyIsoCode("USD");
+        }
 
         {
             CancellationCost c;

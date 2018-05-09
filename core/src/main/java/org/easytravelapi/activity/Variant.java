@@ -8,7 +8,9 @@ public class Variant {
 
     private String description;
 
-    private double price;
+    private String pricePer;
+
+    private BestDeal price;
 
 
     public String getId() {
@@ -35,11 +37,20 @@ public class Variant {
         this.description = description;
     }
 
-    public double getPrice() {
+
+    public BestDeal getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BestDeal price) {
         this.price = price;
+    }
+
+    public String getPricePer() {
+        return pricePer;
+    }
+
+    public void setPricePer(String pricePer) {
+        this.pricePer = pricePer;
     }
 }

@@ -8,6 +8,10 @@ import HotelRates from '@/components/hotel/Rates'
 import HotelDetalle from '@/components/hotel/Detalle'
 import Traslado from '@/components/traslado/Traslado'
 import Excursion from '@/components/excursion/Excursion'
+import ExcursionFormulario from '@/components/excursion/Formulario'
+import ExcursionDispo from '@/components/excursion/Dispo'
+import ExcursionRates from '@/components/excursion/Rates'
+import ExcursionDetalle from '@/components/excursion/Detalle'
 import Ok from '@/components/Ok'
 import Ko from '@/components/Ko'
 import Config from '@/components/Config'
@@ -64,7 +68,32 @@ export default new Router({
         {
           path: 'excursion',
           name: 'excursion',
-          component: Excursion
+          component: Excursion,
+          children: [
+
+            {
+              path: '',
+              name: 'excursion_formulario',
+              component: ExcursionFormulario
+            },
+            {
+              path: 'dispo',
+              name: 'excursion_dispo',
+              component: ExcursionDispo
+            },
+            {
+              path: 'rates',
+              name: 'excursion_rates',
+              component: ExcursionRates
+            },
+            {
+              path: 'detalle',
+              name: 'excursion_detalle',
+              component: ExcursionDetalle
+            },
+
+          ],
+
         },
 
         {
