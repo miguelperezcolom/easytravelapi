@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1>Aquí la reserva de traslado</h1>
+
+    <router-view/>
+
   </div>
 </template>
 

@@ -184,6 +184,7 @@
           habitacion: null,
           telefono: null,
           email: null,
+          touroperador: null,
         }
       },
     watch: {

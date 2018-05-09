@@ -7,6 +7,7 @@ import HotelDispo from '@/components/hotel/Dispo'
 import HotelRates from '@/components/hotel/Rates'
 import HotelDetalle from '@/components/hotel/Detalle'
 import Traslado from '@/components/traslado/Traslado'
+import TrasladoFormulario from '@/components/traslado/Formulario'
 import Excursion from '@/components/excursion/Excursion'
 import ExcursionFormulario from '@/components/excursion/Formulario'
 import ExcursionDispo from '@/components/excursion/Dispo'
@@ -15,6 +16,8 @@ import ExcursionDetalle from '@/components/excursion/Detalle'
 import Ok from '@/components/Ok'
 import Ko from '@/components/Ko'
 import Config from '@/components/Config'
+import Login from '@/components/Login'
+import Welcome from '@/components/Welcome'
 
 Vue.use(Router)
 
@@ -62,7 +65,34 @@ export default new Router({
         {
           path: 'traslado',
           name: 'traslado',
-          component: Traslado
+          component: Traslado,
+
+          children: [
+
+            {
+              path: '',
+              name: 'traslado_formulario',
+              component: TrasladoFormulario
+            },
+/*
+            {
+              path: 'dispo',
+              name: 'hotel_dispo',
+              component: HotelDispo
+            },
+            {
+              path: 'rates',
+              name: 'hotel_rates',
+              component: HotelRates
+            },
+            {
+              path: 'detalle',
+              name: 'hotel_detalle',
+              component: HotelDetalle
+            },
+*/
+          ],
+
         },
 
         {
@@ -110,6 +140,16 @@ export default new Router({
           path: 'config',
           name: 'config',
           component: Config
+        },
+        {
+          path: 'login',
+          name: 'login',
+          component: Login
+        },
+        {
+          path: 'welcome',
+          name: 'welcome',
+          component: Welcome
         },
       ],
     },

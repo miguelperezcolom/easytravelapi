@@ -14,6 +14,7 @@
         <router-link :to="{name: 'hotel_formulario'}" tag="li" active-class="active"><a>Hotel</a></router-link>
         <router-link :to="{name: 'traslado'}" tag="li" active-class="active"><a>Traslado</a></router-link>
         <router-link :to="{name: 'excursion_formulario'}" tag="li" active-class="active"><a>Excursion</a></router-link>
+          <router-link :to="{name: 'login'}" tag="li" active-class="active"><a>Agent sign in</a></router-link>
         <router-link :to="{name: 'config'}" tag="li" active-class="active"><a>{{ baseurl }}</a></router-link>
       </ul>
     </div>
@@ -23,6 +24,7 @@
       <li><a v-on:click="ir('hotel_formulario')">Hotel</a></li>
       <li><a v-on:click="ir('traslado')">Traslado</a></li>
       <li><a v-on:click="ir('excursion_formulario')">Excursion</a></li>
+      <li><a v-on:click="ir('login')">Agent sign in</a></li>
       <li><a v-on:click="ir('config')">{{ baseurl }}</a></li>
     </ul>
 
