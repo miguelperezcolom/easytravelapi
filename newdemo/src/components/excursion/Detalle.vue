@@ -1,7 +1,7 @@
 <template>
 
   <div>
-    <h1>Fill and confirm</h1>
+    <h1>Almost done</h1>
 
     <div v-if="detalles">
 
@@ -9,14 +9,14 @@
 
         <div class="row">
 
-          <div class="col m6 s12">
+          <div class="col m3 s12">
 
             <div class="row">
 
-              <div class="col m6 s12">
+              <div class="col m12 s12">
                 <h4>Remarks</h4>
                 <div v-for="r in detalles.remarks">
-                  {{ r.text }}
+                  <p>{{ r.text }}</p>
                 </div>
               </div>
             </div>
@@ -24,7 +24,7 @@
 
             <div class="row">
 
-              <div class="col m6 s12">
+              <div class="col m12 s12">
 
                 <h4>Cancellation costs</h4>
 
@@ -38,7 +38,7 @@
                   <tbody>
                   <tr v-for="c in detalles.cancellationCosts">
                     <td>{{c.gmttime}}</td>
-                    <td>{{ c.net.value }} {{ c.net.currencyIsoCode}}</td>
+                    <td class="right">{{ c.net.value }} {{ c.net.currencyIsoCode}}</td>
                   </tr>
                   </tbody>
                 </table>
@@ -47,13 +47,23 @@
 
             </div>
 
+
+
+          </div>
+
+          <div class="col offset-m1 m4 s12">
+
             <div class="row">
               <div class="col s12">
 
                 <h4>Please fill</h4>
 
                 <div>
-                  <label for="name">Your name</label>
+                  <label for="to">Touroperator</label>
+                  <input type="text" id="to" placeholder="Enter your name" v-model="touroperador">
+                </div>
+                <div>
+                  <label for="name">Lead name</label>
                   <input type="text" id="name" placeholder="Enter your name" v-model="titular">
                 </div>
                 <div>
@@ -79,29 +89,50 @@
 
           </div>
 
-          <div class="col m6 s12">
+          <div class="col offset-m1 m3 s12 pago">
 
             <div class="row">
 
               <div class="col m12 s12">
                 <h4>Totals</h4>
-                <table>
-                  <thead>
-                  <tr>
-                    <th>Description</th>
-                    <th>Currency</th>
-                    <th>Amount</th>
-                    <th>EUR</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr v-for="m in detalles.paymentMethods"><td>{{ m.name }}</td><td>{{ m.currencyIsoCode }}</td><td><input type="number" v-model="m.value"/></td><td>35.21</td></tr>
-                  </tbody>
-                  <tr>
-                    <th colspan="3">Total</th>
-                    <th>23.15</th>
-                  </tr>
-                </table>
+
+                <div class="row">
+                  <div class="col m3 s3">Method</div>
+                  <div class="col m3 s3">Currency</div>
+                  <div class="col m3 s3">Paid</div>
+                  <div class="col m3 s3">EUR</div>
+                </div>
+
+                <div class="row" v-for="m in detalles.paymentMethods">
+                  <div class="col m3 s3"><p>{{ m.name }}</p></div>
+                  <div class="col m3 s3"><p>{{ m.currencyIsoCode }}</p></div>
+                  <div class="col m3 s3"><input type="number" v-model="m.value"/></div>
+                  <div class="col m3 s3"><p class="right">35.12</p></div>
+                </div>
+
+                <div class="row">
+                  <div class="col m8 s8"><p class="right">Paid</p></div>
+                  <div class="col m4 s4"><p class="right">35.12</p></div>
+                </div>
+
+                <div class="row">
+                  <div class="col m8 s8"><p class="right">Total</p></div>
+                  <div class="col m4 s4"><p class="right">35.12</p></div>
+                </div>
+
+                <div class="row">
+                  <div class="col m8 s8"><p class="right">Balance</p></div>
+                  <div class="col m4 s4"><p class="right">35.12</p></div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col m12 s12 center">
+
+                <br><br>
+                <a class="waves-effect waves-light btn" v-on:click="book">BOOK</a>
               </div>
             </div>
 
@@ -120,7 +151,7 @@
 
     </div>
 
-    <a class="waves-effect waves-light btn" v-on:click="book">BOOK</a>
+
 
     <div class="cantidad"></div>
 
@@ -228,10 +259,14 @@
 
 <style scoped>
 
-  a.btn {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+  .pago p{margin: 0px;}
+
+  .pago input {
+    height: 1em !important;
+  }
+
+  .pago .row {
+    margin-bottom: 5px;
   }
 
 </style>

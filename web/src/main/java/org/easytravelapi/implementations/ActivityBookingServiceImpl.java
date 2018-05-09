@@ -315,6 +315,12 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             Remark r;
             rs.getRemarks().add(r = new Remark());
             r.setType("IMPORTANT");
+            r.setText("Pick up at Hotel Cala Marsal reception next April 27th at 12:30. Please be puntual.");
+        }
+        {
+            Remark r;
+            rs.getRemarks().add(r = new Remark());
+            r.setType("IMPORTANT");
             r.setText("This service must be paid in 24 hors. Otherwise it will be automatically cancelled.");
         }
         {
