@@ -14,6 +14,16 @@ public class BookActivityRQ {
     @ApiModelProperty(value = "The activity price key, as provided in the /activities/getavailable step")
     private String key;
 
+    private int date;
+
+    private String language;
+
+    private String shiftId;
+
+    private String optionIds;
+
+    private String variantIds;
+
     @ApiModelProperty(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
     private String bookingReference;
 
@@ -67,5 +77,53 @@ public class BookActivityRQ {
 
     public void setPrivateComments(String privateComments) {
         this.privateComments = privateComments;
+    }
+
+    public int getDate() {
+        return date;
+    }
+
+    public void setDate(int date) {
+        this.date = date;
+    }
+
+    public String getShiftId() {
+        return shiftId;
+    }
+
+    public void setShiftId(String shiftId) {
+        this.shiftId = shiftId;
+    }
+
+    public String getOptionIds() {
+        return optionIds;
+    }
+
+    public void setOptionIds(String optionIds) {
+        this.optionIds = optionIds;
+    }
+
+    public String getVariantIds() {
+        return variantIds;
+    }
+
+    public void setVariantIds(String variantIds) {
+        this.variantIds = variantIds;
+    }
+
+    public String getBookingReference() {
+        return bookingReference;
+    }
+
+    public void setBookingReference(String bookingReference) {
+        this.bookingReference = bookingReference;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }

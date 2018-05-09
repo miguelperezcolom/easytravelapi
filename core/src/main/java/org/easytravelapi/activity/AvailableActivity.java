@@ -21,9 +21,7 @@ public class AvailableActivity {
     @ApiModelProperty(value = "The main image for this activity")
     private String image;
 
-    @ApiModelProperty(value = "List of available dates (and hours) for this activity. Here you will find prices")
-    private List<ActivityDate> availableDates = new ArrayList<ActivityDate>();
-
+    private BestDeal bestDeal;
 
     public String getActivityId() {
         return activityId;
@@ -57,11 +55,11 @@ public class AvailableActivity {
         this.image = image;
     }
 
-    public List<ActivityDate> getAvailableDates() {
-        return availableDates;
+    public BestDeal getBestDeal() {
+        return bestDeal;
     }
 
-    public void setAvailableDates(List<ActivityDate> availableDates) {
-        this.availableDates = availableDates;
+    public void setBestDeal(BestDeal bestDeal) {
+        this.bestDeal = bestDeal;
     }
 }

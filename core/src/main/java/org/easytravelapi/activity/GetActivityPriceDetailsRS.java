@@ -15,6 +15,11 @@ import java.util.List;
 @ApiModel(description = "Container for the activity price details")
 public class GetActivityPriceDetailsRS extends AbstractRS {
 
+    private List<AvailableDate> availableDates = new ArrayList<>();
+
+    private List<Option> options = new ArrayList<>();
+
+
     @ApiModelProperty(value = "Cancellation costs for this activity")
     private List<CancellationCost> cancellationCosts = new ArrayList<CancellationCost>();
 
@@ -36,5 +41,21 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
 
     public void setRemarks(List<Remark> remarks) {
         this.remarks = remarks;
+    }
+
+    public List<AvailableDate> getAvailableDates() {
+        return availableDates;
+    }
+
+    public void setAvailableDates(List<AvailableDate> availableDates) {
+        this.availableDates = availableDates;
+    }
+
+    public List<Option> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<Option> options) {
+        this.options = options;
     }
 }
