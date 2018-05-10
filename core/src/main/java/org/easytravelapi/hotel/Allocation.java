@@ -22,6 +22,7 @@ public class Allocation {
     private List<Option> options = new ArrayList<Option>();
 
 
+
     public int getNumberOfRooms() {
         return numberOfRooms;
     }
