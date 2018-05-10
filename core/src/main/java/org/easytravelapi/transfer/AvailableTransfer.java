@@ -3,6 +3,7 @@ package org.easytravelapi.transfer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.Amount;
+import org.easytravelapi.hotel.BestDeal;
 
 /**
  * Created by miguel on 26/7/17.
@@ -22,9 +23,7 @@ public class AvailableTransfer {
     @ApiModelProperty(value = "Description of the service")
     private String description;
 
-    private Amount retailPrice;
-    private Amount netPrice;
-    private Amount commission;
+    private BestDeal total;
 
 
     @ApiModelProperty(value = "A flag to state that this price is an offer")
@@ -73,29 +72,7 @@ public class AvailableTransfer {
         this.description = description;
     }
 
-    public Amount getRetailPrice() {
-        return retailPrice;
-    }
 
-    public void setRetailPrice(Amount retailPrice) {
-        this.retailPrice = retailPrice;
-    }
-
-    public Amount getNetPrice() {
-        return netPrice;
-    }
-
-    public void setNetPrice(Amount netPrice) {
-        this.netPrice = netPrice;
-    }
-
-    public Amount getCommission() {
-        return commission;
-    }
-
-    public void setCommission(Amount commission) {
-        this.commission = commission;
-    }
 
     public boolean isOffer() {
         return offer;
@@ -135,5 +112,13 @@ public class AvailableTransfer {
 
     public void setNonRefundable(boolean nonRefundable) {
         this.nonRefundable = nonRefundable;
+    }
+
+    public BestDeal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BestDeal total) {
+        this.total = total;
     }
 }

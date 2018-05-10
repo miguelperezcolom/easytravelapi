@@ -244,7 +244,7 @@
           buscar: function(e) {
             e.preventDefault();
             console.log(this.$data);
-            this.$router.push({ name: 'excursion_dispo', query: {destino: this.$data.iddestino, llegada: this.$data.llegada, salida: this.$data.salida, idioma: this.$data.idioma} });
+            this.$router.push({ name: 'traslado_dispo', query: {destino: this.$data.iddestino, llegada: this.$data.llegada, salida: this.$data.salida, idioma: this.$data.idioma} });
           }
       }
       , mounted () {

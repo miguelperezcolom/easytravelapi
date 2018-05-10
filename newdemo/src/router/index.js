@@ -8,6 +8,8 @@ import HotelRates from '@/components/hotel/Rates'
 import HotelDetalle from '@/components/hotel/Detalle'
 import Traslado from '@/components/traslado/Traslado'
 import TrasladoFormulario from '@/components/traslado/Formulario'
+import TrasladoDispo from '@/components/traslado/Dispo'
+import TrasladoDetalle from '@/components/traslado/Detalle'
 import Excursion from '@/components/excursion/Excursion'
 import ExcursionFormulario from '@/components/excursion/Formulario'
 import ExcursionDispo from '@/components/excursion/Dispo'
@@ -74,23 +76,16 @@ export default new Router({
               name: 'traslado_formulario',
               component: TrasladoFormulario
             },
-/*
             {
               path: 'dispo',
-              name: 'hotel_dispo',
-              component: HotelDispo
-            },
-            {
-              path: 'rates',
-              name: 'hotel_rates',
-              component: HotelRates
+              name: 'traslado_dispo',
+              component: TrasladoDispo
             },
             {
               path: 'detalle',
-              name: 'hotel_detalle',
-              component: HotelDetalle
+              name: 'traslado_detalle',
+              component: TrasladoDetalle
             },
-*/
           ],
 
         },
