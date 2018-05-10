@@ -248,7 +248,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
-        rs.setMsg("Price details");
+        rs.setMsg("Price details xx");
 
         Random rand = new Random();
 

@@ -13,6 +13,24 @@
 
             <div class="row">
 
+              <div class="col m8 s12">
+                <label for="hotel">Hotel</label>
+                <input type="text" id="hotel" placeholder="Hteles de la oficina del representante" v-model="hotel">
+              </div>
+
+              <div class="col m4 s12">
+                <label for="idioma" data-error="wrong" data-success="right">Idioma</label>
+                <select id="idioma" v-model="idioma">
+                  <option value="es">Español</option>
+                  <option value="en">Inglés</option>
+                  <option value="de">Alemán</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="row">
+
               <div class="col m6 s12">
                 <label for="fecha">Date</label>
                 <select id="fecha" v-model="fecha">
@@ -59,6 +77,11 @@
               <div class="col m2 s12">
                 <label for="ninos">Children</label>
                 <input type="number" id="ninos" placeholder="Enter your name" v-model="ninos">
+              </div>
+
+              <div class="col m2 s12">
+                <label for="bebes">Infants</label>
+                <input type="number" id="bebes" placeholder="Enter your name" v-model="bebes">
               </div>
 
               <div class="col m2 s12">
@@ -164,6 +187,9 @@
         name: "Rates"
       , data: function() {
         return {
+          idioma: 'es',
+          touroperador: null,
+          hotel: null,
           detalles:null,
           fecha:{
             shifts:[],
@@ -171,6 +197,7 @@
           },
           adultos: 1,
           ninos: 0,
+          bebes: 0,
           vehiculos: 0,
           turno: null,
           variante: null,

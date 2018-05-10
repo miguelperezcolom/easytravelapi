@@ -25,15 +25,6 @@
     </div>
 
     <div class="input-field inline">
-      <select id="idioma" v-model="idioma">
-        <option value="es">Español</option>
-        <option value="en">Inglés</option>
-        <option value="de">Alemán</option>
-      </select>
-      <label for="idioma" data-error="wrong" data-success="right">Idioma</label>
-    </div>
-
-    <div class="input-field inline">
       <a class="waves-effect waves-light btn" v-on:click="buscar">Buscar</a>
     </div>
 
