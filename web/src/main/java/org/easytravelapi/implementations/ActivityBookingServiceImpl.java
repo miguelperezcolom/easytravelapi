@@ -28,7 +28,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
-        rs.setMsg("3 activities found. It consumed 24 ms in the server.");
+        rs.setMsg("3 activities found. It consumed 24 ms in the server. xx");
 
         Random r = new Random();
 
