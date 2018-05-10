@@ -30,13 +30,16 @@ public class Application  extends javax.ws.rs.core.Application {
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> s = new HashSet<Class<?>>();
+
+        System.out.println("Application.getClasses()");
+
+        s.add(CORSFilter.class);
+
         s.add(CommonsServiceImpl.class);
         s.add(ChannelManagerServiceImpl.class);
         s.add(ActivityBookingServiceImpl.class);
         s.add(HotelBookingServiceImpl.class);
         s.add(TransferBookingServiceImpl.class);
-
-        s.add(CORSFilter.class);
 
         s.add(io.swagger.jaxrs.listing.ApiListingResource.class);
         s.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);
