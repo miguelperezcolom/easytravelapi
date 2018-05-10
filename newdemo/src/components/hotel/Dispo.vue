@@ -5,7 +5,7 @@
 
     <ul class="collection with-header">
       <li class="collection-header"><h4>{{ dispo.msg }}</h4></li>
-      <a v-on:click="abrirdetalle(hotel.hotelKey)" v-for="hotel in dispo.hotels" style="cursor: pointer;"><li class="collection-item"><div>{{ hotel.hotelName }}<a class="secondary-content">{{ hotel.hotelKey }}{{ hotel.bestDeal.retailPrice.value }} {{ hotel.bestDeal.retailPrice.currencyIsoCode }}</a></div></li></a>
+      <a v-on:click="abrirdetalle(hotel.hotelKey)" v-for="hotel in dispo.hotels" style="cursor: pointer;"><li class="collection-item"><div>{{ hotel.hotelName }}<a class="secondary-content">{{ hotel.bestDeal.retailPrice.value }} {{ hotel.bestDeal.retailPrice.currencyIsoCode }}</a></div></li></a>
     </ul>
 
   </div>
