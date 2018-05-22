@@ -11,8 +11,19 @@ import org.easytravelapi.common.AbstractAuthenticatedRQ;
 @ApiModel(description = "Parameters needed to confirm an activity booking")
 public class BookActivityRQ {
 
-    @ApiModelProperty(value = "The activity price key, as provided in the /activities/getavailable step")
-    private String key;
+    private int date;
+
+    private String language;
+
+    private String shiftId;
+
+    private String variantId;
+
+    private int adults;
+    private int children;
+    private int vehicles;
+
+    private String supplementIds;
 
     @ApiModelProperty(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
     private String bookingReference;
@@ -37,12 +48,76 @@ public class BookActivityRQ {
     }
 
 
-    public String getKey() {
-        return key;
+    public int getDate() {
+        return date;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setDate(int date) {
+        this.date = date;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getShiftId() {
+        return shiftId;
+    }
+
+    public void setShiftId(String shiftId) {
+        this.shiftId = shiftId;
+    }
+
+    public String getVariantId() {
+        return variantId;
+    }
+
+    public void setVariantId(String variantId) {
+        this.variantId = variantId;
+    }
+
+    public int getAdults() {
+        return adults;
+    }
+
+    public void setAdults(int adults) {
+        this.adults = adults;
+    }
+
+    public int getChildren() {
+        return children;
+    }
+
+    public void setChildren(int children) {
+        this.children = children;
+    }
+
+    public int getVehicles() {
+        return vehicles;
+    }
+
+    public void setVehicles(int vehicles) {
+        this.vehicles = vehicles;
+    }
+
+    public String getSupplementIds() {
+        return supplementIds;
+    }
+
+    public void setSupplementIds(String supplementIds) {
+        this.supplementIds = supplementIds;
+    }
+
+    public String getBookingReference() {
+        return bookingReference;
+    }
+
+    public void setBookingReference(String bookingReference) {
+        this.bookingReference = bookingReference;
     }
 
     public String getLeadName() {

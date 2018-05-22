@@ -5,7 +5,7 @@
 
     <ul class="collection with-header">
       <li class="collection-header"><h4>{{ dispo.msg }}</h4></li>
-      <a v-on:click="abrirdetalle(hotel.hotelKey)" v-for="hotel in dispo.hotels" style="cursor: pointer;"><li class="collection-item"><div>{{ hotel.hotelName }}<a class="secondary-content">{{ hotel.bestDeal.retailPrice.value }} {{ hotel.bestDeal.retailPrice.currencyIsoCode }}</a></div></li></a>
+      <a v-on:click="abrirdetalle(exc.key)" v-for="exc in dispo.availableTransfers" style="cursor: pointer;"><li class="collection-item"><div>{{ exc.description }}<a class="secondary-content">{{ exc.total.retailPrice.value }} {{ exc.total.retailPrice.currencyIsoCode }}</a></div></li></a>
     </ul>
 
   </div>
@@ -20,7 +20,7 @@
 
 
     export default {
-        name: "HotelDispo"
+        name: "TrasladoDispo"
       , data: function() {
         return {
           dispo:null,
@@ -29,7 +29,7 @@
       , methods: {
           abrirdetalle(k) {
             console.log(k);
-            this.$router.push({ name: 'hotel_rates', query: {hotelkey: k} });
+            this.$router.push({ name: 'traslado_detalle', query: {key: k} });
           }
       }
       , mounted() {
@@ -39,13 +39,13 @@
 
         axios({
           method: 'get',
-          url: globaldata.baseurl + '/hotel/available',
+          url: globaldata.baseurl + '/transfer/available',
           params: {
             language: lan,
             resorts: this.$route.query.destino,
             checkin: this.$route.query.entrada?this.$route.query.entrada.replace(/-/g, ""):null,
             checkout: this.$route.query.salida?this.$route.query.salida.replace(/-/g, ""):null,
-            occupancies: this.$route.query.ocupacion,
+            language: this.$route.query.idioma,
           }
         })
           .then(function (response) {

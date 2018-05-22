@@ -15,12 +15,19 @@ import java.util.List;
 @ApiModel(description = "Container for the activity price details")
 public class GetActivityPriceDetailsRS extends AbstractRS {
 
+    private String key;
+
+    private List<PriceLine> priceLines = new ArrayList<>();
+
+    private BestDeal total;
+
     @ApiModelProperty(value = "Cancellation costs for this activity")
     private List<CancellationCost> cancellationCosts = new ArrayList<CancellationCost>();
 
     @ApiModelProperty(value = "Remarks which should be visible for the customer")
     private List<Remark> remarks = new ArrayList<Remark>();
 
+    private List<PaymentMethod> paymentMethods = new ArrayList<>();
 
     public List<CancellationCost> getCancellationCosts() {
         return cancellationCosts;
@@ -37,4 +44,38 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
     public void setRemarks(List<Remark> remarks) {
         this.remarks = remarks;
     }
+
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public List<PriceLine> getPriceLines() {
+        return priceLines;
+    }
+
+    public void setPriceLines(List<PriceLine> priceLines) {
+        this.priceLines = priceLines;
+    }
+
+    public BestDeal getTotal() {
+        return total;
+    }
+
+    public void setTotal(BestDeal total) {
+        this.total = total;
+    }
+
+    public List<PaymentMethod> getPaymentMethods() {
+        return paymentMethods;
+    }
+
+    public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
+        this.paymentMethods = paymentMethods;
+    }
 }
+

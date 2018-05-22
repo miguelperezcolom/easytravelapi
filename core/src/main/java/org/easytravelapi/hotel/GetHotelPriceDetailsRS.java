@@ -3,6 +3,7 @@ package org.easytravelapi.hotel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.AbstractRS;
+import org.easytravelapi.common.Amount;
 import org.easytravelapi.common.CancellationCost;
 import org.easytravelapi.common.Remark;
 
@@ -15,6 +16,12 @@ import java.util.List;
 @ApiModel(description = "Container for the hotel price details response")
 public class GetHotelPriceDetailsRS extends AbstractRS {
 
+    private Amount retail;
+    private Amount commission;
+    private Amount net;
+
+    private String status;
+
     private List<Service> availableServices = new ArrayList<Service>();
 
     @ApiModelProperty(value = "Cancellation costs for this activity")
@@ -23,6 +30,38 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Remarks which should be visible for the customer")
     private List<Remark> remarks = new ArrayList<Remark>();
 
+
+    public Amount getRetail() {
+        return retail;
+    }
+
+    public void setRetail(Amount retail) {
+        this.retail = retail;
+    }
+
+    public Amount getCommission() {
+        return commission;
+    }
+
+    public void setCommission(Amount commission) {
+        this.commission = commission;
+    }
+
+    public Amount getNet() {
+        return net;
+    }
+
+    public void setNet(Amount net) {
+        this.net = net;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public List<Service> getAvailableServices() {
         return availableServices;

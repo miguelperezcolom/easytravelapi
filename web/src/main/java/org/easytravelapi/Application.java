@@ -19,6 +19,7 @@ public class Application  extends javax.ws.rs.core.Application {
         beanConfig.setSchemes(new String[]{"http"});
         beanConfig.setHost("test.easytravelapi.com");
         beanConfig.setBasePath("/rest");
+
 //        beanConfig.classes().add(CommonsService.class);
 //        beanConfig.classes().add(ActivityBookingService.class);
         beanConfig.setResourcePackage("org.easytravelapi");
@@ -29,6 +30,11 @@ public class Application  extends javax.ws.rs.core.Application {
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> s = new HashSet<Class<?>>();
+
+        System.out.println("Application.getClasses()");
+
+        s.add(CORSFilter.class);
+
         s.add(CommonsServiceImpl.class);
         s.add(ChannelManagerServiceImpl.class);
         s.add(ActivityBookingServiceImpl.class);

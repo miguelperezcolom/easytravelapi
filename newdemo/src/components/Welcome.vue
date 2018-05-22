@@ -1,7 +1,7 @@
 <template>
-<div class="container center"><h1>Thank you!</h1>
+<div class="container center"><h1>Welcome XXXX!</h1>
   <i class="material-icons green large circle">done</i>
-<h4>Your booking has been confirmed with ID: {{bookingId}}</h4>
+<h4>Ready to start</h4>
 </div>
 </template>
 

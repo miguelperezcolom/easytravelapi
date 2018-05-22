@@ -5,6 +5,9 @@ import org.easytravelapi.common.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by miguel on 27/7/17.
@@ -144,28 +147,32 @@ public class CommonsServiceImpl implements CommonsService {
         rs.setStatusCode(200);
         rs.setMsg("4 matches");
 
+        List<Match> matches = new ArrayList<>();
+
         Match m;
-        rs.getMatches().add(m = new Match());
+        matches.add(m = new Match());
         m.setResourceId("cou_es");
         m.setName("España");
         m.setDescription("España es un país de la UE");
 
 
-        rs.getMatches().add(m = new Match());
+        matches.add(m = new Match());
         m.setResourceId("hot_213");
         m.setName("Hotel Playa de Palma");
         m.setDescription("Hotel de 4 estrellas ubicado es Palma de Mallorca, España");
 
-        rs.getMatches().add(m = new Match());
+        matches.add(m = new Match());
         m.setResourceId("hot_546546");
         m.setName("Hotel Bellver");
         m.setDescription("Hotel de 5 estrellas ubicado es Alcudia, Baleares");
 
-        rs.getMatches().add(m = new Match());
+        matches.add(m = new Match());
         m.setResourceId("hot_3424234");
         m.setName("Hotel Valparaiso");
         m.setDescription("Hotel de 2 estrellas ubicado es Palma de Mallorca, España");
 
+
+        rs.getMatches().addAll(matches.stream().filter((z) -> z.getName().toLowerCase().contains(query) || z.getDescription().toLowerCase().contains(query)).collect(Collectors.toList()));
 
         return rs;
     }

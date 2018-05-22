@@ -14,13 +14,13 @@ import java.util.List;
 public class GetHotelRatesRS extends AbstractRS {
 
     @ApiModelProperty(value = "List of available hotels, including prices")
-    private List<Option> rates = new ArrayList<Option>();
+    private List<Allocation> rates = new ArrayList<Allocation>();
 
-    public List<Option> getRates() {
+    public List<Allocation> getRates() {
         return rates;
     }
 
-    public void setRates(List<Option> rates) {
+    public void setRates(List<Allocation> rates) {
         this.rates = rates;
     }
 }

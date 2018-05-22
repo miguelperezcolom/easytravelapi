@@ -7,11 +7,18 @@
 </template>
 
 <script>
-    export default {
-        name: "Traslado"
-    }
+
+  export default {
+    name: "Excursion"
+    , data: function () {
+      return {
+        count: 0
+      }
+    },
+  }
 </script>
 
 <style scoped>
 
 </style>
+
