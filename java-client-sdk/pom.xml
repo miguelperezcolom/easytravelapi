@@ -5,7 +5,7 @@
   <parent>
     <artifactId>parent</artifactId>
     <groupId>org.easytravelapi</groupId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.2.1</version>
   </parent>
 
 
@@ -13,7 +13,7 @@
   <groupId>org.easytravelapi</groupId>
   <artifactId>easytravelapi-swagger-java-client</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.10</version>
+  <version>0.1.11</version>
 
 
   <name>Swagger generated java SDK for the easy travel api</name>
@@ -164,8 +164,6 @@
       </plugin>
 
 
-      <!-- comentado para no desplegar en maven central
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
@@ -195,8 +193,6 @@
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
       </plugin>
-
-      -->
 
 
     </plugins>
@@ -254,7 +250,7 @@
   </properties>
 
 
-  <!-- comentado para no desplegar en maven central
+
 
   <distributionManagement>
     <snapshotRepository>
@@ -267,6 +263,6 @@
     </repository>
   </distributionManagement>
 
-  -->
+
 
 </project>

@@ -59,7 +59,7 @@ public class DefaultApiTest {
      * @throws ApiException
      *          if the Api call fails
      */
-    @Test
+    //@Test
     public void bookActivityTest() throws ApiException {
 
        String authtoken = "wdhweduwehdui";
@@ -83,7 +83,7 @@ public class DefaultApiTest {
      * @throws ApiException
      *          if the Api call fails
      */
-    @Test
+    //@Test
     public void bookHotelTest() throws ApiException {
         String authtoken = "oehdowehduweh";
         BookHotelRQ body = new BookHotelRQ();
@@ -337,7 +337,7 @@ public class DefaultApiTest {
      * @throws ApiException
      *          if the Api call fails
      */
-    @Test
+    //@Test
     public void getPortfolioTest() throws ApiException {
         String authtoken = "ehnweoudfhweo8we7dfwe8";
         GetPortfolioRS response = api.getPortfolio(authtoken);
