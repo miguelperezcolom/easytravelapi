@@ -21,6 +21,9 @@ public class Option {
     private List<BoardPrice> prices = new ArrayList<BoardPrice>();
 
 
+    private int allotment;
+
+
     public String getRoomId() {
         return roomId;
     }
@@ -43,5 +46,14 @@ public class Option {
 
     public void setPrices(List<BoardPrice> prices) {
         this.prices = prices;
+    }
+
+
+    public int getAllotment() {
+        return allotment;
+    }
+
+    public void setAllotment(int allotment) {
+        this.allotment = allotment;
     }
 }

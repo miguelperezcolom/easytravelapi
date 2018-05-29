@@ -38,7 +38,9 @@ public interface CommonsService {
     @ApiOperation(value = "Method to get a resource data sheet. E.g. descriptions, images, features")
     public GetDataSheetRS getDataSheet(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @PathParam("resourceid") String resourceId) throws Throwable;
+            @PathParam("resourceid") String resourceId,
+            @PathParam("language") String language
+    ) throws Throwable;
 
     @GET
     @Path("/bookings")

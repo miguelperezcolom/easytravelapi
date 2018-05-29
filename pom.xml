@@ -9,9 +9,7 @@
     <module>core</module>
     <module>web</module>
     <module>swaggertester</module>
-    <!--
     <module>java-client-sdk</module>
-    -->
   </modules>
   <packaging>pom</packaging>
 

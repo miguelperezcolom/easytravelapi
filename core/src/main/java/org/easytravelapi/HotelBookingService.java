@@ -42,7 +42,7 @@ public interface HotelBookingService {
             @QueryParam("includestaticinfo") boolean includeStaticInfo
     ) throws Throwable;
 
-    @GET
+    @POST
     @Path("/rates/{hotelkey}")
     @ApiOperation(value = "Use this method to get available room rates for a hotel")
     public GetHotelRatesRS getRates(
@@ -51,7 +51,7 @@ public interface HotelBookingService {
             @PathParam("hotelkey") String hotelkey
     ) throws Throwable;
 
-    @GET
+    @POST
     @Path("/pricedetails/{ratekeys}")
     @ApiOperation(value = "Use this methos to guess cancellation costs and important remarks regarding a price")
     public GetHotelPriceDetailsRS getHotelPriceDetails(
