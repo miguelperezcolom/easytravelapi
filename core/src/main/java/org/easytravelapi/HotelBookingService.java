@@ -43,12 +43,12 @@ public interface HotelBookingService {
     ) throws Throwable;
 
     @POST
-    @Path("/rates/{hotelkey}")
+    @Path("/rates")
     @ApiOperation(value = "Use this method to get available room rates for a hotel")
     public GetHotelRatesRS getRates(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The hotel price key, as provided in the /hotel/available step")
-            @PathParam("hotelkey") String hotelkey
+            String hotelkey
     ) throws Throwable;
 
     @POST
