@@ -15,7 +15,7 @@ import java.util.List;
 public class BookHotelRQ {
 
     @ApiModelProperty(value = "The price id, as we got it when we asked for available hotels")
-    public List<String> rateKeys = new ArrayList<String>();
+    public List<BookingKey> rateKeys = new ArrayList<BookingKey>();
 
     @ApiModelProperty(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
     private String bookingReference;
@@ -42,11 +42,11 @@ public class BookHotelRQ {
         return Helper.toJson(this);
     }
 
-    public List<String> getRateKeys() {
+    public List<BookingKey> getRateKeys() {
         return rateKeys;
     }
 
-    public void setRateKeys(List<String> rateKeys) {
+    public void setRateKeys(List<BookingKey> rateKeys) {
         this.rateKeys = rateKeys;
     }
 
