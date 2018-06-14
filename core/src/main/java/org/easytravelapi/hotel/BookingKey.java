@@ -7,6 +7,7 @@ public class BookingKey {
     private int roomId;
     private String rateKey;
     private String roomName;
+    private String paymentType;
 
     public List<PaxDetails> getOccupancy() {
         return occupancy;
@@ -38,5 +39,13 @@ public class BookingKey {
 
     public void setRoomName(String roomName) {
         this.roomName = roomName;
+    }
+
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
     }
 }

@@ -11,6 +11,8 @@ public class RateKey {
     private int paxPerRoom;
     @ApiModelProperty(value = "Name of room of rateKey")
     private String roomName;
+    @ApiModelProperty(value = "type of payment")
+    private String paymentType;
 
     public String getKey() {
         return key;
@@ -34,4 +36,11 @@ public class RateKey {
         this.roomName = roomName;
     }
 
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
+    }
 }
