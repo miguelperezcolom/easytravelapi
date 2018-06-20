@@ -2,11 +2,13 @@ package org.easytravelapi.hotel;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.easytravelapi.hotel.PriceLine;
 import org.easytravelapi.common.AbstractRS;
 import org.easytravelapi.common.Amount;
 import org.easytravelapi.common.CancellationCost;
 import org.easytravelapi.common.Remark;
 
+import javax.xml.bind.PrintConversionEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,11 +19,9 @@ import java.util.List;
 @ApiModel(description = "Container for the hotel price details response")
 public class GetHotelPriceDetailsRS extends AbstractRS {
 
-    private Amount retail;
-    private Amount commission;
-    private Amount net;
-
     private String status;
+    @ApiModelProperty(value = "List of pricing")
+    private List<PriceLine> prices  = new ArrayList<org.easytravelapi.hotel.PriceLine>();
 
     private List<Service> availableServices = new ArrayList<Service>();
 
@@ -37,30 +37,6 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Detailed Payment lines")
     private List<PaymentLine> paymentLines = new ArrayList<PaymentLine>();
 
-    public Amount getRetail() {
-        return retail;
-    }
-
-    public void setRetail(Amount retail) {
-        this.retail = retail;
-    }
-
-    public Amount getCommission() {
-        return commission;
-    }
-
-    public void setCommission(Amount commission) {
-        this.commission = commission;
-    }
-
-    public Amount getNet() {
-        return net;
-    }
-
-    public void setNet(Amount net) {
-        this.net = net;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -68,6 +44,10 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public List<PriceLine> getPrices() { return prices; }
+
+    public void setPrices(List<PriceLine> prices) { this.prices = prices; }
 
     public List<Service> getAvailableServices() {
         return availableServices;
