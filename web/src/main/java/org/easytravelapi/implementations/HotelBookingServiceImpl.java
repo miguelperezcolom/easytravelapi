@@ -226,24 +226,33 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         rs.setMsg("Price details");
 
         {
-            Amount a;
-            rs.setRetail(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(1500.32);
-        }
+            PriceLine pc;
+            rs.getPrices().add(pc = new PriceLine());
+            {
+                Amount a;
+                pc.setRetailPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(1500.32);
+            }
 
-        {
-            Amount a;
-            rs.setCommission(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(250.31);
-        }
+            {
+                Amount a;
+                pc.setCommission(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(250.31);
+            }
 
-        {
-            Amount a;
-            rs.setNet(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(1250.01);
+            {
+                Amount a;
+                pc.setNetPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(1250.01);
+            }
+
+                pc.setType("AT_WEB");
+
+
+
         }
 
         {
@@ -364,6 +373,16 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             r.setType("INFO");
             r.setText("Reception closed at night hours.");
         }
+
+        {
+            RateKey rk;
+            rs.getRateKeys().add(rk = new RateKey());
+            rk.setRequestPaymentData(true);
+            rk.setRoomName("DBL STANDART");
+            rk.setPaxPerRoom(2);
+            rk.setKey("xxx");
+        }
+
 
         return rs;
     }
