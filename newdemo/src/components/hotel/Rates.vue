@@ -55,10 +55,10 @@
         var d = this.$data;
 
         axios({
-          method: 'get',
+          method: 'post',
           url: globaldata.baseurl + '/hotel/rates/' + this.$route.query.hotelkey,
           params: {
-
+z
           }
         })
           .then(function (response) {

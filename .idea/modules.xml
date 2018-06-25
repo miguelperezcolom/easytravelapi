@@ -5,8 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
       <module fileurl="file://$PROJECT_DIR$/easytravelapi.iml" filepath="$PROJECT_DIR$/easytravelapi.iml" />
       <module fileurl="file://$PROJECT_DIR$/newdemo/newdemo.iml" filepath="$PROJECT_DIR$/newdemo/newdemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java-client-sdk/swagger-java-client.iml" filepath="$PROJECT_DIR$/java-client-sdk/swagger-java-client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/swaggertester/swaggertester.iml" filepath="$PROJECT_DIR$/swaggertester/swaggertester.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
     </modules>
   </component>

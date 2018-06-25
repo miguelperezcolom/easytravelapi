@@ -171,13 +171,13 @@
           }
       }
       , mounted() {
-        console.log(this.$route.query);
+        console.log('hi');
 
         var d = this.$data;
 
         axios({
-          method: 'get',
-          url: globaldata.baseurl + '/hotel/pricedetails/' + this.$route.query.keys,
+          method: 'post',
+          url: globaldata.baseurl + '/hotel/pricedetails/h' ,
           params: {
 
           }

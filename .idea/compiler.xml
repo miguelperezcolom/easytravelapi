@@ -8,8 +8,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
         <module name="opentravelapi" />
-        <module name="swagger-java-client" />
-        <module name="swaggertester" />
         <module name="web" />
       </profile>
     </annotationProcessing>
