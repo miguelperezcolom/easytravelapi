@@ -32,13 +32,16 @@ public class BookTransferRQ {
     private int incomingFlightTime;
     @ApiModelProperty(value = "Incoming flight origin")
     private String incomingFlightOrigin;
-
     @ApiModelProperty(value = "Outgoing flight number")
     private String outgoingFlightNumber;
     @ApiModelProperty(value = "Locale outgoing flight time in YYYYMMDDHHMM format")
     private int outgoingFlightTime;
     @ApiModelProperty(value = "Outgoing flight origin")
     private String outgoingFlightDestination;
+    @ApiModelProperty(value = "Contact telephone number")
+    private String contactPhone;
+    @ApiModelProperty(value = "Contact email")
+    private String contactEmail;
 
 
     public static BookTransferRQ fromString(String json) {
@@ -137,4 +140,12 @@ public class BookTransferRQ {
     public void setOutgoingFlightDestination(String outgoingFlightDestination) {
         this.outgoingFlightDestination = outgoingFlightDestination;
     }
+
+    public String getContactPhone() { return contactPhone; }
+
+    public void setContactPhone(String contactPhone) { this.contactPhone = contactPhone; }
+
+    public String getContactEmail() { return contactEmail; }
+
+    public void setContactEmail(String contactEmail) { this.contactEmail = contactEmail; }
 }

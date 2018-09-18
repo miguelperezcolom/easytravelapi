@@ -21,13 +21,13 @@ public class GetAvailableTransfersRQ extends AbstractAuthenticatedRQ {
 
     @ApiModelProperty(value = "Number of pax")
     private int pax;
-    @ApiModelProperty(value = "Pax ages. If not present we will assume they are adults")
-    private int[] ages;
 
     @ApiModelProperty(value = "Number of bikes")
     private int bikes;
     @ApiModelProperty(value = "Number of golf baggages")
     private int golfBaggages;
+    @ApiModelProperty(value = "Number of ski baggages")
+    private int skis;
     @ApiModelProperty(value = "Number of big luggages not bikes neither golf baggages")
     private int bigLuggages;
     @ApiModelProperty(value = "Number of wheel chairs")
@@ -73,14 +73,6 @@ public class GetAvailableTransfersRQ extends AbstractAuthenticatedRQ {
         this.pax = pax;
     }
 
-    public int[] getAges() {
-        return ages;
-    }
-
-    public void setAges(int[] ages) {
-        this.ages = ages;
-    }
-
     public int getBikes() {
         return bikes;
     }
@@ -95,6 +87,14 @@ public class GetAvailableTransfersRQ extends AbstractAuthenticatedRQ {
 
     public void setGolfBaggages(int golfBaggages) {
         this.golfBaggages = golfBaggages;
+    }
+
+    public int getSkis() {
+        return skis;
+    }
+
+    public void setSkis(int skis) {
+        this.skis = skis;
     }
 
     public int getBigLuggages() {
