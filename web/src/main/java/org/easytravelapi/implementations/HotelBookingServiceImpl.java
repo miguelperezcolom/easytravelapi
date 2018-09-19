@@ -276,6 +276,16 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
         }
         {
+            PaymentLine l;
+            rs.getPaymentLines().add(l = new PaymentLine());
+            Amount a;
+            l.setAmount(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(130.45);
+            l.setDate(20180601);
+            l.setPaymentMethod("WEB");
+        }
+        {
             Service c;
             rs.getAvailableServices().add(c = new Service());
             c.setDescription("Continental Buffet");
