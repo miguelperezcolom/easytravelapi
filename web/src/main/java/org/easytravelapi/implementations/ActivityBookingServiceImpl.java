@@ -378,6 +378,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             }
 
             pc.setType("AT_WEB");
+            pc.setDescription("detailed price");
 
 
 

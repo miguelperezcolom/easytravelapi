@@ -245,7 +245,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             }
 
                 pc.setType("AT_WEB");
-
+                pc.setDescription("detailed price");
 
 
         }
@@ -290,6 +290,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 a.setValue(30.45);
                 l.setDate(20180601);
                 l.setPaymentMethod("WEB");
+
             }
 
             {

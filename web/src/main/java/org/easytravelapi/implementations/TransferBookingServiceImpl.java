@@ -277,7 +277,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             }
 
             pc.setType("AT_WEB");
-
+            pc.setDescription("detailed price");
 
 
         }
