@@ -2,15 +2,9 @@ package org.easytravelapi.hotel;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.easytravelapi.hotel.PriceLine;
-import org.easytravelapi.common.AbstractRS;
-import org.easytravelapi.common.Amount;
-import org.easytravelapi.common.CancellationCost;
-import org.easytravelapi.common.Remark;
+import org.easytravelapi.common.*;
 
-import javax.xml.bind.PrintConversionEvent;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -20,8 +14,9 @@ import java.util.List;
 public class GetHotelPriceDetailsRS extends AbstractRS {
 
     private String status;
+    private BestDeal total;
     @ApiModelProperty(value = "List of pricing")
-    private List<PriceLine> prices  = new ArrayList<org.easytravelapi.hotel.PriceLine>();
+    private List<PriceLine> prices  = new ArrayList<PriceLine>();
 
     private List<Service> availableServices = new ArrayList<Service>();
 
@@ -44,6 +39,10 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public BestDeal getTotal() { return total; }
+
+    public void setTotal(BestDeal total) { this.total = total; }
 
     public List<PriceLine> getPrices() { return prices; }
 

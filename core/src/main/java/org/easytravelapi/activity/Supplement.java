@@ -1,10 +1,6 @@
 package org.easytravelapi.activity;
 
 import org.easytravelapi.common.Amount;
-import org.easytravelapi.hotel.PaymentLine;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Supplement {
 

@@ -2,8 +2,7 @@ package org.easytravelapi.transfer;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.easytravelapi.common.Amount;
-import org.easytravelapi.hotel.BestDeal;
+import org.easytravelapi.common.BestDeal;
 
 /**
  * Created by miguel on 26/7/17.

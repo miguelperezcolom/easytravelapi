@@ -1,16 +1,11 @@
 package org.easytravelapi.implementations;
 
 import org.easytravelapi.HotelBookingService;
-import org.easytravelapi.common.Amount;
-import org.easytravelapi.common.CancellationCost;
-import org.easytravelapi.common.Remark;
+import org.easytravelapi.common.*;
 import org.easytravelapi.hotel.*;
 
-import javax.ws.rs.FormParam;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -254,7 +249,32 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
 
         }
+        {
+            BestDeal tot;
+            rs.setTotal(tot = new BestDeal());
+            {
+                Amount a;
+                tot.setRetailPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(1500.32);
+            }
 
+            {
+                Amount a;
+                tot.setCommission(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(250.31);
+            }
+
+            {
+                Amount a;
+                tot.setNetPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(1250.01);
+            }
+
+
+        }
         {
             Service c;
             rs.getAvailableServices().add(c = new Service());

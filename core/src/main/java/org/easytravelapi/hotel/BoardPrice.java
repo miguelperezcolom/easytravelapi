@@ -3,6 +3,7 @@ package org.easytravelapi.hotel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.Amount;
+import org.easytravelapi.common.PaymentLine;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,7 @@
 package org.easytravelapi.activity;
 
+import org.easytravelapi.common.BestDeal;
+
 public class Variant {
 
     private String id;

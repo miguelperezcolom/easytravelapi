@@ -1,5 +1,7 @@
 package org.easytravelapi.activity;
 
+import org.easytravelapi.common.BestDeal;
+
 import java.util.ArrayList;
 import java.util.List;
 

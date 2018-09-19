@@ -2,9 +2,7 @@ package org.easytravelapi.hotel;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.easytravelapi.common.BestDeal;
 
 /**
  * Created by miguel on 26/7/17.

@@ -2,9 +2,7 @@ package org.easytravelapi.activity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.easytravelapi.common.AbstractRS;
-import org.easytravelapi.common.CancellationCost;
-import org.easytravelapi.common.Remark;
+import org.easytravelapi.common.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +18,9 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
     private List<PriceLine> priceLines = new ArrayList<>();
 
     private BestDeal total;
+
+    @ApiModelProperty(value = "Detailed Payment lines")
+    private List<PaymentLine> paymentLines = new ArrayList<PaymentLine>();
 
     @ApiModelProperty(value = "Cancellation costs for this activity")
     private List<CancellationCost> cancellationCosts = new ArrayList<CancellationCost>();
@@ -69,6 +70,10 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
     public void setTotal(BestDeal total) {
         this.total = total;
     }
+
+    public List<PaymentLine> getPaymentLines() { return paymentLines; }
+
+    public void setPaymentLines(List<PaymentLine> paymentLines) { this.paymentLines = paymentLines; }
 
     public List<PaymentMethod> getPaymentMethods() {
         return paymentMethods;

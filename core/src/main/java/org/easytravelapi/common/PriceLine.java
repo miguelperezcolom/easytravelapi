@@ -1,4 +1,4 @@
-package org.easytravelapi.activity;
+package org.easytravelapi.common;
 
 import org.easytravelapi.common.Amount;
 
@@ -13,6 +13,8 @@ public class PriceLine {
     private Amount commission;
 
     private Amount netPrice;
+
+    private String type;
 
     public String getId() {
         return id;
@@ -53,4 +55,8 @@ public class PriceLine {
     public void setNetPrice(Amount netPrice) {
         this.netPrice = netPrice;
     }
+
+    public String getType() { return type; }
+
+    public void setType(String type) { this.type = type; }
 }

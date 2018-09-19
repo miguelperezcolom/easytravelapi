@@ -1,6 +1,7 @@
 package org.easytravelapi.hotel;
 
 import org.easytravelapi.common.Amount;
+import org.easytravelapi.common.PaymentLine;
 
 import java.util.ArrayList;
 import java.util.List;

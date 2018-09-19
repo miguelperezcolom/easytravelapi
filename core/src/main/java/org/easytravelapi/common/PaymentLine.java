@@ -1,4 +1,4 @@
-package org.easytravelapi.hotel;
+package org.easytravelapi.common;
 
 import org.easytravelapi.common.Amount;
 

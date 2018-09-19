@@ -2,18 +2,11 @@ package org.easytravelapi.implementations;
 
 import org.easytravelapi.ActivityBookingService;
 import org.easytravelapi.activity.*;
-import org.easytravelapi.common.Amount;
-import org.easytravelapi.common.CancellationCost;
-import org.easytravelapi.common.Remark;
-import org.easytravelapi.hotel.PaymentLine;
-import org.easytravelapi.hotel.Service;
-import org.easytravelapi.transfer.BookTransferRS;
+import org.easytravelapi.common.*;
 
-import javax.ws.rs.FormParam;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -333,6 +326,71 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             rs.getRemarks().add(r = new Remark());
             r.setType("INFO");
             r.setText("Have a nice day");
+        }
+        {
+            BestDeal tot;
+            rs.setTotal(tot = new BestDeal());
+            {
+                Amount a;
+                tot.setRetailPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(1500.32);
+            }
+
+            {
+                Amount a;
+                tot.setCommission(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(250.31);
+            }
+
+            {
+                Amount a;
+                tot.setNetPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(1250.01);
+            }
+
+
+        }
+        {
+            PriceLine pc;
+            rs.getPriceLines().add(pc = new PriceLine());
+            {
+                Amount a;
+                pc.setRetailPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(1500.32);
+            }
+
+            {
+                Amount a;
+                pc.setCommission(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(250.31);
+            }
+
+            {
+                Amount a;
+                pc.setNetPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(1250.01);
+            }
+
+            pc.setType("AT_WEB");
+
+
+
+        }
+        {
+            PaymentLine l;
+            rs.getPaymentLines().add(l = new PaymentLine());
+            Amount a;
+            l.setAmount(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(30.45);
+            l.setDate(20180601);
+            l.setPaymentMethod("WEB");
         }
 
         return rs;
