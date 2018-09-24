@@ -203,7 +203,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(25.45);
             }
-            {
+       /*     {
 
                 rs.getLanguages().add("Español");
                 rs.getLanguages().add("Ingles");
@@ -216,7 +216,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
                 rs.getPickups().add("Hotel recogida 2");
                 rs.getPickups().add("Hotel recogida 3");
 
-            }
+            }*/
 
         }
 
