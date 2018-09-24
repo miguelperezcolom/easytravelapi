@@ -58,7 +58,10 @@ public interface ActivityBookingService {
             @ApiParam(value = "Number of pax")
             @QueryParam("adults") int adults,
             @QueryParam("ages")int children,
-            @QueryParam("vehicles")int vehicles,
+            @QueryParam("pickup")String  pickup,
+            @QueryParam("date")int  date,
+            @ApiParam("variant")Variant  variant,
+            @ApiParam("shift")Shift shift,
             @QueryParam("supplements")String supplements
     ) throws Throwable;
 

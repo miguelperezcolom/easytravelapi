@@ -203,6 +203,20 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(25.45);
             }
+            {
+
+                rs.getLanguages().add("Español");
+                rs.getLanguages().add("Ingles");
+                rs.getLanguages().add("Frances");
+
+            }
+            {
+
+                rs.getPickups().add("Hotel recogida 1");
+                rs.getPickups().add("Hotel recogida 2");
+                rs.getPickups().add("Hotel recogida 3");
+
+            }
 
         }
 
@@ -211,7 +225,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
     }
 
     @Override
-    public GetActivityPriceRS getExcursionPrice(String token, String key, String language, int adults, int children, int vehicles, String supplements) throws Throwable {
+    public GetActivityPriceRS getExcursionPrice(String token, String key, String language, int adults, int children, String pickup, int date, Variant variant, Shift shift, String supplements) throws Throwable {
         GetActivityPriceRS rs = new GetActivityPriceRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -234,6 +248,31 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
         return rs;
     }
+
+    /*@Override
+    public GetActivityPriceRS getExcursionPrice(String token, String key, String language, int adults, int children, int vehicles, String supplements) throws Throwable {
+        GetActivityPriceRS rs = new GetActivityPriceRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("Price total");
+
+        Random rand = new Random();
+
+        rs.setAvailable(rand.nextBoolean());
+
+        BestDeal bd;
+        rs.setTotal(bd = new BestDeal());
+
+
+        double rp;
+        double x = rand.nextDouble();
+        bd.setRetailPrice(new Amount("EUR", rp = Math.round(100d + x * 900d) / 100d));
+        System.out.println("x=" + x + ", rp=" + rp);
+        bd.setNetPrice(new Amount("EUR", Math.round(rp * 85d) / 100d));
+
+        return rs;
+    }*/
 
     @Override
     public GetActivityPriceDetailsRS getActivityPriceDetails(String token, String key, String language, int adults, int children, int vehicles, String supplements) {
