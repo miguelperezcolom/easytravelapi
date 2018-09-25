@@ -60,8 +60,8 @@ public interface ActivityBookingService {
             @QueryParam("ages")int children,
             @QueryParam("pickup")String  pickup,
             @QueryParam("date")int  date,
-            @ApiParam("variant")Variant  variant,
-            @ApiParam("shift")Shift shift,
+            @ApiParam(value = "variant")Variant  variant,
+            @ApiParam(value = "shift")Shift shift,
             @QueryParam("supplements")String supplements
     ) throws Throwable;
 
