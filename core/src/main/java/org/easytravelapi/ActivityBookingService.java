@@ -55,10 +55,13 @@ public interface ActivityBookingService {
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
             @PathParam("key") String key,
             @QueryParam("language") String language,
-            @ApiParam(value = "Number of pax")
             @QueryParam("adults") int adults,
-            @QueryParam("ages")int children,
-            @QueryParam("vehicles")int vehicles,
+            @QueryParam("children")int children,
+            @QueryParam("infants")int infants,
+            @QueryParam("datekey")String datekey,
+            @QueryParam("variantkey")String variantkeykey,
+            @QueryParam("shiftdate")String shiftdate,
+            @QueryParam("pickup")String pickup,
             @QueryParam("supplements")String supplements
     ) throws Throwable;
 
