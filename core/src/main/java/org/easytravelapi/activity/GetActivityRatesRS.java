@@ -22,6 +22,10 @@ public class GetActivityRatesRS extends AbstractRS {
 
     private List<Supplement> supplements = new ArrayList<Supplement>();
 
+    private List<String> languages = new ArrayList<String>();
+
+    private List<String> pickups = new ArrayList<String>();
+
     public List<Remark> getRemarks() {
         return remarks;
     }
@@ -46,4 +50,12 @@ public class GetActivityRatesRS extends AbstractRS {
     public void setSupplements(List<Supplement> supplements) {
         this.supplements = supplements;
     }
+
+    public List<String> getLanguages() { return languages; }
+
+    public void setLanguages(List<String> languages) { this.languages = languages; }
+
+    public List<String> getPickups() { return pickups; }
+
+    public void setPickups(List<String> pickups) { this.pickups = pickups; }
 }

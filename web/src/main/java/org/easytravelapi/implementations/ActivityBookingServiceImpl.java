@@ -176,7 +176,21 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             r.setType("INFO");
             r.setText("Have a nice day");
         }
+        {
 
+            rs.getLanguages().add("Español");
+            rs.getLanguages().add("Inglés");
+            rs.getLanguages().add("Alemán");
+
+        }
+        {
+
+            rs.getPickups().add("Hotel 1");
+            rs.getPickups().add("Hotel 2");
+            rs.getPickups().add("Hotel 3");
+
+
+        }
         {
             Supplement c;
             rs.getSupplements().add(c = new Supplement());
