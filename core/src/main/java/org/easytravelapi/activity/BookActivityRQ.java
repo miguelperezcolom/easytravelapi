@@ -21,7 +21,7 @@ public class BookActivityRQ {
 
     private int adults;
     private int children;
-    private int vehicles;
+    private int infants;
 
     private String supplementIds;
 
@@ -37,6 +37,14 @@ public class BookActivityRQ {
     @ApiModelProperty(value = "Your comments for us. They will not be visible to the customer neither to the activity provider")
     private String privateComments;
 
+    @ApiModelProperty(value = "Your room number to contact with tou")
+    private String roomNumber;
+
+    @ApiModelProperty(value = "Your phone number to contact with tou")
+    private String phoneNumber;
+
+    @ApiModelProperty(value = "Your email to contact with tou")
+    private String email;
 
     public static BookActivityRQ fromString(String json) {
         return Helper.fromString(BookActivityRQ.class, json);
@@ -96,13 +104,9 @@ public class BookActivityRQ {
         this.children = children;
     }
 
-    public int getVehicles() {
-        return vehicles;
-    }
+    public int getInfants() {return infants;}
 
-    public void setVehicles(int vehicles) {
-        this.vehicles = vehicles;
-    }
+    public void setInfants(int infants) {this.infants = infants;}
 
     public String getSupplementIds() {
         return supplementIds;
@@ -143,4 +147,16 @@ public class BookActivityRQ {
     public void setPrivateComments(String privateComments) {
         this.privateComments = privateComments;
     }
+
+    public String getRoomNumber() { return roomNumber; }
+
+    public void setRoomNumber(String roomNumber) { this.roomNumber = roomNumber; }
+
+    public String getPhoneNumber() { return phoneNumber; }
+
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
 }
