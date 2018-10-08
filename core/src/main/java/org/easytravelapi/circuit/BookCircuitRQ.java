@@ -10,6 +10,8 @@ import org.easytravelapi.util.Helper;
 @ApiModel(description = "Parameters needed to confirm an circuit booking")
 public class BookCircuitRQ {
 
+    private String key;
+
     private int date;
 
     private String language;
@@ -20,7 +22,7 @@ public class BookCircuitRQ {
 
     private int adults;
     private int children;
-    private int vehicles;
+    private int infants;
 
     private String supplementIds;
 
@@ -35,6 +37,12 @@ public class BookCircuitRQ {
 
     @ApiModelProperty(value = "Your comments for us. They will not be visible to the customer neither to the circuit provider")
     private String privateComments;
+
+    @ApiModelProperty(value = "Your phone number to contact with you")
+    private String phoneNumber;
+
+    @ApiModelProperty(value = "Your email to contact with tou")
+    private String email;
 
 
     public static BookCircuitRQ fromString(String json) {
@@ -95,13 +103,9 @@ public class BookCircuitRQ {
         this.children = children;
     }
 
-    public int getVehicles() {
-        return vehicles;
-    }
+    public int getInfants() { return infants; }
 
-    public void setVehicles(int vehicles) {
-        this.vehicles = vehicles;
-    }
+    public void setInfants(int infants) { this.infants = infants; }
 
     public String getSupplementIds() {
         return supplementIds;
@@ -142,4 +146,16 @@ public class BookCircuitRQ {
     public void setPrivateComments(String privateComments) {
         this.privateComments = privateComments;
     }
+
+    public String getPhoneNumber() { return phoneNumber; }
+
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
+
+    public String getKey() { return key; }
+
+    public void setKey(String key) { this.key = key; }
 }

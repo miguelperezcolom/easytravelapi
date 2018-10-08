@@ -11,6 +11,10 @@ import org.easytravelapi.common.AbstractAuthenticatedRQ;
 @ApiModel(description = "Parameters needed to confirm an activity booking")
 public class BookActivityRQ {
 
+    private String key;
+
+    private String pickup;
+
     private int date;
 
     private String language;
@@ -37,10 +41,10 @@ public class BookActivityRQ {
     @ApiModelProperty(value = "Your comments for us. They will not be visible to the customer neither to the activity provider")
     private String privateComments;
 
-    @ApiModelProperty(value = "Your room number to contact with tou")
+    @ApiModelProperty(value = "Your room number to contact with you")
     private String roomNumber;
 
-    @ApiModelProperty(value = "Your phone number to contact with tou")
+    @ApiModelProperty(value = "Your phone number to contact with you")
     private String phoneNumber;
 
     @ApiModelProperty(value = "Your email to contact with tou")
@@ -159,4 +163,12 @@ public class BookActivityRQ {
     public String getEmail() { return email; }
 
     public void setEmail(String email) { this.email = email; }
+
+    public String getKey() { return key; }
+
+    public void setKey(String key) { this.key = key; }
+
+    public String getPickup() { return pickup; }
+
+    public void setPickup(String pickup) { this.pickup = pickup; }
 }
