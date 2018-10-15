@@ -42,7 +42,16 @@ public class BookTransferRQ {
     private String contactPhone;
     @ApiModelProperty(value = "Contact email")
     private String contactEmail;
-
+    @ApiModelProperty(value = "Number of bike")
+    private int bike;
+    @ApiModelProperty(value = "Number of golf baggage")
+    private int golf;
+    @ApiModelProperty(value = "Number of ski")
+    private int ski;
+    @ApiModelProperty(value = "Number of wheelchair")
+    private int wheelchair;
+    @ApiModelProperty(value = "Number of bigLuggages")
+    private int bigLuggages;
 
     public static BookTransferRQ fromString(String json) {
         return Helper.fromString(BookTransferRQ.class, json);
@@ -148,4 +157,24 @@ public class BookTransferRQ {
     public String getContactEmail() { return contactEmail; }
 
     public void setContactEmail(String contactEmail) { this.contactEmail = contactEmail; }
+
+    public int getBike() { return bike; }
+
+    public void setBike(int bike) { this.bike = bike; }
+
+    public int getGolf() { return golf; }
+
+    public void setGolf(int golf) { this.golf = golf; }
+
+    public int getSki() { return ski; }
+
+    public void setSki(int ski) { this.ski = ski; }
+
+    public int getWheelchair() { return wheelchair; }
+
+    public void setWheelchair(int wheelchair) { this.wheelchair = wheelchair; }
+
+    public int getBigLuggages() { return bigLuggages; }
+
+    public void setBigLuggages(int bigLuggages) { this.bigLuggages = bigLuggages; }
 }
