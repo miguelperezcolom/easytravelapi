@@ -219,6 +219,7 @@ public class CommonsServiceImpl implements CommonsService {
                 , {"country", "Spain"}
                 , {"category", "4 stars"}
                 , {"description", "Quonext Turismo es la empresa del grupo Quonext especializada en soluciones de gestión para el sector turístico: hoteles, aeropuertos, aerolíneas y empresas de ocio, parques temáticos, agencias de viajes receptivas… desarrolladas sobre Microsoft Dynamics NAV, siendo líderes en el mercado con más de 600 instalaciones."}
+                , {"language", language}
                 , {"features/aircondition", ""}
                 , {"features/elevator", ""}
                 , {"features/bar", ""}
