@@ -32,7 +32,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             a.setActivityId("act-798789");
             a.setName("Vuelta a Mallorca");
             a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
-            a.setImage("http://www.click-mallorca.com/imgdb/mapa_are1945.jpg");
+            a.setImage("https://cdn2.click-mallorca.com/imgdb/imagen_iex15277.jpg");
 
             BestDeal bd;
             a.setBestDeal(bd = new BestDeal());
@@ -52,7 +52,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             a.setActivityId("act-79878e9");
             a.setName("Buceo en Cala Millor");
             a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
-            a.setImage("http://www.click-mallorca.com/imgdb/imagen_listado_exc10309.png");
+            a.setImage("https://cdn2.click-mallorca.com/imgdb/imagen_iex11965.png");
 
             BestDeal bd;
             a.setBestDeal(bd = new BestDeal());
@@ -72,7 +72,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             a.setActivityId("act-7987a89");
             a.setName("Aventuras en Jungle Park");
             a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
-            a.setImage("http://www.click-mallorca.com/imgdb/imagen_listado_exc9234.png");
+            a.setImage("https://cdn1.click-mallorca.com/imgdb/foto1_exc2210.jpg");
 
             BestDeal bd;
             a.setBestDeal(bd = new BestDeal());

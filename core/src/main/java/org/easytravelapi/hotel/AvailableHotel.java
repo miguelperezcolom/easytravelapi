@@ -25,6 +25,9 @@ public class AvailableHotel {
     @ApiModelProperty(value = "Best available rate. E.g. 153.45 EUR. NOTAVAILABLE when this hotel is not available.")
     private BestDeal bestDeal;
 
+    @ApiModelProperty(value = "Main image from hotel.")
+    private String mainImage;
+
     @ApiModelProperty(value = "Key for using in next step (get hotel rates)")
     private String hotelKey;
 
@@ -92,4 +95,8 @@ public class AvailableHotel {
     public void setHotelKey(String hotelKey) {
         this.hotelKey = hotelKey;
     }
+
+    public String getMainImage() { return mainImage; }
+
+    public void setMainImage(String mainImage) { this.mainImage = mainImage; }
 }

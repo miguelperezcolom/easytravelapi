@@ -34,9 +34,9 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             rs.getAvailableCircuits().add(a = new AvailableCircuit());
 
             a.setCircuitId("act-798789");
-            a.setName("Vuelta a Mallorca");
-            a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
-            a.setImage("http://www.click-mallorca.com/imgdb/mapa_are1945.jpg");
+            a.setName("Avance Japón");
+            a.setDescription("Visita las principales ciudades japonesas y conoce su cultura");
+            a.setImage("http://bookingfaxnavia.com/catalogo/ambassadortours/2018/10/1560/page1.jpg");
 
             BestDeal bd;
             a.setBestDeal(bd = new BestDeal());
@@ -54,9 +54,9 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             rs.getAvailableCircuits().add(a = new AvailableCircuit());
 
             a.setCircuitId("act-79878e9");
-            a.setName("Buceo en Cala Millor");
-            a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
-            a.setImage("http://www.click-mallorca.com/imgdb/imagen_listado_exc10309.png");
+            a.setName("Monográfico India");
+            a.setDescription("Conoce la India desde dentro con verdaderos expertos");
+            a.setImage("http://bookingfaxnavia.com/catalogo/dimensionesclub/2018/04/1516/page1.jpg");
 
             BestDeal bd;
             a.setBestDeal(bd = new BestDeal());
@@ -74,9 +74,9 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             rs.getAvailableCircuits().add(a = new AvailableCircuit());
 
             a.setCircuitId("act-7987a89");
-            a.setName("Aventuras en Jungle Park");
-            a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
-            a.setImage("http://www.click-mallorca.com/imgdb/imagen_listado_exc9234.png");
+            a.setName("Cruceros fluviales");
+            a.setDescription("Los mejores cruceros fluviales por Europa");
+            a.setImage("http://bookingfaxnavia.com/catalogo/politours/2017/11/1428/page1.jpg");
 
             BestDeal bd;
             a.setBestDeal(bd = new BestDeal());
@@ -87,6 +87,65 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
         }
+        {
+            AvailableCircuit a;
+            rs.getAvailableCircuits().add(a = new AvailableCircuit());
+
+            a.setCircuitId("act-798789");
+            a.setName("Avance Japón");
+            a.setDescription("Visita las principales ciudades japonesas y conoce su cultura");
+            a.setImage("http://bookingfaxnavia.com/catalogo/ambassadortours/2018/10/1560/page1.jpg");
+
+            BestDeal bd;
+            a.setBestDeal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+
+        }
+
+        {
+            AvailableCircuit a;
+            rs.getAvailableCircuits().add(a = new AvailableCircuit());
+
+            a.setCircuitId("act-79878e9");
+            a.setName("Monográfico India");
+            a.setDescription("Conoce la India desde dentro con verdaderos expertos");
+            a.setImage("http://bookingfaxnavia.com/catalogo/dimensionesclub/2018/04/1516/page1.jpg");
+
+            BestDeal bd;
+            a.setBestDeal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+        }
+
+
+        {
+            AvailableCircuit a;
+            rs.getAvailableCircuits().add(a = new AvailableCircuit());
+
+            a.setCircuitId("act-7987a89");
+            a.setName("Cruceros fluviales");
+            a.setDescription("Los mejores cruceros fluviales por Europa");
+            a.setImage("http://bookingfaxnavia.com/catalogo/politours/2017/11/1428/page1.jpg");
+
+            BestDeal bd;
+            a.setBestDeal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+        }
+
 
 
         return rs;

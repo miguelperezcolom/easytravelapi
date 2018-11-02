@@ -41,9 +41,9 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             h.setHotelCategoryId("4s");
             h.setHotelCategoryName("****");
 
-            h.setLatitude("39.6359261");
-            h.setLongitude("2.629556");
-
+            h.setLatitude( "39.6"+ (i%5) + "59261");
+            h.setLongitude("2.6"+ (i%5) + "556");
+            h.setMainImage("https://hi-cdn.t-rp.co.uk/images/hotels/225146/" + i%9 +"?width=870&height=480&crop=false");
             BestDeal bd;
             h.setBestDeal(bd = new BestDeal());
 
@@ -52,6 +52,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+
 
         }
 

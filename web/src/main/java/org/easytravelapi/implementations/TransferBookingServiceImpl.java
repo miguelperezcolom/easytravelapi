@@ -32,6 +32,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setType("SHUTTLE");
             t.setDescription("Shuttle transfer from PMI airport");
             t.setVehicle("Shuttle bus");
+            t.setImage("https://www.oregonexpressshuttle.com/wp-content/uploads/2017/05/DSC_4191.jpg");
 
             BestDeal bd;
             t.setTotal(bd = new BestDeal());
@@ -49,6 +50,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setType("SHUTTLE");
             t.setDescription("Shuttle transfer from Palma port");
             t.setVehicle("Shuttle bus");
+            t.setImage("https://www.oregonexpressshuttle.com/wp-content/uploads/2017/05/DSC_4191.jpg");
 
             BestDeal bd;
             t.setTotal(bd = new BestDeal());
@@ -67,6 +69,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setType("PRIVATE");
             t.setDescription("Private taxi from PMI airport");
             t.setVehicle("TAXI 1-4");
+            t.setImage("https://www.aeropuertomadrid-barajas.com/images/madrid-taxi.jpg");
             BestDeal bd;
             t.setTotal(bd = new BestDeal());
 
@@ -84,6 +87,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setType("PRIVATE");
             t.setDescription("Private taxi from Palma port");
             t.setVehicle("TAXI 1-4");
+            t.setImage("https://www.aeropuertomadrid-barajas.com/images/madrid-taxi.jpg");
             BestDeal bd;
             t.setTotal(bd = new BestDeal());
 
@@ -102,6 +106,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setType("LUXURY");
             t.setDescription("Mercedes Benz limousine w/chofer from PMI airport");
             t.setVehicle("MB1-4");
+            t.setImage("https://caranddriver.ru/wp-content/uploads/2017/03/Mercedes-Benz-V-Class-0-800x445.jpg");
             BestDeal bd;
             t.setTotal(bd = new BestDeal());
 
@@ -119,6 +124,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setType("LUXURY");
             t.setDescription("Mercedes Benz limousine w/chofer from Palma port");
             t.setVehicle("MB1-4");
+            t.setImage("https://caranddriver.ru/wp-content/uploads/2017/03/Mercedes-Benz-V-Class-0-800x445.jpg");
             BestDeal bd;
             t.setTotal(bd = new BestDeal());
 

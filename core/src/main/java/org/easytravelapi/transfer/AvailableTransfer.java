@@ -22,6 +22,9 @@ public class AvailableTransfer {
     @ApiModelProperty(value = "Description of the service")
     private String description;
 
+    @ApiModelProperty(value = "Main image from transfer.")
+    private String image;
+
     private BestDeal total;
 
 
@@ -120,4 +123,8 @@ public class AvailableTransfer {
     public void setTotal(BestDeal total) {
         this.total = total;
     }
+
+    public String getImage() { return image; }
+
+    public void setImage(String image) { this.image = image; }
 }
