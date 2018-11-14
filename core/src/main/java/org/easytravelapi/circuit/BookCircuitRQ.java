@@ -41,7 +41,7 @@ public class BookCircuitRQ {
     @ApiModelProperty(value = "Your phone number to contact with you")
     private String phoneNumber;
 
-    @ApiModelProperty(value = "Your email to contact with tou")
+    @ApiModelProperty(value = "User Email. Used to locate your bookings")
     private String email;
 
 

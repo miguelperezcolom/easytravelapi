@@ -6,6 +6,8 @@ import org.easytravelapi.hotel.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -41,6 +43,8 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             h.setHotelCategoryId("4s");
             h.setHotelCategoryName("****");
 
+            h.setAddress("Avda. principal nª 5, Palma, España");
+
             h.setLatitude( "39.6"+ (i%5) + "59261");
             h.setLongitude("2.6"+ (i%5) + "556");
             h.setMainImage("https://hi-cdn.t-rp.co.uk/images/hotels/225146/" + i%9 +"?width=870&height=480&crop=false");
@@ -60,14 +64,16 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         return rs;
     }
 
-
     @Override
-    public GetHotelRatesRS getRates(String token, String hotelkey) throws Throwable {
+    public GetHotelRatesRS getRates(String token, GetHotelRatesRQ ratesRQ) throws Throwable {
+
         GetHotelRatesRS rs = new GetHotelRatesRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
         rs.setMsg("4 rates returned. It took 15 ms in the server.");
+        rs.setNewHotelkey( "newkey" + ratesRQ.getCheckin() + ratesRQ.getCheckout());
+
 
         {
             Allocation a;
@@ -81,7 +87,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
+                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732A");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
@@ -123,7 +129,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
+                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFET");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
@@ -150,7 +156,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
+                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED7327321");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
@@ -161,7 +167,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
+                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFE2");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
@@ -181,7 +187,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
+                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED7327323");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
@@ -192,7 +198,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
+                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFE4");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
@@ -431,6 +437,58 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         rs.setMsg("Booking confirmed ok");
 
         rs.setBookingId("5643135431");
+        rs.setAvailableServices(new ArrayList<String>());
+        rs.getAvailableServices().add(new String("traslado"));
+        rs.getAvailableServices().add(new String("excursion"));
+
+        rs.setPaymentUrl("https://www.paypal.com");
+
+        return rs;
+    }
+
+    @Override
+    public GetAvailableHotelsRS getFilteredHotels(String token, String language, String resorts, int checkIn, int checkout, String occupancies, List<String> categories, String minPrice, String maxPrice) throws Throwable {
+        GetAvailableHotelsRS rs = new GetAvailableHotelsRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("215 hotels returned. It took 34 ms in the server.");
+
+
+        String[] nombres = {"Java", "Javascript", ".Net", "Scala", "Go", "Kotlin"};
+
+        Random r = new Random();
+
+        for (int i = 0; i < 30; i++) {
+
+            AvailableHotel h;
+            rs.getHotels().add(h = new AvailableHotel());
+
+            h.setHotelId("hot_" + i);
+            h.setHotelName("Hotel " + nombres[i % nombres.length] + " " + i);
+
+            h.setHotelKey("ied987yde9h29deb238eyb2389ev239evt2ed76f1329d");
+
+            h.setHotelCategoryId("4s");
+            h.setHotelCategoryName("****");
+
+            h.setAddress("Avda. principal nª 5, Palma, España");
+
+            h.setLatitude( "39.6"+ (i%5) + "59261");
+            h.setLongitude("2.6"+ (i%5) + "556");
+            h.setMainImage("https://hi-cdn.t-rp.co.uk/images/hotels/225146/" + i%9 +"?width=870&height=480&crop=false");
+            BestDeal bd;
+            h.setBestDeal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+
+
+        }
+
 
         return rs;
     }

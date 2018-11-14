@@ -13,6 +13,8 @@ import java.util.List;
 @ApiModel(description = "Container for the getavailability response")
 public class GetHotelRatesRS extends AbstractRS {
 
+    String newHotelkey;
+
     @ApiModelProperty(value = "List of available hotels, including prices")
     private List<Allocation> rates = new ArrayList<Allocation>();
 
@@ -23,4 +25,8 @@ public class GetHotelRatesRS extends AbstractRS {
     public void setRates(List<Allocation> rates) {
         this.rates = rates;
     }
+
+    public String getNewHotelkey() { return newHotelkey; }
+
+    public void setNewHotelkey(String newHotelkey) { this.newHotelkey = newHotelkey; }
 }

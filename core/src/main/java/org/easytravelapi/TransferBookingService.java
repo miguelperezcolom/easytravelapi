@@ -67,4 +67,54 @@ public interface TransferBookingService {
 
     ) throws Throwable;
 
+    @GET
+    @Path("/airports")
+    @ApiOperation(value = "Use this method to get all available airports")
+    public GetAirportsRS getAirpotsRS(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
+
+    ) throws Throwable;
+
+    @GET
+    @Path("/destinations/{key}")
+    @ApiOperation(value = "Use this method to get all available destinations from airports")
+    public GetDestinationRS getDestinationsRS(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+             @ApiParam(value = "The airport key to get destinations")
+             @PathParam("key") String key
+
+    ) throws Throwable;
+    @GET
+    @Path("/filter")
+    @ApiOperation(value = "Use this method to filter transfers wich are available and their prices")
+    public GetAvailableTransfersRS getFilteredTransfers(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "Transfer origin, as got in the getportfolio response")
+            @QueryParam("from") String fromTransferPointId,
+            @ApiParam(value = "Transfer destination, as got in the getportfolio response")
+            @QueryParam("to") String toTransferPointId,
+            @ApiParam(value = "Number of pax")
+            @QueryParam("pax") int pax,
+            @ApiParam(value = "Number of bikes")
+            @QueryParam("bikes") int bikes,
+            @ApiParam(value = "Number of golf baggages")
+            @QueryParam("golfs") int golfBaggages,
+            @ApiParam(value = "Number of skis")
+            @QueryParam("skis") int skis,
+            @ApiParam(value = "Number of big luggages not bikes neither golf baggages")
+            @QueryParam("bigs") int bigLuggages,
+            @ApiParam(value = "Number of wheel chairs")
+            @QueryParam("wheelchairs") int wheelChairs,
+            @ApiParam(value = "Locale date for the incoming side of the transfer, in YYYYMMDD format")
+            @QueryParam("incomingdate") int incomingDate,
+            @ApiParam(value = "Locale date for the outgoing / return side of the transfer, in YYYYMMDD format")
+            @QueryParam("outgoingdate") int outgoingDate,
+            @QueryParam("transfertype") List<String> transfertype,
+            @ApiParam(value = "Min price range to filter")
+            @QueryParam("minprice") String minPrice,
+            @ApiParam(value = "Max price range to filter")
+            @QueryParam("maxprice") String maxPrice
+    ) throws Throwable;
+
+
 }

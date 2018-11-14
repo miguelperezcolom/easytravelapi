@@ -40,8 +40,8 @@ public class BookTransferRQ {
     private String outgoingFlightDestination;
     @ApiModelProperty(value = "Contact telephone number")
     private String contactPhone;
-    @ApiModelProperty(value = "Contact email")
-    private String contactEmail;
+    @ApiModelProperty(value = "User Email. Used to locate your bookings")
+    private String email;
     @ApiModelProperty(value = "Number of bike")
     private int bike;
     @ApiModelProperty(value = "Number of golf baggage")
@@ -154,9 +154,9 @@ public class BookTransferRQ {
 
     public void setContactPhone(String contactPhone) { this.contactPhone = contactPhone; }
 
-    public String getContactEmail() { return contactEmail; }
+    public String getEmail() { return email; }
 
-    public void setContactEmail(String contactEmail) { this.contactEmail = contactEmail; }
+    public void setEmail(String email) { this.email = email; }
 
     public int getBike() { return bike; }
 

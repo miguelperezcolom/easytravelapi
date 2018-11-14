@@ -29,8 +29,6 @@ public interface ActivityBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "Holidays start date in YYYYMMDD format")
             @QueryParam("start") int start,
-            @ApiParam(value = "Holidays end date in YYYYMMDD format")
-            @QueryParam("end") int end,
             @ApiParam(value = "Resort ID. You can get it from commons/getportfolio")
             @QueryParam("resourceid") String resourceId,
             @QueryParam("language") String language
@@ -89,5 +87,22 @@ public interface ActivityBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             BookActivityRQ rq
     ) throws Throwable;
+
+    @GET
+    @Path("/filter")
+    @ApiOperation(value = "Get available activities filtered", notes = "By passing a resort and holidays dates you get a list of the available activities")
+    public GetAvailableActivitiesRS getFilteredActivities(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "Holidays start date in YYYYMMDD format")
+            @QueryParam("start") int start,
+            @ApiParam(value = "Resort ID. You can get it from commons/getportfolio")
+            @QueryParam("resourceid") String resourceId,
+            @QueryParam("language") String language,
+            @ApiParam(value = "Min price range to filter")
+            @QueryParam("minprice") String minPrice,
+            @ApiParam(value = "Max price range to filter")
+            @QueryParam("maxprice") String maxPrice
+    ) throws Throwable;
+
 
 }

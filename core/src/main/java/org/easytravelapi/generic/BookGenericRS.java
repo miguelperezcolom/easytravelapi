@@ -1,17 +1,11 @@
-package org.easytravelapi.transfer;
+package org.easytravelapi.generic;
 
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.AbstractRS;
 
 import java.util.List;
 
-/**
- * Created by miguel on 26/7/17.
- */
-@ApiModel(description = "Container for the tranfer booking confirmation response")
-public class BookTransferRS extends AbstractRS {
-
+public class BookGenericRS extends AbstractRS {
     @ApiModelProperty(value = "The resultant booking id. You will use it to later cancel the service, if you need to")
     private String bookingId;
     @ApiModelProperty(value = "Available services to upsale your booking")

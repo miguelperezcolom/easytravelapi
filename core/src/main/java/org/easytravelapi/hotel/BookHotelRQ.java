@@ -23,6 +23,9 @@ public class BookHotelRQ {
     @ApiModelProperty(value = "The lead name")
     private String leadName;
 
+    @ApiModelProperty(value = "User Email. Used to locate your bookings")
+    private String email;
+
     @ApiModelProperty(value = "Comments from the customer which should arrive to the activity provider")
     private String commentsToProvider;
 
@@ -89,4 +92,8 @@ public class BookHotelRQ {
     public void setServices(List<String> services) {
         this.services = services;
     }
+
+    public String getEmail() { return email; }
+
+    public void setEmail(String email) { this.email = email; }
 }

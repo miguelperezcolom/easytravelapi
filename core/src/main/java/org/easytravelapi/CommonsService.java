@@ -22,7 +22,8 @@ public interface CommonsService {
     @GET
     @Path("/portfolio")
     @ApiOperation(value = "Method to get the whole product tree")
-    public GetPortfolioRS getPortfolio(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token) throws Throwable;
+    public GetPortfolioRS getPortfolio(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method")
+                                       @PathParam("authtoken") String token) throws Throwable;
 
     @GET
     @Path("/search")

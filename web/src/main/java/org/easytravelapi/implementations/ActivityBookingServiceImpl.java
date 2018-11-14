@@ -16,7 +16,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
 
     @Override
-    public GetAvailableActivitiesRS getAvailableActivities(String token, int start, int end, String resourceId, String language) {
+    public GetAvailableActivitiesRS getAvailableActivities(String token, int start, String resourceId, String language) {
         GetAvailableActivitiesRS rs = new GetAvailableActivitiesRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -452,9 +452,84 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
         rs.setMsg("Booking confirmed ok");
 
         rs.setBookingId("5643135431");
+        rs.setAvailableServices(new ArrayList<String>());
+        rs.getAvailableServices().add(new String("traslado"));
+        rs.getAvailableServices().add(new String("hotel"));
 
+        rs.setPaymentUrl("https://www.paypal.com");
 
         return rs;
     }
 
+    @Override
+    public GetAvailableActivitiesRS getFilteredActivities(String token, int start, String resourceId, String language, String minPrice, String maxPrice) throws Throwable {
+        GetAvailableActivitiesRS rs = new GetAvailableActivitiesRS();
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("3 activities found. It consumed 24 ms in the server. xx");
+
+        Random r = new Random();
+
+        {
+            AvailableActivity a;
+            rs.getAvailableActivities().add(a = new AvailableActivity());
+
+            a.setActivityId("act-798789");
+            a.setName("Vuelta a Mallorca");
+            a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
+            a.setImage("https://cdn2.click-mallorca.com/imgdb/imagen_iex15277.jpg");
+
+            BestDeal bd;
+            a.setBestDeal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+
+        }
+
+        {
+            AvailableActivity a;
+            rs.getAvailableActivities().add(a = new AvailableActivity());
+
+            a.setActivityId("act-79878e9");
+            a.setName("Buceo en Cala Millor");
+            a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
+            a.setImage("https://cdn2.click-mallorca.com/imgdb/imagen_iex11965.png");
+
+            BestDeal bd;
+            a.setBestDeal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+        }
+
+
+        {
+            AvailableActivity a;
+            rs.getAvailableActivities().add(a = new AvailableActivity());
+
+            a.setActivityId("act-7987a89");
+            a.setName("Aventuras en Jungle Park");
+            a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
+            a.setImage("https://cdn1.click-mallorca.com/imgdb/foto1_exc2210.jpg");
+
+            BestDeal bd;
+            a.setBestDeal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+        }
+
+
+        return rs;
+    }
 }

@@ -47,7 +47,8 @@ public interface HotelBookingService {
     @ApiOperation(value = "Use this method to get available room rates for a hotel")
     public GetHotelRatesRS getRates(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            String hotelkey
+            GetHotelRatesRQ ratesRQ
+
     ) throws Throwable;
 
     @POST
@@ -63,5 +64,29 @@ public interface HotelBookingService {
     @ApiOperation(value = "Use this method to confirm a hotel service")
     public BookHotelRS bookHotel(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
                                  BookHotelRQ rq) throws Throwable;
+
+    @GET
+    @Path("/filter")
+    @ApiOperation(value = "Use this method to filter hotels available and their prices")
+    public GetAvailableHotelsRS getFilteredHotels(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "2 chars language iso code")
+            @QueryParam("language") String language,
+            @ApiParam(value = "The comma separated list of resorts you are interested in")
+            @QueryParam("resorts") String resorts,
+            @ApiParam(value = "The locale checkin date in YYYYMMDD format")
+            @QueryParam("checkin") int checkIn,
+            @ApiParam(value = "The locale checkout date in YYYYMMDD format")
+            @QueryParam("checkout") int checkout,
+            @ApiParam(value = "List comma separated list of occupancies you need in <nr of rooms>x<pax>[-<age>]* format")
+            @QueryParam("occupancies") String occupancies,
+            @ApiParam(value = "List of categories selected to filter")
+            @QueryParam("categories") List<String> categories,
+            @ApiParam(value = "Min price range to filter")
+            @QueryParam("minprice") String minPrice,
+            @ApiParam(value = "Max price range to filter")
+            @QueryParam("maxprice") String maxPrice
+
+    ) throws Throwable;
 
 }

@@ -24,6 +24,8 @@ public class AvailableHotel {
     private String latitude;
     @ApiModelProperty(value = "Best available rate. E.g. 153.45 EUR. NOTAVAILABLE when this hotel is not available.")
     private BestDeal bestDeal;
+    @ApiModelProperty(value = "The hotel address.")
+    private String address;
 
     @ApiModelProperty(value = "Main image from hotel.")
     private String mainImage;
@@ -99,4 +101,8 @@ public class AvailableHotel {
     public String getMainImage() { return mainImage; }
 
     public void setMainImage(String mainImage) { this.mainImage = mainImage; }
+
+    public String getAddress() { return address; }
+
+    public void setAddress(String address) { this.address = address; }
 }

@@ -1,5 +1,6 @@
 package org.easytravelapi.implementations;
 
+import com.sun.org.apache.regexp.internal.RE;
 import org.easytravelapi.TransferBookingService;
 import org.easytravelapi.activity.PaymentMethod;
 import org.easytravelapi.common.*;
@@ -8,6 +9,7 @@ import org.easytravelapi.transfer.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -312,9 +314,140 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         rs.setMsg("Booking confirmed ok");
 
         rs.setBookingId("5643135431");
+        rs.setAvailableServices(new ArrayList<String>());
+        rs.getAvailableServices().add(new String("hotel"));
+        rs.getAvailableServices().add(new String("circuito"));
+        rs.getAvailableServices().add(new String("excursion"));
+
+        rs.setPaymentUrl("https://www.paypal.com");
 
         return rs;
     }
 
+    @Override
+    public GetAirportsRS getAirpotsRS(String token) throws Throwable {
+        GetAirportsRS rs = new GetAirportsRS();
 
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("5654 resouces found");
+
+        {
+            Resource a;
+
+            rs.getAirports().add(a = new Resource());
+
+            a.setResourceId("PMI");
+            a.setDescription(new MultilingualText("es", "Aeropuerto de Palma", "en", "Palma Airport"));
+            a.setName(new MultilingualText("es", "Aeropuerto de Palma", "en", "Palma Airport"));
+            a.setLatitude("12.56789");
+            a.setLongitude("32.56789");
+        }
+
+        return rs;
+    }
+
+    @Override
+    public GetDestinationRS getDestinationsRS(String token, String key) throws Throwable {
+        GetDestinationRS rs = new GetDestinationRS();
+
+        Resource d;
+
+        rs.getDestination().add(d = new Resource());
+
+        d.setDescription(new MultilingualText("es", "Hotel Palma1", "en", "Palma1 Hotel"));
+        d.setLatitude("12.85859");
+        d.setLongitude("24.52123");
+        d.setName(new MultilingualText("es", "Hotel Palma1", "en", "Palma1 Hotel"));
+        d.setResourceId("1");
+
+        rs.getDestination().add(d = new Resource());
+
+        d.setDescription(new MultilingualText("es", "Hotel Palma2", "en", "Palma2 Hotel"));
+        d.setLatitude("12.85459");
+        d.setLongitude("24.59123");
+        d.setName(new MultilingualText("es", "Hotel Palma2", "en", "Palma2 Hotel"));
+        d.setResourceId("2");
+
+        rs.getDestination().add(d = new Resource());
+
+        d.setDescription(new MultilingualText("es", "Hotel Palma2", "en", "Palma2 Hotel"));
+        d.setLatitude("12.85459");
+        d.setLongitude("24.59123");
+        d.setName(new MultilingualText("es", "Hotel Palma2", "en", "Palma2 Hotel"));
+        d.setResourceId("2");
+
+        return rs;
+    }
+
+    @Override
+    public GetAvailableTransfersRS getFilteredTransfers(String token, String fromTransferPointId, String toTransferPointId, int pax, int bikes, int golfBaggages, int skis, int bigLuggages, int wheelChairs, int incomingDate, int outgoingDate, List<String> transfertype, String minPrice, String maxPrice) throws Throwable {
+        GetAvailableTransfersRS rs = new GetAvailableTransfersRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("3 transfers found. It consumed 24 ms in the server.");
+
+        Random r = new Random();
+
+        {
+            AvailableTransfer t;
+            rs.getAvailableTransfers().add(t = new AvailableTransfer());
+            t.setKey("iwgfwe7t23ygdfywenuqlwefhwe");
+            t.setType("SHUTTLE");
+            t.setDescription("Shuttle transfer from PMI airport");
+            t.setVehicle("Shuttle bus");
+            t.setImage("https://www.oregonexpressshuttle.com/wp-content/uploads/2017/05/DSC_4191.jpg");
+
+            BestDeal bd;
+            t.setTotal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+        }
+        {
+            AvailableTransfer t;
+            rs.getAvailableTransfers().add(t = new AvailableTransfer());
+            t.setKey("iwgfwe7t23ygdfywenuqlwefhwe");
+            t.setType("SHUTTLE");
+            t.setDescription("Shuttle transfer from Palma port");
+            t.setVehicle("Shuttle bus");
+            t.setImage("https://www.oregonexpressshuttle.com/wp-content/uploads/2017/05/DSC_4191.jpg");
+
+            BestDeal bd;
+            t.setTotal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+        }
+
+
+
+        {
+            AvailableTransfer t;
+            rs.getAvailableTransfers().add(t = new AvailableTransfer());
+            t.setKey("egfoerf8etrf834b34f6");
+            t.setType("LUXURY");
+            t.setDescription("Mercedes Benz limousine w/chofer from Palma port");
+            t.setVehicle("MB1-4");
+            t.setImage("https://caranddriver.ru/wp-content/uploads/2017/03/Mercedes-Benz-V-Class-0-800x445.jpg");
+            BestDeal bd;
+            t.setTotal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+        }
+
+
+        return rs;
+    }
 }

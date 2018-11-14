@@ -20,7 +20,7 @@ import java.util.Random;
 public class CircuitBookingServiceImpl implements CircuitBookingService {
 
     @Override
-    public GetAvailableCircuitsRS getAvailableCircuits(String token, int start, int end, String resourceId, String language) throws Throwable {
+    public GetAvailableCircuitsRS getAvailableCircuits(String token, int start, String  circuitType, String resourceId, String language) throws Throwable {
         GetAvailableCircuitsRS rs = new GetAvailableCircuitsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -469,9 +469,86 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
         rs.setMsg("Booking confirmed ok");
 
         rs.setBookingId("5643135431");
+        rs.setAvailableServices(new ArrayList<String>());
+        rs.getAvailableServices().add(new String("traslado"));
 
+        rs.setPaymentUrl("https://www.paypal.com");
 
         return rs;
     }
 
+    @Override
+    public GetAvailableCircuitsRS getFilteredCircuits(String token, int start, String circuitType, String resourceId, String language, String minPrice, String maxPrice) throws Throwable {
+        GetAvailableCircuitsRS rs = new GetAvailableCircuitsRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("3 circuits found. It consumed 24 ms in the server. xx");
+
+        Random r = new Random();
+
+
+        {
+            AvailableCircuit a;
+            rs.getAvailableCircuits().add(a = new AvailableCircuit());
+
+            a.setCircuitId("act-798789");
+            a.setName("Avance Japón");
+            a.setDescription("Visita las principales ciudades japonesas y conoce su cultura");
+            a.setImage("http://bookingfaxnavia.com/catalogo/ambassadortours/2018/10/1560/page1.jpg");
+
+            BestDeal bd;
+            a.setBestDeal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+
+        }
+
+        {
+            AvailableCircuit a;
+            rs.getAvailableCircuits().add(a = new AvailableCircuit());
+
+            a.setCircuitId("act-79878e9");
+            a.setName("Monográfico India");
+            a.setDescription("Conoce la India desde dentro con verdaderos expertos");
+            a.setImage("http://bookingfaxnavia.com/catalogo/dimensionesclub/2018/04/1516/page1.jpg");
+
+            BestDeal bd;
+            a.setBestDeal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+        }
+
+
+        {
+            AvailableCircuit a;
+            rs.getAvailableCircuits().add(a = new AvailableCircuit());
+
+            a.setCircuitId("act-7987a89");
+            a.setName("Cruceros fluviales");
+            a.setDescription("Los mejores cruceros fluviales por Europa");
+            a.setImage("http://bookingfaxnavia.com/catalogo/politours/2017/11/1428/page1.jpg");
+
+            BestDeal bd;
+            a.setBestDeal(bd = new BestDeal());
+
+            double rp;
+            double x = r.nextDouble();
+            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            System.out.println("x=" + x + ", rp=" + rp);
+            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+        }
+
+
+
+        return rs;
+    }
 }
