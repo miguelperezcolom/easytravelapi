@@ -315,9 +315,9 @@ public class TransferBookingServiceImpl implements TransferBookingService {
 
         rs.setBookingId("5643135431");
         rs.setAvailableServices(new ArrayList<String>());
-        rs.getAvailableServices().add(new String("hotel"));
-        rs.getAvailableServices().add(new String("circuito"));
-        rs.getAvailableServices().add(new String("excursion"));
+        rs.getAvailableServices().add(new String("hotel/#/dispo?destino=sta_6363&destinoname=Mallorca&entrada=2018-11-15&salida=2018-11-16&ocupacion=1x2"));
+        rs.getAvailableServices().add(new String("circuito/#/dispo?destino=sta_6363&destinoname=Majorca&entrada=2018-11-15&circuitType&idioma=es"));
+        rs.getAvailableServices().add(new String("excursion/#/dispo?destino=sta_6363&entrada=2018-11-15&idioma=es&destinoname=Majorca"));
 
         rs.setPaymentUrl("https://www.paypal.com");
 

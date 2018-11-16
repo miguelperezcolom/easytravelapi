@@ -234,7 +234,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 Amount a;
                 pc.setRetailPrice(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
-                a.setValue(1500.32);
+                a.setValue(600.00);
             }
 
             {
@@ -252,7 +252,65 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             }
 
                 pc.setType("AT_WEB");
-                pc.setDescription("detailed price");
+                pc.setDescription("Room double Standard");
+
+
+        }
+        {
+            PriceLine pc;
+            rs.getPrices().add(pc = new PriceLine());
+            {
+                Amount a;
+                pc.setRetailPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(300.32);
+            }
+
+            {
+                Amount a;
+                pc.setCommission(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(250.31);
+            }
+
+            {
+                Amount a;
+                pc.setNetPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(1250.01);
+            }
+
+            pc.setType("AT_WEB");
+            pc.setDescription("Taxes");
+
+
+        }
+        {
+            PriceLine pc;
+            rs.getPrices().add(pc = new PriceLine());
+            {
+                Amount a;
+                pc.setRetailPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(600.32);
+            }
+
+            {
+                Amount a;
+                pc.setCommission(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(250.31);
+            }
+
+            {
+                Amount a;
+                pc.setNetPrice(a = new Amount());
+                a.setCurrencyIsoCode("EUR");
+                a.setValue(1250.01);
+            }
+
+            pc.setType("AT_WEB");
+            pc.setDescription("Supplements ");
 
 
         }
@@ -263,7 +321,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 Amount a;
                 tot.setRetailPrice(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
-                a.setValue(1500.32);
+                a.setValue(1500.64);
             }
 
             {
@@ -288,8 +346,28 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             Amount a;
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
-            a.setValue(130.45);
-            l.setDate(20180601);
+            a.setValue(600.45);
+            l.setDate(20181101);
+            l.setPaymentMethod("WEB");
+        }
+        {
+            PaymentLine l;
+            rs.getPaymentLines().add(l = new PaymentLine());
+            Amount a;
+            l.setAmount(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(600.45);
+            l.setDate(20181115);
+            l.setPaymentMethod("WEB");
+        }
+        {
+            PaymentLine l;
+            rs.getPaymentLines().add(l = new PaymentLine());
+            Amount a;
+            l.setAmount(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(300.45);
+            l.setDate(20181201);
             l.setPaymentMethod("WEB");
         }
         {
@@ -438,8 +516,8 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
         rs.setBookingId("5643135431");
         rs.setAvailableServices(new ArrayList<String>());
-        rs.getAvailableServices().add(new String("traslado"));
-        rs.getAvailableServices().add(new String("excursion"));
+        rs.getAvailableServices().add(new String("traslado/#/dispo?destino&destinoname=%20&origen=PMI&entrada=2018-11-15&salida=2018-11-16&idioma=es&specialtransport=%5Bobject%20Object%5D&pax=1"));
+        rs.getAvailableServices().add(new String("excursion/#/dispo?destino=sta_6363&entrada=2018-11-15&idioma=es&destinoname=Majorca"));
 
         rs.setPaymentUrl("https://www.paypal.com");
 

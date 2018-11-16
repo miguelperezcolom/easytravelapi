@@ -470,7 +470,7 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
 
         rs.setBookingId("5643135431");
         rs.setAvailableServices(new ArrayList<String>());
-        rs.getAvailableServices().add(new String("traslado"));
+        rs.getAvailableServices().add(new String("traslado/#/dispo?destino&destinoname=%20&origen=PMI&entrada=2018-11-15&salida=2018-11-16&idioma=es&specialtransport=%5Bobject%20Object%5D&pax=1"));
 
         rs.setPaymentUrl("https://www.paypal.com");
 
