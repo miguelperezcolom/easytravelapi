@@ -551,4 +551,155 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
 
         return rs;
     }
+
+    @Override
+    public GetPortfolioRS getPortfolio(String token) throws Throwable {
+        GetPortfolioRS rs = new GetPortfolioRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("5654 resouces found");
+
+        {
+            Country c;
+            rs.getCountries().add(c = new Country());
+
+            c.setResourceId("cou_es");
+            c.setName(new MultilingualText("es", "España", "en", "Spain"));
+            c.setUrlFriendlyName("spain");
+
+            {
+                State s;
+                c.getStates().add(s = new State());
+
+                s.setResourceId("sta_6363");
+                s.setName(new MultilingualText("es", "Mallorca", "en", "Majorca"));
+                s.setUrlFriendlyName("majorca");
+
+                {
+                    City l;
+                    s.getCities().add(l = new City());
+                    l.setResourceId("cty_2843");
+                    l.setName(new MultilingualText("es", "Palma de Mallorca", "en", "Palma"));
+                    l.setUrlFriendlyName("palma");
+
+                    completar(l);
+
+                }
+
+                {
+                    City l;
+                    s.getCities().add(l = new City());
+                    l.setResourceId("cty_2842");
+                    l.setName(new MultilingualText("es", "Alcúdia", "en", "Alcudia"));
+                    l.setUrlFriendlyName("alcudia");
+
+                    completar(l);
+
+                }
+
+                {
+                    City l;
+                    s.getCities().add(l = new City());
+                    l.setResourceId("cty_2813");
+                    l.setName(new MultilingualText("es", "Cala Millor", "en", "Cala Millor"));
+                    l.setUrlFriendlyName("cala-millor");
+
+                    completar(l);
+
+                }
+
+            }
+
+            {
+                State s;
+                c.getStates().add(s = new State());
+
+                s.setResourceId("sta_6163");
+                s.setName(new MultilingualText("es", "Isla de Ibiza", "en", "Ibiza Island"));
+                s.setUrlFriendlyName("ibiza");
+
+                {
+                    City l;
+                    s.getCities().add(l = new City());
+                    l.setResourceId("cty_28x43");
+                    l.setName(new MultilingualText("es", "Ibiza", "en", "Ibiza"));
+                    l.setUrlFriendlyName("ibiza");
+
+                    completar(l);
+
+                }
+
+                {
+                    City l;
+                    s.getCities().add(l = new City());
+                    l.setResourceId("cty_28412");
+                    l.setName(new MultilingualText("es", "San Antonio", "en", "San Antonio"));
+                    l.setUrlFriendlyName("san-antonio");
+
+                    completar(l);
+
+                }
+            }
+        }
+
+
+        {
+            Country c;
+            rs.getCountries().add(c = new Country());
+
+            c.setResourceId("cou_gb");
+            c.setName(new MultilingualText("es", "Gran Bretaña", "en", "Great Britain"));
+            c.setUrlFriendlyName("great-britain");
+
+            {
+                State s;
+                c.getStates().add(s = new State());
+
+                s.setResourceId("sta_63e63");
+                s.setName(new MultilingualText("es", "Londres", "en", "London"));
+                s.setUrlFriendlyName("london");
+
+                {
+                    City l;
+                    s.getCities().add(l = new City());
+                    l.setResourceId("cty_28d43");
+                    l.setName(new MultilingualText("es", "Londres", "en", "London City"));
+                    l.setUrlFriendlyName("london-city");
+
+                    completar(l);
+
+                }
+
+            }
+        }
+
+
+        return rs;
+    }
+    private void completar(City l) {
+        for (int i = 0; i < 100; i++)
+        {
+            Resource r;
+            l.getResources().add(r = new Resource());
+            r.setResourceId("exc_376472" + i);
+            r.setName(new MultilingualText("es", "Circuito Quonext " + i, "en", "Hotel Quonext " + i));
+            r.setLatitude("39.6359261");
+            r.setLongitude("2.629556");
+            r.setType("excursion");
+            r.setDescription(new MultilingualText("es", "Excursion por la ciudad", "en", "City Excursion"));
+        }
+
+        for (int i = 0; i < 80; i++)
+        {
+            Resource r;
+            l.getResources().add(r = new Resource());
+            r.setResourceId("tp_1212" + i);
+            r.setName(new MultilingualText("es", "Circuito Quonext " + i, "en", "Excursion Quonext " + i));
+            r.setLatitude("39.6359261");
+            r.setLongitude("2.629556");
+            r.setType("excursion");
+            r.setDescription(new MultilingualText("es", "Recepción del Hotel Quonext " + i, "en", "Transfer point for Hotel Quonext " + i));
+        }
+    }
 }

@@ -5,6 +5,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.easytravelapi.circuit.*;
+import org.easytravelapi.common.GetPortfolioRS;
 
 import javax.jws.WebService;
 import javax.ws.rs.*;
@@ -105,6 +106,12 @@ public interface CircuitBookingService {
             @QueryParam("maxprice") String maxPrice
 
     ) throws Throwable;
+    @GET
+    @Path("/portfolio")
+    @ApiOperation(value = "Method to get the whole product tree")
+    public GetPortfolioRS getPortfolio(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method")
+                                       @PathParam("authtoken") String token) throws Throwable;
+
 
 
 }
