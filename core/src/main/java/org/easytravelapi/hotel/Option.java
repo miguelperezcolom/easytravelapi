@@ -16,6 +16,10 @@ public class Option {
     private String roomId;
     @ApiModelProperty(value = "This room type name")
     private String roomName;
+    @ApiModelProperty(value = "This room description")
+    private String roomDescription;
+    @ApiModelProperty(value = "This room main image")
+    private String image;
 
     @ApiModelProperty(value = "List of available board basis and prices for each board")
     private List<BoardPrice> prices = new ArrayList<BoardPrice>();
@@ -56,4 +60,12 @@ public class Option {
     public void setAllotment(int allotment) {
         this.allotment = allotment;
     }
+
+    public String getRoomDescription() { return roomDescription; }
+
+    public void setRoomDescription(String roomDescription) { this.roomDescription = roomDescription; }
+
+    public String getImage() { return image; }
+
+    public void setImage(String image) { this.image = image; }
 }

@@ -75,7 +75,9 @@ public interface CircuitBookingService {
             @QueryParam("adults") int adults,
             @QueryParam("ages") int children,
             @QueryParam("vehicles") int vehicles,
-            @QueryParam("supplements") String supplements
+            @QueryParam("supplements") String supplements,
+            @ApiParam(value = "Discount coupons")
+            @QueryParam("coupon") String coupon
     ) throws Throwable;
 
 

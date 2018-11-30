@@ -50,12 +50,15 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             h.setMainImage("https://hi-cdn.t-rp.co.uk/images/hotels/225146/" + i%9 +"?width=870&height=480&crop=false");
             BestDeal bd;
             h.setBestDeal(bd = new BestDeal());
-
+            System.out.println(i%4);
+            if (i%4 ==0){
+                bd.setOffer(true);
+            }
             double rp;
             double x = r.nextDouble();
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setRetailPrice(new Amount("EUR", Math.round(rp * 85) / 100));
 
 
         }
@@ -80,8 +83,11 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             rs.getRates().add(a = new Allocation());
             Option o;
             a.getOptions().add(o = new Option());
+            o.setAllotment(3);
             o.setRoomId("DBL");
             o.setRoomName("Double Room");
+            o.setImage("https://hi-cdn.t-rp.co.uk/images/hotels/225146/1?width=870&height=480&crop=false");
+            o.setRoomDescription("habitacion doble, cama de matrimonio vistas al mar, tv, wifi, mini-bar");
             a.setNumberOfRooms(1);
             a.setPaxPerRoom(2);
             {
@@ -91,7 +97,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
-                p.setNetPrice(n = new Amount());
+                p.setRetailPrice(n = new Amount());
                 n.setCurrencyIsoCode("EUR");
                 n.setValue(200.35);
             }
@@ -102,7 +108,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
-                p.setNetPrice(n = new Amount());
+                p.setRetailPrice(n = new Amount());
                 n.setCurrencyIsoCode("EUR");
                 n.setValue(500.15);
                 p.setOffer(true);
@@ -112,7 +118,10 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
             a.getOptions().add(o = new Option());
             o.setRoomId("SUI");
+
             o.setRoomName("Suite");
+            o.setImage("https://hi-cdn.t-rp.co.uk/images/hotels/225146/2?width=870&height=480&crop=false");
+            o.setRoomDescription("habitacion Suite, cama king size,balcón privado vistas al mar, tv, wifi, mini-bar, jacuzzi en baño");
             a.setNumberOfRooms(1);
             a.setPaxPerRoom(2);
             {
@@ -122,7 +131,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
-                p.setNetPrice(n = new Amount());
+                p.setRetailPrice(n = new Amount());
                 n.setCurrencyIsoCode("EUR");
                 n.setValue(230.35);
             }
@@ -133,11 +142,14 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
-                p.setNetPrice(n = new Amount());
+                p.setRetailPrice(n = new Amount());
                 n.setCurrencyIsoCode("EUR");
                 n.setValue(610.15);
                 p.setOffer(true);
                 p.setOfferText("SPECIAL OFFER -30%");
+                p.setOnRequest(true);
+                p.setOnRequestText("This option must be confirmed by hotel");
+
                 p.setNonRefundable(true);
             }
         }
@@ -149,7 +161,10 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             Option o;
             a.getOptions().add(o = new Option());
             o.setRoomId("DBL");
+            o.setAllotment(5);
             o.setRoomName("Double Room");
+            o.setImage("https://hi-cdn.t-rp.co.uk/images/hotels/225146/1?width=870&height=480&crop=false");
+            o.setRoomDescription("habitacion doble, cama de matrimonio vistas al mar, tv, wifi, mini-bar");
             a.setNumberOfRooms(1);
             a.setPaxPerRoom(3);
             a.setAges(new int[]{4});
@@ -160,7 +175,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
-                p.setNetPrice(n = new Amount());
+                p.setRetailPrice(n = new Amount());
                 n.setCurrencyIsoCode("EUR");
                 n.setValue(260.35);
             }
@@ -171,7 +186,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
-                p.setNetPrice(n = new Amount());
+                p.setRetailPrice(n = new Amount());
                 n.setCurrencyIsoCode("EUR");
                 n.setValue(570.15);
                 p.setOffer(true);
@@ -180,8 +195,11 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             }
 
             a.getOptions().add(o = new Option());
+            o.setAllotment(10);
             o.setRoomId("SUI");
             o.setRoomName("Suite");
+            o.setImage("https://hi-cdn.t-rp.co.uk/images/hotels/225146/2?width=870&height=480&crop=false");
+            o.setRoomDescription("habitacion Suite, cama king size,balcón privado vistas al mar, tv, wifi, mini-bar, jacuzzi en baño");
             a.setNumberOfRooms(1);
             a.setPaxPerRoom(2);
             {
@@ -191,7 +209,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
-                p.setNetPrice(n = new Amount());
+                p.setRetailPrice(n = new Amount());
                 n.setCurrencyIsoCode("EUR");
                 n.setValue(320.35);
             }
@@ -202,7 +220,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
-                p.setNetPrice(n = new Amount());
+                p.setRetailPrice(n = new Amount());
                 n.setCurrencyIsoCode("EUR");
                 n.setValue(1020.15);
                 p.setOffer(true);
@@ -219,7 +237,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
     }
 
     @Override
-    public GetHotelPriceDetailsRS getHotelPriceDetails(String token, String key) {
+    public GetHotelPriceDetailsRS getHotelPriceDetails(String token, GetHotelPriceDetailsRQ ratekeys) throws Throwable {
 
         GetHotelPriceDetailsRS rs = new GetHotelPriceDetailsRS();
 
@@ -255,6 +273,45 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 pc.setDescription("Room double Standard");
 
 
+        }
+        if(ratekeys.getCoupon() != null && ratekeys.getCoupon() != ""){
+            if (ratekeys.getCoupon().length() > 5)
+            {
+
+
+            {
+                PriceLine pc;
+                rs.getPrices().add(pc = new PriceLine());
+                {
+                    Amount a;
+                    pc.setRetailPrice(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(-750.16);
+                }
+
+                {
+                    Amount a;
+                    pc.setCommission(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(250.31);
+                }
+
+                {
+                    Amount a;
+                    pc.setNetPrice(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(1250.01);
+                }
+
+                pc.setType("AT_WEB");
+                pc.setDescription("Coupon discount 50%");
+
+
+            }
+            }
+            else{
+                rs.setCouponMsg("Cupon no válido");
+            }
         }
         {
             PriceLine pc;
@@ -457,7 +514,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2018, 06, 05, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
             Amount a;
-            c.setNet(a = new Amount());
+            c.setRetail(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(250.32);
         }
@@ -467,7 +524,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2018, 07, 01, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
             Amount a;
-            c.setNet(a = new Amount());
+            c.setRetail(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(400);
         }
@@ -516,8 +573,8 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
         rs.setBookingId("5643135431");
         rs.setAvailableServices(new ArrayList<String>());
-        rs.getAvailableServices().add(new String("traslado/#/dispo?destino&destinoname=%20&origen=PMI&entrada=2018-11-15&salida=2018-11-16&idioma=es&specialtransport=%5Bobject%20Object%5D&pax=1"));
-        rs.getAvailableServices().add(new String("excursion/#/dispo?destino=sta_6363&entrada=2018-11-15&idioma=es&destinoname=Majorca"));
+        rs.getAvailableServices().add(new String("traslado"));
+        rs.getAvailableServices().add(new String("excursion"));
 
         rs.setPaymentUrl("https://www.paypal.com");
 
@@ -557,12 +614,16 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             h.setMainImage("https://hi-cdn.t-rp.co.uk/images/hotels/225146/" + i%9 +"?width=870&height=480&crop=false");
             BestDeal bd;
             h.setBestDeal(bd = new BestDeal());
-
+            System.out.println(i%4);
+            if (i%4 ==0){
+                bd.setOffer(true);
+            }
             double rp;
             double x = r.nextDouble();
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setRetailPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+
 
 
         }

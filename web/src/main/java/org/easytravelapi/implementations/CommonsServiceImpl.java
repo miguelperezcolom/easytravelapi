@@ -347,4 +347,23 @@ public class CommonsServiceImpl implements CommonsService {
     public MealPlansListRS getMealPlans(String token) throws Throwable {
         return null;
     }
+
+    @Override
+    public GetLocatorRS getFromLocator(String token, String locatorid) throws Throwable {
+        GetLocatorRS rs = new GetLocatorRS();
+
+        rs.setCheckin(20181201);
+        rs.setCheckout(20181210);
+        rs.setDestination("sta_6363");
+        rs.setOccupation("1X2");
+        rs.setDestinationName("Palma");
+        rs.setLeadName("Ramon Nieto");
+        rs.setEmail("rnieto@quonext.com");
+
+        rs.setOrigen("pmi");
+        rs.setOrigenName("aeropuerto Palma");
+        rs.setPax(2);
+
+        return rs;
+    }
 }

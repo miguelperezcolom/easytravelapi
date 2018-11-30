@@ -142,7 +142,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
     }
 
     @Override
-    public GetTransferPriceDetailsRS getTransferPriceDetails(String token, String key) {
+    public GetTransferPriceDetailsRS getTransferPriceDetails(String token, String key, String coupon) throws Throwable {
 
         GetTransferPriceDetailsRS rs = new GetTransferPriceDetailsRS();
 
@@ -234,6 +234,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             r.setType("INFO");
             r.setText("Have a nice day");
         }
+
         {
             BestDeal tot;
             rs.setTotal(tot = new BestDeal());
@@ -289,6 +290,37 @@ public class TransferBookingServiceImpl implements TransferBookingService {
 
 
         }
+        if(coupon != null && coupon != ""){
+            {
+                PriceLine pc;
+                rs.getPriceLines().add(pc = new PriceLine());
+                {
+                    Amount a;
+                    pc.setRetailPrice(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(-750.16);
+                }
+
+                {
+                    Amount a;
+                    pc.setCommission(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(250.31);
+                }
+
+                {
+                    Amount a;
+                    pc.setNetPrice(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(1250.01);
+                }
+
+                pc.setType("AT_WEB");
+                pc.setDescription("Coupon discount 50%");
+
+
+            }
+        }
         {
             PaymentLine l;
             rs.getPaymentLines().add(l = new PaymentLine());
@@ -315,9 +347,9 @@ public class TransferBookingServiceImpl implements TransferBookingService {
 
         rs.setBookingId("5643135431");
         rs.setAvailableServices(new ArrayList<String>());
-        rs.getAvailableServices().add(new String("hotel/#/dispo?destino=sta_6363&destinoname=Mallorca&entrada=2018-11-15&salida=2018-11-16&ocupacion=1x2"));
-        rs.getAvailableServices().add(new String("circuito/#/dispo?destino=sta_6363&destinoname=Majorca&entrada=2018-11-15&circuitType&idioma=es"));
-        rs.getAvailableServices().add(new String("excursion/#/dispo?destino=sta_6363&entrada=2018-11-15&idioma=es&destinoname=Majorca"));
+        rs.getAvailableServices().add(new String("hotel"));
+        rs.getAvailableServices().add(new String("circuito"));
+        rs.getAvailableServices().add(new String("excursion"));
 
         rs.setPaymentUrl("https://www.paypal.com");
 
@@ -425,6 +457,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOffer(true);
         }
 
 

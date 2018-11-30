@@ -7,6 +7,7 @@ public class BestDeal {
     private Amount retailPrice;
     private Amount netPrice;
     private Amount commission;
+    private boolean isOffer;
 
     public Amount getRetailPrice() {
         return retailPrice;
@@ -31,4 +32,8 @@ public class BestDeal {
     public void setCommission(Amount commission) {
         this.commission = commission;
     }
+
+    public boolean isOffer() { return isOffer; }
+
+    public void setOffer(boolean offer) { isOffer = offer; }
 }

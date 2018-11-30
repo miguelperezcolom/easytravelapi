@@ -32,6 +32,8 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Detailed Payment lines")
     private List<PaymentLine> paymentLines = new ArrayList<PaymentLine>();
 
+    private String couponMsg;
+
     public String getStatus() {
         return status;
     }
@@ -79,4 +81,8 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     public List<PaymentLine> getPaymentLines() { return paymentLines;}
 
     public void setPaymentLines(List<PaymentLine> paymentLines) { this.paymentLines = paymentLines; }
+
+    public String getCouponMsg() { return couponMsg; }
+
+    public void setCouponMsg(String couponMsg) { this.couponMsg = couponMsg; }
 }

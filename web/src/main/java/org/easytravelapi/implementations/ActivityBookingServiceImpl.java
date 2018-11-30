@@ -278,9 +278,9 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
     }
 
 
-
     @Override
-    public GetActivityPriceDetailsRS getActivityPriceDetails(String token, String key, String language, int adults, int children, int vehicles, String supplements) {
+    public GetActivityPriceDetailsRS getActivityPriceDetails(String token, String key, String language, int adults, int children, int vehicles, String supplements, String coupon) throws Throwable {
+
         GetActivityPriceDetailsRS rs = new GetActivityPriceDetailsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -427,6 +427,37 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
 
         }
+        if(coupon != null && coupon != ""){
+            {
+                PriceLine pc;
+                rs.getPriceLines().add(pc = new PriceLine());
+                {
+                    Amount a;
+                    pc.setRetailPrice(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(-750.16);
+                }
+
+                {
+                    Amount a;
+                    pc.setCommission(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(250.31);
+                }
+
+                {
+                    Amount a;
+                    pc.setNetPrice(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(1250.01);
+                }
+
+                pc.setType("AT_WEB");
+                pc.setDescription("Coupon discount 50%");
+
+
+            }
+        }
         {
             PaymentLine l;
             rs.getPaymentLines().add(l = new PaymentLine());
@@ -453,8 +484,8 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
         rs.setBookingId("5643135431");
         rs.setAvailableServices(new ArrayList<String>());
-        rs.getAvailableServices().add(new String("traslado/#/dispo?destino&destinoname=%20&origen=PMI&entrada=2018-11-15&salida=2018-11-16&idioma=es&specialtransport=%5Bobject%20Object%5D&pax=1"));
-        rs.getAvailableServices().add(new String("hotel/#/dispo?destino=sta_6363&destinoname=Mallorca&entrada=2018-11-15&salida=2018-11-16&ocupacion=1x2"));
+        rs.getAvailableServices().add(new String("traslado"));
+        rs.getAvailableServices().add(new String("hotel"));
 
         rs.setPaymentUrl("https://www.paypal.com");
 
@@ -527,6 +558,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOffer(true);
         }
 
 

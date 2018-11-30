@@ -87,6 +87,12 @@ public interface CommonsService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
     ) throws Throwable;
 
-
+    @GET
+    @Path("/fromlocator/{locatorid}")
+    @ApiOperation(value = "get data from a Locator")
+    public GetLocatorRS getFromLocator(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @PathParam("locatorid") String locatorid
+    ) throws Throwable;
 
 }

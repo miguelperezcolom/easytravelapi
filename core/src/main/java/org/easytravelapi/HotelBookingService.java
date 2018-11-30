@@ -56,7 +56,8 @@ public interface HotelBookingService {
     @ApiOperation(value = "Use this methos to guess cancellation costs and important remarks regarding a price")
     public GetHotelPriceDetailsRS getHotelPriceDetails(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            String ratekeys
+            GetHotelPriceDetailsRQ ratekeys
+
     ) throws Throwable;
 
     @PUT
