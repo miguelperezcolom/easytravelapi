@@ -1,8 +1,18 @@
 package org.easytravelapi.hotel;
 
 public class GetHotelPriceDetailsRQ {
+
+    private String language;
     private String ratekeys;
     private String coupon;
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
 
     public String getRatekeys() { return ratekeys; }
 

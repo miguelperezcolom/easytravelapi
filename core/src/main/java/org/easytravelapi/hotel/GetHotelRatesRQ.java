@@ -4,19 +4,49 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class GetHotelRatesRQ {
     @ApiModelProperty(value = "Key for using in next step (get hotel rates)")
-    private String hotelKey;
+    private String language;
+    private String hotelId;
     private int checkin;
     private int checkout;
+    private String occupancies;
 
-    public String getHotelKey() { return hotelKey; }
+    public String getLanguage() {
+        return language;
+    }
 
-    public void setHotelKey(String hotelKey) { this.hotelKey = hotelKey; }
+    public void setLanguage(String language) {
+        this.language = language;
+    }
 
-    public int getCheckin() { return checkin; }
+    public String getHotelId() {
+        return hotelId;
+    }
 
-    public void setCheckin(int checkin) { this.checkin = checkin; }
+    public void setHotelId(String hotelId) {
+        this.hotelId = hotelId;
+    }
 
-    public int getCheckout() { return checkout; }
+    public int getCheckin() {
+        return checkin;
+    }
 
-    public void setCheckout(int checkout) { this.checkout = checkout; }
+    public void setCheckin(int checkin) {
+        this.checkin = checkin;
+    }
+
+    public int getCheckout() {
+        return checkout;
+    }
+
+    public void setCheckout(int checkout) {
+        this.checkout = checkout;
+    }
+
+    public String getOccupancies() {
+        return occupancies;
+    }
+
+    public void setOccupancies(String occupancies) {
+        this.occupancies = occupancies;
+    }
 }
