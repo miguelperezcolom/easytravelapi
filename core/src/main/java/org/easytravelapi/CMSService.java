@@ -32,9 +32,9 @@ public interface CMSService {
             @ApiParam(value = "The comma separated list of resorts you are interested in")
             @QueryParam("resorts") String resorts,
             @ApiParam(value = "The locale checkin date in YYYYMMDD format")
-            @QueryParam("checkIn") int checkIn,
+            @QueryParam("checkin") int checkin,
             @ApiParam(value = "The locale checkout date in YYYYMMDD format")
-            @QueryParam("checkOut") int checkOut,
+            @QueryParam("checkout") int checkout,
             @ApiParam(value = "List comma separated list of occupancies you need in <nr of rooms>x<pax>[-<age>]* format")
             @QueryParam("occupancies") String occupancies
     ) throws Throwable;
