@@ -42,6 +42,10 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOffer(true);
+            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOfferText("Special offer for this activity");
+
 
         }
 
@@ -104,7 +108,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
         for (int i = 0; i < 7; i++) {
             AvailableDate ad;
             ads.add(ad = new AvailableDate());
-            ad.setDate(20180715 + i);
+            ad.setDate(20181215 + i);
             ArrayList<Shift> ss;
             ad.setShifts(ss = new ArrayList<>());
 
@@ -465,7 +469,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(30.45);
-            l.setDate(20180601);
+            l.setDate(20181201);
             l.setPaymentMethod("WEB");
         }
 
@@ -518,6 +522,9 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOffer(true);
+            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOfferText("Special offer for this activity");
 
         }
 

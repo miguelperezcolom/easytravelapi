@@ -8,6 +8,8 @@ public class BestDeal {
     private Amount netPrice;
     private Amount commission;
     private boolean isOffer;
+    private String offerText;
+    private Amount beforeOfferPrice;
 
     public Amount getRetailPrice() {
         return retailPrice;
@@ -36,4 +38,12 @@ public class BestDeal {
     public boolean isOffer() { return isOffer; }
 
     public void setOffer(boolean offer) { isOffer = offer; }
+
+    public String getOfferText() { return offerText; }
+
+    public void setOfferText(String offerText) { this.offerText = offerText; }
+
+    public Amount getBeforeOfferPrice() { return beforeOfferPrice; }
+
+    public void setBeforeOfferPrice(Amount beforeOfferPrice) { this.beforeOfferPrice = beforeOfferPrice; }
 }

@@ -46,6 +46,9 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOffer(true);
+            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOfferText(" offer");
 
         }
 
@@ -86,6 +89,9 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOffer(true);
+            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOfferText(" offer");
         }
         {
             AvailableCircuit a;
@@ -167,7 +173,7 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
         for (int i = 0; i < 7; i++) {
             AvailableDate ad;
             ads.add(ad = new AvailableDate());
-            ad.setDate(20180715 + i);
+            ad.setDate(20181215 + i);
 
             ArrayList<Variant> vs;
             ad.setVariants(vs = new ArrayList<>());
@@ -483,7 +489,7 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(30.45);
-            l.setDate(20180601);
+            l.setDate(20181201);
             l.setPaymentMethod("WEB");
         }
 
@@ -538,6 +544,7 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
 
+
         }
 
         {
@@ -557,6 +564,10 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOffer(true);
+            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOfferText("Special Offer ");
+
         }
 
 
@@ -578,6 +589,9 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOffer(true);
+            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOfferText("Special offer for this activity");
+
         }
 
 

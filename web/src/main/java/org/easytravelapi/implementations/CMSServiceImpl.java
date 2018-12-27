@@ -11,7 +11,7 @@ public class CMSServiceImpl implements CMSService {
     public GetHotelAvailabilityCalendarRS getHotelAvailabilityCalendar(String token, String resorts, int checkIn, int checkout, String occupancies) throws Throwable {
         GetHotelAvailabilityCalendarRS cal = new GetHotelAvailabilityCalendarRS();
 
-        for (int j=1 ;j<12;j++) {
+        for (int j=1 ;j<13;j++) {
             HotelAvailabilityCalendarMonth month;
             cal.getMonths().add(month = new HotelAvailabilityCalendarMonth());
             month.setMonth(j);

@@ -23,6 +23,9 @@ public class GetGenericPriceDetailsRS extends AbstractRS{
     @ApiModelProperty(value = "Remarks which should be visible for the customer")
     private List<Remark> remarks = new ArrayList<Remark>();
 
+    @ApiModelProperty(value = "Response message from discount coupon applicated")
+    private String couponMsg;
+
     private List<PaymentMethod> paymentMethods = new ArrayList<>();
 
     public List<CancellationCost> getCancellationCosts() {
@@ -54,4 +57,8 @@ public class GetGenericPriceDetailsRS extends AbstractRS{
     public List<PaymentMethod> getPaymentMethods() { return paymentMethods; }
 
     public void setPaymentMethods(List<PaymentMethod> paymentMethods) { this.paymentMethods = paymentMethods; }
+
+    public String getCouponMsg() { return couponMsg; }
+
+    public void setCouponMsg(String couponMsg) { this.couponMsg = couponMsg; }
 }

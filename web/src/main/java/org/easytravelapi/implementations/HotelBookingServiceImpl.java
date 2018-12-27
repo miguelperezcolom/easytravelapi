@@ -51,12 +51,15 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             BestDeal bd;
             h.setBestDeal(bd = new BestDeal());
             System.out.println(i%4);
-            if (i%4 ==0){
-                bd.setOffer(true);
-            }
+
             double rp;
             double x = r.nextDouble();
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            if (i%4 ==0){
+                bd.setOffer(true);
+                bd.setOfferText("30% Descuento al contratar mas de 3 días en temporada baja, habitación doble");
+                bd.setBeforeOfferPrice(new Amount("EUR", rp + 100));
+            }
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setRetailPrice(new Amount("EUR", Math.round(rp * 85) / 100));
 
@@ -404,7 +407,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(600.45);
-            l.setDate(20181101);
+            l.setDate(20181201);
             l.setPaymentMethod("WEB");
         }
         {
@@ -414,7 +417,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(600.45);
-            l.setDate(20181115);
+            l.setDate(20181215);
             l.setPaymentMethod("WEB");
         }
         {
@@ -440,7 +443,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 l.setAmount(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(30.45);
-                l.setDate(20180601);
+                l.setDate(20181201);
                 l.setPaymentMethod("WEB");
 
             }
@@ -481,7 +484,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 l.setAmount(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(130.45);
-                l.setDate(20180601);
+                l.setDate(20181201);
                 l.setPaymentMethod("WEB");
             }
 

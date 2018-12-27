@@ -10,11 +10,13 @@ import org.easytravelapi.generic.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class GenericBookingServiceImpl implements GenericBookingService {
+
     @Override
-    public GetGenericPriceDetailsRS getGenericPriceDetails(String token, String key, String language, int adults, int children, int units, String supplements, int start, int end) throws Throwable {
+    public GetGenericPriceDetailsRS getGenericPriceDetails(String token, String key, String language, int adults, int children, int units, String supplements, int start, int end, String coupon) throws Throwable {
         GetGenericPriceDetailsRS rs = new GetGenericPriceDetailsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -161,6 +163,46 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
 
         }
+        if(coupon != null && coupon != ""){
+            if (coupon.length() > 5)
+            {
+
+
+                {
+                    PriceLine pc;
+                    rs.getPriceLines().add(pc = new PriceLine());
+                    {
+                        Amount a;
+                        pc.setRetailPrice(a = new Amount());
+                        a.setCurrencyIsoCode("EUR");
+                        a.setValue(-750.16);
+                    }
+
+                    {
+                        Amount a;
+                        pc.setCommission(a = new Amount());
+                        a.setCurrencyIsoCode("EUR");
+                        a.setValue(250.31);
+                    }
+
+                    {
+                        Amount a;
+                        pc.setNetPrice(a = new Amount());
+                        a.setCurrencyIsoCode("EUR");
+                        a.setValue(1250.01);
+                    }
+
+                    pc.setType("AT_WEB");
+                    pc.setDescription("Coupon discount 50%");
+
+
+                }
+                rs.setCouponMsg("Cupón " + coupon + " aplicado");
+            }
+            else{
+                rs.setCouponMsg("Cupón no válido");
+            }
+        }
         {
             PaymentLine l;
             rs.getPaymentLines().add(l = new PaymentLine());
@@ -236,6 +278,10 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOffer(true);
+            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOfferText("Special offer for this activity");
+
             g.setDescription(new MultilingualText("es", "Moto tipo scooter electrica", "en", "Scooter bike electrica"));
             g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
             g.setName(new MultilingualText("es", "Moto electrica", "en", "Electric Scooter"));
@@ -353,6 +399,104 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
     @Override
     public GetAvailableGenericsRS getFilteredGeneric(String token, String serviceType, String language, String minPrice, String maxPrice) throws Throwable {
-        return null;
+        GetAvailableGenericsRS rs = new GetAvailableGenericsRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("availables generics");
+        Random r = new Random();
+        System.out.println("contains nada" + serviceType.toString());
+        String[] servicesArray =  serviceType.split(",");
+        for (String service : servicesArray) {
+            System.out.println("service " +service );
+            if(service.equals("rentabike")){
+
+                System.out.println("contains rentabike"  );
+
+            {
+                AvailableGeneric g;
+                rs.getAvailableGenerics().add(g = new AvailableGeneric());
+
+                BestDeal bd;
+                g.setBestDeal(bd = new BestDeal());
+
+                double rp;
+                double x = r.nextDouble();
+                bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+                System.out.println("x=" + x + ", rp=" + rp);
+                bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+                bd.setOffer(true);
+                bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+                bd.setOfferText("Special offer for this activity");
+
+                g.setDescription(new MultilingualText("es", "Moto tipo scooter de 49 c.c.", "en", "Scooter bike 49 c.c."));
+                g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
+                g.setName(new MultilingualText("es", "Moto scooter", "en", "Scooter bike "));
+                g.setType("rentbike");
+                g.setGenericId("moto1");
+            }
+
+            {
+                AvailableGeneric g;
+                rs.getAvailableGenerics().add(g = new AvailableGeneric()) ;
+
+                BestDeal bd;
+                g.setBestDeal(bd = new BestDeal());
+
+                double rp;
+                double x = r.nextDouble();
+                bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+                System.out.println("x=" + x + ", rp=" + rp);
+                bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+                g.setDescription(new MultilingualText("es", "Moto tipo scooter electrica", "en", "Scooter bike electrica"));
+                g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
+                g.setName(new MultilingualText("es", "Moto electrica", "en", "Electric Scooter"));
+                g.setType("rentbike");
+                g.setGenericId("moto2");
+
+            }
+            {
+                AvailableGeneric g;
+                rs.getAvailableGenerics().add(g = new AvailableGeneric());
+
+                BestDeal bd;
+                g.setBestDeal(bd = new BestDeal());
+
+                double rp;
+                double x = r.nextDouble();
+                bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+                System.out.println("x=" + x + ", rp=" + rp);
+                bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+                g.setDescription(new MultilingualText("es", "Moto tipo scooter de 49 c.c.", "en", "Scooter bike 49 c.c."));
+                g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
+                g.setName(new MultilingualText("es", "Moto scooter", "en", "Scooter bike "));
+                g.setType("rentbike");
+                g.setGenericId("moto3");
+            }
+        }
+        if(service.equals("tickets")){
+            {
+                System.out.println("contains rentabike"  );
+                AvailableGeneric g;
+                rs.getAvailableGenerics().add(g = new AvailableGeneric());
+
+                BestDeal bd;
+                g.setBestDeal(bd = new BestDeal());
+
+                double rp;
+                double x = r.nextDouble();
+                bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+                System.out.println("x=" + x + ", rp=" + rp);
+                bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+                g.setDescription(new MultilingualText("es", "Entrada concierto Rock", "en", "Rock Concert ticket"));
+                g.setImage("https://ep01.epimg.net/verne/imagenes/2015/10/18/articulo/1445171361_981733_1445201957_noticia_normal.jpg");
+                g.setName(new MultilingualText("es", "Entrada Concierto", "en", "Concert Ticket"));
+                g.setType("rentbike");
+                g.setGenericId("moto3");
+            }
+
+        }
+        }
+        return rs;
     }
 }

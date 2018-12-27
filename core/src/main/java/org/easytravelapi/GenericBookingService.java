@@ -8,6 +8,7 @@ import org.easytravelapi.generic.*;
 import javax.jws.WebService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @WebService
 @Path("{authtoken}/generic")
@@ -47,7 +48,9 @@ public interface GenericBookingService {
             @ApiParam(value = "Service start date in YYYYMMDD format")
             @QueryParam("start") int start,
             @ApiParam(value = "Service end date in YYYYMMDD format")
-            @QueryParam("end") int end
+            @QueryParam("end") int end,
+            @ApiParam(value = "Discount Coupon code")
+            @QueryParam("coupon") String coupon
 
     ) throws Throwable;
 
@@ -66,8 +69,8 @@ public interface GenericBookingService {
     @ApiOperation(value = "Get available generic filtered", notes = "By passing a resort and holidays dates you get a list of the available generic products")
     public GetAvailableGenericsRS getFilteredGeneric(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "type of product")
-            @QueryParam("servicetype") String  serviceType,
+            @ApiParam(value = "List of type of product to filter by separated by ,")
+            @QueryParam("servicetype") String serviceType,
             @QueryParam("language") String language,
             @ApiParam(value = "Min price range to filter")
             @QueryParam("minprice") String minPrice,

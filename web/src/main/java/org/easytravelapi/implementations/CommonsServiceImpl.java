@@ -29,7 +29,7 @@ public class CommonsServiceImpl implements CommonsService {
             c.setResourceId("cou_es");
             c.setName(new MultilingualText("es", "España", "en", "Spain"));
             c.setUrlFriendlyName("spain");
-            
+
             {
                 State s;
                 c.getStates().add(s = new State());
@@ -236,6 +236,15 @@ public class CommonsServiceImpl implements CommonsService {
                 , {"distance/airport", "25 km"}
                 , {"distance/beach", "200 m"}
                 , {"images/main", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/0?width=870&height=480&crop=false"}
+                , {"images/map", "https://api.mapbox.com/styles/v1/mapbox/streets-v10/static/2.646503,39.571558,12/371x280@2x?access_token=pk.eyJ1IjoiY2hyaXNoYXdlcyIsImEiOiJjamszNG5lZmEwemR1M3NudGMxZW45MWR6In0.iVoxXaXAgZ-CjmTEk7ss-Q"}
+                , {"images/image", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/1?width=870&height=480&crop=false"}
+                , {"images/image", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/2?width=870&height=480&crop=false"}
+                , {"images/image", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/3?width=870&height=480&crop=false"}
+                , {"images/image", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/4?width=870&height=480&crop=false"}
+                , {"images/image", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/5?width=870&height=480&crop=false"}
+                , {"images/image", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/6?width=870&height=480&crop=false"}
+                , {"images/image", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/7?width=870&height=480&crop=false"}
+                , {"images/image", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/8?width=870&height=480&crop=false"}
                 , {"images/image", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/1?width=870&height=480&crop=false"}
                 , {"images/image", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/2?width=870&height=480&crop=false"}
                 , {"images/image", "https://hi-cdn.t-rp.co.uk/images/hotels/225146/3?width=870&height=480&crop=false"}

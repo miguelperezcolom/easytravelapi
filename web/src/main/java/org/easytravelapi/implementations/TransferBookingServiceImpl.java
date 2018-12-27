@@ -44,6 +44,9 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOffer(true);
+            bd.setBeforeOfferPrice(new Amount("EUR",rp + 50));
+            bd.setOfferText("Special 30% off");
         }
         {
             AvailableTransfer t;
@@ -376,6 +379,18 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             a.setLongitude("32.56789");
         }
 
+        {
+            Resource a;
+
+            rs.getAirports().add(a = new Resource());
+
+            a.setResourceId("XRY");
+            a.setDescription(new MultilingualText("es", "Aeropuerto de Jerez", "en", "Xerez Airport"));
+            a.setName(new MultilingualText("es", "Aeropuerto de Jerez", "en", "Xerez Airport"));
+            a.setLatitude("12.56789");
+            a.setLongitude("32.56789");
+        }
+
         return rs;
     }
 
@@ -439,6 +454,10 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOffer(true);
+            bd.setBeforeOfferPrice(new Amount("EUR", rp+50));
+            bd.setOfferText("Special offer filtered");
+
         }
         {
             AvailableTransfer t;
@@ -458,6 +477,9 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOffer(true);
+            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setOfferText("Special offer for this transfer");
+
         }
 
 
@@ -480,6 +502,70 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
+
+        return rs;
+    }
+
+    @Override
+    public GetAirportsRS getAirpotRS(String token, String airportid) throws Throwable {
+        GetAirportsRS rs = new GetAirportsRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("5654 resouces found");
+
+        {
+            Resource a;
+
+            rs.getAirports().add(a = new Resource());
+
+            a.setResourceId("PMI");
+            a.setDescription(new MultilingualText("es", "Aeropuerto de Palma", "en", "Palma Airport"));
+            a.setName(new MultilingualText("es", "Aeropuerto de Palma" + airportid, "en", "Palma Airport" + airportid));
+            a.setLatitude("12.56789");
+            a.setLongitude("32.56789");
+        }
+
+        return rs;
+    }
+
+    @Override
+    public GetAirportsRS getAirpotfromdestRS(String token, String destinationid) throws Throwable {
+        GetAirportsRS rs = new GetAirportsRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("1 resouces found");
+
+
+
+        {
+            Resource a;
+
+            rs.getAirports().add(a = new Resource());
+
+            a.setResourceId("XRY");
+            a.setDescription(new MultilingualText("es", "Aeropuerto de Jerez" + destinationid , "en", "Xerez Airport" + destinationid));
+            a.setName(new MultilingualText("es", "Aeropuerto de Jerez" + destinationid, "en", "Xerez Airport" + destinationid));
+            a.setLatitude("12.56789");
+            a.setLongitude("32.56789");
+        }
+        return rs;
+    }
+
+    @Override
+    public GetDestinationRS getDestinationRS(String token, String destkey) throws Throwable {
+        GetDestinationRS rs = new GetDestinationRS();
+
+        Resource d;
+
+        rs.getDestination().add(d = new Resource());
+
+        d.setDescription(new MultilingualText("es", "Hotel xerez", "en", "xerez Hotel"));
+        d.setLatitude("12.85859");
+        d.setLongitude("24.52123");
+        d.setName(new MultilingualText("es", "Hotel xerez"+destkey, "en", "xerez Hotel"+destkey));
+        d.setResourceId("2");
 
         return rs;
     }
