@@ -18,6 +18,13 @@ public class AvailableHotel {
     private String hotelCategoryId;
     @ApiModelProperty(value = "The hotel category name")
     private String hotelCategoryName;
+
+    @ApiModelProperty(value = "The hotel number of stars")
+    private int stars;
+    @ApiModelProperty(value = "The hotel number of keys")
+    private int keys;
+
+
     @ApiModelProperty(value = "Google longitude")
     private String longitude;
     @ApiModelProperty(value = "Google latitude")
