@@ -113,4 +113,20 @@ public class AvailableHotel {
     public String getAddress() { return address; }
 
     public void setAddress(String address) { this.address = address; }
+
+    public int getStars() {
+        return stars;
+    }
+
+    public void setStars(int stars) {
+        this.stars = stars;
+    }
+
+    public int getKeys() {
+        return keys;
+    }
+
+    public void setKeys(int keys) {
+        this.keys = keys;
+    }
 }
