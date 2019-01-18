@@ -585,7 +585,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
     }
 
     @Override
-    public GetAvailableHotelsRS getFilteredHotels(String token, String language, String resorts, int checkIn, int checkout, String occupancies, List<String> categories, String minPrice, String maxPrice) throws Throwable {
+    public GetAvailableHotelsRS getFilteredHotels(String token, String language, String resorts, int checkIn, int checkout, String occupancies, String categories, double minPrice, double maxPrice) throws Throwable {
         GetAvailableHotelsRS rs = new GetAvailableHotelsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));

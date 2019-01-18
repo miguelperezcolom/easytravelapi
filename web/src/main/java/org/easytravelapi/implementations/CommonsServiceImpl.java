@@ -335,6 +335,35 @@ public class CommonsServiceImpl implements CommonsService {
     }
 
     @Override
+    public GetBookingRS getBooking(String token, String email, String bookingId) throws Throwable {
+        GetBookingRS rs = new GetBookingRS();
+
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+
+
+        Booking b = new Booking();
+
+        b.setBookingId("878997");
+        b.setCreated(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setCreatedBy("MATEU");
+        b.setModified(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setLeadName("Sr Nombre");
+        b.setStart("20180106");
+        b.setEnd("20180112");
+        b.setBookingId("9866230462GGWED76");
+        Amount a;
+        b.setNetValue(a = new Amount());
+        a.setCurrencyIsoCode("EUR");
+        a.setValue(750.42);
+        b.setServiceType("HOTEL");
+        b.setServiceDescription("Hotel ");
+        b.setStatus("OK");
+        rs.setBooking(b);
+        return rs;
+    }
+
+    @Override
     public CancelBookingRS cancelBooking(String token, String bookingId) {
 
         CancelBookingRS rs = new CancelBookingRS();

@@ -82,11 +82,11 @@ public interface HotelBookingService {
             @ApiParam(value = "List comma separated list of occupancies you need in <nr of rooms>x<pax>[-<age>]* format")
             @QueryParam("occupancies") String occupancies,
             @ApiParam(value = "List of categories selected to filter")
-            @QueryParam("categories") List<String> categories,
+            @QueryParam("categories") String categories,
             @ApiParam(value = "Min price range to filter")
-            @QueryParam("minprice") String minPrice,
+            @QueryParam("minprice") double minPrice,
             @ApiParam(value = "Max price range to filter")
-            @QueryParam("maxprice") String maxPrice
+            @QueryParam("maxprice") double maxPrice
 
     ) throws Throwable;
 
