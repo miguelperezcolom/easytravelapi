@@ -72,47 +72,21 @@ public interface TransferBookingService {
     @GET
     @Path("/airports")
     @ApiOperation(value = "Use this method to get all available airports")
-    public GetAirportsRS getAirpotsRS(
+    public GetAirportsRS getAirports(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
 
     ) throws Throwable;
 
     @GET
-    @Path("/airport/{airportid}")
-    @ApiOperation(value = "Use this method to an airports from its id")
-    public GetAirportsRS getAirpotRS(
-            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "The airport key to get a specific airpor")
-            @PathParam("airportid") String airportid
-    ) throws Throwable;
-
-    @GET
-    @Path("/airportfromdest/{destinationid}")
-    @ApiOperation(value = "Use this method to get all available airports from a given destination")
-    public GetAirportsRS getAirpotfromdestRS(
-            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "The destination key to get their origins point")
-            @PathParam("destinationid") String destinationid
-    ) throws Throwable;
-
-    @GET
-    @Path("/destinations/{key}")
+    @Path("/airports/{airportId}/destinations")
     @ApiOperation(value = "Use this method to get all available destinations from an airport key")
-    public GetDestinationRS getDestinationsRS(
+    public GetDestinationRS getDestinationsForAirport(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
              @ApiParam(value = "The airport key to get destinations")
-             @PathParam("key") String key
+             @PathParam("airportId") String airportId
 
     ) throws Throwable;
-    @GET
-    @Path("/destination/{destkey}")
-    @ApiOperation(value = "Use this method to get a destinations from its id")
-    public GetDestinationRS getDestinationRS(
-            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "The airport key to get destinations")
-            @PathParam("destkey") String destkey
 
-    ) throws Throwable;
     @GET
     @Path("/filter")
     @ApiOperation(value = "Use this method to filter transfers wich are available and their prices")
