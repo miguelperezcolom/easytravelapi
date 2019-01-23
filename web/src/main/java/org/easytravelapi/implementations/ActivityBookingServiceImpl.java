@@ -108,7 +108,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
         for (int i = 0; i < 7; i++) {
             AvailableDate ad;
             ads.add(ad = new AvailableDate());
-            ad.setDate(20181215 + i);
+            ad.setDate(20191215 + i);
             ArrayList<Shift> ss;
             ad.setShifts(ss = new ArrayList<>());
 
@@ -335,7 +335,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
         {
             CancellationCost c;
             rs.getCancellationCosts().add(c = new CancellationCost());
-            c.setGMTtime(LocalDateTime.of(2018, 06, 05, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
+            c.setGMTtime(LocalDateTime.of(2019, 06, 05, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
             Amount a;
             c.setNet(a = new Amount());
             a.setCurrencyIsoCode("EUR");
@@ -345,7 +345,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
         {
             CancellationCost c;
             rs.getCancellationCosts().add(c = new CancellationCost());
-            c.setGMTtime(LocalDateTime.of(2018, 07, 01, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
+            c.setGMTtime(LocalDateTime.of(2019, 07, 01, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
             Amount a;
             c.setNet(a = new Amount());
             a.setCurrencyIsoCode("EUR");
@@ -469,7 +469,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(30.45);
-            l.setDate(20181201);
+            l.setDate(20191201);
             l.setPaymentMethod("WEB");
         }
 

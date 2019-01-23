@@ -316,6 +316,48 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 rs.setCouponMsg("Cupon no válido");
             }
         }
+        if(ratekeys.getSelectedServices() != null && ratekeys.getSelectedServices() != "") {
+
+
+            {
+
+                String[] parts = ratekeys.getSelectedServices().split(",");
+                System.out.println(ratekeys.getSelectedServices());
+                System.out.println(parts.length);
+                System.out.println(parts);
+                String[] parts2 = parts[0].split("-");
+                System.out.println(parts2.length);
+                System.out.println(parts);
+
+                PriceLine pc;
+                rs.getPrices().add(pc = new PriceLine());
+                {
+                    Amount a;
+                    pc.setRetailPrice(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(-750.16);
+                }
+
+                {
+                    Amount a;
+                    pc.setCommission(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(250.31);
+                }
+
+                {
+                    Amount a;
+                    pc.setNetPrice(a = new Amount());
+                    a.setCurrencyIsoCode("EUR");
+                    a.setValue(1250.01);
+                }
+
+                pc.setType("AT_WEB");
+                pc.setDescription(parts2[1] + " x suplemento " + parts2[0]);
+
+
+            }
+        }
         {
             PriceLine pc;
             rs.getPrices().add(pc = new PriceLine());

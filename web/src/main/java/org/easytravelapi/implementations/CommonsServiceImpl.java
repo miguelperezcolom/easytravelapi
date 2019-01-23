@@ -218,6 +218,8 @@ public class CommonsServiceImpl implements CommonsService {
                 , {"city", "Palma de Mallorca"}
                 , {"country", "Spain"}
                 , {"category", "4 stars"}
+                , {"longitude", "2.629556"}
+                , {"latitude", "39.6359261"}
                 , {"description", "Quonext Turismo es la empresa del grupo Quonext especializada en soluciones de gestión para el sector turístico: hoteles, aeropuertos, aerolíneas y empresas de ocio, parques temáticos, agencias de viajes receptivas… desarrolladas sobre Microsoft Dynamics NAV, siendo líderes en el mercado con más de 600 instalaciones."}
                 , {"language", language}
                 , {"features/aircondition", ""}

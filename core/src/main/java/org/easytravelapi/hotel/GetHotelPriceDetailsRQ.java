@@ -5,6 +5,7 @@ public class GetHotelPriceDetailsRQ {
     private String language;
     private String ratekeys;
     private String coupon;
+    private String selectedServices;
 
     public String getLanguage() {
         return language;
@@ -21,4 +22,8 @@ public class GetHotelPriceDetailsRQ {
     public String getCoupon() { return coupon; }
 
     public void setCoupon(String coupon) { this.coupon = coupon; }
+
+    public String getSelectedServices() { return selectedServices; }
+
+    public void setSelectedServices(String selectedServices) { this.selectedServices = selectedServices; }
 }
