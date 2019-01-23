@@ -54,6 +54,7 @@ public interface ActivityBookingService {
             @QueryParam("language") String language,
             @QueryParam("adults") int adults,
             @QueryParam("children")int children,
+            @QueryParam("variant")String variant,
             @QueryParam("shift")String shift,
             @QueryParam("pickup")String pickup,
             @QueryParam("activityLanguage")String activityLanguage
