@@ -51,6 +51,7 @@ public interface ActivityBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
             @PathParam("key") String key,
+            @QueryParam("date") int date,
             @QueryParam("language") String language,
             @QueryParam("adults") int adults,
             @QueryParam("children")int children,

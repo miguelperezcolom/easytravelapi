@@ -155,7 +155,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
     }
 
     @Override
-    public CheckActivityRS check(String token, String key, String language, int adults, int children, String variant, String shift, String pickup, String activityLanguage) throws Throwable {
+    public CheckActivityRS check(String token, String key, int date, String language, int adults, int children, String variant, String shift, String pickup, String activityLanguage) throws Throwable {
         CheckActivityRS rs = new CheckActivityRS();
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
