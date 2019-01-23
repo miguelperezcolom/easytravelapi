@@ -38,4 +38,14 @@ public interface CMSService {
             @ApiParam(value = "List comma separated list of occupancies you need in <nr of rooms>x<pax>[-<age>]* format")
             @QueryParam("occupancies") String occupancies
     ) throws Throwable;
+
+    @GET
+    @Path("/activityavailabilitycalendar")
+    @ApiOperation(value = "Use this method to know which hotels are available and their prices")
+    public GetHotelAvailabilityCalendarRS getActivityAvailabilityCalendar(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "The comma separated list of resorts you are interested in")
+            @QueryParam("resorts") String activityId
+    ) throws Throwable;
+
 }

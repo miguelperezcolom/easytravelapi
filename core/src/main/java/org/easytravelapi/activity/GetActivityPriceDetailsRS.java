@@ -15,6 +15,8 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
 
     private String key;
 
+    private List<ActivitySupplement> supplements = new ArrayList<>();
+
     private List<PriceLine> priceLines = new ArrayList<>();
 
     private BestDeal total;
@@ -81,6 +83,14 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
 
     public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
         this.paymentMethods = paymentMethods;
+    }
+
+    public List<ActivitySupplement> getSupplements() {
+        return supplements;
+    }
+
+    public void setSupplements(List<ActivitySupplement> supplements) {
+        this.supplements = supplements;
     }
 }
 

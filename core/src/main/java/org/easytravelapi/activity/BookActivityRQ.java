@@ -19,9 +19,10 @@ public class BookActivityRQ {
 
     private String language;
 
+    private String activityLanguage;
+
     private String shiftId;
 
-    private String variantId;
 
     private int adults;
     private int children;
@@ -60,6 +61,22 @@ public class BookActivityRQ {
     }
 
 
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getPickup() {
+        return pickup;
+    }
+
+    public void setPickup(String pickup) {
+        this.pickup = pickup;
+    }
+
     public int getDate() {
         return date;
     }
@@ -76,20 +93,20 @@ public class BookActivityRQ {
         this.language = language;
     }
 
+    public String getActivityLanguage() {
+        return activityLanguage;
+    }
+
+    public void setActivityLanguage(String activityLanguage) {
+        this.activityLanguage = activityLanguage;
+    }
+
     public String getShiftId() {
         return shiftId;
     }
 
     public void setShiftId(String shiftId) {
         this.shiftId = shiftId;
-    }
-
-    public String getVariantId() {
-        return variantId;
-    }
-
-    public void setVariantId(String variantId) {
-        this.variantId = variantId;
     }
 
     public int getAdults() {
@@ -108,9 +125,13 @@ public class BookActivityRQ {
         this.children = children;
     }
 
-    public int getInfants() {return infants;}
+    public int getInfants() {
+        return infants;
+    }
 
-    public void setInfants(int infants) {this.infants = infants;}
+    public void setInfants(int infants) {
+        this.infants = infants;
+    }
 
     public String getSupplementIds() {
         return supplementIds;
@@ -152,23 +173,27 @@ public class BookActivityRQ {
         this.privateComments = privateComments;
     }
 
-    public String getRoomNumber() { return roomNumber; }
+    public String getRoomNumber() {
+        return roomNumber;
+    }
 
-    public void setRoomNumber(String roomNumber) { this.roomNumber = roomNumber; }
+    public void setRoomNumber(String roomNumber) {
+        this.roomNumber = roomNumber;
+    }
 
-    public String getPhoneNumber() { return phoneNumber; }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-    public String getEmail() { return email; }
+    public String getEmail() {
+        return email;
+    }
 
-    public void setEmail(String email) { this.email = email; }
-
-    public String getKey() { return key; }
-
-    public void setKey(String key) { this.key = key; }
-
-    public String getPickup() { return pickup; }
-
-    public void setPickup(String pickup) { this.pickup = pickup; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

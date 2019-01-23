@@ -112,11 +112,11 @@ public interface TransferBookingService {
             @QueryParam("incomingdate") int incomingDate,
             @ApiParam(value = "Locale date for the outgoing / return side of the transfer, in YYYYMMDD format")
             @QueryParam("outgoingdate") int outgoingDate,
-            @QueryParam("transfertype") List<String> transfertype,
+            @QueryParam("transfertype") String transfertypes,
             @ApiParam(value = "Min price range to filter")
-            @QueryParam("minprice") String minPrice,
+            @QueryParam("minprice") double minPrice,
             @ApiParam(value = "Max price range to filter")
-            @QueryParam("maxprice") String maxPrice
+            @QueryParam("maxprice") double maxPrice
     ) throws Throwable;
 
 

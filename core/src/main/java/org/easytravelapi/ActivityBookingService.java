@@ -2,16 +2,13 @@ package org.easytravelapi;
 
 
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.easytravelapi.activity.*;
-import org.easytravelapi.common.GetPortfolioRS;
 
 import javax.jws.WebService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
 
 /**
  * Created by miguel on 26/7/17.
@@ -31,39 +28,36 @@ public interface ActivityBookingService {
             @ApiParam(value = "Holidays start date in YYYYMMDD format")
             @QueryParam("start") int start,
             @ApiParam(value = "Resort ID. You can get it from commons/getportfolio")
-            @QueryParam("resourceid") String resourceId,
+            @QueryParam("resorts") String resorts,
             @QueryParam("language") String language
             ) throws Throwable;
 
 
     @GET
-    @Path("/rates/{key}")
+    @Path("/rates/{activityId}")
     @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
     public GetActivityRatesRS getActivityRates(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
-            @PathParam("key") String key,
+            @PathParam("activityId") String activityId,
+            @QueryParam("date") int date,
             @QueryParam("language") String language
     ) throws Throwable;
 
     @GET
-    @Path("/price/{key}")
+    @Path("/check/{key}")
     @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
-    public GetActivityPriceRS getExcursionPrice(
+    public CheckActivityRS check(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
             @PathParam("key") String key,
             @QueryParam("language") String language,
             @QueryParam("adults") int adults,
             @QueryParam("children")int children,
-            @QueryParam("infants")int infants,
-            @QueryParam("datekey")String datekey,
-            @QueryParam("variantkey")String variantkeykey,
-            @QueryParam("shiftdate")String shiftdate,
+            @QueryParam("shift")String shift,
             @QueryParam("pickup")String pickup,
-            @QueryParam("supplements")String supplements
+            @QueryParam("activityLanguage")String activityLanguage
     ) throws Throwable;
-
 
     @GET
     @Path("/pricedetails/{key}")
@@ -73,9 +67,6 @@ public interface ActivityBookingService {
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
             @PathParam("key") String key,
             @QueryParam("language") String language,
-            @QueryParam("adults") int adults,
-            @QueryParam("ages")int children,
-            @QueryParam("vehicles")int vehicles,
             @QueryParam("supplements")String supplements,
             @ApiParam(value = "Discount coupons")
             @QueryParam("coupon") String coupon
@@ -102,14 +93,10 @@ public interface ActivityBookingService {
             @QueryParam("resourceid") String resourceId,
             @QueryParam("language") String language,
             @ApiParam(value = "Min price range to filter")
-            @QueryParam("minprice") String minPrice,
+            @QueryParam("minprice") double minPrice,
             @ApiParam(value = "Max price range to filter")
-            @QueryParam("maxprice") String maxPrice
+            @QueryParam("maxprice") double maxPrice
     ) throws Throwable;
-    @GET
-    @Path("/portfolio")
-    @ApiOperation(value = "Method to get the whole product tree")
-    public GetPortfolioRS getPortfolio(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method")
-                                       @PathParam("authtoken") String token) throws Throwable;
+
 
 }
