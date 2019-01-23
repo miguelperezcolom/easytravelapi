@@ -1,9 +1,12 @@
 package org.easytravelapi.implementations;
 
+import com.google.common.base.Strings;
+import com.google.common.io.BaseEncoding;
 import org.easytravelapi.ActivityBookingService;
 import org.easytravelapi.activity.*;
 import org.easytravelapi.common.*;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -93,198 +96,81 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
     }
 
     @Override
-    public GetActivityRatesRS getActivityRates(String token, String key, String language) throws Throwable {
+    public GetActivityRatesRS getActivityRates(String token, String activityId, int date, String language) throws Throwable {
         GetActivityRatesRS rs = new GetActivityRatesRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
-        rs.setMsg("Price details");
+        rs.setMsg("Done");
 
-        Random rand = new Random();
+        System.out.println("activity rates. token = " + token);
 
-        ArrayList<AvailableDate> ads;
-        rs.setAvailableDates(ads = new ArrayList<>());
+        long t0 = System.currentTimeMillis();
 
-        for (int i = 0; i < 7; i++) {
-            AvailableDate ad;
-            ads.add(ad = new AvailableDate());
-            ad.setDate(20191215 + i);
-            ArrayList<Shift> ss;
-            ad.setShifts(ss = new ArrayList<>());
+        try {
 
-            if (i % 2 == 0) {
-                Shift s;
-                ss.add(s = new Shift());
-                s.setName("Mañana");
-                s.setTime(1000 + i);
-            }
-            if (i % 4 == 0) {
-                Shift s;
-                ss.add(s = new Shift());
-                s.setName("Tarde");
-                s.setTime(1500 + i);
-            }
+            rs.setVariants(new ArrayList<>());
+            ActivityVariant av;
+            rs.getVariants().add(av = new ActivityVariant());
+            av.setKey("23");
+            av.setName("Variante 1");
+            av.setDescription("Descripción de la variante 1");
+            av.setBestDeal(new BestDeal());
+            av.getBestDeal().setRetailPrice(new Amount("EUR", 200.34));
 
-
-            ArrayList<Variant> vs;
-            ad.setVariants(vs = new ArrayList<>());
-
-            if (i % 3 == 0) for (int j = 0; j < 3; j++) {
-                Variant v;
-                vs.add(v = new Variant());
-                v.setId("qswq");
-                v.setName("Variante " + j);
-                v.setDescription("Opción VIP, con acceso a todas las atracciones sin restricción");
-
-                v.setPricePer("PAX");
-
-                BestDeal bd;
-                v.setPrice(bd = new BestDeal());
-
-                double rp;
-                double x = rand.nextDouble();
-                bd.setRetailPrice(new Amount("EUR", rp = Math.round(100d + x * 900d) / 100d));
-                System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNetPrice(new Amount("EUR", Math.round(rp * 85d) / 100d));
-            }
-
-            if (vs.size() == 0) {
-                BestDeal bd;
-                ad.setPrice(bd = new BestDeal());
-
-                ad.setPricePer("PAX");
-
-                double rp;
-                double x = rand.nextDouble();
-                bd.setRetailPrice(new Amount("EUR", rp = Math.round(100d + x * 900d) / 100d));
-                System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNetPrice(new Amount("EUR", Math.round(rp * 85d) / 100d));
-            }
-
-        }
-
-        {
-            Remark r;
-            rs.getRemarks().add(r = new Remark());
-            r.setType("IMPORTANT");
-            r.setText("This service must be paid in 24 hors. Otherwise it will be automatically cancelled.");
-        }
-        {
-            Remark r;
-            rs.getRemarks().add(r = new Remark());
-            r.setType("WARNING");
-            r.setText("You must present the voucher that you will receive by email, after payment.");
-        }        {
-            Remark r;
-            rs.getRemarks().add(r = new Remark());
-            r.setType("INFO");
-            r.setText("Have a nice day");
-        }
-        {
-
-            rs.getLanguages().add("Español");
-            rs.getLanguages().add("Inglés");
-            rs.getLanguages().add("Alemán");
-
-        }
-        {
-
-            rs.getPickups().add("Hotel 1");
-            rs.getPickups().add("Hotel 2");
-            rs.getPickups().add("Hotel 3");
-
-
-        }
-        {
-            Supplement c;
-            rs.getSupplements().add(c = new Supplement());
-            c.setDescription("Continental Buffet");
-            c.setId("deiuwed8ewud890u23");
+            rs.setShitfs(new ArrayList<>());
+            ActivityShift s;
+            rs.getShitfs().add(s = new ActivityShift());
+            s.setId("11");
+            s.setName("Turno único");
 
             {
-                Amount a;
-                c.setRetailPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(30.45);
+                ActivityLanguage l;
+                s.getLanguages().add(l = new ActivityLanguage());
+                l.setId("es");
+                l.setName("Español");
             }
-
             {
-                Amount a;
-                c.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(5);
+                ActivityLanguage l;
+                s.getLanguages().add(l = new ActivityLanguage());
+                l.setId("en");
+                l.setName("English");
             }
 
-            {
-                Amount a;
-                c.setNetPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(25.45);
-            }
+            s.setPickups(new ArrayList<>());
+            ActivityPickupPoint p;
+            s.getPickups().add(p = new ActivityPickupPoint());
+            p.setId("54");
+            p.setName("En punto de recogida 1 a las 10:30");
 
+
+
+        } catch (Throwable e) {
+            rs.setStatusCode(500);
+            rs.setMsg("" + e.getClass().getSimpleName() + ": " + e.getMessage());
+            e.printStackTrace();
         }
-        {
-            Supplement c;
-            rs.getSupplements().add(c = new Supplement());
-            c.setDescription("breakfast");
-            c.setId("dfgbsbh488");
-
-            {
-                Amount a;
-                c.setRetailPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(16.50);
-            }
-
-            {
-                Amount a;
-                c.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(4);
-            }
-
-            {
-                Amount a;
-                c.setNetPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(12.45);
-            }
-
-        }
-
 
         return rs;
     }
 
     @Override
-    public GetActivityPriceRS getExcursionPrice(String token, String key, String language, int adults, int children, int infants, String datekey, String variantkeykey, String shiftdate, String pickup, String supplements) throws Throwable {
-        GetActivityPriceRS rs = new GetActivityPriceRS();
-
+    public CheckActivityRS check(String token, String key, String language, int adults, int children, String shift, String pickup, String activityLanguage) throws Throwable {
+        CheckActivityRS rs = new CheckActivityRS();
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
-        rs.setMsg("Price total");
-
-        Random rand = new Random();
-
-        rs.setAvailable(rand.nextBoolean());
-
-        BestDeal bd;
-        rs.setTotal(bd = new BestDeal());
+        rs.setMsg("Done");
 
 
-        double rp;
-        double x = rand.nextDouble();
-        bd.setRetailPrice(new Amount("EUR", rp = Math.round(100d + x * 900d) / 100d));
-        System.out.println("x=" + x + ", rp=" + rp);
-        bd.setNetPrice(new Amount("EUR", Math.round(rp * 85d) / 100d));
+        rs.setAvailable(true);
+        rs.setKey("2098347238472398047239734");
+        rs.setValue(new Amount("EUR", 200.34));
 
         return rs;
     }
 
-
     @Override
-    public GetActivityPriceDetailsRS getActivityPriceDetails(String token, String key, String language, int adults, int children, int vehicles, String supplements, String coupon) throws Throwable {
-
+    public GetActivityPriceDetailsRS getActivityPriceDetails(String token, String key, String language, String supplements, String coupon) throws Throwable {
         GetActivityPriceDetailsRS rs = new GetActivityPriceDetailsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -497,229 +383,9 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
     }
 
     @Override
-    public GetAvailableActivitiesRS getFilteredActivities(String token, int start, String resourceId, String language, String minPrice, String maxPrice) throws Throwable {
-        GetAvailableActivitiesRS rs = new GetAvailableActivitiesRS();
-        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-        rs.setStatusCode(200);
-        rs.setMsg("3 activities found. It consumed 24 ms in the server. xx");
-
-        Random r = new Random();
-
-        {
-            AvailableActivity a;
-            rs.getAvailableActivities().add(a = new AvailableActivity());
-
-            a.setActivityId("act-798789");
-            a.setName("Vuelta a Mallorca");
-            a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
-            a.setImage("https://cdn2.click-mallorca.com/imgdb/imagen_iex15277.jpg");
-
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
-
-            double rp;
-            double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
-            System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-            bd.setOffer(true);
-            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-            bd.setOfferText("Special offer for this activity");
-
-        }
-
-        {
-            AvailableActivity a;
-            rs.getAvailableActivities().add(a = new AvailableActivity());
-
-            a.setActivityId("act-79878e9");
-            a.setName("Buceo en Cala Millor");
-            a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
-            a.setImage("https://cdn2.click-mallorca.com/imgdb/imagen_iex11965.png");
-
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
-
-            double rp;
-            double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
-            System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-        }
-
-
-        {
-            AvailableActivity a;
-            rs.getAvailableActivities().add(a = new AvailableActivity());
-
-            a.setActivityId("act-7987a89");
-            a.setName("Aventuras en Jungle Park");
-            a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
-            a.setImage("https://cdn1.click-mallorca.com/imgdb/foto1_exc2210.jpg");
-
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
-
-            double rp;
-            double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
-            System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-            bd.setOffer(true);
-        }
-
-
-        return rs;
+    public GetAvailableActivitiesRS getFilteredActivities(String token, int start, String resourceId, String language, double minPrice, double maxPrice) throws Throwable {
+        return getAvailableActivities(token, start, resourceId, language);
     }
 
-    @Override
-    public GetPortfolioRS getPortfolio(String token) throws Throwable {
-        GetPortfolioRS rs = new GetPortfolioRS();
 
-        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-        rs.setStatusCode(200);
-        rs.setMsg("5654 resouces found");
-
-        {
-            Country c;
-            rs.getCountries().add(c = new Country());
-
-            c.setResourceId("cou_es");
-            c.setName(new MultilingualText("es", "España", "en", "Spain"));
-            c.setUrlFriendlyName("spain");
-
-            {
-                State s;
-                c.getStates().add(s = new State());
-
-                s.setResourceId("sta_6363");
-                s.setName(new MultilingualText("es", "Mallorca", "en", "Majorca"));
-                s.setUrlFriendlyName("majorca");
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_2843");
-                    l.setName(new MultilingualText("es", "Palma de Mallorca", "en", "Palma"));
-                    l.setUrlFriendlyName("palma");
-
-                    completar(l);
-
-                }
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_2842");
-                    l.setName(new MultilingualText("es", "Alcúdia", "en", "Alcudia"));
-                    l.setUrlFriendlyName("alcudia");
-
-                    completar(l);
-
-                }
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_2813");
-                    l.setName(new MultilingualText("es", "Cala Millor", "en", "Cala Millor"));
-                    l.setUrlFriendlyName("cala-millor");
-
-                    completar(l);
-
-                }
-
-            }
-
-            {
-                State s;
-                c.getStates().add(s = new State());
-
-                s.setResourceId("sta_6163");
-                s.setName(new MultilingualText("es", "Isla de Ibiza", "en", "Ibiza Island"));
-                s.setUrlFriendlyName("ibiza");
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_28x43");
-                    l.setName(new MultilingualText("es", "Ibiza", "en", "Ibiza"));
-                    l.setUrlFriendlyName("ibiza");
-
-                    completar(l);
-
-                }
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_28412");
-                    l.setName(new MultilingualText("es", "San Antonio", "en", "San Antonio"));
-                    l.setUrlFriendlyName("san-antonio");
-
-                    completar(l);
-
-                }
-            }
-        }
-
-
-        {
-            Country c;
-            rs.getCountries().add(c = new Country());
-
-            c.setResourceId("cou_gb");
-            c.setName(new MultilingualText("es", "Gran Bretaña", "en", "Great Britain"));
-            c.setUrlFriendlyName("great-britain");
-
-            {
-                State s;
-                c.getStates().add(s = new State());
-
-                s.setResourceId("sta_63e63");
-                s.setName(new MultilingualText("es", "Londres", "en", "London"));
-                s.setUrlFriendlyName("london");
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_28d43");
-                    l.setName(new MultilingualText("es", "Londres", "en", "London City"));
-                    l.setUrlFriendlyName("london-city");
-
-                    completar(l);
-
-                }
-
-            }
-        }
-
-
-        return rs;
-    }
-    private void completar(City l) {
-        for (int i = 0; i < 100; i++)
-        {
-            Resource r;
-            l.getResources().add(r = new Resource());
-            r.setResourceId("exc_376472" + i);
-            r.setName(new MultilingualText("es", "Excursion Quonext " + i, "en", "Hotel Quonext " + i));
-            r.setLatitude("39.6359261");
-            r.setLongitude("2.629556");
-            r.setType("excursion");
-            r.setDescription(new MultilingualText("es", "Excursion por la ciudad", "en", "City Excursion"));
-        }
-
-        for (int i = 0; i < 80; i++)
-        {
-            Resource r;
-            l.getResources().add(r = new Resource());
-            r.setResourceId("tp_1212" + i);
-            r.setName(new MultilingualText("es", "Excursion Quonext " + i, "en", "Excursion Quonext " + i));
-            r.setLatitude("39.6359261");
-            r.setLongitude("2.629556");
-            r.setType("excursion");
-            r.setDescription(new MultilingualText("es", "Recepción del Hotel Quonext " + i, "en", "Transfer point for Hotel Quonext " + i));
-        }
-    }
 }

@@ -3,6 +3,7 @@ package org.easytravelapi;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.easytravelapi.cms.GetActivityAvailabilityCalendarRS;
 import org.easytravelapi.cms.GetHotelAvailabilityCalendarRS;
 import org.easytravelapi.common.CancelBookingRS;
 import org.easytravelapi.common.GetBookingsRS;
@@ -42,7 +43,7 @@ public interface CMSService {
     @GET
     @Path("/activityavailabilitycalendar")
     @ApiOperation(value = "Use this method to know which hotels are available and their prices")
-    public GetHotelAvailabilityCalendarRS getActivityAvailabilityCalendar(
+    public GetActivityAvailabilityCalendarRS getActivityAvailabilityCalendar(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The comma separated list of resorts you are interested in")
             @QueryParam("resorts") String activityId

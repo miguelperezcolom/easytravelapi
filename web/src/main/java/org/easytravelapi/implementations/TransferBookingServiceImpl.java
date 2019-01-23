@@ -1,6 +1,5 @@
 package org.easytravelapi.implementations;
 
-import com.sun.org.apache.regexp.internal.RE;
 import org.easytravelapi.TransferBookingService;
 import org.easytravelapi.activity.PaymentMethod;
 import org.easytravelapi.common.*;
@@ -9,7 +8,6 @@ import org.easytravelapi.transfer.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -360,7 +358,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
     }
 
     @Override
-    public GetAirportsRS getAirpotsRS(String token) throws Throwable {
+    public GetAirportsRS getAirports(String token) throws Throwable {
         GetAirportsRS rs = new GetAirportsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -395,7 +393,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
     }
 
     @Override
-    public GetDestinationRS getDestinationsRS(String token, String key) throws Throwable {
+    public GetDestinationRS getDestinationsForAirport(String token, String airportId) throws Throwable {
         GetDestinationRS rs = new GetDestinationRS();
 
         Resource d;
@@ -428,7 +426,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
     }
 
     @Override
-    public GetAvailableTransfersRS getFilteredTransfers(String token, String fromTransferPointId, String toTransferPointId, int pax, int bikes, int golfBaggages, int skis, int bigLuggages, int wheelChairs, int incomingDate, int outgoingDate, List<String> transfertype, String minPrice, String maxPrice) throws Throwable {
+    public GetAvailableTransfersRS getFilteredTransfers(String token, String fromTransferPointId, String toTransferPointId, int pax, int bikes, int golfBaggages, int skis, int bigLuggages, int wheelChairs, int incomingDate, int outgoingDate, String transfertypes, double minPrice, double maxPrice) throws Throwable {
         GetAvailableTransfersRS rs = new GetAvailableTransfersRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -506,67 +504,5 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         return rs;
     }
 
-    @Override
-    public GetAirportsRS getAirpotRS(String token, String airportid) throws Throwable {
-        GetAirportsRS rs = new GetAirportsRS();
 
-        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-        rs.setStatusCode(200);
-        rs.setMsg("5654 resouces found");
-
-        {
-            Resource a;
-
-            rs.getAirports().add(a = new Resource());
-
-            a.setResourceId("PMI");
-            a.setDescription(new MultilingualText("es", "Aeropuerto de Palma", "en", "Palma Airport"));
-            a.setName(new MultilingualText("es", "Aeropuerto de Palma" + airportid, "en", "Palma Airport" + airportid));
-            a.setLatitude("12.56789");
-            a.setLongitude("32.56789");
-        }
-
-        return rs;
-    }
-
-    @Override
-    public GetAirportsRS getAirpotfromdestRS(String token, String destinationid) throws Throwable {
-        GetAirportsRS rs = new GetAirportsRS();
-
-        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-        rs.setStatusCode(200);
-        rs.setMsg("1 resouces found");
-
-
-
-        {
-            Resource a;
-
-            rs.getAirports().add(a = new Resource());
-
-            a.setResourceId("XRY");
-            a.setDescription(new MultilingualText("es", "Aeropuerto de Jerez" + destinationid , "en", "Xerez Airport" + destinationid));
-            a.setName(new MultilingualText("es", "Aeropuerto de Jerez" + destinationid, "en", "Xerez Airport" + destinationid));
-            a.setLatitude("12.56789");
-            a.setLongitude("32.56789");
-        }
-        return rs;
-    }
-
-    @Override
-    public GetDestinationRS getDestinationRS(String token, String destkey) throws Throwable {
-        GetDestinationRS rs = new GetDestinationRS();
-
-        Resource d;
-
-        rs.getDestination().add(d = new Resource());
-
-        d.setDescription(new MultilingualText("es", "Hotel xerez", "en", "xerez Hotel"));
-        d.setLatitude("12.85859");
-        d.setLongitude("24.52123");
-        d.setName(new MultilingualText("es", "Hotel xerez"+destkey, "en", "xerez Hotel"+destkey));
-        d.setResourceId("2");
-
-        return rs;
-    }
 }

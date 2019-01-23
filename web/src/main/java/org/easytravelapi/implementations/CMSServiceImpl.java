@@ -1,10 +1,7 @@
 package org.easytravelapi.implementations;
 
 import org.easytravelapi.CMSService;
-import org.easytravelapi.cms.GetHotelAvailabilityCalendarRS;
-import org.easytravelapi.cms.HotelAvailabilityCalendarDay;
-import org.easytravelapi.cms.HotelAvailabilityCalendarMonth;
-import org.easytravelapi.cms.HotelAvailabilityCalendarWeek;
+import org.easytravelapi.cms.*;
 
 public class CMSServiceImpl implements CMSService {
     @Override
@@ -25,6 +22,31 @@ public class CMSServiceImpl implements CMSService {
 
                 HotelAvailabilityCalendarDay day;
                 week.getDays().add(day = new HotelAvailabilityCalendarDay());
+                day.setDate("2018-"+j+ "-" + i);
+            }
+        }
+
+        return cal;
+    }
+
+    @Override
+    public GetActivityAvailabilityCalendarRS getActivityAvailabilityCalendar(String token, String activityId) throws Throwable {
+        GetActivityAvailabilityCalendarRS cal = new GetActivityAvailabilityCalendarRS();
+
+        for (int j=1 ;j<13;j++) {
+            ActivityAvailabilityCalendarMonth month;
+            cal.getMonths().add(month = new ActivityAvailabilityCalendarMonth());
+            month.setMonth(j);
+            month.setTitle("Activity 1");
+            month.setYear(2018);
+
+            ActivityAvailabilityCalendarWeek week;
+            month.getWeeks().add(week = new ActivityAvailabilityCalendarWeek());
+
+            for (int i = 1; i < 29; i++) {
+
+                ActivityAvailabilityCalendarDay day;
+                week.getDays().add(day = new ActivityAvailabilityCalendarDay());
                 day.setDate("2018-"+j+ "-" + i);
             }
         }
