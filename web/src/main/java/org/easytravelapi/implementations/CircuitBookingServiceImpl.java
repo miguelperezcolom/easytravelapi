@@ -20,7 +20,7 @@ import java.util.Random;
 public class CircuitBookingServiceImpl implements CircuitBookingService {
 
     @Override
-    public GetAvailableCircuitsRS getAvailableCircuits(String token, int start, String  circuitType, String resourceId, String language) throws Throwable {
+    public GetAvailableCircuitsRS getAvailableCircuits(String token, String language) throws Throwable {
         GetAvailableCircuitsRS rs = new GetAvailableCircuitsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -278,32 +278,23 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
     }
 
     @Override
-    public GetCircuitPriceRS getCircuitPrice(String token, String key, String language, int adults, int children, int infants, String datekey, String variantkeykey, String pickup, String supplements) throws Throwable {
-        GetCircuitPriceRS rs = new GetCircuitPriceRS();
+    public CheckCircuitRS check(String token, String key, int date, String language, int adults, int children, String variant, String activityLanguage) throws Throwable {
+        CheckCircuitRS rs = new CheckCircuitRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
-        rs.setMsg("Price total");
-
-        Random rand = new Random();
-
-        rs.setAvailable(rand.nextBoolean());
-
-        BestDeal bd;
-        rs.setTotal(bd = new BestDeal());
+        rs.setMsg("Done");
 
 
-        double rp;
-        double x = rand.nextDouble();
-        bd.setRetailPrice(new Amount("EUR", rp = Math.round(100d + x * 900d) / 100d));
-        System.out.println("x=" + x + ", rp=" + rp);
-        bd.setNetPrice(new Amount("EUR", Math.round(rp * 85d) / 100d));
+        rs.setAvailable(true);
+        rs.setKey("2098347238472398047239734");
+        rs.setValue(new Amount("EUR", 200.34));
 
         return rs;
     }
 
     @Override
-    public GetCircuitPriceDetailsRS getCircuitPriceDetails(String token, String key, String language, int adults, int children, int vehicles, String supplements, String coupon) throws Throwable {
+    public GetCircuitPriceDetailsRS getCircuitPriceDetails(String token, String key, String language, int adults, int children, String supplements, String coupon) throws Throwable {
 
         GetCircuitPriceDetailsRS rs = new GetCircuitPriceDetailsRS();
 
@@ -516,7 +507,7 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
     }
 
     @Override
-    public GetAvailableCircuitsRS getFilteredCircuits(String token, int start, String circuitType, String resourceId, String language, String minPrice, String maxPrice) throws Throwable {
+    public GetAvailableCircuitsRS getFilteredCircuits(String token, String labels, String language, double minPrice, double maxPrice) throws Throwable {
         GetAvailableCircuitsRS rs = new GetAvailableCircuitsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -599,154 +590,5 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
         return rs;
     }
 
-    @Override
-    public GetPortfolioRS getPortfolio(String token) throws Throwable {
-        GetPortfolioRS rs = new GetPortfolioRS();
 
-        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
-        rs.setStatusCode(200);
-        rs.setMsg("5654 resouces found");
-
-        {
-            Country c;
-            rs.getCountries().add(c = new Country());
-
-            c.setResourceId("cou_es");
-            c.setName(new MultilingualText("es", "España", "en", "Spain"));
-            c.setUrlFriendlyName("spain");
-
-            {
-                State s;
-                c.getStates().add(s = new State());
-
-                s.setResourceId("sta_6363");
-                s.setName(new MultilingualText("es", "Mallorca", "en", "Majorca"));
-                s.setUrlFriendlyName("majorca");
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_2843");
-                    l.setName(new MultilingualText("es", "Palma de Mallorca", "en", "Palma"));
-                    l.setUrlFriendlyName("palma");
-
-                    completar(l);
-
-                }
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_2842");
-                    l.setName(new MultilingualText("es", "Alcúdia", "en", "Alcudia"));
-                    l.setUrlFriendlyName("alcudia");
-
-                    completar(l);
-
-                }
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_2813");
-                    l.setName(new MultilingualText("es", "Cala Millor", "en", "Cala Millor"));
-                    l.setUrlFriendlyName("cala-millor");
-
-                    completar(l);
-
-                }
-
-            }
-
-            {
-                State s;
-                c.getStates().add(s = new State());
-
-                s.setResourceId("sta_6163");
-                s.setName(new MultilingualText("es", "Isla de Ibiza", "en", "Ibiza Island"));
-                s.setUrlFriendlyName("ibiza");
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_28x43");
-                    l.setName(new MultilingualText("es", "Ibiza", "en", "Ibiza"));
-                    l.setUrlFriendlyName("ibiza");
-
-                    completar(l);
-
-                }
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_28412");
-                    l.setName(new MultilingualText("es", "San Antonio", "en", "San Antonio"));
-                    l.setUrlFriendlyName("san-antonio");
-
-                    completar(l);
-
-                }
-            }
-        }
-
-
-        {
-            Country c;
-            rs.getCountries().add(c = new Country());
-
-            c.setResourceId("cou_gb");
-            c.setName(new MultilingualText("es", "Gran Bretaña", "en", "Great Britain"));
-            c.setUrlFriendlyName("great-britain");
-
-            {
-                State s;
-                c.getStates().add(s = new State());
-
-                s.setResourceId("sta_63e63");
-                s.setName(new MultilingualText("es", "Londres", "en", "London"));
-                s.setUrlFriendlyName("london");
-
-                {
-                    City l;
-                    s.getCities().add(l = new City());
-                    l.setResourceId("cty_28d43");
-                    l.setName(new MultilingualText("es", "Londres", "en", "London City"));
-                    l.setUrlFriendlyName("london-city");
-
-                    completar(l);
-
-                }
-
-            }
-        }
-
-
-        return rs;
-    }
-    private void completar(City l) {
-        for (int i = 0; i < 100; i++)
-        {
-            Resource r;
-            l.getResources().add(r = new Resource());
-            r.setResourceId("exc_376472" + i);
-            r.setName(new MultilingualText("es", "Circuito Quonext " + i, "en", "Hotel Quonext " + i));
-            r.setLatitude("39.6359261");
-            r.setLongitude("2.629556");
-            r.setType("excursion");
-            r.setDescription(new MultilingualText("es", "Excursion por la ciudad", "en", "City Excursion"));
-        }
-
-        for (int i = 0; i < 80; i++)
-        {
-            Resource r;
-            l.getResources().add(r = new Resource());
-            r.setResourceId("tp_1212" + i);
-            r.setName(new MultilingualText("es", "Circuito Quonext " + i, "en", "Excursion Quonext " + i));
-            r.setLatitude("39.6359261");
-            r.setLongitude("2.629556");
-            r.setType("excursion");
-            r.setDescription(new MultilingualText("es", "Recepción del Hotel Quonext " + i, "en", "Transfer point for Hotel Quonext " + i));
-        }
-    }
 }
