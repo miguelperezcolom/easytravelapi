@@ -1,10 +1,7 @@
 package org.easytravelapi.activity;
 
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.AbstractRS;
-import org.easytravelapi.common.CancellationCost;
-import org.easytravelapi.common.Remark;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +14,7 @@ public class GetActivityRatesRS extends AbstractRS {
 
     private List<ActivityVariant> variants = new ArrayList<>();
 
-    private List<ActivityShift> shitfs = new ArrayList<>();
+    private List<ActivityShift> shifts = new ArrayList<>();
 
 
     public List<ActivityVariant> getVariants() {
@@ -28,12 +25,12 @@ public class GetActivityRatesRS extends AbstractRS {
         this.variants = variants;
     }
 
-    public List<ActivityShift> getShitfs() {
-        return shitfs;
+    public List<ActivityShift> getShifts() {
+        return shifts;
     }
 
-    public void setShitfs(List<ActivityShift> shitfs) {
-        this.shitfs = shitfs;
+    public void setShifts(List<ActivityShift> shifts) {
+        this.shifts = shifts;
     }
 
 }

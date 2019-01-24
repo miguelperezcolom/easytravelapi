@@ -1,12 +1,9 @@
 package org.easytravelapi.implementations;
 
-import com.google.common.base.Strings;
-import com.google.common.io.BaseEncoding;
 import org.easytravelapi.ActivityBookingService;
 import org.easytravelapi.activity.*;
 import org.easytravelapi.common.*;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -118,9 +115,9 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             av.setBestDeal(new BestDeal());
             av.getBestDeal().setRetailPrice(new Amount("EUR", 200.34));
 
-            rs.setShitfs(new ArrayList<>());
+            rs.setShifts(new ArrayList<>());
             ActivityShift s;
-            rs.getShitfs().add(s = new ActivityShift());
+            rs.getShifts().add(s = new ActivityShift());
             s.setId("11");
             s.setName("Turno único");
 
