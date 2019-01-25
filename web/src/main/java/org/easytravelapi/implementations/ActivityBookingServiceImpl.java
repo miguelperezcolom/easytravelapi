@@ -220,7 +220,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2019, 06, 05, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
             Amount a;
-            c.setNet(a = new Amount());
+            c.setRetail(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(250.32);
         }
@@ -230,7 +230,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2019, 07, 01, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
             Amount a;
-            c.setNet(a = new Amount());
+            c.setRetail(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(400);
         }
@@ -354,6 +354,22 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             a.setValue(30.45);
             l.setDate(20191201);
             l.setPaymentMethod("WEB");
+        }
+        {
+            ActivitySupplement sp;
+            rs.getSupplements().add(sp = new ActivitySupplement() );
+             sp.setId("22");
+            sp.setName("buffet incluido" );
+
+
+        }
+        {
+            ActivitySupplement sp;
+            rs.getSupplements().add(sp = new ActivitySupplement() );
+            sp.setId("33");
+            sp.setName("Paquete extras" );
+
+
         }
 
         return rs;
