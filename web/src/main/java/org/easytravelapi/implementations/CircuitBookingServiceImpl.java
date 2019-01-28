@@ -1,6 +1,10 @@
 package org.easytravelapi.implementations;
 
 import org.easytravelapi.CircuitBookingService;
+import org.easytravelapi.activity.ActivityLanguage;
+import org.easytravelapi.activity.ActivityPickupPoint;
+import org.easytravelapi.activity.ActivityShift;
+import org.easytravelapi.activity.ActivityVariant;
 import org.easytravelapi.circuit.AvailableDate;
 import org.easytravelapi.circuit.BookCircuitRS;
 import org.easytravelapi.circuit.PaymentMethod;
@@ -158,127 +162,40 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
     }
 
     @Override
-    public GetCircuitRatesRS getCircuitRates(String token, String key, String language) throws Throwable {
+    public GetCircuitRatesRS getCircuitRates(String token, String key, int date, String language) throws Throwable {
         GetCircuitRatesRS rs = new GetCircuitRatesRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
         rs.setMsg("Price details");
 
-        Random rand = new Random();
+        long t0 = System.currentTimeMillis();
 
-        ArrayList<AvailableDate> ads;
-        rs.setAvailableDates(ads = new ArrayList<>());
+        try {
 
-        for (int i = 0; i < 7; i++) {
-            AvailableDate ad;
-            ads.add(ad = new AvailableDate());
-            ad.setDate(20181215 + i);
+            rs.setVariants(new ArrayList<>());
+            ActivityVariant av;
+            rs.getVariants().add(av = new ActivityVariant());
+            av.setKey("23");
+            av.setName("Variante 1");
+            av.setDescription("Descripción de la variante 1");
+            av.setBestDeal(new BestDeal());
+            av.getBestDeal().setRetailPrice(new Amount("EUR", 200.34));
 
-            ArrayList<Variant> vs;
-            ad.setVariants(vs = new ArrayList<>());
 
-            if (i % 3 == 0) for (int j = 0; j < 3; j++) {
-                Variant v;
-                vs.add(v = new Variant());
-                v.setId("qswq");
-                v.setName("Variante " + j);
-                v.setDescription("Opción VIP, con acceso a todas las atracciones sin restricción");
-
-                v.setPricePer("PAX");
-
-                BestDeal bd;
-                v.setPrice(bd = new BestDeal());
-
-                double rp;
-                double x = rand.nextDouble();
-                bd.setRetailPrice(new Amount("EUR", rp = Math.round(100d + x * 900d) / 100d));
-                System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNetPrice(new Amount("EUR", Math.round(rp * 85d) / 100d));
-            }
-
-            if (vs.size() == 0) {
-                BestDeal bd;
-                ad.setPrice(bd = new BestDeal());
-
-                ad.setPricePer("PAX");
-
-                double rp;
-                double x = rand.nextDouble();
-                bd.setRetailPrice(new Amount("EUR", rp = Math.round(100d + x * 900d) / 100d));
-                System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNetPrice(new Amount("EUR", Math.round(rp * 85d) / 100d));
-            }
-
+        } catch (Throwable e) {
+            rs.setStatusCode(500);
+            rs.setMsg("" + e.getClass().getSimpleName() + ": " + e.getMessage());
+            e.printStackTrace();
         }
 
-        {
-            Remark r;
-            rs.getRemarks().add(r = new Remark());
-            r.setType("IMPORTANT");
-            r.setText("This service must be paid in 24 hors. Otherwise it will be automatically cancelled.");
-        }
-        {
-            Remark r;
-            rs.getRemarks().add(r = new Remark());
-            r.setType("WARNING");
-            r.setText("You must present the voucher that you will receive by email, after payment.");
-        }        {
-            Remark r;
-            rs.getRemarks().add(r = new Remark());
-            r.setType("INFO");
-            r.setText("Have a nice day");
-        }
-        {
-
-            rs.getLanguages().add("Español");
-            rs.getLanguages().add("Inglés");
-            rs.getLanguages().add("Alemán");
-
-        }
-        {
-
-            rs.getPickups().add("Hotel 1");
-            rs.getPickups().add("Hotel 2");
-            rs.getPickups().add("Hotel 3");
-
-
-        }
-        {
-            Supplement c;
-            rs.getSupplements().add(c = new Supplement());
-            c.setDescription("Continental Buffet");
-            c.setId("deiuwed8ewud890u23");
-
-            {
-                Amount a;
-                c.setRetailPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(30.45);
-            }
-
-            {
-                Amount a;
-                c.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(5);
-            }
-
-            {
-                Amount a;
-                c.setNetPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(25.45);
-            }
-
-        }
 
 
         return rs;
     }
 
     @Override
-    public CheckCircuitRS check(String token, String key, int date, String language, int adults, int children, String variant, String activityLanguage) throws Throwable {
+    public CheckCircuitRS check(String token, String key, int date, String language, int adults, int children, String variant) throws Throwable {
         CheckCircuitRS rs = new CheckCircuitRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));

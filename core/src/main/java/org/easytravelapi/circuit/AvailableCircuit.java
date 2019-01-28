@@ -4,6 +4,9 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.BestDeal;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by miguel on 26/7/17.
  */
@@ -20,6 +23,8 @@ public class AvailableCircuit {
     private String image;
 
     private BestDeal bestDeal;
+
+    private List<Label> labels = new ArrayList<>();
 
     public String getCircuitId() {
         return circuitId;
@@ -59,5 +64,13 @@ public class AvailableCircuit {
 
     public void setBestDeal(BestDeal bestDeal) {
         this.bestDeal = bestDeal;
+    }
+
+    public List<Label> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<Label> labels) {
+        this.labels = labels;
     }
 }
