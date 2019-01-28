@@ -10,9 +10,9 @@ public class AvailableGeneric {
     @ApiModelProperty(value = "This product ID")
     private String genericId;
     @ApiModelProperty(value = "The name of this product. Usually multi-language")
-    private MultilingualText name;
+    private String name;
     @ApiModelProperty(value = "The description of this product. Usually multi-language")
-    private MultilingualText description;
+    private String description;
     @ApiModelProperty(value = "The main image for this product")
     private String image;
     @ApiModelProperty(value = "The type of product")
@@ -20,27 +20,52 @@ public class AvailableGeneric {
 
     private BestDeal bestDeal;
 
-    public String getGenericId() { return genericId; }
 
-    public void setGenericId(String genericId) { this.genericId = genericId; }
+    public String getGenericId() {
+        return genericId;
+    }
 
-    public MultilingualText getName() { return name; }
+    public void setGenericId(String genericId) {
+        this.genericId = genericId;
+    }
 
-    public void setName(MultilingualText name) { this.name = name; }
+    public String getName() {
+        return name;
+    }
 
-    public MultilingualText getDescription() { return description; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public void setDescription(MultilingualText description) { this.description = description; }
+    public String getDescription() {
+        return description;
+    }
 
-    public String getImage() { return image; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public void setImage(String image) { this.image = image; }
+    public String getImage() {
+        return image;
+    }
 
-    public String getType() { return type; }
+    public void setImage(String image) {
+        this.image = image;
+    }
 
-    public void setType(String type) { this.type = type; }
+    public String getType() {
+        return type;
+    }
 
-    public BestDeal getBestDeal() { return bestDeal; }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-    public void setBestDeal(BestDeal bestDeal) { this.bestDeal = bestDeal; }
+    public BestDeal getBestDeal() {
+        return bestDeal;
+    }
+
+    public void setBestDeal(BestDeal bestDeal) {
+        this.bestDeal = bestDeal;
+    }
 }

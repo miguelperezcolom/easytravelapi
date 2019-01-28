@@ -3,6 +3,7 @@ package org.easytravelapi;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.easytravelapi.circuit.CheckCircuitRS;
 import org.easytravelapi.generic.*;
 
 import javax.jws.WebService;
@@ -21,16 +22,23 @@ public interface GenericBookingService {
     @ApiOperation(value = "Get available generic products", notes = "you get a list of the available generic products by type")
     public GetAvailableGenericsRS getAvailableGenerics(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "type of product")
-            @QueryParam("servicetype") String  serviceType,
+            @QueryParam("destination") String  destination,
             @QueryParam("language") String language
     ) throws Throwable;
+
     @GET
-    @Path("/services")
-    @ApiOperation(value = "Get available generic products", notes = "you get a list of the available generic products by type")
-    public GetServicesRS getServices(
+    @Path("/check/{key}")
+    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
+    public CheckGenericRS check(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @QueryParam("language") String language
+            @ApiParam(value = "The activity price key, as provided in the /activity/available step")
+            @PathParam("key") String key,
+            @QueryParam("language") String language,
+            @QueryParam("adults") int adults,
+            @QueryParam("children")int children,
+            @QueryParam("units")int units,
+            @QueryParam("start") int start,
+            @QueryParam("end") int end
     ) throws Throwable;
 
     @GET
@@ -44,11 +52,11 @@ public interface GenericBookingService {
             @QueryParam("adults") int adults,
             @QueryParam("children")int children,
             @QueryParam("units")int units,
-            @QueryParam("supplements")String supplements,
             @ApiParam(value = "Service start date in YYYYMMDD format")
             @QueryParam("start") int start,
             @ApiParam(value = "Service end date in YYYYMMDD format")
             @QueryParam("end") int end,
+            @QueryParam("supplements")String supplements,
             @ApiParam(value = "Discount Coupon code")
             @QueryParam("coupon") String coupon
 
@@ -70,7 +78,7 @@ public interface GenericBookingService {
     public GetAvailableGenericsRS getFilteredGeneric(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "List of type of product to filter by separated by ,")
-            @QueryParam("servicetype") String serviceType,
+            @QueryParam("labels") String labels,
             @QueryParam("language") String language,
             @ApiParam(value = "Min price range to filter")
             @QueryParam("minprice") String minPrice,

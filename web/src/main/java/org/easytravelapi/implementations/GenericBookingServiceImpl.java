@@ -16,7 +16,7 @@ import java.util.Random;
 public class GenericBookingServiceImpl implements GenericBookingService {
 
     @Override
-    public GetGenericPriceDetailsRS getGenericPriceDetails(String token, String key, String language, int adults, int children, int units, String supplements, int start, int end, String coupon) throws Throwable {
+    public GetGenericPriceDetailsRS getGenericPriceDetails(String token, String key, String language, int adults, int children, int units, int start, int end, String supplements, String coupon) throws Throwable {
         GetGenericPriceDetailsRS rs = new GetGenericPriceDetailsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -259,9 +259,9 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-            g.setDescription(new MultilingualText("es", "Moto tipo scooter de 49 c.c.", "en", "Scooter bike 49 c.c."));
+            g.setDescription("Moto tipo scooter de 49 c.c.");
             g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
-            g.setName(new MultilingualText("es", "Moto scooter", "en", "Scooter bike "));
+            g.setName("Moto scooter");
             g.setType("rentbike");
             g.setGenericId("moto1");
         }
@@ -282,9 +282,9 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOfferText("Special offer for this activity");
 
-            g.setDescription(new MultilingualText("es", "Moto tipo scooter electrica", "en", "Scooter bike electrica"));
+            g.setDescription("Moto tipo scooter electrica");
             g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
-            g.setName(new MultilingualText("es", "Moto electrica", "en", "Electric Scooter"));
+            g.setName("Moto electrica");
             g.setType("rentbike");
             g.setGenericId("moto2");
 
@@ -301,9 +301,9 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-            g.setDescription(new MultilingualText("es", "Moto tipo scooter de 49 c.c.", "en", "Scooter bike 49 c.c."));
+            g.setDescription("Moto tipo scooter de 49 c.c.");
             g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
-            g.setName(new MultilingualText("es", "Moto scooter", "en", "Scooter bike "));
+            g.setName("Moto scooter");
             g.setType("rentbike");
             g.setGenericId("moto3");
         }
@@ -320,9 +320,9 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-            g.setDescription(new MultilingualText("es", "Moto tipo scooter electrica", "en", "Scooter bike electrica"));
+            g.setDescription("Moto tipo scooter electrica");
             g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
-            g.setName(new MultilingualText("es", "Moto electrica", "en", "Electric Scooter"));
+            g.setName("Moto electrica");
             g.setType("rentbike");
             g.setGenericId("moto4");
 
@@ -339,9 +339,9 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-            g.setDescription(new MultilingualText("es", "Moto tipo scooter de 49 c.c.", "en", "Scooter bike 49 c.c."));
+            g.setDescription("Moto tipo scooter de 49 c.c.");
             g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
-            g.setName(new MultilingualText("es", "Moto scooter", "en", "Scooter bike "));
+            g.setName("Moto scooter");
             g.setType("rentbike");
             g.setGenericId("moto5");
         }
@@ -358,9 +358,9 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
             bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-            g.setDescription(new MultilingualText("es", "Moto tipo scooter electrica", "en", "Scooter bike electrica"));
+            g.setDescription("Moto tipo scooter electrica");
             g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
-            g.setName(new MultilingualText("es", "Moto electrica", "en", "Electric Scooter"));
+            g.setName("Moto electrica");
             g.setType("rentbike");
             g.setGenericId("moto6");
 
@@ -371,42 +371,33 @@ public class GenericBookingServiceImpl implements GenericBookingService {
     }
 
     @Override
-    public GetServicesRS getServices(String token, String language) throws Throwable {
-        GetServicesRS rs = new GetServicesRS();
+    public CheckGenericRS check(String token, String key, String language, int adults, int children, int units, int start, int end) throws Throwable {
+        CheckGenericRS rs = new CheckGenericRS();
+
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
-        rs.setMsg("x available services");
-        {
-            GenericService gs;
-            rs.getGenericsServices().add(gs = new GenericService());
-            gs.setDescription(new MultilingualText("es", "Alquila tu moto con nosotros", "en", "You can rent a bike with us"));
-            gs.setName(new MultilingualText("es", "Alquiler moto", "en", "Bike renting"));
-            gs.setTypeId("rentabike");
-            gs.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
-        }
-        {
-            GenericService gs;
-            rs.getGenericsServices().add(gs = new GenericService());
-            gs.setDescription(new MultilingualText("es", "Compra entradas para espectaculos", "en", "Buy your tickets with us"));
-            gs.setName(new MultilingualText("es", "Comprar Entradas ", "en", "Buy Tickets"));
-            gs.setTypeId("tickets");
-            gs.setImage("http://nlpexcellence2017.com/wp-content/uploads/ticket.jpg");
-        }
+        rs.setMsg("Done");
+
+
+        rs.setAvailable(true);
+        rs.setKey("2098347238472398047239734");
+        rs.setValue(new Amount("EUR", 200.34));
+
+
         return rs;
     }
 
 
-
     @Override
-    public GetAvailableGenericsRS getFilteredGeneric(String token, String serviceType, String language, String minPrice, String maxPrice) throws Throwable {
+    public GetAvailableGenericsRS getFilteredGeneric(String token, String labels, String language, String minPrice, String maxPrice) throws Throwable {
         GetAvailableGenericsRS rs = new GetAvailableGenericsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
         rs.setMsg("availables generics");
         Random r = new Random();
-        System.out.println("contains nada" + serviceType.toString());
-        String[] servicesArray =  serviceType.split(",");
+        System.out.println("contains nada" + labels.toString());
+        String[] servicesArray =  labels.split(",");
         for (String service : servicesArray) {
             System.out.println("service " +service );
             if(service.equals("rentabike")){
@@ -429,9 +420,9 @@ public class GenericBookingServiceImpl implements GenericBookingService {
                 bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
                 bd.setOfferText("Special offer for this activity");
 
-                g.setDescription(new MultilingualText("es", "Moto tipo scooter de 49 c.c.", "en", "Scooter bike 49 c.c."));
+                g.setDescription("Moto tipo scooter de 49 c.c.");
                 g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
-                g.setName(new MultilingualText("es", "Moto scooter", "en", "Scooter bike "));
+                g.setName("Moto scooter");
                 g.setType("rentbike");
                 g.setGenericId("moto1");
             }
@@ -448,9 +439,9 @@ public class GenericBookingServiceImpl implements GenericBookingService {
                 bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
                 System.out.println("x=" + x + ", rp=" + rp);
                 bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-                g.setDescription(new MultilingualText("es", "Moto tipo scooter electrica", "en", "Scooter bike electrica"));
+                g.setDescription("Moto tipo scooter electrica");
                 g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
-                g.setName(new MultilingualText("es", "Moto electrica", "en", "Electric Scooter"));
+                g.setName("Moto electrica");
                 g.setType("rentbike");
                 g.setGenericId("moto2");
 
@@ -467,9 +458,9 @@ public class GenericBookingServiceImpl implements GenericBookingService {
                 bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
                 System.out.println("x=" + x + ", rp=" + rp);
                 bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-                g.setDescription(new MultilingualText("es", "Moto tipo scooter de 49 c.c.", "en", "Scooter bike 49 c.c."));
+                g.setDescription("Moto tipo scooter de 49 c.c.");
                 g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
-                g.setName(new MultilingualText("es", "Moto scooter", "en", "Scooter bike "));
+                g.setName("Moto scooter");
                 g.setType("rentbike");
                 g.setGenericId("moto3");
             }
@@ -488,9 +479,9 @@ public class GenericBookingServiceImpl implements GenericBookingService {
                 bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
                 System.out.println("x=" + x + ", rp=" + rp);
                 bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
-                g.setDescription(new MultilingualText("es", "Entrada concierto Rock", "en", "Rock Concert ticket"));
+                g.setDescription("Entrada concierto Rock");
                 g.setImage("https://ep01.epimg.net/verne/imagenes/2015/10/18/articulo/1445171361_981733_1445201957_noticia_normal.jpg");
-                g.setName(new MultilingualText("es", "Entrada Concierto", "en", "Concert Ticket"));
+                g.setName("Entrada Concierto");
                 g.setType("rentbike");
                 g.setGenericId("moto3");
             }
