@@ -2,8 +2,12 @@ package org.easytravelapi.generic;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.easytravelapi.circuit.Label;
 import org.easytravelapi.common.BestDeal;
 import org.easytravelapi.common.MultilingualText;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @ApiModel(description = "An available Generic product")
 public class AvailableGeneric {
@@ -19,6 +23,8 @@ public class AvailableGeneric {
     private String type;
 
     private BestDeal bestDeal;
+
+    private List<Label> labels = new ArrayList<>();
 
 
     public String getGenericId() {
@@ -67,5 +73,13 @@ public class AvailableGeneric {
 
     public void setBestDeal(BestDeal bestDeal) {
         this.bestDeal = bestDeal;
+    }
+
+    public List<Label> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<Label> labels) {
+        this.labels = labels;
     }
 }
