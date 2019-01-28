@@ -294,7 +294,7 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
     }
 
     @Override
-    public GetCircuitPriceDetailsRS getCircuitPriceDetails(String token, String key, String language, int adults, int children, String supplements, String coupon) throws Throwable {
+    public GetCircuitPriceDetailsRS getCircuitPriceDetails(String token, String key, String language, String supplements, String coupon) throws Throwable {
 
         GetCircuitPriceDetailsRS rs = new GetCircuitPriceDetailsRS();
 

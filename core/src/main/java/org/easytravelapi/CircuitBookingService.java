@@ -64,8 +64,6 @@ public interface CircuitBookingService {
             @ApiParam(value = "The circuit price key, as provided in the /circuit/available step")
             @PathParam("key") String key,
             @QueryParam("language") String language,
-            @QueryParam("adults") int adults,
-            @QueryParam("ages") int children,
             @QueryParam("supplements") String supplements,
             @ApiParam(value = "Discount coupons")
             @QueryParam("coupon") String coupon
