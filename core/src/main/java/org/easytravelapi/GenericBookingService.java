@@ -78,12 +78,13 @@ public interface GenericBookingService {
     public GetAvailableGenericsRS getFilteredGeneric(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "List of type of product to filter by separated by ,")
-            @QueryParam("labels") String labels,
+            @QueryParam("destination") String destination,
             @QueryParam("language") String language,
+            @QueryParam("labels") String labels,
             @ApiParam(value = "Min price range to filter")
-            @QueryParam("minprice") String minPrice,
+            @QueryParam("minprice") double minPrice,
             @ApiParam(value = "Max price range to filter")
-            @QueryParam("maxprice") String maxPrice
+            @QueryParam("maxprice") double maxPrice
     ) throws Throwable;
 
 }
