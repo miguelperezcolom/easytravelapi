@@ -49,4 +49,12 @@ public interface CMSService {
             @QueryParam("resorts") String activityId
     ) throws Throwable;
 
+    @GET
+    @Path("/circuitavailabilitycalendar")
+    @ApiOperation(value = "Use this method to know which hotels are available and their prices")
+    public GetActivityAvailabilityCalendarRS getCircuitAvailabilityCalendar(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "The comma separated list of resorts you are interested in")
+            @QueryParam("circuit") String circuitId
+    ) throws Throwable;
 }
