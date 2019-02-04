@@ -57,4 +57,14 @@ public interface CMSService {
             @ApiParam(value = "The comma separated list of resorts you are interested in")
             @QueryParam("circuit") String circuitId
     ) throws Throwable;
+
+
+    @GET
+    @Path("/genericavailabilitycalendar")
+    @ApiOperation(value = "Use this method to know which hotels are available and their prices")
+    public GetActivityAvailabilityCalendarRS getGenericAvailabilityCalendar(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "The comma separated list of resorts you are interested in")
+            @QueryParam("product") String productId
+    ) throws Throwable;
 }

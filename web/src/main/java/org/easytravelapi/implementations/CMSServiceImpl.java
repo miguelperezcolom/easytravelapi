@@ -76,5 +76,32 @@ public class CMSServiceImpl implements CMSService {
             }
         }
 
-        return cal;    }
+        return cal;
+    }
+
+    @Override
+    public GetActivityAvailabilityCalendarRS getGenericAvailabilityCalendar(String token, String productId) throws Throwable {
+        GetActivityAvailabilityCalendarRS cal = new GetActivityAvailabilityCalendarRS();
+
+        for (int j=1 ;j<13;j++) {
+            ActivityAvailabilityCalendarMonth month;
+            cal.getMonths().add(month = new ActivityAvailabilityCalendarMonth());
+            month.setMonth(j);
+            month.setTitle("Activity 1");
+            month.setYear(2018);
+
+            ActivityAvailabilityCalendarWeek week;
+            month.getWeeks().add(week = new ActivityAvailabilityCalendarWeek());
+
+            for (int i = 1; i < 29; i++) {
+
+                ActivityAvailabilityCalendarDay day;
+                week.getDays().add(day = new ActivityAvailabilityCalendarDay());
+                day.setDate("2018-"+j+ "-" + i);
+            }
+        }
+
+        return cal;
+    }
+
 }
