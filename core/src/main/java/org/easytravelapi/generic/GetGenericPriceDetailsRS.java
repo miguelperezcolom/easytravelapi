@@ -10,17 +10,6 @@ import java.util.List;
 public class GetGenericPriceDetailsRS extends AbstractRS{
     private String key;
 
-    private boolean dateDependant;
-
-    private boolean datesRangeDependant;
-
-    private boolean unitsDependant;
-
-    private boolean adultsDependant;
-
-    private boolean childrenDependant;
-
-
     private List<PriceLine> priceLines = new ArrayList<>();
 
     private BestDeal total;
@@ -73,43 +62,4 @@ public class GetGenericPriceDetailsRS extends AbstractRS{
 
     public void setCouponMsg(String couponMsg) { this.couponMsg = couponMsg; }
 
-    public boolean isDateDependant() {
-        return dateDependant;
-    }
-
-    public void setDateDependant(boolean dateDependant) {
-        this.dateDependant = dateDependant;
-    }
-
-    public boolean isDatesRangeDependant() {
-        return datesRangeDependant;
-    }
-
-    public void setDatesRangeDependant(boolean datesRangeDependant) {
-        this.datesRangeDependant = datesRangeDependant;
-    }
-
-    public boolean isUnitsDependant() {
-        return unitsDependant;
-    }
-
-    public void setUnitsDependant(boolean unitsDependant) {
-        this.unitsDependant = unitsDependant;
-    }
-
-    public boolean isAdultsDependant() {
-        return adultsDependant;
-    }
-
-    public void setAdultsDependant(boolean adultsDependant) {
-        this.adultsDependant = adultsDependant;
-    }
-
-    public boolean isChildrenDependant() {
-        return childrenDependant;
-    }
-
-    public void setChildrenDependant(boolean childrenDependant) {
-        this.childrenDependant = childrenDependant;
-    }
 }

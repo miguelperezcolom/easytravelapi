@@ -3,6 +3,7 @@ package org.easytravelapi.implementations;
 import org.easytravelapi.GenericBookingService;
 
 import org.easytravelapi.activity.BookActivityRS;
+import org.easytravelapi.activity.GetActivityRatesRS;
 import org.easytravelapi.activity.PaymentMethod;
 import org.easytravelapi.common.*;
 import org.easytravelapi.generic.*;
@@ -16,7 +17,7 @@ import java.util.Random;
 public class GenericBookingServiceImpl implements GenericBookingService {
 
     @Override
-    public GetGenericPriceDetailsRS getGenericPriceDetails(String token, String key, String language, int adults, int children, int units, int start, int end, String supplements, String coupon) throws Throwable {
+    public GetGenericPriceDetailsRS getGenericPriceDetails(String token, String key, String language, String supplements, String coupon) throws Throwable {
         GetGenericPriceDetailsRS rs = new GetGenericPriceDetailsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -371,7 +372,13 @@ public class GenericBookingServiceImpl implements GenericBookingService {
     }
 
     @Override
-    public CheckGenericRS check(String token, String key, String language, int adults, int children, int units, int start, int end) throws Throwable {
+    public GetGenericRatesRS getGenericRates(String token, String productId, int adults, int children, int units, int start, int end, String language) throws Throwable {
+        GetGenericRatesRS rs = new GetGenericRatesRS();
+        return rs;
+    }
+
+    @Override
+    public CheckGenericRS check(String token, String key, String language) throws Throwable {
         CheckGenericRS rs = new CheckGenericRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));

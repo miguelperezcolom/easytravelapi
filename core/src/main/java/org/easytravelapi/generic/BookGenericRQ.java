@@ -7,11 +7,6 @@ import org.easytravelapi.util.Helper;
 @ApiModel(description = "Parameters needed to confirm an generic product booking")
 public class BookGenericRQ {
     private String key;
-    private int startDate;
-    private int endDate;
-    private int adults;
-    private int children;
-    private int units;
     private String supplementIds;
 
     @ApiModelProperty(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
@@ -39,51 +34,59 @@ public class BookGenericRQ {
     }
 
 
-    public String getKey() { return key; }
+    public String getKey() {
+        return key;
+    }
 
-    public void setKey(String key) { this.key = key; }
+    public void setKey(String key) {
+        this.key = key;
+    }
 
-    public int getStartDate() { return startDate; }
+    public String getSupplementIds() {
+        return supplementIds;
+    }
 
-    public void setStartDate(int startDate) { this.startDate = startDate; }
+    public void setSupplementIds(String supplementIds) {
+        this.supplementIds = supplementIds;
+    }
 
-    public int getEndDate() { return endDate; }
+    public String getBookingReference() {
+        return bookingReference;
+    }
 
-    public void setEndDate(int endDate) { this.endDate = endDate; }
+    public void setBookingReference(String bookingReference) {
+        this.bookingReference = bookingReference;
+    }
 
-    public int getAdults() { return adults; }
+    public String getLeadName() {
+        return leadName;
+    }
 
-    public void setAdults(int adults) { this.adults = adults; }
+    public void setLeadName(String leadName) {
+        this.leadName = leadName;
+    }
 
-    public int getChildren() { return children; }
+    public String getCommentsToProvider() {
+        return commentsToProvider;
+    }
 
-    public void setChildren(int children) { this.children = children; }
+    public void setCommentsToProvider(String commentsToProvider) {
+        this.commentsToProvider = commentsToProvider;
+    }
 
-    public int getUnits() { return units; }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-    public void setUnits(int units) { this.units = units; }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-    public String getSupplementIds() { return supplementIds; }
+    public String getEmail() {
+        return email;
+    }
 
-    public void setSupplementIds(String supplementIds) { this.supplementIds = supplementIds; }
-
-    public String getBookingReference() { return bookingReference; }
-
-    public void setBookingReference(String bookingReference) { this.bookingReference = bookingReference; }
-
-    public String getLeadName() { return leadName; }
-
-    public void setLeadName(String leadName) { this.leadName = leadName; }
-
-    public String getCommentsToProvider() { return commentsToProvider; }
-
-    public void setCommentsToProvider(String commentsToProvider) { this.commentsToProvider = commentsToProvider; }
-
-    public String getPhoneNumber() { return phoneNumber; }
-
-    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
-
-    public String getEmail() { return email; }
-
-    public void setEmail(String email) { this.email = email; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

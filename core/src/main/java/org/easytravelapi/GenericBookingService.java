@@ -3,6 +3,7 @@ package org.easytravelapi;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.easytravelapi.activity.GetActivityRatesRS;
 import org.easytravelapi.circuit.CheckCircuitRS;
 import org.easytravelapi.generic.*;
 
@@ -27,18 +28,28 @@ public interface GenericBookingService {
     ) throws Throwable;
 
     @GET
+    @Path("/rates/{productId}")
+    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
+    public GetGenericRatesRS getGenericRates(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "The activity price key, as provided in the /activity/available step")
+            @PathParam("productId") String productId,
+            @QueryParam("adults") int adults,
+            @QueryParam("children")int children,
+            @QueryParam("units")int units,
+            @QueryParam("start") int start,
+            @QueryParam("end") int end,
+            @QueryParam("language") String language
+    ) throws Throwable;
+
+    @GET
     @Path("/check/{key}")
     @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
     public CheckGenericRS check(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
             @PathParam("key") String key,
-            @QueryParam("language") String language,
-            @QueryParam("adults") int adults,
-            @QueryParam("children")int children,
-            @QueryParam("units")int units,
-            @QueryParam("start") int start,
-            @QueryParam("end") int end
+            @QueryParam("language") String language
     ) throws Throwable;
 
     @GET
@@ -49,13 +60,6 @@ public interface GenericBookingService {
             @ApiParam(value = "The generic product price key, as provided in the /genericty/available step")
             @PathParam("key") String key,
             @QueryParam("language") String language,
-            @QueryParam("adults") int adults,
-            @QueryParam("children")int children,
-            @QueryParam("units")int units,
-            @ApiParam(value = "Service start date in YYYYMMDD format")
-            @QueryParam("start") int start,
-            @ApiParam(value = "Service end date in YYYYMMDD format")
-            @QueryParam("end") int end,
             @QueryParam("supplements")String supplements,
             @ApiParam(value = "Discount Coupon code")
             @QueryParam("coupon") String coupon
