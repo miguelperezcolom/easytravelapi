@@ -17,9 +17,6 @@ public class GetGenericRatesRS extends AbstractRS {
 
     private String key;
 
-    private BestDeal price;
-
-
     private boolean dateDependant;
 
     private boolean datesRangeDependant;
@@ -38,14 +35,6 @@ public class GetGenericRatesRS extends AbstractRS {
 
     public void setKey(String key) {
         this.key = key;
-    }
-
-    public BestDeal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BestDeal price) {
-        this.price = price;
     }
 
     public boolean isDateDependant() {

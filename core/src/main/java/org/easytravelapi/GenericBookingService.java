@@ -34,11 +34,6 @@ public interface GenericBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
             @PathParam("productId") String productId,
-            @QueryParam("adults") int adults,
-            @QueryParam("children")int children,
-            @QueryParam("units")int units,
-            @QueryParam("start") int start,
-            @QueryParam("end") int end,
             @QueryParam("language") String language
     ) throws Throwable;
 
@@ -48,7 +43,12 @@ public interface GenericBookingService {
     public CheckGenericRS check(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
-            @PathParam("key") String key,
+            @PathParam("key") String productId,
+            @QueryParam("adults") int adults,
+            @QueryParam("children")int children,
+            @QueryParam("units")int units,
+            @QueryParam("start") int start,
+            @QueryParam("end") int end,
             @QueryParam("language") String language
     ) throws Throwable;
 

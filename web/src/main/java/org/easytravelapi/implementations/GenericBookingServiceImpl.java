@@ -372,13 +372,13 @@ public class GenericBookingServiceImpl implements GenericBookingService {
     }
 
     @Override
-    public GetGenericRatesRS getGenericRates(String token, String productId, int adults, int children, int units, int start, int end, String language) throws Throwable {
+    public GetGenericRatesRS getGenericRates(String token, String productId, String language) throws Throwable {
         GetGenericRatesRS rs = new GetGenericRatesRS();
         return rs;
     }
 
     @Override
-    public CheckGenericRS check(String token, String key, String language) throws Throwable {
+    public CheckGenericRS check(String token, String key, int adults, int children, int units, int start, int end, String language) throws Throwable {
         CheckGenericRS rs = new CheckGenericRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
