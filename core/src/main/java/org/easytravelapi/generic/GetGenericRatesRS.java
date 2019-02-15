@@ -15,8 +15,6 @@ import java.util.List;
 @ApiModel(description = "Container for the activity price details")
 public class GetGenericRatesRS extends AbstractRS {
 
-    private String key;
-
     private boolean dateDependant;
 
     private boolean datesRangeDependant;
@@ -28,14 +26,6 @@ public class GetGenericRatesRS extends AbstractRS {
     private boolean childrenDependant;
 
 
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
-    }
 
     public boolean isDateDependant() {
         return dateDependant;
