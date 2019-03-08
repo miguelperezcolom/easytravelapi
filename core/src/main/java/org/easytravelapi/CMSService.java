@@ -3,13 +3,7 @@ package org.easytravelapi;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.easytravelapi.cms.GetActivityAvailabilityCalendarRS;
-import org.easytravelapi.cms.GetHotelAvailabilityCalendarRS;
-import org.easytravelapi.common.CancelBookingRS;
-import org.easytravelapi.common.GetBookingsRS;
-import org.easytravelapi.common.GetDataSheetRS;
-import org.easytravelapi.common.GetPortfolioRS;
-import org.easytravelapi.hotel.GetAvailableHotelsRS;
+import org.easytravelapi.cms.*;
 
 import javax.jws.WebService;
 import javax.ws.rs.*;
@@ -67,4 +61,48 @@ public interface CMSService {
             @ApiParam(value = "The comma separated list of resorts you are interested in")
             @QueryParam("product") String productId
     ) throws Throwable;
+
+    @GET
+    @Path("/activitychecklist")
+    @ApiOperation(value = "Use this method to get  all lists of available activities in a given date")
+    public GetActivityCheckListRS getActivityCheckList(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "The comma separated list of resorts you are interested in")
+            @QueryParam("date") int date
+    ) throws Throwable;
+
+    @GET
+    @Path("/eventchecklist")
+    @ApiOperation(value = "Use this method to get  all lists of available events in a given excursion date")
+    public GetEventCheckListRS getEventCheckList(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "Activity Date")
+            @QueryParam("date") int date,
+            @ApiParam(value = "Activity Id")
+            @QueryParam("activityId") String activityId
+
+    ) throws Throwable;
+
+    @GET
+    @Path("/ticketchecklist")
+    @ApiOperation(value = "Use this method to get list of tickets for an event")
+    public GetTicketCheckListRS getTicketCheckList(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "Event Id")
+            @QueryParam("eventId") String eventId
+
+    ) throws Throwable;
+
+    @GET
+    @Path("/checkticket")
+    @ApiOperation(value = "Use this method to validate a ticket QR code with an activity's event")
+    public CheckTicketRS checkTicket(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "Event Id")
+            @QueryParam("eventId") String eventId,
+            @ApiParam(value = "ticket's QR Code ")
+            @QueryParam("qrcode") String qrcode
+
+    ) throws Throwable;
+
 }

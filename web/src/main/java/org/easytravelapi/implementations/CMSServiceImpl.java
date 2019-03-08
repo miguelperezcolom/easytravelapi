@@ -3,6 +3,9 @@ package org.easytravelapi.implementations;
 import org.easytravelapi.CMSService;
 import org.easytravelapi.cms.*;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class CMSServiceImpl implements CMSService {
     @Override
     public GetHotelAvailabilityCalendarRS getHotelAvailabilityCalendar(String token, String resorts, int checkIn, int checkout, String occupancies) throws Throwable {
@@ -104,4 +107,170 @@ public class CMSServiceImpl implements CMSService {
         return cal;
     }
 
+    @Override
+    public GetActivityCheckListRS getActivityCheckList(String token, int date) throws Throwable {
+        GetActivityCheckListRS ac = new GetActivityCheckListRS();
+
+        {
+            ActivityCheckItem ci = new ActivityCheckItem();
+            ci.setActivityId("1111");
+            ci.setName("Tour bus turístico Barcelona");
+            ci.setDescription("descripcion del bus turistico");
+
+            ac.getActivity().add(ci);
+        }
+
+        {
+            ActivityCheckItem ci = new ActivityCheckItem();
+            ci.setActivityId("1112");
+            ci.setName("Ruta en barco costa brava");
+            ci.setDescription("descripcion Ruta en barco costa brava");
+
+            ac.getActivity().add(ci);
+        }
+
+        {
+            ActivityCheckItem ci = new ActivityCheckItem();
+            ci.setActivityId("1113");
+            ci.setName("Parque de atracciones ");
+            ci.setDescription("descripcion parque de atracciones");
+
+            ac.getActivity().add(ci);
+        }
+
+        return ac;
+    }
+
+    @Override
+    public GetEventCheckListRS getEventCheckList(String token, int date, String activityId) throws Throwable {
+
+        GetEventCheckListRS ec = new GetEventCheckListRS();
+
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("1");
+            ei.setName("evento1");
+
+
+            ec.getEvent().add(ei);
+        }
+
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("2");
+            ei.setName("evento2");
+
+
+            ec.getEvent().add(ei);
+        }
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("2");
+            ei.setName("evento2");
+
+
+            ec.getEvent().add(ei);
+        }
+
+
+        return ec;
+    }
+
+    @Override
+    public GetTicketCheckListRS getTicketCheckList(String token, String eventId) throws Throwable {
+        GetTicketCheckListRS tc = new GetTicketCheckListRS();
+
+        {
+            TicketCheckItem ti = new TicketCheckItem();
+            ti.setId("14534567457856879");
+            ti.setQrcode("erhwpeorhvsdjnfvskjdfnviuwerfvjasnv");
+            ti.setChecked(Boolean.TRUE);
+            ti.setCheckedDate(20190202);
+            ti.setCheckedTime(103325);
+            ti.setPax(5);
+            ti.setLeadname("sr. perez perez");
+            ti.setComments("comentarios sobre el ticket");
+
+            tc.getTicket().add(ti);
+        }
+        {
+            TicketCheckItem ti = new TicketCheckItem();
+            ti.setId("123452345234567");
+            ti.setQrcode("erhwpeorhvsdjnfvskjdfnviuwerfvjasnv");
+            ti.setChecked(Boolean.TRUE);
+            ti.setCheckedDate(20190202);
+            ti.setCheckedTime(103325);
+            ti.setPax(5);
+            ti.setLeadname("sr. rodriguez perez");
+            ti.setComments("comentarios sobre el ticket");
+
+            tc.getTicket().add(ti);
+        }
+        {
+            TicketCheckItem ti = new TicketCheckItem();
+            ti.setId("2456745674567");
+            ti.setQrcode("erhwpeorhvsdjnfvskjdfnviuw234");
+            ti.setChecked(Boolean.FALSE);
+           // ti.setCheckedDate(20190202);
+            //ti.setCheckedTime(103325);
+            ti.setPax(1);
+            ti.setLeadname("sr. garcia garcia");
+            ti.setComments("comentarios sobre el ticket");
+
+            tc.getTicket().add(ti);
+        }{
+            TicketCheckItem ti = new TicketCheckItem();
+            ti.setId("3456745674567456");
+            ti.setQrcode("erhwpeorhvsdjnfvskjdfnviuwedfghdfghdfgh345nv");
+            ti.setChecked(Boolean.TRUE);
+            ti.setCheckedDate(20190202);
+            ti.setCheckedTime(103325);
+            ti.setPax(5);
+            ti.setLeadname("sr. garcia perez");
+            ti.setComments("comentarios sobre el ticket");
+
+            tc.getTicket().add(ti);
+        }
+        tc.setTotalTickets(4);
+        tc.setCheckedTickets(3);
+        tc.setRemainingTickets(1);
+        tc.setTotalPax(16);
+        tc.setCheckedPax(15);
+        tc.setRemainingPax(1);
+        return tc;
+    }
+
+    @Override
+    public CheckTicketRS checkTicket(String token, String eventId, String qrcode) throws Throwable {
+        CheckTicketRS ct = new  CheckTicketRS();
+
+        {
+            TicketCheckItem ti = new TicketCheckItem();
+            ti.setLeadname("sr. Romero de la Rosa");
+            ti.setComments("Comentario especial para el ticket");
+            ti.setPax(1);
+            ti.setChecked(true);
+            ti.setCheckedDate(20190101);
+            ti.setCheckedTime(103300);
+            ti.setQrcode(qrcode);
+            ti.setId("123123123123");
+            ct.setTicket(ti);
+        }
+        switch (qrcode){
+            case "26AF4TL4HAXOY1W":
+                ct.setValid(true);
+                break;
+            case "26AF4TZ4HAIFV4R":
+                ct.setValid(false);
+                ct.setValidationMessage("Este ticket corresponde a otra excursion / dia / evento ");
+                break;
+            default:
+                ct.setValid(false);
+                ct.setValidationMessage("Código no válido");
+                break;
+
+        }
+
+        return ct;
+    }
 }
