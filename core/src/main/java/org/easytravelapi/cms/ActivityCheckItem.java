@@ -12,6 +12,9 @@ public class ActivityCheckItem {
     @ApiModelProperty(value = "The main image for this activity")
     private String image;
 
+    @ApiModelProperty(value = "Date for this activity")
+    private int date;
+
     public String getActivityId() {
         return activityId;
     }
@@ -42,5 +45,13 @@ public class ActivityCheckItem {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getDate() {
+        return date;
+    }
+
+    public void setDate(int date) {
+        this.date = date;
     }
 }

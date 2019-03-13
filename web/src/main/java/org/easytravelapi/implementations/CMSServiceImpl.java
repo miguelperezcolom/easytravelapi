@@ -3,9 +3,6 @@ package org.easytravelapi.implementations;
 import org.easytravelapi.CMSService;
 import org.easytravelapi.cms.*;
 
-import java.time.LocalDateTime;
-import java.util.Date;
-
 public class CMSServiceImpl implements CMSService {
     @Override
     public GetHotelAvailabilityCalendarRS getHotelAvailabilityCalendar(String token, String resorts, int checkIn, int checkout, String occupancies) throws Throwable {
@@ -179,6 +176,7 @@ public class CMSServiceImpl implements CMSService {
     @Override
     public GetTicketCheckListRS getTicketCheckList(String token, String eventId) throws Throwable {
         GetTicketCheckListRS tc = new GetTicketCheckListRS();
+        TicketListItem tl = new TicketListItem();
 
         {
             TicketCheckItem ti = new TicketCheckItem();
@@ -191,7 +189,7 @@ public class CMSServiceImpl implements CMSService {
             ti.setLeadname("sr. perez perez");
             ti.setComments("comentarios sobre el ticket");
 
-            tc.getTicket().add(ti);
+            tl.getTicket().add(ti);
         }
         {
             TicketCheckItem ti = new TicketCheckItem();
@@ -204,12 +202,12 @@ public class CMSServiceImpl implements CMSService {
             ti.setLeadname("sr. rodriguez perez");
             ti.setComments("comentarios sobre el ticket");
 
-            tc.getTicket().add(ti);
+            tl.getTicket().add(ti);
         }
         {
             TicketCheckItem ti = new TicketCheckItem();
             ti.setId("2456745674567");
-            ti.setQrcode("erhwpeorhvsdjnfvskjdfnviuw234");
+            ti.setQrcode("26AF4TL4HAXOY1W");
             ti.setChecked(Boolean.FALSE);
            // ti.setCheckedDate(20190202);
             //ti.setCheckedTime(103325);
@@ -217,7 +215,7 @@ public class CMSServiceImpl implements CMSService {
             ti.setLeadname("sr. garcia garcia");
             ti.setComments("comentarios sobre el ticket");
 
-            tc.getTicket().add(ti);
+            tl.getTicket().add(ti);
         }{
             TicketCheckItem ti = new TicketCheckItem();
             ti.setId("3456745674567456");
@@ -229,14 +227,29 @@ public class CMSServiceImpl implements CMSService {
             ti.setLeadname("sr. garcia perez");
             ti.setComments("comentarios sobre el ticket");
 
-            tc.getTicket().add(ti);
+            tl.getTicket().add(ti);
         }
-        tc.setTotalTickets(4);
-        tc.setCheckedTickets(3);
-        tc.setRemainingTickets(1);
-        tc.setTotalPax(16);
-        tc.setCheckedPax(15);
-        tc.setRemainingPax(1);
+        {
+            TicketCheckItem ti = new TicketCheckItem();
+            ti.setId("2456745674567");
+            ti.setQrcode("26AF4TZ4HAIFV4R");
+            ti.setChecked(Boolean.FALSE);
+            // ti.setCheckedDate(20190202);
+            //ti.setCheckedTime(103325);
+            ti.setPax(1);
+            ti.setLeadname("sr. garcia garcia");
+            ti.setComments("comentarios sobre el ticket");
+
+            tl.getTicket().add(ti);
+        }
+        tl.setTotalTickets(4);
+        tl.setCheckedTickets(3);
+        tl.setRemainingTickets(1);
+        tl.setTotalPax(16);
+        tl.setCheckedPax(15);
+        tl.setRemainingPax(1);
+
+        tc.setTicket(tl);
         return tc;
     }
 
@@ -272,5 +285,323 @@ public class CMSServiceImpl implements CMSService {
         }
 
         return ct;
+    }
+
+    @Override
+    public GetLoginRS login(String token, GetLoginRQ login) throws Throwable {
+        GetLoginRS rs = new GetLoginRS();
+
+        System.out.println("user :" + login.getUser());
+        System.out.println("password :" + login.getPassword());
+
+        if(login.getUser() != null && login.getPassword() != null )
+        {
+
+
+            if (login.getUser().toString().equals("admin") && login.getPassword().toString().equals("1")){
+                rs.setLogged(true);
+                rs.setAuthUser("123-user");
+            }else{
+                rs.setLogged(false);
+                rs.setMessage("User or password not valid");
+            }
+        }else{
+            rs.setLogged(false);
+            rs.setMessage("User and password is required");
+        }
+
+        return rs;
+    }
+
+    @Override
+    public GetOfflineCheckListRS getOfflineCheckList(String token) throws Throwable {
+
+        GetOfflineCheckListRS off = new GetOfflineCheckListRS();
+
+
+        {
+            ActivityCheckItem ci = new ActivityCheckItem();
+            ci.setActivityId("1111");
+            ci.setName("OFF Tour bus turístico Barcelona");
+            ci.setDescription("descripcion del bus turistico");
+            ci.setDate(20190313);
+
+            off.getActivity().add(ci);
+        }
+
+        {
+            ActivityCheckItem ci = new ActivityCheckItem();
+            ci.setActivityId("1112");
+            ci.setName("OFF Ruta en barco costa brava");
+            ci.setDescription("descripcion Ruta en barco costa brava");
+            ci.setDate(20190314);
+
+            off.getActivity().add(ci);
+        }
+
+        {
+            ActivityCheckItem ci = new ActivityCheckItem();
+            ci.setActivityId("1113");
+            ci.setName("OFF Parque de atracciones ");
+            ci.setDescription("descripcion parque de atracciones");
+            ci.setDate(20190314);
+
+            off.getActivity().add(ci);
+        }
+
+
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("1");
+            ei.setName("evento1 ex 1");
+            ei.setActivityId("1111");
+
+            off.getEvent().add(ei);
+        }
+
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("2");
+            ei.setName("evento2 ex 1");
+            ei.setActivityId("1111");
+
+            off.getEvent().add(ei);
+        }
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("3");
+            ei.setName("evento3 ex 1");
+            ei.setActivityId("1111");
+
+            off.getEvent().add(ei);
+        }
+
+
+
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("4");
+            ei.setName("evento1 ex 2");
+            ei.setActivityId("1112");
+
+            off.getEvent().add(ei);
+        }
+
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("5");
+            ei.setName("evento2 ex 2");
+            ei.setActivityId("1112");
+
+            off.getEvent().add(ei);
+        }
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("6");
+            ei.setName("evento3 ex 2");
+            ei.setActivityId("1112");
+
+            off.getEvent().add(ei);
+        }
+
+
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("7");
+            ei.setName("evento1 ex 3");
+            ei.setActivityId("1113");
+
+            off.getEvent().add(ei);
+        }
+
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("8");
+            ei.setName("evento2 ex 3");
+            ei.setActivityId("1113");
+
+            off.getEvent().add(ei);
+        }
+        {
+            EventCheckItem ei = new EventCheckItem();
+            ei.setId("9");
+            ei.setName("evento3 ex 3");
+            ei.setActivityId("1113");
+
+            off.getEvent().add(ei);
+        }
+
+
+        /*****lista de tickets*****/
+        {
+            TicketListItem tl = new TicketListItem();
+
+            {
+                TicketCheckItem ti = new TicketCheckItem();
+                ti.setId("14534567457856879");
+                ti.setQrcode("erhwpeorhvsdjnfvskjdfnviuwerfvjasnv");
+                ti.setChecked(Boolean.TRUE);
+                ti.setCheckedDate(20190202);
+                ti.setCheckedTime(103325);
+                ti.setPax(5);
+                ti.setLeadname("sr. perez perez");
+                ti.setComments("comentarios sobre el ticket");
+
+                tl.getTicket().add(ti);
+            }
+            {
+                TicketCheckItem ti = new TicketCheckItem();
+                ti.setId("123452345234567");
+                ti.setQrcode("erhwpeorhvsdjnfvskjdfnviuwerfvjasnv");
+                ti.setChecked(Boolean.TRUE);
+                ti.setCheckedDate(20190202);
+                ti.setCheckedTime(103325);
+                ti.setPax(5);
+                ti.setLeadname("sr. rodriguez perez");
+                ti.setComments("comentarios sobre el ticket");
+
+                tl.getTicket().add(ti);
+            }
+            {
+                TicketCheckItem ti = new TicketCheckItem();
+                ti.setId("2456745674567");
+                ti.setQrcode("26AF4TL4HAXOY1W");
+                ti.setChecked(Boolean.FALSE);
+                // ti.setCheckedDate(20190202);
+                //ti.setCheckedTime(103325);
+                ti.setPax(1);
+                ti.setLeadname("sr. garcia garcia");
+                ti.setComments("comentarios sobre el ticket");
+
+                tl.getTicket().add(ti);
+            }{
+            TicketCheckItem ti = new TicketCheckItem();
+            ti.setId("3456745674567456");
+            ti.setQrcode("erhwpeorhvsdjnfvskjdfnviuwedfghdfghdfgh345nv");
+            ti.setChecked(Boolean.TRUE);
+            ti.setCheckedDate(20190202);
+            ti.setCheckedTime(103325);
+            ti.setPax(5);
+            ti.setLeadname("sr. garcia perez");
+            ti.setComments("comentarios sobre el ticket");
+
+            tl.getTicket().add(ti);
+        }
+            {
+                TicketCheckItem ti = new TicketCheckItem();
+                ti.setId("2456745674567");
+                ti.setQrcode("26AF4TZ4HAIFV4R");
+                ti.setChecked(Boolean.FALSE);
+                // ti.setCheckedDate(20190202);
+                //ti.setCheckedTime(103325);
+                ti.setPax(1);
+                ti.setLeadname("sr. garcia garcia");
+                ti.setComments("comentarios sobre el ticket");
+
+                tl.getTicket().add(ti);
+            }
+            tl.setTotalTickets(4);
+            tl.setCheckedTickets(3);
+            tl.setRemainingTickets(1);
+            tl.setTotalPax(16);
+            tl.setCheckedPax(15);
+            tl.setRemainingPax(1);
+            tl.setEventId("1");
+
+            off.getTicketList().add(tl);
+        }
+
+        {
+            TicketListItem tl = new TicketListItem();
+
+            {
+                TicketCheckItem ti = new TicketCheckItem();
+                ti.setId("14534567457856879");
+                ti.setQrcode("erhwpeorhvsdjnfvskjdfnviuwerfvjasnv");
+                ti.setChecked(Boolean.TRUE);
+                ti.setCheckedDate(20190202);
+                ti.setCheckedTime(103325);
+                ti.setPax(5);
+                ti.setLeadname("sr. perez perez");
+                ti.setComments("comentarios sobre el ticket");
+
+                tl.getTicket().add(ti);
+            }
+            {
+                TicketCheckItem ti = new TicketCheckItem();
+                ti.setId("123452345234567");
+                ti.setQrcode("erhwpeorhvsdjnfvskjdfnviuwerfvjasnv");
+                ti.setChecked(Boolean.TRUE);
+                ti.setCheckedDate(20190202);
+                ti.setCheckedTime(103325);
+                ti.setPax(5);
+                ti.setLeadname("sr. rodriguez perez");
+                ti.setComments("comentarios sobre el ticket");
+
+                tl.getTicket().add(ti);
+            }
+            {
+                TicketCheckItem ti = new TicketCheckItem();
+                ti.setId("2456745674567");
+                ti.setQrcode("26AF4TL4HAXOY1W");
+                ti.setChecked(Boolean.FALSE);
+                // ti.setCheckedDate(20190202);
+                //ti.setCheckedTime(103325);
+                ti.setPax(1);
+                ti.setLeadname("sr. garcia garcia");
+                ti.setComments("comentarios sobre el ticket");
+
+                tl.getTicket().add(ti);
+            }{
+            TicketCheckItem ti = new TicketCheckItem();
+            ti.setId("3456745674567456");
+            ti.setQrcode("erhwpeorhvsdjnfvskjdfnviuwedfghdfghdfgh345nv");
+            ti.setChecked(Boolean.TRUE);
+            ti.setCheckedDate(20190202);
+            ti.setCheckedTime(103325);
+            ti.setPax(5);
+            ti.setLeadname("sr. garcia perez");
+            ti.setComments("comentarios sobre el ticket");
+
+            tl.getTicket().add(ti);
+        }
+            {
+                TicketCheckItem ti = new TicketCheckItem();
+                ti.setId("2456745674567");
+                ti.setQrcode("26AF4TZ4HAIFV4R");
+                ti.setChecked(Boolean.FALSE);
+                // ti.setCheckedDate(20190202);
+                //ti.setCheckedTime(103325);
+                ti.setPax(1);
+                ti.setLeadname("sr. garcia garcia");
+                ti.setComments("comentarios sobre el ticket");
+
+                tl.getTicket().add(ti);
+            }
+            tl.setTotalTickets(4);
+            tl.setCheckedTickets(3);
+            tl.setRemainingTickets(1);
+            tl.setTotalPax(16);
+            tl.setCheckedPax(15);
+            tl.setRemainingPax(1);
+            tl.setEventId("2");
+
+            off.getTicketList().add(tl);
+        }
+
+        return off;
+    }
+
+    @Override
+    public GeUpdatedTicketsRS updateTickets(String token, GetUpdatedTicketsRQ tickets) throws Throwable {
+        System.out.println(tickets.getUserId());
+        for (TicketCheckItem ti : tickets.getTickets())
+        {
+            System.out.println("ticket: " + ti.getId() + " " + ti.getCheckedDate() + " - " + ti.getCheckedTime());
+
+        }
+        GeUpdatedTicketsRS rs = new GeUpdatedTicketsRS();
+                rs.setStatusCode(200);
+        return rs;
     }
 }

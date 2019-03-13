@@ -67,7 +67,7 @@ public interface CMSService {
     @ApiOperation(value = "Use this method to get  all lists of available activities in a given date")
     public GetActivityCheckListRS getActivityCheckList(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "The comma separated list of resorts you are interested in")
+            @ApiParam(value = "Date of activities ")
             @QueryParam("date") int date
     ) throws Throwable;
 
@@ -105,4 +105,31 @@ public interface CMSService {
 
     ) throws Throwable;
 
+    @POST
+    @Path("/login")
+    @ApiOperation(value = "Use this method to login the tickets app")
+    public GetLoginRS login(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            GetLoginRQ login
+
+    ) throws Throwable;
+
+    @GET
+    @Path("/offlinechecklist")
+    @ApiOperation(value = "Use this method to get  all lists of available activities in a given date")
+    public GetOfflineCheckListRS getOfflineCheckList(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
+          /*  @ApiParam(value = "The comma separated list of resorts you are interested in")
+            @QueryParam("date") int date*/
+    ) throws Throwable;
+
+
+    @POST
+    @Path("/updatetickets")
+    @ApiOperation(value = "Use this method to syncronize data from offline tickets app")
+    public GeUpdatedTicketsRS updateTickets(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            GetUpdatedTicketsRQ tickets
+
+    ) throws Throwable;
 }

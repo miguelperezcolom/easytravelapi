@@ -1,11 +1,12 @@
 package org.easytravelapi.cms;
 
 import io.swagger.annotations.ApiModelProperty;
+import org.easytravelapi.common.AbstractRS;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetActivityCheckListRS {
+public class GetActivityCheckListRS extends AbstractRS {
     @ApiModelProperty(value = "List of available excursions, to check")
     private List<ActivityCheckItem> activity = new ArrayList<ActivityCheckItem>();
 

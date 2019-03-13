@@ -1,6 +1,8 @@
 package org.easytravelapi.cms;
 
-public class CheckTicketRS {
+import org.easytravelapi.common.AbstractRS;
+
+public class CheckTicketRS extends AbstractRS {
     private TicketCheckItem ticket;
     private boolean isValid;
     private String validationMessage;
