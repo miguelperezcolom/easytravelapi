@@ -1,10 +1,7 @@
 package org.easytravelapi.generic;
 
 import io.swagger.annotations.ApiModel;
-import org.easytravelapi.activity.ActivityShift;
-import org.easytravelapi.activity.ActivityVariant;
 import org.easytravelapi.common.AbstractRS;
-import org.easytravelapi.common.BestDeal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +21,10 @@ public class GetGenericRatesRS extends AbstractRS {
     private boolean adultsDependant;
 
     private boolean childrenDependant;
+
+    private boolean variantDependant;
+
+    private List<GenericVariant> variants = new ArrayList<>();
 
 
 
@@ -65,5 +66,21 @@ public class GetGenericRatesRS extends AbstractRS {
 
     public void setChildrenDependant(boolean childrenDependant) {
         this.childrenDependant = childrenDependant;
+    }
+
+    public boolean isVariantDependant() {
+        return variantDependant;
+    }
+
+    public void setVariantDependant(boolean variantDependant) {
+        this.variantDependant = variantDependant;
+    }
+
+    public List<GenericVariant> getVariants() {
+        return variants;
+    }
+
+    public void setVariants(List<GenericVariant> variants) {
+        this.variants = variants;
     }
 }
