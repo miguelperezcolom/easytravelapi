@@ -2,6 +2,7 @@ package org.easytravelapi.activity;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.easytravelapi.circuit.Label;
 import org.easytravelapi.common.BestDeal;
 
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class AvailableActivity {
     private String image;
 
     private BestDeal bestDeal;
+
+    private List<Label> labels = new ArrayList<>();
 
     public String getActivityId() {
         return activityId;
@@ -62,5 +65,13 @@ public class AvailableActivity {
 
     public void setBestDeal(BestDeal bestDeal) {
         this.bestDeal = bestDeal;
+    }
+
+    public List<Label> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<Label> labels) {
+        this.labels = labels;
     }
 }
