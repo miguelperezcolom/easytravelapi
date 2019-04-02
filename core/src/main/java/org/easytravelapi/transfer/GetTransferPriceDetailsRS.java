@@ -17,6 +17,10 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
 
     private BestDeal total;
 
+    private String pickupInstructions;
+
+    private String dropoffInstructions;
+
     private List<PaymentMethod> paymentMethods = new ArrayList<>();
 
     @ApiModelProperty(value = "Detailed Payment lines")
@@ -72,4 +76,20 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
     public List<PaymentLine> getPaymentLines() { return paymentLines; }
 
     public void setPaymentLines(List<PaymentLine> paymentLines) { this.paymentLines = paymentLines; }
+
+    public String getPickupInstructions() {
+        return pickupInstructions;
+    }
+
+    public void setPickupInstructions(String pickupInstructions) {
+        this.pickupInstructions = pickupInstructions;
+    }
+
+    public String getDropoffInstructions() {
+        return dropoffInstructions;
+    }
+
+    public void setDropoffInstructions(String dropoffInstructions) {
+        this.dropoffInstructions = dropoffInstructions;
+    }
 }

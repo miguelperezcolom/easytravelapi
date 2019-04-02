@@ -177,6 +177,36 @@ public class CommonsServiceImpl implements CommonsService {
         return rs;
     }
 
+    @Override
+    public SearchPortfolioRS searchTransferPoints(String token, String language, String query) throws Throwable {
+        SearchPortfolioRS rs = new SearchPortfolioRS();
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("4 matches");
+
+        List<Match> matches = new ArrayList<>();
+
+        Match m;
+        matches.add(m = new Match());
+        m.setResourceId("tp_213");
+        m.setName("Hotel Playa de Palma");
+        m.setDescription("Hotel de 4 estrellas ubicado es Palma de Mallorca, España");
+
+        matches.add(m = new Match());
+        m.setResourceId("tp_546546");
+        m.setName("Hotel Bellver");
+        m.setDescription("Hotel de 5 estrellas ubicado es Alcudia, Baleares");
+
+        matches.add(m = new Match());
+        m.setResourceId("tp_3424234");
+        m.setName("Hotel Valparaiso");
+        m.setDescription("Hotel de 2 estrellas ubicado es Palma de Mallorca, España");
+
+
+        rs.getMatches().addAll(matches.stream().filter((z) -> z.getName().toLowerCase().contains(query) || z.getDescription().toLowerCase().contains(query)).collect(Collectors.toList()));
+
+        return rs;    }
+
     private void completar(City l) {
         for (int i = 0; i < 100; i++)
         {
