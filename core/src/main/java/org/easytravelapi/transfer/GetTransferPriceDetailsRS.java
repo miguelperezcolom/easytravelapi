@@ -17,9 +17,9 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
 
     private BestDeal total;
 
-    private String pickupInstructions;
+    private String arrivalInstructions;
 
-    private String dropoffInstructions;
+    private String departureInstructions;
 
     private List<PaymentMethod> paymentMethods = new ArrayList<>();
 
@@ -77,19 +77,19 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
 
     public void setPaymentLines(List<PaymentLine> paymentLines) { this.paymentLines = paymentLines; }
 
-    public String getPickupInstructions() {
-        return pickupInstructions;
+    public String getArrivalInstructions() {
+        return arrivalInstructions;
     }
 
-    public void setPickupInstructions(String pickupInstructions) {
-        this.pickupInstructions = pickupInstructions;
+    public void setArrivalInstructions(String arrivalInstructions) {
+        this.arrivalInstructions = arrivalInstructions;
     }
 
-    public String getDropoffInstructions() {
-        return dropoffInstructions;
+    public String getDepartureInstructions() {
+        return departureInstructions;
     }
 
-    public void setDropoffInstructions(String dropoffInstructions) {
-        this.dropoffInstructions = dropoffInstructions;
+    public void setDepartureInstructions(String departureInstructions) {
+        this.departureInstructions = departureInstructions;
     }
 }

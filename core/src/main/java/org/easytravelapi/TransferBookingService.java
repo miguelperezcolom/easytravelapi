@@ -88,6 +88,13 @@ public interface TransferBookingService {
     ) throws Throwable;
 
     @GET
+    @Path("/destinations")
+    @ApiOperation(value = "Use this method to get all available destinations from an airport key")
+    public GetDestinationRS getDestinations(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
+    ) throws Throwable;
+
+    @GET
     @Path("/filter")
     @ApiOperation(value = "Use this method to filter transfers wich are available and their prices")
     public GetAvailableTransfersRS getFilteredTransfers(
