@@ -51,6 +51,9 @@ public class BookActivityRQ {
     @ApiModelProperty(value = "Your email to contact with tou")
     private String email;
 
+    @ApiModelProperty(value = "Token for server validation captcha")
+    private String captchaToken;
+
     public static BookActivityRQ fromString(String json) {
         return Helper.fromString(BookActivityRQ.class, json);
     }
@@ -196,4 +199,9 @@ public class BookActivityRQ {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getCaptchaToken() { return captchaToken; }
+
+    public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
+
 }

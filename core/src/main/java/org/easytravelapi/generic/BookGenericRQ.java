@@ -24,6 +24,9 @@ public class BookGenericRQ {
     @ApiModelProperty(value = "User Email. Used to locate your bookings")
     private String email;
 
+    @ApiModelProperty(value = "Token for server validation captcha")
+    private String captchaToken;
+
     public static BookActivityRQ fromString(String json) {
         return Helper.fromString(BookActivityRQ.class, json);
     }
@@ -89,4 +92,8 @@ public class BookGenericRQ {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getCaptchaToken() { return captchaToken; }
+
+    public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
 }

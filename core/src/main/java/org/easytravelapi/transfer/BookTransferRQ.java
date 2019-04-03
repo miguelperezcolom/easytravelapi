@@ -52,6 +52,8 @@ public class BookTransferRQ {
     private int wheelchair;
     @ApiModelProperty(value = "Number of bigLuggages")
     private int bigLuggages;
+    @ApiModelProperty(value = "Token for server validation captcha")
+    private String captchaToken;
 
     public static BookTransferRQ fromString(String json) {
         return Helper.fromString(BookTransferRQ.class, json);
@@ -177,4 +179,8 @@ public class BookTransferRQ {
     public int getBigLuggages() { return bigLuggages; }
 
     public void setBigLuggages(int bigLuggages) { this.bigLuggages = bigLuggages; }
+
+    public String getCaptchaToken() { return captchaToken; }
+
+    public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
 }

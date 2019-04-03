@@ -35,6 +35,8 @@ public class BookHotelRQ {
     @ApiModelProperty(value = "Your desired optional services ids")
     private List<String> services = new ArrayList<String>();
 
+    @ApiModelProperty(value = "Token for server validation captcha")
+    private String captchaToken;
 
     public static BookHotelRQ fromString(String json) {
         return Helper.fromString(BookHotelRQ.class, json);
@@ -96,4 +98,8 @@ public class BookHotelRQ {
     public String getEmail() { return email; }
 
     public void setEmail(String email) { this.email = email; }
+
+    public String getCaptchaToken() { return captchaToken; }
+
+    public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
 }

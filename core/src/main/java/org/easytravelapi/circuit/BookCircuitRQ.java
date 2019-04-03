@@ -44,6 +44,8 @@ public class BookCircuitRQ {
     @ApiModelProperty(value = "User Email. Used to locate your bookings")
     private String email;
 
+    @ApiModelProperty(value = "Token for server validation captcha")
+    private String captchaToken;
 
     public static BookCircuitRQ fromString(String json) {
         return Helper.fromString(BookCircuitRQ.class, json);
@@ -158,4 +160,8 @@ public class BookCircuitRQ {
     public String getKey() { return key; }
 
     public void setKey(String key) { this.key = key; }
+
+    public String getCaptchaToken() { return captchaToken; }
+
+    public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
 }
