@@ -43,6 +43,7 @@ public class Application  extends javax.ws.rs.core.Application {
         s.add(CircuitBookingServiceImpl.class);
         s.add(GenericBookingServiceImpl.class);
         s.add(CMSServiceImpl.class);
+        s.add(AgentAccessServiceImpl.class);
 
         s.add(io.swagger.jaxrs.listing.ApiListingResource.class);
         s.add(io.swagger.jaxrs.listing.SwaggerSerializers.class);

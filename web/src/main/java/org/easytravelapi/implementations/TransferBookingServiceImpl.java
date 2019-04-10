@@ -504,5 +504,8 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         return rs;
     }
 
-
+    @Override
+    public GetDestinationRS getDestinations(String token) throws Throwable {
+        return null;
+    }
 }
