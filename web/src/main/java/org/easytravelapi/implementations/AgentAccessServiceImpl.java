@@ -121,7 +121,7 @@ public class AgentAccessServiceImpl implements AgentAccessService {
             {
                 PlainActivityItem pi = new PlainActivityItem();
                 pi.setActivityId("1111");
-                pi.setDescription("Planta Arriba, 10:30 mañana, recogida Hotel Gran Park, Idioma español , <i class=\"fas fa-child\"></i>");
+                pi.setDescription("Planta Arriba, 10:30 mañana, recogida Hotel Gran Park, Idioma español , Niño");
                 pi.setId("123453");
                 Amount a = new Amount();
                 a.setValue(80.00);
@@ -146,7 +146,7 @@ public class AgentAccessServiceImpl implements AgentAccessService {
             {
                 PlainActivityItem pi = new PlainActivityItem();
                 pi.setActivityId("1111");
-                pi.setDescription("Planta Arriba, 10:30 mañana, recogida Hotel Gran Park, Idioma aleman , <i class=\"fas fa-child\"></i>");
+                pi.setDescription("Planta Arriba, 10:30 mañana, recogida Hotel Gran Park, Idioma aleman , Niño");
                 pi.setId("123455");
                 Amount a = new Amount();
                 a.setValue(80.00);
@@ -171,7 +171,7 @@ public class AgentAccessServiceImpl implements AgentAccessService {
             {
                 PlainActivityItem pi = new PlainActivityItem();
                 pi.setActivityId("1111");
-                pi.setDescription("Planta baja, 10:30 mañana, recogida Hotel Gran Park, Idioma inglés , <i class=\"fas fa-child\"></i>");
+                pi.setDescription("Planta baja, 10:30 mañana, recogida Hotel Gran Park, Idioma inglés , Niño");
                 pi.setId("123457");
                 Amount a = new Amount();
                 a.setValue(80.00);
@@ -196,7 +196,7 @@ public class AgentAccessServiceImpl implements AgentAccessService {
             {
                 PlainActivityItem pi = new PlainActivityItem();
                 pi.setActivityId("1111");
-                pi.setDescription("Planta baja, 10:30 mañana, recogida Hotel Gran Park, Idioma español , <i class=\"fas fa-child\"></i>");
+                pi.setDescription("Planta baja, 10:30 mañana, recogida Hotel Gran Park, Idioma español , Niño");
                 pi.setId("123459");
                 Amount a = new Amount();
                 a.setValue(80.00);
@@ -221,7 +221,7 @@ public class AgentAccessServiceImpl implements AgentAccessService {
             {
                 PlainActivityItem pi = new PlainActivityItem();
                 pi.setActivityId("1111");
-                pi.setDescription("Planta baja, 10:30 mañana, recogida Hotel Gran Park, Idioma aleman , <i class=\"fas fa-child\"></i>");
+                pi.setDescription("Planta baja, 10:30 mañana, recogida Hotel Gran Park, Idioma aleman , Niño");
                 pi.setId("1234512");
                 Amount a = new Amount();
                 a.setValue(80.00);

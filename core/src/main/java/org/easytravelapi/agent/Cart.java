@@ -13,6 +13,8 @@ public class Cart {
 
     private String nombre;
 
+    private String nombreHtml;
+
     public String getPrecio() {
         return precio;
     }
@@ -51,5 +53,13 @@ public class Cart {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getNombreHtml() {
+        return nombreHtml;
+    }
+
+    public void setNombreHtml(String nombreHtml) {
+        this.nombreHtml = nombreHtml;
     }
 }
