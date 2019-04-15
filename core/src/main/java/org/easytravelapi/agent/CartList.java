@@ -17,6 +17,8 @@ public class CartList {
 
     private CompanyData companyData;
 
+    private String qrCode;
+
     public String getDate() {
         return date;
     }
