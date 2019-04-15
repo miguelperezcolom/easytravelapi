@@ -8,6 +8,8 @@ public class PlainActivityItem {
 
     private String description;
 
+    private String htmlDescription;
+
     private String activityId;
 
     private Amount retailPrice;
@@ -42,5 +44,13 @@ public class PlainActivityItem {
 
     public void setRetailPrice(Amount retailPrice) {
         this.retailPrice = retailPrice;
+    }
+
+    public String getHtmlDescription() {
+        return htmlDescription;
+    }
+
+    public void setHtmlDescription(String htmlDescription) {
+        this.htmlDescription = htmlDescription;
     }
 }

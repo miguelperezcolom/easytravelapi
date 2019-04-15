@@ -23,14 +23,6 @@ import javax.ws.rs.core.MediaType;
 @Api(description = "agents related methods")
 public interface AgentAccessService {
 
-    @GET
-    @Path("/activitylist")
-    @ApiOperation(value = "Use this method to get  all lists of available activities for an agent")
-    public GetActivityCheckListRS getActivityList(
-            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "Date of activities ")
-            @QueryParam("agentid") int agentId
-    ) throws Throwable;
 
     @GET
     @Path("/plainlist")
@@ -39,16 +31,6 @@ public interface AgentAccessService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "Date of activities ")
             @QueryParam("agentid") int agentId
-    ) throws Throwable;
-
-    @GET
-    @Path("/eventlist")
-    @ApiOperation(value = "Use this method to get  all lists of available events in a given excursion date")
-    public GetActivityRatesRS getEventList(
-            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "Activity Id")
-            @QueryParam("activityId") String activityId
-
     ) throws Throwable;
 
 

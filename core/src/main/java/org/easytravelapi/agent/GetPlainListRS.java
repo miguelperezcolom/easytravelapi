@@ -18,6 +18,8 @@ public class GetPlainListRS extends AbstractRS {
 
     private List<CurrencyChange> currencies = new ArrayList<>();
 
+    private String qrCode;
+
     public List<ActivityCheckItem> getActivity() {
         return activity;
     }
@@ -48,5 +50,13 @@ public class GetPlainListRS extends AbstractRS {
 
     public void setCurrencies(List<CurrencyChange> currencies) {
         this.currencies = currencies;
+    }
+
+    public String getQrCode() {
+        return qrCode;
+    }
+
+    public void setQrCode(String qrCode) {
+        this.qrCode = qrCode;
     }
 }

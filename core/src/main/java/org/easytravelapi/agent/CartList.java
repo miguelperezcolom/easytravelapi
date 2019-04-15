@@ -15,6 +15,8 @@ public class CartList {
 
     private String status;
 
+    private CompanyData companyData;
+
     public String getDate() {
         return date;
     }
@@ -61,5 +63,13 @@ public class CartList {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public CompanyData getCompanyData() {
+        return companyData;
+    }
+
+    public void setCompanyData(CompanyData companyData) {
+        this.companyData = companyData;
     }
 }
