@@ -74,4 +74,12 @@ public class CartList {
     public void setCompanyData(CompanyData companyData) {
         this.companyData = companyData;
     }
+
+    public String getQrCode() {
+        return qrCode;
+    }
+
+    public void setQrCode(String qrCode) {
+        this.qrCode = qrCode;
+    }
 }
