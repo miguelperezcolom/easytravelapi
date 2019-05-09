@@ -15,6 +15,8 @@ public class Cart {
 
     private String nombreHtml;
 
+    private String qrCode;
+
     public String getPrecio() {
         return precio;
     }
@@ -61,5 +63,13 @@ public class Cart {
 
     public void setNombreHtml(String nombreHtml) {
         this.nombreHtml = nombreHtml;
+    }
+
+    public String getQrCode() {
+        return qrCode;
+    }
+
+    public void setQrCode(String qrCode) {
+        this.qrCode = qrCode;
     }
 }

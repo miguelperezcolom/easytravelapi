@@ -15,10 +15,6 @@ public class CartList {
 
     private String status;
 
-    private CompanyData companyData;
-
-    private String qrCode;
-
     public String getDate() {
         return date;
     }
@@ -67,19 +63,5 @@ public class CartList {
         this.status = status;
     }
 
-    public CompanyData getCompanyData() {
-        return companyData;
-    }
 
-    public void setCompanyData(CompanyData companyData) {
-        this.companyData = companyData;
-    }
-
-    public String getQrCode() {
-        return qrCode;
-    }
-
-    public void setQrCode(String qrCode) {
-        this.qrCode = qrCode;
-    }
 }

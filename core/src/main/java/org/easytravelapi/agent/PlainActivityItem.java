@@ -14,6 +14,10 @@ public class PlainActivityItem {
 
     private Amount retailPrice;
 
+    private String groupReference;
+
+    private String groupDescription;
+
     public String getId() {
         return id;
     }
@@ -52,5 +56,21 @@ public class PlainActivityItem {
 
     public void setHtmlDescription(String htmlDescription) {
         this.htmlDescription = htmlDescription;
+    }
+
+    public String getGroupReference() {
+        return groupReference;
+    }
+
+    public void setGroupReference(String groupReference) {
+        this.groupReference = groupReference;
+    }
+
+    public String getGroupDescription() {
+        return groupDescription;
+    }
+
+    public void setGroupDescription(String groupDescription) {
+        this.groupDescription = groupDescription;
     }
 }

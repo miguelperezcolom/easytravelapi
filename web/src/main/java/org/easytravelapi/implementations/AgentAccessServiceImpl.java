@@ -88,6 +88,8 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setValue(100.00);
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
+                pi.setGroupReference("111");
+                pi.setGroupDescription("Grupo excursiones 111");
 
                 pl.add(pi);
             }
@@ -102,7 +104,11 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setValue(80.00);
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
+                pi.setGroupReference("111");
+                pi.setGroupDescription("Grupo excursiones 111");
+
                 pl.add(pi);
+
             }
 
             {
@@ -114,6 +120,8 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setValue(100.00);
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
+                pi.setGroupReference("111");
+                pi.setGroupDescription("Grupo excursiones 111");
 
                 pl.add(pi);
             }
@@ -128,6 +136,8 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
                 pl.add(pi);
+                pi.setGroupReference("222");
+                pi.setGroupDescription("Grupo excursiones 222");
             }
 
             {
@@ -139,6 +149,8 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setValue(100.00);
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
+                pi.setGroupReference("222");
+                pi.setGroupDescription("Grupo excursiones 222");
 
                 pl.add(pi);
             }
@@ -152,7 +164,11 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setValue(80.00);
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
+                pi.setGroupReference("222");
+                pi.setGroupDescription("Grupo excursiones 222");
+
                 pl.add(pi);
+
             }
 
             {
@@ -164,6 +180,8 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setValue(100.00);
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
+                pi.setGroupReference("222");
+                pi.setGroupDescription("Grupo excursiones 222");
 
                 pl.add(pi);
             }
@@ -177,7 +195,10 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setValue(80.00);
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
+                pi.setGroupReference("222");
+                pi.setGroupDescription("Grupo excursiones 222");
                 pl.add(pi);
+
             }
 
             {
@@ -189,6 +210,9 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setValue(100.00);
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
+
+                pi.setGroupReference("333");
+                pi.setGroupDescription("Grupo excursiones 333");
 
                 pl.add(pi);
             }
@@ -202,6 +226,11 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setValue(80.00);
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
+
+                pi.setGroupReference("333");
+                pi.setGroupDescription("Grupo excursiones 333");
+
+
                 pl.add(pi);
             }
 
@@ -215,6 +244,10 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
 
+                pi.setGroupReference("333");
+                pi.setGroupDescription("Grupo excursiones 333");
+
+
                 pl.add(pi);
             }
 
@@ -227,6 +260,9 @@ public class AgentAccessServiceImpl implements AgentAccessService {
                 a.setValue(80.00);
                 a.setCurrencyIsoCode("Eur");
                 pi.setRetailPrice(a);
+
+                pi.setGroupReference("333");
+                pi.setGroupDescription("Grupo excursiones 333");
                 pl.add(pi);
             }
 
@@ -279,6 +315,16 @@ public class AgentAccessServiceImpl implements AgentAccessService {
             plrs.setPaymentMethods(paymentMethodList);
         }
 
+        {
+            CompanyData cd = new CompanyData();
+
+            cd.setContactEmail("contacto@quotravel.com");
+            cd.setLegalText("Este es un ticket de compra de pruebas la/s entrada/s no tendran validez alguna. \n Quotravel ");
+            cd.setContactPhone("666666666");
+            cd.setName("Quotravel agency");
+
+            plrs.setCompanyData(cd);
+        }
 
 
 

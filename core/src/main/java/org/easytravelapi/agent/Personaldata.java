@@ -11,6 +11,8 @@ public class Personaldata {
 
     private String habitacion;
 
+    private String comments;
+
     public String getHotel() {
         return hotel;
     }
@@ -49,5 +51,13 @@ public class Personaldata {
 
     public void setHabitacion(String habitacion) {
         this.habitacion = habitacion;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 }
