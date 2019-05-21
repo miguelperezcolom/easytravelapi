@@ -37,6 +37,8 @@ public class BookHotelRQ {
 
     @ApiModelProperty(value = "Token for server validation captcha")
     private String captchaToken;
+    @ApiModelProperty(value = "User language")
+    private String language;
 
     public static BookHotelRQ fromString(String json) {
         return Helper.fromString(BookHotelRQ.class, json);
@@ -102,4 +104,8 @@ public class BookHotelRQ {
     public String getCaptchaToken() { return captchaToken; }
 
     public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
+
+    public String getLanguage() { return language; }
+
+    public void setLanguage(String language) { this.language = language; }
 }

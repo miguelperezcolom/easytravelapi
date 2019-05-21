@@ -27,6 +27,9 @@ public class BookGenericRQ {
     @ApiModelProperty(value = "Token for server validation captcha")
     private String captchaToken;
 
+    @ApiModelProperty(value = "User language")
+    private String language;
+
     public static BookActivityRQ fromString(String json) {
         return Helper.fromString(BookActivityRQ.class, json);
     }
@@ -96,4 +99,8 @@ public class BookGenericRQ {
     public String getCaptchaToken() { return captchaToken; }
 
     public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
+
+    public String getLanguage() { return language; }
+
+    public void setLanguage(String language) { this.language = language; }
 }

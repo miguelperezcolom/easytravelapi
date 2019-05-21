@@ -56,6 +56,7 @@ public interface TransferBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The hotel price key, as provided in the /transfer/available step")
             @PathParam("key") String key,
+            @QueryParam("language") String language,
             @ApiParam(value = "Discount coupons")
             @QueryParam("coupon") String coupon
     ) throws Throwable;

@@ -11,7 +11,7 @@ import org.easytravelapi.common.AbstractAuthenticatedRQ;
 @ApiModel(description = "Container for the transfer service confirmation request")
 public class BookTransferRQ {
 
-    @ApiModelProperty(value = "The price id, as we got it when we asked for available hotels")
+    @ApiModelProperty(value = "The price id, as we got it when we asked for available transfer")
     public String key;
 
     @ApiModelProperty(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
@@ -54,6 +54,8 @@ public class BookTransferRQ {
     private int bigLuggages;
     @ApiModelProperty(value = "Token for server validation captcha")
     private String captchaToken;
+    @ApiModelProperty(value = "User language")
+    private String language;
 
     public static BookTransferRQ fromString(String json) {
         return Helper.fromString(BookTransferRQ.class, json);
@@ -183,4 +185,8 @@ public class BookTransferRQ {
     public String getCaptchaToken() { return captchaToken; }
 
     public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
+
+    public String getLanguage() { return language; }
+
+    public void setLanguage(String language) { this.language = language; }
 }
