@@ -17,6 +17,9 @@ public class Cart {
 
     private String qrCode;
 
+    private String groupReference;
+
+
     public String getPrecio() {
         return precio;
     }
@@ -65,11 +68,13 @@ public class Cart {
         this.nombreHtml = nombreHtml;
     }
 
-    public String getQrCode() {
-        return qrCode;
-    }
+    public String getQrCode() {return qrCode; }
 
     public void setQrCode(String qrCode) {
         this.qrCode = qrCode;
     }
+
+    public String getGroupReference() { return groupReference; }
+
+    public void setGroupReference(String groupReference) { this.groupReference = groupReference; }
 }

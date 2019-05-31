@@ -10,6 +10,7 @@ import org.easytravelapi.common.BestDeal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Currency;
 import java.util.List;
 
@@ -25,13 +26,21 @@ public class AgentAccessServiceImpl implements AgentAccessService {
         if(login.getUser() != null && login.getPassword() != null )
         {
 
+            byte[] decodedBytes = Base64.getDecoder().decode(login.getPassword());
+            String decodedString = new String(decodedBytes);
 
-            if (login.getUser().toString().equals("admin") && login.getPassword().toString().equals("1")){
+
+            if (login.getUser().toString().equals("admin") && decodedString.equals("1")){
                 rs.setLogged(true);
                 rs.setAuthUser("123-user");
             }else{
-                rs.setLogged(false);
-                rs.setMessage("User or password not valid");
+                if (login.getUser().toString().equals("repres") && decodedString.equals("1")){
+                    rs.setLogged(true);
+                    rs.setAuthUser("321-user");
+                }else{
+                    rs.setLogged(false);
+                    rs.setMessage("User or password not valid");
+                }
             }
         }else{
             rs.setLogged(false);
