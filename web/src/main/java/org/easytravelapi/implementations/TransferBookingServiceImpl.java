@@ -142,6 +142,8 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         return rs;
     }
 
+
+
     @Override
     public GetTransferPriceDetailsRS getTransferPriceDetails(String token, String key, String language, String coupon) throws Throwable {
 

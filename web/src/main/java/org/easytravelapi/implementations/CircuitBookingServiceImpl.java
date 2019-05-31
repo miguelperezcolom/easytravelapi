@@ -265,7 +265,7 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2018, 06, 05, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
             Amount a;
-            c.setNet(a = new Amount());
+            c.setRetail(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(250.32);
         }
@@ -275,7 +275,7 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2018, 07, 01, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
             Amount a;
-            c.setNet(a = new Amount());
+            c.setRetail(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(400);
         }
