@@ -31,6 +31,7 @@ public interface CommonsService {
     public SearchPortfolioRS searchPortfolio(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
                                              @ApiParam(value = "2 chars language iso code")
                                              @QueryParam("language") String language,
+                                             @QueryParam("product") String product,
                                              @ApiParam(value="Search text")@QueryParam("query") String query) throws Throwable;
 
 

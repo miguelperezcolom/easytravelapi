@@ -141,7 +141,7 @@ public class CommonsServiceImpl implements CommonsService {
     }
 
     @Override
-    public SearchPortfolioRS searchPortfolio(String token, String language, String query) throws Throwable {
+    public SearchPortfolioRS searchPortfolio(String token, String language, String product, String query) throws Throwable {
         SearchPortfolioRS rs = new SearchPortfolioRS();
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
