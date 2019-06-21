@@ -49,7 +49,8 @@ public interface GenericBookingService {
             @QueryParam("units")int units,
             @QueryParam("start") int start,
             @QueryParam("end") int end,
-            @QueryParam("language") String language
+            @QueryParam("language") String language,
+            @QueryParam("variant") String variant
     ) throws Throwable;
 
     @GET
