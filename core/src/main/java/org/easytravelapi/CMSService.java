@@ -4,10 +4,12 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.easytravelapi.cms.*;
+import org.easytravelapi.generic.BookGenericRQ;
 
 import javax.jws.WebService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.Map;
 
 /**
  * Created by miguel on 26/7/17.
@@ -130,6 +132,15 @@ public interface CMSService {
     public GeUpdatedTicketsRS updateTickets(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             GetUpdatedTicketsRQ tickets
+
+    ) throws Throwable;
+
+    @PUT
+    @Path("/cartbooking")
+    @ApiOperation(value = "Use this method to syncronize data from offline tickets app")
+    public GeUpdatedTicketsRS cartBooking(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            BookCMSRQ rq
 
     ) throws Throwable;
 }

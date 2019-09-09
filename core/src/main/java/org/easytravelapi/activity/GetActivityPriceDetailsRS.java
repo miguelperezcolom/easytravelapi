@@ -32,6 +32,8 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
 
     private List<PaymentMethod> paymentMethods = new ArrayList<>();
 
+    private String terms;
+
     public List<CancellationCost> getCancellationCosts() {
         return cancellationCosts;
     }
@@ -92,5 +94,9 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
     public void setSupplements(List<ActivitySupplement> supplements) {
         this.supplements = supplements;
     }
+
+    public String getTerms() { return terms; }
+
+    public void setTerms(String terms) { this.terms = terms; }
 }
 

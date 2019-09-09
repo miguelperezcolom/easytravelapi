@@ -32,6 +32,7 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Remarks which should be visible for the customer")
     private List<Remark> remarks = new ArrayList<Remark>();
 
+    private String terms;
 
     public List<CancellationCost> getCancellationCosts() {
         return cancellationCosts;
@@ -92,4 +93,8 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
     public void setDepartureInstructions(String departureInstructions) {
         this.departureInstructions = departureInstructions;
     }
+
+    public String getTerms() { return terms; }
+
+    public void setTerms(String terms) { this.terms = terms; }
 }

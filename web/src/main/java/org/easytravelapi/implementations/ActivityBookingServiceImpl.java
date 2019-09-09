@@ -371,7 +371,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
 
         }
-
+        rs.setTerms("<span>He leído y acepto los <a href=\"http://google.es\"> terminos y condiciones de uso</a></span > ");
         return rs;
     }
 

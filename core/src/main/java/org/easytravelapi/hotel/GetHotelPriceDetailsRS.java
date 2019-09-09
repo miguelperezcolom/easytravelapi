@@ -34,6 +34,9 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
 
     private String couponMsg;
 
+    private String terms;
+
+
     public String getStatus() {
         return status;
     }
@@ -85,4 +88,8 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     public String getCouponMsg() { return couponMsg; }
 
     public void setCouponMsg(String couponMsg) { this.couponMsg = couponMsg; }
+
+    public String getTerms() { return terms; }
+
+    public void setTerms(String terms) { this.terms = terms; }
 }

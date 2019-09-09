@@ -30,11 +30,11 @@ public class AgentAccessServiceImpl implements AgentAccessService {
             String decodedString = new String(decodedBytes);
 
 
-            if (login.getUser().toString().equals("admin") && decodedString.equals("1")){
+            if (login.getUser().toString().equals("admin") && decodedString.equals("12345")){
                 rs.setLogged(true);
                 rs.setAuthUser("123-user");
             }else{
-                if (login.getUser().toString().equals("repres") && decodedString.equals("1")){
+                if (login.getUser().toString().equals("repres") && decodedString.equals("12345")){
                     rs.setLogged(true);
                     rs.setAuthUser("321-user");
                 }else{

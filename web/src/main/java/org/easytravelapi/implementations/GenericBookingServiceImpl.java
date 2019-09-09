@@ -215,7 +215,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             l.setPaymentMethod("WEB");
         }
 
-
+        rs.setTerms("<span>He leído y acepto los <a href=\"http://google.es\"> terminos y condiciones de uso</a></span > ");
         return rs;
 
     }

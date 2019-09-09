@@ -28,6 +28,9 @@ public class GetGenericPriceDetailsRS extends AbstractRS{
 
     private List<PaymentMethod> paymentMethods = new ArrayList<>();
 
+    private String terms;
+
+
     public List<CancellationCost> getCancellationCosts() {
         return cancellationCosts;
     }
@@ -62,4 +65,7 @@ public class GetGenericPriceDetailsRS extends AbstractRS{
 
     public void setCouponMsg(String couponMsg) { this.couponMsg = couponMsg; }
 
+    public String getTerms() { return terms; }
+
+    public void setTerms(String terms) { this.terms = terms; }
 }

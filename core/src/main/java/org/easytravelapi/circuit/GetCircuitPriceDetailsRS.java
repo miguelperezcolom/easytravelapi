@@ -30,6 +30,8 @@ public class GetCircuitPriceDetailsRS extends AbstractRS {
 
     private List<PaymentMethod> paymentMethods = new ArrayList<>();
 
+    private String terms;
+
     public List<CancellationCost> getCancellationCosts() {
         return cancellationCosts;
     }
@@ -82,5 +84,9 @@ public class GetCircuitPriceDetailsRS extends AbstractRS {
     public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
         this.paymentMethods = paymentMethods;
     }
+
+    public String getTerms() { return terms; }
+
+    public void setTerms(String terms) { this.terms = terms; }
 }
 

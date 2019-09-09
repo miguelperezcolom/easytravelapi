@@ -601,7 +601,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             rk.setKey("xxx");
         }
 
-
+        rs.setTerms("<span>He leído y acepto los <a href=\"http://google.es\"> terminos y condiciones de uso</a></span > ");
         return rs;
     }
 
