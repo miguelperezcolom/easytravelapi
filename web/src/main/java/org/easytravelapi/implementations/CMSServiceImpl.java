@@ -604,4 +604,9 @@ public class CMSServiceImpl implements CMSService {
                 rs.setStatusCode(200);
         return rs;
     }
+
+    @Override
+    public GeUpdatedTicketsRS cartBooking(String token, BookCMSRQ rq) throws Throwable {
+        return null;
+    }
 }
