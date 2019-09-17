@@ -34,6 +34,8 @@ public class BookGenericRQ {
         return Helper.fromString(BookActivityRQ.class, json);
     }
 
+    private boolean mailingUnwanted;
+
     @Override
     public String toString() {
         return Helper.toJson(this);
@@ -103,4 +105,8 @@ public class BookGenericRQ {
     public String getLanguage() { return language; }
 
     public void setLanguage(String language) { this.language = language; }
+
+    public boolean isMailingUnwanted() { return mailingUnwanted; }
+
+    public void setMailingUnwanted(boolean mailingUnwanted) { this.mailingUnwanted = mailingUnwanted; }
 }

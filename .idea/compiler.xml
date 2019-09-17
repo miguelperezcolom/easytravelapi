@@ -17,7 +17,7 @@
       <module name="opentravelapi" target="1.5" />
       <module name="swagger-java-client" target="1.8" />
       <module name="swaggertester" target="1.8" />
-      <module name="web" target="1.8" />
+      <module name="web" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

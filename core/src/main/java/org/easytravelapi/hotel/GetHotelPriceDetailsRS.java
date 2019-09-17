@@ -36,6 +36,8 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
 
     private String terms;
 
+    private String mailingUnwantedText;
+
 
     public String getStatus() {
         return status;
@@ -92,4 +94,8 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     public String getTerms() { return terms; }
 
     public void setTerms(String terms) { this.terms = terms; }
+
+    public String getMailingUnwantedText() { return mailingUnwantedText; }
+
+    public void setMailingUnwantedText(String mailingUnwantedText) { this.mailingUnwantedText = mailingUnwantedText; }
 }

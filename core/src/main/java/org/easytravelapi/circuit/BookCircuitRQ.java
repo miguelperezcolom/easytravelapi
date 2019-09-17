@@ -26,6 +26,8 @@ public class BookCircuitRQ {
 
     private String supplementIds;
 
+    private boolean mailingUnwanted;
+
     @ApiModelProperty(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
     private String bookingReference;
 
@@ -164,4 +166,8 @@ public class BookCircuitRQ {
     public String getCaptchaToken() { return captchaToken; }
 
     public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
+
+    public boolean isMailingUnwanted() { return mailingUnwanted; }
+
+    public void setMailingUnwanted(boolean mailingUnwanted) { this.mailingUnwanted = mailingUnwanted; }
 }

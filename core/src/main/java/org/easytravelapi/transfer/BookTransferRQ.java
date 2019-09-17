@@ -57,6 +57,8 @@ public class BookTransferRQ {
     @ApiModelProperty(value = "User language")
     private String language;
 
+    private boolean mailingUnwanted;
+
     public static BookTransferRQ fromString(String json) {
         return Helper.fromString(BookTransferRQ.class, json);
     }
@@ -189,4 +191,8 @@ public class BookTransferRQ {
     public String getLanguage() { return language; }
 
     public void setLanguage(String language) { this.language = language; }
+
+    public boolean isMailingUnwanted() { return mailingUnwanted; }
+
+    public void setMailingUnwanted(boolean mailingUnwanted) { this.mailingUnwanted = mailingUnwanted; }
 }

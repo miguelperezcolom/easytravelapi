@@ -40,6 +40,8 @@ public class BookHotelRQ {
     @ApiModelProperty(value = "User language")
     private String language;
 
+    private boolean mailingUnwanted;
+
     public static BookHotelRQ fromString(String json) {
         return Helper.fromString(BookHotelRQ.class, json);
     }
@@ -108,4 +110,8 @@ public class BookHotelRQ {
     public String getLanguage() { return language; }
 
     public void setLanguage(String language) { this.language = language; }
+
+    public boolean isMailingUnwanted() { return mailingUnwanted; }
+
+    public void setMailingUnwanted(boolean mailingUnwanted) { this.mailingUnwanted = mailingUnwanted; }
 }

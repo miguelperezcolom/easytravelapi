@@ -609,4 +609,14 @@ public class CMSServiceImpl implements CMSService {
     public GeUpdatedTicketsRS cartBooking(String token, BookCMSRQ rq) throws Throwable {
         return null;
     }
+
+    @Override
+    public GetTermsRS getTerms(String token, String language) throws Throwable {
+        GetTermsRS rs = new GetTermsRS();
+        rs.setTerms("Acepto los <a href=\"http:\\www.google.es\"> términinos y condiciones </a>");
+        rs.setMsg("terms returned");
+        rs.setStatusCode(200);
+
+        return rs;
+    }
 }

@@ -143,4 +143,13 @@ public interface CMSService {
             BookCMSRQ rq
 
     ) throws Throwable;
+
+    @GET
+    @Path("/terms")
+    @ApiOperation(value = "Use this method to get  terms and conditions from backoffice")
+    public GetTermsRS getTerms(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @QueryParam("language") String language
+    ) throws Throwable;
+
 }

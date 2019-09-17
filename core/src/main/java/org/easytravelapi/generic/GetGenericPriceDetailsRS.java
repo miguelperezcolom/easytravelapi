@@ -30,6 +30,8 @@ public class GetGenericPriceDetailsRS extends AbstractRS{
 
     private String terms;
 
+    private String mailingUnwantedText;
+
 
     public List<CancellationCost> getCancellationCosts() {
         return cancellationCosts;
@@ -68,4 +70,8 @@ public class GetGenericPriceDetailsRS extends AbstractRS{
     public String getTerms() { return terms; }
 
     public void setTerms(String terms) { this.terms = terms; }
+
+    public String getMailingUnwantedText() { return mailingUnwantedText; }
+
+    public void setMailingUnwantedText(String mailingUnwantedText) { this.mailingUnwantedText = mailingUnwantedText; }
 }
