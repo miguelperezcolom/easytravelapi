@@ -12,4 +12,16 @@ public class BookCMSRQ {
 
     @ApiModelProperty(value = "User language")
     private String language;
+
+    public Map<String, Object> getBookings() { return bookings; }
+
+    public void setBookings(Map<String, Object> bookings) { this.bookings = bookings; }
+
+    public String getCaptchaToken() { return captchaToken; }
+
+    public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
+
+    public String getLanguage() { return language; }
+
+    public void setLanguage(String language) { this.language = language; }
 }
