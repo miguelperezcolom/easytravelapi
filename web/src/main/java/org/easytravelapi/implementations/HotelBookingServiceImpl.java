@@ -449,7 +449,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(600.45);
-            l.setDate(20181201);
+            l.setDate("2018-12-01");
             l.setPaymentMethod("WEB");
         }
         {
@@ -459,7 +459,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(600.45);
-            l.setDate(20181215);
+            l.setDate("2018-12-15");
             l.setPaymentMethod("WEB");
         }
         {
@@ -469,7 +469,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(300.45);
-            l.setDate(20181201);
+            l.setDate("2018-12-01");
             l.setPaymentMethod("WEB");
         }
         {
@@ -485,7 +485,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 l.setAmount(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(30.45);
-                l.setDate(20181201);
+                l.setDate("2018-12-01");
                 l.setPaymentMethod("WEB");
 
             }
@@ -526,7 +526,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 l.setAmount(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(130.45);
-                l.setDate(20181201);
+                l.setDate("2018-12-01");
                 l.setPaymentMethod("WEB");
             }
 

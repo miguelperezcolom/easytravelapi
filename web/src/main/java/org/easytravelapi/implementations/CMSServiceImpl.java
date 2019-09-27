@@ -606,8 +606,10 @@ public class CMSServiceImpl implements CMSService {
     }
 
     @Override
-    public GeUpdatedTicketsRS cartBooking(String token, BookCMSRQ rq) throws Throwable {
-        return null;
+    public BookCMSRS cartBooking(String token, BookCMSRQ rq) throws Throwable {
+        BookCMSRS up = new BookCMSRS();
+        up.setMsg("ok");
+        return up;
     }
 
     @Override

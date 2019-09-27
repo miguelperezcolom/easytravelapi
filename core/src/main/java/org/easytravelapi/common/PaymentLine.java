@@ -6,7 +6,7 @@ public class PaymentLine {
 
     private String paymentMethod;
 
-    private int date;
+    private String date;
 
     private Amount amount;
 
@@ -19,11 +19,11 @@ public class PaymentLine {
         this.paymentMethod = paymentMethod;
     }
 
-    public int getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(int date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

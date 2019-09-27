@@ -352,7 +352,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(30.45);
-            l.setDate(20191201);
+            l.setDate("2019-12-01");
             l.setPaymentMethod("WEB");
         }
         {

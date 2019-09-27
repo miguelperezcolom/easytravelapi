@@ -27,6 +27,8 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Cancellation costs for this activity")
     private List<CancellationCost> cancellationCosts = new ArrayList<CancellationCost>();
 
+    private String cancellationFreeDate;
+
     @ApiModelProperty(value = "Remarks which should be visible for the customer")
     private List<Remark> remarks = new ArrayList<Remark>();
 
@@ -104,5 +106,13 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
     public String getMailingUnwantedText() { return mailingUnwantedText;}
 
     public void setMailingUnwantedText(String mailingUnwantedText) {this.mailingUnwantedText = mailingUnwantedText;}
+
+    public String getCancellationFreeDate() {
+        return cancellationFreeDate;
+    }
+
+    public void setCancellationFreeDate(String cancellationFreeDate) {
+        this.cancellationFreeDate = cancellationFreeDate;
+    }
 }
 

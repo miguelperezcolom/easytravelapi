@@ -138,7 +138,7 @@ public interface CMSService {
     @PUT
     @Path("/cartbooking")
     @ApiOperation(value = "Use this method to syncronize data from offline tickets app")
-    public GeUpdatedTicketsRS cartBooking(
+    public BookCMSRS cartBooking(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             BookCMSRQ rq
 

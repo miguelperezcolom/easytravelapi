@@ -32,10 +32,11 @@ public class GetGenericPriceDetailsRS extends AbstractRS{
 
     private String mailingUnwantedText;
 
-
     public List<CancellationCost> getCancellationCosts() {
         return cancellationCosts;
     }
+
+    private String cancellationFreeDate;
 
     public String getKey() { return key; }
 
@@ -74,4 +75,8 @@ public class GetGenericPriceDetailsRS extends AbstractRS{
     public String getMailingUnwantedText() { return mailingUnwantedText; }
 
     public void setMailingUnwantedText(String mailingUnwantedText) { this.mailingUnwantedText = mailingUnwantedText; }
+
+    public String getCancellationFreeDate() { return cancellationFreeDate; }
+
+    public void setCancellationFreeDate(String cancellationFreeDate) { this.cancellationFreeDate = cancellationFreeDate; }
 }

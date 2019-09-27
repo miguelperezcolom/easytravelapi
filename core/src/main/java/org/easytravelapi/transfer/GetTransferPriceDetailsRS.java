@@ -44,6 +44,8 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
         this.cancellationCosts = cancellationCosts;
     }
 
+    private String cancellationFreeDate;
+
     public List<Remark> getRemarks() {
         return remarks;
     }
@@ -103,4 +105,8 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
     public String getMailingUnwantedText() { return mailingUnwantedText; }
 
     public void setMailingUnwantedText(String mailingUnwantedText) { this.mailingUnwantedText = mailingUnwantedText; }
+
+    public String getCancellationFreeDate() { return cancellationFreeDate; }
+
+    public void setCancellationFreeDate(String cancellationFreeDate) { this.cancellationFreeDate = cancellationFreeDate; }
 }

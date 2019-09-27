@@ -211,7 +211,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(30.45);
-            l.setDate(20180601);
+            l.setDate("2018-06-01");
             l.setPaymentMethod("WEB");
         }
 

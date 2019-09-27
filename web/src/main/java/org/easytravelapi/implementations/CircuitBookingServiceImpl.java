@@ -397,7 +397,7 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             l.setAmount(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(30.45);
-            l.setDate(20181201);
+            l.setDate("2018-12-01");
             l.setPaymentMethod("WEB");
         }
         rs.setTerms("<span>He leído y acepto los <a href=\"http://google.es\"> terminos y condiciones de uso</a></span > ");
