@@ -1,9 +1,10 @@
 package org.easytravelapi.hotel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookingKey {
-    private List<PaxDetails> occupancy;
+    private List<PaxDetails> occupancy  = new ArrayList<>();
     private int roomId;
     private String rateKey;
     private String roomName;

@@ -326,7 +326,7 @@ public class CommonsServiceImpl implements CommonsService {
             b.setEnd("20180112");
             b.setBookingId("9866230462GGWED76");
             Amount a;
-            b.setNetValue(a = new Amount());
+            b.setRetailValue(a = new Amount());
             a.setCurrencyIsoCode("EUR");
             a.setValue(750.42);
             b.setServiceType("HOTEL");
@@ -352,11 +352,11 @@ public class CommonsServiceImpl implements CommonsService {
         b.setCreatedBy("MATEU");
         b.setModified(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b.setLeadName("Sr Nombre");
-        b.setStart("20180106");
-        b.setEnd("20180112");
+        b.setStart(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setEnd(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b.setBookingId("9866230462GGWED76");
         Amount a;
-        b.setNetValue(a = new Amount());
+        b.setRetailValue(a = new Amount());
         a.setCurrencyIsoCode("EUR");
         a.setValue(750.42);
         b.setServiceType("HOTEL");
@@ -381,11 +381,11 @@ public class CommonsServiceImpl implements CommonsService {
         b.setCreatedBy("MATEU");
         b.setModified(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b.setLeadName("Sr Nombre");
-        b.setStart("20180106");
-        b.setEnd("20180112");
+        b.setStart(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setEnd(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b.setBookingId("9866230462GGWED76");
         Amount a;
-        b.setNetValue(a = new Amount());
+        b.setRetailValue(a = new Amount());
         a.setCurrencyIsoCode("EUR");
         a.setValue(750.42);
         b.setServiceType("HOTEL");
@@ -436,4 +436,135 @@ public class CommonsServiceImpl implements CommonsService {
 
         return rs;
     }
+
+    @Override
+    public GetFilesRS getFiles(String token, int fromConfirmationDate, int toConfirmationDate, int fromStartDate, int toStartDate) throws Throwable {
+        return null;
+    }
+
+   /* @Override
+    public GetFileRS getFile(String token, String email, String fileId) throws Throwable {
+        GetFileRS rs = new GetFileRS();
+        File f = new File();
+        f.setFileId(fileId);
+        f.setCreated(LocalDateTime.of(2020, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        f.setCreatedBy("MATEU");
+        f.setModified(LocalDateTime.of(2020, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        f.setLeadName("Sr Nombre");
+
+
+        Booking b = new Booking();
+
+        b.setBookingId("878997");
+        b.setCreated(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setCreatedBy("MATEU");
+        b.setModified(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setLeadName("Sr Nombre");
+        b.setStart(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setEnd(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setBookingId("9866230462GGWED76");
+        Amount a;
+        b.setRetailValue(a = new Amount());
+        a.setCurrencyIsoCode("EUR");
+        a.setValue(750.42);
+        b.setServiceType("HOTEL");
+        b.setServiceDescription("Hotel Bellver 2 pax Double room");
+        b.setStatus("OK");
+        f.getBookings().add(b);
+
+
+        Booking b2 = new Booking();
+
+        b2.setBookingId("878997");
+        b2.setCreated(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b2.setCreatedBy("MATEU");
+        b2.setModified(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b2.setLeadName("Sr Nombre");
+        b2.setStart(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b2.setEnd(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b2.setBookingId("9866230462GGWED76");
+        Amount a2;
+        b2.setRetailValue(a2 = new Amount());
+        a2.setCurrencyIsoCode("EUR");
+        a2.setValue(750.42);
+        b2.setServiceType("TRANSFER");
+        b2.setServiceDescription("Shuttle 2 pax from Ibiza Airport to Hotel bellver");
+        b2.setStatus("OK");
+        f.getBookings().add(b2);
+
+        f.setTotalPrice(a);
+        rs.setFile(f);
+        rs.setStatusCode(200);
+        rs.setMsg("ok");
+
+        return rs;
+    }*/
+
+    @Override
+    public GetFileRS getFile(String token, String FileId) throws Throwable {
+        GetFileRS rs = new GetFileRS();
+        File f = new File();
+        f.setFileId(FileId);
+        f.setCreated(LocalDateTime.of(2020, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        f.setCreatedBy("MATEU");
+        f.setModified(LocalDateTime.of(2020, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        f.setLeadName("Sr Nombre");
+
+
+        Booking b = new Booking();
+
+        b.setBookingId("878997");
+        b.setCreated(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setCreatedBy("MATEU");
+        b.setModified(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setLeadName("Sr Nombre");
+        b.setStart(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setEnd(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b.setBookingId("9866230462GGWED76");
+        Amount a;
+        b.setRetailValue(a = new Amount());
+        a.setCurrencyIsoCode("EUR");
+        a.setValue(750.42);
+        b.setServiceType("HOTEL");
+        b.setServiceDescription("Hotel Bellver 2 pax Double room");
+        b.setStatus("OK");
+        f.getBookings().add(b);
+
+
+        Booking b2 = new Booking();
+
+        b2.setBookingId("878997");
+        b2.setCreated(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b2.setCreatedBy("MATEU");
+        b2.setModified(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b2.setLeadName("Sr Nombre");
+        b2.setStart(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b2.setEnd(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
+        b2.setBookingId("9866230462GGWED76");
+        Amount a2;
+        b2.setRetailValue(a2 = new Amount());
+        a2.setCurrencyIsoCode("EUR");
+        a2.setValue(750.42);
+        b2.setServiceType("TRANSFER");
+        b2.setServiceDescription("Shuttle 2 pax from Ibiza Airport to Hotel bellver");
+        b2.setStatus("OK");
+        f.getBookings().add(b2);
+
+        f.setTotalPrice(a);
+
+        f.setEmail("email@quotravel.com");
+        rs.setFile(f);
+        rs.setStatusCode(200);
+        rs.setMsg("ok");
+
+        return rs;
+    }
+
+    @Override
+    public CancelFileRS cancelFile(String token, String fileId) throws Throwable {
+        return null;
+    }
+
+
+
 }

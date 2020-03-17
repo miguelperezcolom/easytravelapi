@@ -1,17 +1,12 @@
 package org.easytravelapi.implementations;
 
 import org.easytravelapi.CircuitBookingService;
-import org.easytravelapi.activity.ActivityLanguage;
-import org.easytravelapi.activity.ActivityPickupPoint;
-import org.easytravelapi.activity.ActivityShift;
 import org.easytravelapi.activity.ActivityVariant;
-import org.easytravelapi.circuit.AvailableDate;
 import org.easytravelapi.circuit.BookCircuitRS;
 import org.easytravelapi.circuit.PaymentMethod;
-import org.easytravelapi.circuit.Supplement;
-import org.easytravelapi.circuit.Variant;
 import org.easytravelapi.circuit.*;
 import org.easytravelapi.common.*;
+import org.easytravelapi.common.Supplement;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -30,6 +25,13 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
         rs.setMsg("3 circuits found. It consumed 24 ms in the server. xx");
+
+        rs.setMaxPrice(1000d);
+        rs.setMinPrice(1d);
+        Label l;
+        rs.getLabels().add(l = new Label());
+        l.setId("1");
+        l.setName("costa");
 
         Random r = new Random();
 
@@ -359,6 +361,35 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
 
 
         }
+        {
+            Supplement sp;
+            System.out.println("formatea supll");
+            rs.getSupplements().add(sp = new Supplement() );
+            sp.setId("22");
+            sp.setName("buffet incluido" );
+            sp.setDescription("buffet incluido durante toda la estancia, incluye desayuno, almuerzo y cena");
+            Amount a;
+            sp.setRetailPrice(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(130.99);
+            sp.setPriceType("PAX");
+
+
+        }
+        {
+            Supplement sp;
+            rs.getSupplements().add(sp = new Supplement() );
+            sp.setId("33");
+            sp.setName("Paquetes extras" );
+            sp.setDescription("Paquetes extras que incluyen varias ofertas de nuesstros mejores servicios" );
+            Amount a;
+            sp.setRetailPrice(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(350.00);
+            sp.setPriceType("ROOM");
+
+
+        }
         if(coupon != null && coupon != ""){
             {
                 PriceLine pc;
@@ -419,7 +450,9 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
         rs.setAvailableServices(new ArrayList<String>());
         rs.getAvailableServices().add(new String("traslado"));
 
-        rs.setPaymentUrl("https://www.paypal.com");
+        rs.setPaymentUrl("<form name=f action='https://localhost:8080' method='post'>" +
+                "<input type='hidden' name=amount value='100'> "+
+                "</form>");
 
         return rs;
     }
@@ -432,7 +465,14 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
         rs.setStatusCode(200);
         rs.setMsg("3 circuits found. It consumed 24 ms in the server. xx");
 
+        rs.setMaxPrice(1000d);
+        rs.setMinPrice(1d);
+        Label l;
+        rs.getLabels().add(l = new Label());
+        l.setId("1");
+        l.setName("costa");
         Random r = new Random();
+
 
 
         {

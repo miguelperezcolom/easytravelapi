@@ -91,6 +91,44 @@ public interface CommonsService {
 
 
     @GET
+    @Path("/files")
+    @ApiOperation(value = "Method to get a list of files")
+    public GetFilesRS getFiles(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @ApiParam(value = "Starting date you want service file confirmed from. In YYYYMMDD format")
+            @QueryParam("confirmedfrom") int fromConfirmationDate,
+            @ApiParam(value = "Ending date you want service files confirmed to. In YYYYMMDD format")
+            @QueryParam("confirmedto") int toConfirmationDate,
+            @ApiParam(value = "Starting date you want service files starting from. In YYYYMMDD format")
+            @QueryParam("startingfrom") int fromStartDate,
+            @ApiParam(value = "Ending date you want service files starting from. In YYYYMMDD format")
+            @QueryParam("startingto") int toStartDate
+    ) throws Throwable;
+
+   /* @GET
+    @Path("/file/{email}/{fileid}")
+    @ApiOperation(value = "Method to get a file")
+    public GetFileRS getFile(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @PathParam("email") String email,
+            @PathParam("fileid") String fileId) throws Throwable;*/
+
+    @GET
+    @Path("/file/{fileid}")
+    @ApiOperation(value = "Method to get a file")
+    public GetFileRS getFile(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @PathParam("fileid") String FileId) throws Throwable;
+
+    @DELETE
+    @Path("/file/{fileid}")
+    @ApiOperation(value = "Method to cancel a service file")
+    public CancelFileRS cancelFile(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+                                         @ApiParam(value = "The service file id you want to cancel")
+                                         @PathParam("fileid") String fileId) throws Throwable;
+
+
+    @GET
     @Path("/newtoken")
     @ApiOperation(value = "Use this method to get or renew your authentication token")
     public String renewToken(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token, @QueryParam("user") String user) throws Throwable;

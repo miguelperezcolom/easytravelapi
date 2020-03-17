@@ -24,8 +24,6 @@ public class BookCircuitRQ {
     private int children;
     private int infants;
 
-    private String supplementIds;
-
     private boolean mailingUnwanted;
 
     @ApiModelProperty(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
@@ -48,6 +46,11 @@ public class BookCircuitRQ {
 
     @ApiModelProperty(value = "Token for server validation captcha")
     private String captchaToken;
+
+    @ApiModelProperty(value = "Booking extras")
+    private String supplements;
+    @ApiModelProperty(value = "Booking coupon discount")
+    private String coupon;
 
     public static BookCircuitRQ fromString(String json) {
         return Helper.fromString(BookCircuitRQ.class, json);
@@ -111,14 +114,6 @@ public class BookCircuitRQ {
 
     public void setInfants(int infants) { this.infants = infants; }
 
-    public String getSupplementIds() {
-        return supplementIds;
-    }
-
-    public void setSupplementIds(String supplementIds) {
-        this.supplementIds = supplementIds;
-    }
-
     public String getBookingReference() {
         return bookingReference;
     }
@@ -166,6 +161,14 @@ public class BookCircuitRQ {
     public String getCaptchaToken() { return captchaToken; }
 
     public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
+
+    public String getSupplements() { return supplements; }
+
+    public void setSupplements(String supplements) { this.supplements = supplements; }
+
+    public String getCoupon() { return coupon; }
+
+    public void setCoupon(String coupon) { this.coupon = coupon; }
 
     public boolean isMailingUnwanted() { return mailingUnwanted; }
 

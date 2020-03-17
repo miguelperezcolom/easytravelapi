@@ -56,6 +56,11 @@ public class BookActivityRQ {
     @ApiModelProperty(value = "Token for server validation captcha")
     private String captchaToken;
 
+    @ApiModelProperty(value = "Booking extras")
+    private String supplements;
+    @ApiModelProperty(value = "Booking coupon discount")
+    private String coupon;
+
     public static BookActivityRQ fromString(String json) {
         return Helper.fromString(BookActivityRQ.class, json);
     }
@@ -205,6 +210,14 @@ public class BookActivityRQ {
     public String getCaptchaToken() { return captchaToken; }
 
     public void setCaptchaToken(String captchaToken) { this.captchaToken = captchaToken; }
+
+    public String getSupplements() { return supplements; }
+
+    public void setSupplements(String supplements) { this.supplements = supplements; }
+
+    public String getCoupon() { return coupon; }
+
+    public void setCoupon(String coupon) { this.coupon = coupon; }
 
     public boolean isMailingUnwanted() { return mailingUnwanted; }
 

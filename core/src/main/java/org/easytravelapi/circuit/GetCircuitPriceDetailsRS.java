@@ -2,6 +2,7 @@ package org.easytravelapi.circuit;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.easytravelapi.common.Supplement;
 import org.easytravelapi.common.*;
 
 import java.util.ArrayList;
@@ -14,6 +15,8 @@ import java.util.List;
 public class GetCircuitPriceDetailsRS extends AbstractRS {
 
     private String key;
+
+    private List<Supplement> supplements = new ArrayList<>();
 
     private List<PriceLine> priceLines = new ArrayList<>();
 
@@ -98,5 +101,9 @@ public class GetCircuitPriceDetailsRS extends AbstractRS {
     public String getCancellationFreeDate() { return cancellationFreeDate; }
 
     public void setCancellationFreeDate(String cancellationFreeDate) { this.cancellationFreeDate = cancellationFreeDate; }
+
+    public List<Supplement> getSupplements() { return supplements; }
+
+    public void setSupplements(List<Supplement> supplements) { this.supplements = supplements; }
 }
 

@@ -1,10 +1,10 @@
-package org.easytravelapi.activity;
-
-import org.easytravelapi.common.Amount;
+package org.easytravelapi.common;
 
 public class Supplement {
 
     private String id;
+
+    private String name;
 
     private String description;
 
@@ -13,6 +13,8 @@ public class Supplement {
     private Amount commission;
 
     private Amount netPrice;
+
+    private String priceType;
 
     public String getId() {
         return id;
@@ -52,5 +54,17 @@ public class Supplement {
 
     public void setNetPrice(Amount netPrice) {
         this.netPrice = netPrice;
+    }
+
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
+
+    public String getPriceType() {
+        return priceType;
+    }
+
+    public void setPriceType(String priceType) {
+        this.priceType = priceType;
     }
 }

@@ -608,6 +608,11 @@ public class CMSServiceImpl implements CMSService {
     @Override
     public BookCMSRS cartBooking(String token, BookCMSRQ rq) throws Throwable {
         BookCMSRS up = new BookCMSRS();
+        up.setPaymentUrl("<form name=f action='https://localhost:8080' method='post'>" +
+                "<input type='hidden' name=amount value='100'> "+
+                "</form>");
+        up.setBookingId("123-tt-56657");
+        up.setStatusCode(200);
         up.setMsg("ok");
         return up;
     }

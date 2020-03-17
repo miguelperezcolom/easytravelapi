@@ -30,11 +30,18 @@ public class BookGenericRQ {
     @ApiModelProperty(value = "User language")
     private String language;
 
+    @ApiModelProperty(value = "Booking extras")
+    private String supplements;
+
+    @ApiModelProperty(value = "Booking coupon discount")
+    private String coupon;
+
+    private boolean mailingUnwanted;
+
     public static BookActivityRQ fromString(String json) {
         return Helper.fromString(BookActivityRQ.class, json);
     }
 
-    private boolean mailingUnwanted;
 
     @Override
     public String toString() {
@@ -105,6 +112,16 @@ public class BookGenericRQ {
     public String getLanguage() { return language; }
 
     public void setLanguage(String language) { this.language = language; }
+
+    public String getSupplements() { return supplements; }
+
+    public void setSupplements(String supplements) { this.supplements = supplements; }
+
+    public String getCoupon() { return coupon; }
+
+    public void setCoupon(String coupon) {
+        this.coupon = coupon;
+    }
 
     public boolean isMailingUnwanted() { return mailingUnwanted; }
 

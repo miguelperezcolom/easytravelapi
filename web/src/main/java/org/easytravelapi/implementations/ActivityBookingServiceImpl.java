@@ -2,6 +2,7 @@ package org.easytravelapi.implementations;
 
 import org.easytravelapi.ActivityBookingService;
 import org.easytravelapi.activity.*;
+import org.easytravelapi.circuit.Label;
 import org.easytravelapi.common.*;
 
 import java.time.LocalDateTime;
@@ -22,7 +23,12 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
         rs.setMsg("3 activities found. It consumed 24 ms in the server. xx");
-
+        rs.setMaxPrice(1000d);
+        rs.setMinPrice(1d);
+        Label lb;
+        rs.getLabels().add(lb = new Label());
+        lb.setId("1");
+        lb.setName("costa");
         Random r = new Random();
 
         {
@@ -356,18 +362,30 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             l.setPaymentMethod("WEB");
         }
         {
-            ActivitySupplement sp;
-            rs.getSupplements().add(sp = new ActivitySupplement() );
+            Supplement sp;
+            rs.getSupplements().add(sp = new Supplement() );
              sp.setId("22");
             sp.setName("buffet incluido" );
+            sp.setDescription("buffet incluido durante toda la estancia, incluye desayuno, almuerzo y cena");
+            Amount a;
+            sp.setRetailPrice(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(130.99);
+            sp.setPriceType("PAX");
 
 
         }
         {
-            ActivitySupplement sp;
-            rs.getSupplements().add(sp = new ActivitySupplement() );
+            Supplement sp;
+            rs.getSupplements().add(sp = new Supplement() );
             sp.setId("33");
-            sp.setName("Paquete extras" );
+            sp.setName("Paquetes extras" );
+            sp.setDescription("Paquetes extras que incluyen varias ofertas de nuesstros mejores servicios" );
+            Amount a;
+            sp.setRetailPrice(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(350.00);
+            sp.setPriceType("ROOM");
 
 
         }
@@ -390,7 +408,9 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
         rs.getAvailableServices().add(new String("traslado"));
         rs.getAvailableServices().add(new String("hotel"));
 
-        rs.setPaymentUrl("https://www.paypal.com");
+        rs.setPaymentUrl("<form name=f action='https://localhost:8080' method='post'>" +
+                "<input type='hidden' name=amount value='100'> "+
+                "</form>");
 
         return rs;
     }

@@ -32,13 +32,14 @@ public class BookHotelRQ {
     @ApiModelProperty(value = "Your comments for us. They will not be visible to the customer neither to the activity provider")
     private String privateComments;
 
-    @ApiModelProperty(value = "Your desired optional services ids")
-    private List<String> services = new ArrayList<String>();
-
     @ApiModelProperty(value = "Token for server validation captcha")
     private String captchaToken;
     @ApiModelProperty(value = "User language")
     private String language;
+    @ApiModelProperty(value = "Booking extras")
+    private String supplements;
+    @ApiModelProperty(value = "Booking coupon discount")
+    private String coupon;
 
     private boolean mailingUnwanted;
 
@@ -91,14 +92,6 @@ public class BookHotelRQ {
         this.privateComments = privateComments;
     }
 
-    public List<String> getServices() {
-        return services;
-    }
-
-    public void setServices(List<String> services) {
-        this.services = services;
-    }
-
     public String getEmail() { return email; }
 
     public void setEmail(String email) { this.email = email; }
@@ -110,6 +103,14 @@ public class BookHotelRQ {
     public String getLanguage() { return language; }
 
     public void setLanguage(String language) { this.language = language; }
+
+    public String getSupplements() { return supplements; }
+
+    public void setSupplements(String supplements) { this.supplements = supplements; }
+
+    public String getCoupon() { return coupon; }
+
+    public void setCoupon(String coupon) { this.coupon = coupon; }
 
     public boolean isMailingUnwanted() { return mailingUnwanted; }
 

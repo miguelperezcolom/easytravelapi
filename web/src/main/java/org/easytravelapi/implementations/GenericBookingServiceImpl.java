@@ -2,16 +2,16 @@ package org.easytravelapi.implementations;
 
 import org.easytravelapi.GenericBookingService;
 
-import org.easytravelapi.activity.BookActivityRS;
-import org.easytravelapi.activity.GetActivityRatesRS;
 import org.easytravelapi.activity.PaymentMethod;
+import org.easytravelapi.circuit.Label;
+import org.easytravelapi.circuit.Variant;
+import org.easytravelapi.common.Supplement;
 import org.easytravelapi.common.*;
 import org.easytravelapi.generic.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class GenericBookingServiceImpl implements GenericBookingService {
@@ -164,6 +164,34 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
 
         }
+        {
+            Supplement sp;
+            rs.getSupplements().add(sp = new Supplement() );
+            sp.setId("22");
+            sp.setName("buffet incluido" );
+            sp.setDescription("buffet incluido durante toda la estancia, incluye desayuno, almuerzo y cena");
+            Amount a;
+            sp.setRetailPrice(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(130.99);
+            sp.setPriceType("PAX");
+
+
+        }
+        {
+            Supplement sp;
+            rs.getSupplements().add(sp = new Supplement() );
+            sp.setId("33");
+            sp.setName("Paquetes extras" );
+            sp.setDescription("Paquetes extras que incluyen varias ofertas de nuesstros mejores servicios" );
+            Amount a;
+            sp.setRetailPrice(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(350.00);
+            sp.setPriceType("ROOM");
+
+
+        }
         if(coupon != null && coupon != ""){
             if (coupon.length() > 5)
             {
@@ -233,7 +261,9 @@ public class GenericBookingServiceImpl implements GenericBookingService {
         rs.getAvailableServices().add(new String("traslado"));
         rs.getAvailableServices().add(new String("hotel"));
 
-        rs.setPaymentUrl("https://www.paypal.com");
+        rs.setPaymentUrl("<form name=f action='https://localhost:8080' method='post'>" +
+                "<input type='hidden' name=amount value='100'> "+
+                "</form>");
 
         return rs;
 
@@ -247,6 +277,12 @@ public class GenericBookingServiceImpl implements GenericBookingService {
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
         rs.setMsg("availables generics");
+        rs.setMaxPrice(1000d);
+        rs.setMinPrice(1d);
+        Label a;
+        rs.getLabels().add(a = new Label());
+        a.setId("1");
+        a.setName("Alquiler coche");
         Random r = new Random();
         {
             AvailableGeneric g;
@@ -374,6 +410,25 @@ public class GenericBookingServiceImpl implements GenericBookingService {
     @Override
     public GetGenericRatesRS getGenericRates(String token, String productId, String language) throws Throwable {
         GetGenericRatesRS rs = new GetGenericRatesRS();
+        rs.setAdultsDependant(true);
+        rs.setChildrenDependant(true);
+        rs.setDateDependant(true);
+        rs.setVariantDependant(true);
+        rs.setUnitsDependant(true);
+        GenericVariant v;
+        rs.getVariants().add(v = new GenericVariant());
+        v.setName("vip");
+        v.setDescription("variante vip");
+        v.setKey("11");
+        BestDeal bd;
+        v.setBestDeal(bd = new BestDeal());
+        Amount amount;
+        bd.setRetailPrice(amount = new Amount());
+        amount.setValue(12d);
+        amount.setCurrencyIsoCode("EUR");
+        v.setPricePer("Unit");
+
+
         return rs;
     }
 
@@ -405,9 +460,10 @@ public class GenericBookingServiceImpl implements GenericBookingService {
         Random r = new Random();
         System.out.println("contains nada" + labels.toString());
         String[] servicesArray =  labels.split(",");
+        if(labels != null){
         for (String service : servicesArray) {
             System.out.println("service " +service );
-            if(service.equals("rentabike")){
+            if(service.equals("1")){
 
                 System.out.println("contains rentabike"  );
 
@@ -472,7 +528,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
                 g.setGenericId("moto3");
             }
         }
-        if(service.equals("tickets")){
+        if(service.equals("2")){
             {
                 System.out.println("contains rentabike"  );
                 AvailableGeneric g;
@@ -493,6 +549,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
                 g.setGenericId("moto3");
             }
 
+        }
         }
         }
         return rs;

@@ -2,6 +2,8 @@ package org.easytravelapi.implementations;
 
 import org.easytravelapi.TransferBookingService;
 import org.easytravelapi.activity.PaymentMethod;
+import org.easytravelapi.circuit.Label;
+import org.easytravelapi.common.Supplement;
 import org.easytravelapi.common.*;
 import org.easytravelapi.transfer.*;
 
@@ -22,7 +24,12 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
         rs.setMsg("3 transfers found. It consumed 24 ms in the server.");
-
+        rs.setMaxPrice(1000d);
+        rs.setMinPrice(1d);
+        Label a;
+        rs.getLabels().add(a = new Label());
+        a.setId("1");
+        a.setName("costa");
         Random r = new Random();
 
         {
@@ -143,9 +150,8 @@ public class TransferBookingServiceImpl implements TransferBookingService {
     }
 
 
-
     @Override
-    public GetTransferPriceDetailsRS getTransferPriceDetails(String token, String key, String language, String coupon) throws Throwable {
+    public GetTransferPriceDetailsRS getTransferPriceDetails(String token, String key, String language, String supplements, String coupon) throws Throwable {
 
         GetTransferPriceDetailsRS rs = new GetTransferPriceDetailsRS();
 
@@ -293,6 +299,34 @@ public class TransferBookingServiceImpl implements TransferBookingService {
 
 
         }
+        {
+            Supplement sp;
+            rs.getSupplements().add(sp = new Supplement() );
+            sp.setId("22");
+            sp.setName("buffet incluido" );
+            sp.setDescription("buffet incluido durante toda la estancia, incluye desayuno, almuerzo y cena");
+            Amount a;
+            sp.setRetailPrice(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(130.99);
+            sp.setPriceType("PAX");
+
+
+        }
+        {
+            Supplement sp;
+            rs.getSupplements().add(sp = new Supplement() );
+            sp.setId("33");
+            sp.setName("Paquetes extras" );
+            sp.setDescription("Paquetes extras que incluyen varias ofertas de nuesstros mejores servicios" );
+            Amount a;
+            sp.setRetailPrice(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(350.00);
+            sp.setPriceType("ROOM");
+
+
+        }
         if(coupon != null && coupon != ""){
             {
                 PriceLine pc;
@@ -354,7 +388,9 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         rs.getAvailableServices().add(new String("circuito"));
         rs.getAvailableServices().add(new String("excursion"));
 
-        rs.setPaymentUrl("https://www.paypal.com");
+        rs.setPaymentUrl("<form name=f action='https://localhost:8080' method='post'>" +
+                "<input type='hidden' name=amount value='100'> "+
+                "</form>");
 
         return rs;
     }
@@ -435,6 +471,8 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         rs.setStatusCode(200);
         rs.setMsg("3 transfers found. It consumed 24 ms in the server.");
 
+        rs.setMaxPrice(1000d);
+        rs.setMinPrice(1d);
         Random r = new Random();
 
         {

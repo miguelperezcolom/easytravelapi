@@ -61,8 +61,8 @@ public interface GenericBookingService {
             @ApiParam(value = "The generic product price key, as provided in the /genericty/available step")
             @PathParam("key") String key,
             @QueryParam("language") String language,
-            @QueryParam("supplements")String supplements,
-            @ApiParam(value = "Discount Coupon code")
+            @QueryParam("supplements") String supplements,
+            @ApiParam(value = "Discount coupons")
             @QueryParam("coupon") String coupon
 
     ) throws Throwable;

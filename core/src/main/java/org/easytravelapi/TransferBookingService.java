@@ -57,6 +57,7 @@ public interface TransferBookingService {
             @ApiParam(value = "The hotel price key, as provided in the /transfer/available step")
             @PathParam("key") String key,
             @QueryParam("language") String language,
+            @QueryParam("supplements") String supplements,
             @ApiParam(value = "Discount coupons")
             @QueryParam("coupon") String coupon
     ) throws Throwable;

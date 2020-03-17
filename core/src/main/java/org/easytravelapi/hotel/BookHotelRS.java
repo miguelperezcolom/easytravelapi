@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.AbstractRS;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class BookHotelRS extends AbstractRS {
     @ApiModelProperty(value = "The booking id")
     private String bookingId;
     @ApiModelProperty(value = "Available services to upsale your booking")
-    private List<String> availableServices;
+    private List<String> availableServices  = new ArrayList<>();
     @ApiModelProperty(value = "Generated URL to pay")
     private String paymentUrl;
 

@@ -1,13 +1,14 @@
 package org.easytravelapi.implementations;
 
 import org.easytravelapi.HotelBookingService;
+import org.easytravelapi.circuit.Label;
+import org.easytravelapi.common.Supplement;
 import org.easytravelapi.common.*;
 import org.easytravelapi.hotel.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -24,8 +25,28 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
         rs.setMsg("215 hotels returned. It took 34 ms in the server.");
+        rs.setMaxPrice(1000d);
+        rs.setMinPrice(1d);
 
+        {
+            Label a;
+            rs.getLabels().add(a = new Label());
+            a.setId("1");
+            a.setName("Playa");
+        }
 
+        {
+            Label a;
+            rs.getLabels().add(a = new Label());
+            a.setId("2");
+            a.setName("Montaña");
+        }
+        {
+            Label a;
+            rs.getLabels().add(a = new Label());
+            a.setId("3");
+            a.setName("Gran Lujo");
+        }
         String[] nombres = {"Java", "Javascript", ".Net", "Scala", "Go", "Kotlin"};
 
         Random r = new Random();
@@ -473,6 +494,34 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             l.setPaymentMethod("WEB");
         }
         {
+            Supplement sp;
+            rs.getSupplements().add(sp = new Supplement() );
+            sp.setId("22");
+            sp.setName("buffet incluido" );
+            sp.setDescription("buffet incluido durante toda la estancia, incluye desayuno, almuerzo y cena");
+            Amount a;
+            sp.setRetailPrice(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(130.99);
+            sp.setPriceType("PAX");
+
+
+        }
+        {
+            Supplement sp;
+            rs.getSupplements().add(sp = new Supplement() );
+            sp.setId("33");
+            sp.setName("Paquetes extras" );
+            sp.setDescription("Paquetes extras que incluyen varias ofertas de nuesstros mejores servicios" );
+            Amount a;
+            sp.setRetailPrice(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(350.00);
+            sp.setPriceType("ROOM");
+
+
+        }
+        {
             Service c;
             rs.getAvailableServices().add(c = new Service());
             c.setDescription("Continental Buffet");
@@ -618,10 +667,13 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
         rs.setBookingId("5643135431");
         rs.setAvailableServices(new ArrayList<String>());
+
         rs.getAvailableServices().add(new String("traslado"));
         rs.getAvailableServices().add(new String("excursion"));
 
-        rs.setPaymentUrl("https://www.paypal.com");
+        rs.setPaymentUrl("<form name=f action='https://localhost:8080' method='post'>" +
+                "<input type='hidden' name=amount value='100'> "+
+                "</form>");
 
         return rs;
     }
@@ -642,6 +694,8 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         for (int i = 0; i < 30; i++) {
 
             AvailableHotel h;
+            rs.setMaxPrice(1000d);
+            rs.setMinPrice(1d);
             rs.getHotels().add(h = new AvailableHotel());
 
             h.setHotelId("hot_" + i);

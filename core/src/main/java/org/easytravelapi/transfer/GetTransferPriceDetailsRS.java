@@ -2,6 +2,7 @@ package org.easytravelapi.transfer;
 
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.activity.PaymentMethod;
+import org.easytravelapi.common.Supplement;
 import org.easytravelapi.common.*;
 
 import java.util.ArrayList;
@@ -16,6 +17,8 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
     private List<PriceLine> priceLines = new ArrayList<>();
 
     private BestDeal total;
+
+    private List<Supplement> supplements = new ArrayList<>();
 
     private String arrivalInstructions;
 
@@ -109,4 +112,8 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
     public String getCancellationFreeDate() { return cancellationFreeDate; }
 
     public void setCancellationFreeDate(String cancellationFreeDate) { this.cancellationFreeDate = cancellationFreeDate; }
+
+    public List<Supplement> getSupplements() { return supplements; }
+
+    public void setSupplements(List<Supplement> supplements) { this.supplements = supplements; }
 }
