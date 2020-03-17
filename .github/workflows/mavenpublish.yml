@@ -25,5 +25,6 @@ jobs:
     - name: Publish to GitHub Packages Apache Maven
       run: mvn deploy
       env:
-        MAVEN_USERNAME: ${{ secrets.REPO_USERNAME }}
+        MAVEN_USERNAME: ${{ secrets.
+          }}
         MAVEN_CENTRAL_TOKEN: ${{ secrets.REPO_PASSWORD }}
