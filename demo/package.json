@@ -2,7 +2,7 @@
   "name": "easytravelapi-demo",
   "version": "0.0.1",
   "dependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18.1",
     "bootstrap": "^4.0.0-beta.2",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
