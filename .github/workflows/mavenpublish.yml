@@ -15,14 +15,15 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 11
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
+        server-id: mateu-central # Value of the distributionManagement/repository/id field of the pom.xml
+        server-username: MAVEN_USERNAME
+        server-password: MAVEN_CENTRAL_TOKEN
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
+      run: mvn deploy
       env:
-        REPO_USERNAME: ${{ secrets.REPO_USERNAME }}
-        REPO_PASSWORD: ${{ secrets.REPO_PASSWORD }}
+        MAVEN_USERNAME: ${{ secrets.REPO_USERNAME }}
+        MAVEN_CENTRAL_TOKEN: ${{ secrets.REPO_PASSWORD }}
