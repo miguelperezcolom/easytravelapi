@@ -43,6 +43,16 @@ public class BoardPrice {
     @ApiModelProperty(value = "A flag to state that this price is not refundable. No cancellation is allowed")
     private boolean nonRefundable;
 
+    private String contractId;
+
+    public String getContractId() {
+        return contractId;
+    }
+
+    public void setContractId(String contractId) {
+        this.contractId = contractId;
+    }
+
     public String getRateClass() {
         return rateClass;
     }

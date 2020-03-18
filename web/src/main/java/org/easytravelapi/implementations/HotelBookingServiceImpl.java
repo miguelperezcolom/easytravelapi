@@ -494,34 +494,6 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             l.setPaymentMethod("WEB");
         }
         {
-            Supplement sp;
-            rs.getSupplements().add(sp = new Supplement() );
-            sp.setId("22");
-            sp.setName("buffet incluido" );
-            sp.setDescription("buffet incluido durante toda la estancia, incluye desayuno, almuerzo y cena");
-            Amount a;
-            sp.setRetailPrice(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(130.99);
-            sp.setPriceType("PAX");
-
-
-        }
-        {
-            Supplement sp;
-            rs.getSupplements().add(sp = new Supplement() );
-            sp.setId("33");
-            sp.setName("Paquetes extras" );
-            sp.setDescription("Paquetes extras que incluyen varias ofertas de nuesstros mejores servicios" );
-            Amount a;
-            sp.setRetailPrice(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(350.00);
-            sp.setPriceType("ROOM");
-
-
-        }
-        {
             Service c;
             rs.getAvailableServices().add(c = new Service());
             c.setDescription("Continental Buffet");
@@ -667,7 +639,6 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
         rs.setBookingId("5643135431");
         rs.setAvailableServices(new ArrayList<String>());
-
         rs.getAvailableServices().add(new String("traslado"));
         rs.getAvailableServices().add(new String("excursion"));
 

@@ -3,6 +3,9 @@ package org.easytravelapi.hotel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @ApiModel(description = "RateKey, rate data and occupation combination for booking confirm")
 public class RateKey {
     @ApiModelProperty(value = "RateKey code")
@@ -13,6 +16,8 @@ public class RateKey {
     private String roomName;
     @ApiModelProperty(value = "type of payment")
     private Boolean requestPaymentData;
+
+    private List<Service> availableServices = new ArrayList<Service>();
 
     public String getKey() {
         return key;
@@ -42,5 +47,13 @@ public class RateKey {
 
     public void setRequestPaymentData(Boolean requestPaymentData) {
         this.requestPaymentData = requestPaymentData;
+    }
+
+    public List<Service> getAvailableServices() {
+        return availableServices;
+    }
+
+    public void setAvailableServices(List<Service> availableServices) {
+        this.availableServices = availableServices;
     }
 }
