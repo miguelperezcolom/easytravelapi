@@ -36,8 +36,6 @@ public class BookHotelRQ {
     private String captchaToken;
     @ApiModelProperty(value = "User language")
     private String language;
-    @ApiModelProperty(value = "Booking extras")
-    private String supplements;
     @ApiModelProperty(value = "Booking coupon discount")
     private String coupon;
 
@@ -103,10 +101,6 @@ public class BookHotelRQ {
     public String getLanguage() { return language; }
 
     public void setLanguage(String language) { this.language = language; }
-
-    public String getSupplements() { return supplements; }
-
-    public void setSupplements(String supplements) { this.supplements = supplements; }
 
     public String getCoupon() { return coupon; }
 

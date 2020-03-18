@@ -1,5 +1,7 @@
 package org.easytravelapi.hotel;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,16 @@ public class BookingKey {
     private String rateKey;
     private String roomName;
     private Boolean requestPaymentData;
+    @ApiModelProperty(value = "Booking extras")
+    private String supplements;
+
+    public String getSupplements() {
+        return supplements;
+    }
+
+    public void setSupplements(String supplements) {
+        this.supplements = supplements;
+    }
 
     public List<PaxDetails> getOccupancy() {
         return occupancy;
