@@ -261,7 +261,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
     }
 
     @Override
-    public GetHotelPriceDetailsRS getHotelPriceDetails(String token, GetHotelPriceDetailsRQ ratekeys) throws Throwable {
+    public GetHotelPriceDetailsRS getHotelPriceDetails(String token, GetHotelPriceDetailsRQ rq) throws Throwable {
 
         GetHotelPriceDetailsRS rs = new GetHotelPriceDetailsRS();
 
@@ -298,8 +298,10 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
 
         }
-        if(ratekeys.getCoupon() != null && ratekeys.getCoupon() != ""){
-            if (ratekeys.getCoupon().length() > 5)
+
+
+        if(rq.getCoupon() != null && rq.getCoupon() != ""){
+            if (rq.getCoupon().length() > 5)
             {
 
 
@@ -337,13 +339,13 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 rs.setCouponMsg("Cupon no válido");
             }
         }
-        if(ratekeys.getSelectedServices() != null && ratekeys.getSelectedServices() != "") {
+        if(rq.getSelectedServices() != null && rq.getSelectedServices() != "") {
 
 
             {
 
-                String[] parts = ratekeys.getSelectedServices().split(",");
-                System.out.println(ratekeys.getSelectedServices());
+                String[] parts = rq.getSelectedServices().split(",");
+                System.out.println(rq.getSelectedServices());
                 System.out.println(parts.length);
                 System.out.println(parts);
                 String[] parts2 = parts[0].split("-");
@@ -493,86 +495,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             l.setDate("2018-12-01");
             l.setPaymentMethod("WEB");
         }
-        {
-            Service c;
-            rs.getAvailableServices().add(c = new Service());
-            c.setDescription("Continental Buffet");
-            c.setId("deiuwed8ewud890u23");
 
-            {
-                PaymentLine l;
-                c.getPaymentLines().add(l = new PaymentLine());
-                Amount a;
-                l.setAmount(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(30.45);
-                l.setDate("2018-12-01");
-                l.setPaymentMethod("WEB");
-
-            }
-
-            {
-                Amount a;
-                c.setRetailPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(30.45);
-            }
-
-            {
-                Amount a;
-                c.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(5);
-            }
-
-            {
-                Amount a;
-                c.setNetPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(25.45);
-            }
-
-        }
-
-        {
-            Service c;
-            rs.getAvailableServices().add(c = new Service());
-            c.setDescription("Spa");
-            c.setId("deiuwed8ewud890u23");
-
-            {
-                PaymentLine l;
-                c.getPaymentLines().add(l = new PaymentLine());
-                Amount a;
-                l.setAmount(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(130.45);
-                l.setDate("2018-12-01");
-                l.setPaymentMethod("WEB");
-            }
-
-            {
-                Amount a;
-                c.setRetailPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(130.45);
-            }
-
-            {
-                Amount a;
-                c.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(15);
-            }
-
-            {
-                Amount a;
-                c.setNetPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(215.45);
-            }
-
-        }
 
 
         {
@@ -619,6 +542,14 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             rk.setRequestPaymentData(true);
             rk.setRoomName("DBL STANDART");
             rk.setPaxPerRoom(2);
+            Service s ;
+            rk.getAvailableServices().add(s = new Service());
+            s.setId("1");
+            s.setDescription("suplemento 1");
+            Amount a ;
+            s.setRetailPrice(a = new Amount());
+            a.setCurrencyIsoCode("EUR");
+            a.setValue(20d);
             rk.setKey("xxx");
         }
 

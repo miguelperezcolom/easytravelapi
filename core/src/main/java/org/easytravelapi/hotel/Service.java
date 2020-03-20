@@ -12,11 +12,7 @@ public class Service {
 
     private String description;
 
-    private List<PaymentLine> paymentLines = new ArrayList<PaymentLine>();
-
     private Amount retailPrice;
-
-    private Amount commission;
 
     private Amount netPrice;
 
@@ -36,28 +32,12 @@ public class Service {
         this.description = description;
     }
 
-    public List<PaymentLine> getPaymentLines() {
-        return paymentLines;
-    }
-
-    public void setPaymentLines(List<PaymentLine> paymentLines) {
-        this.paymentLines = paymentLines;
-    }
-
     public Amount getRetailPrice() {
         return retailPrice;
     }
 
     public void setRetailPrice(Amount retailPrice) {
         this.retailPrice = retailPrice;
-    }
-
-    public Amount getCommission() {
-        return commission;
-    }
-
-    public void setCommission(Amount commission) {
-        this.commission = commission;
     }
 
     public Amount getNetPrice() {
