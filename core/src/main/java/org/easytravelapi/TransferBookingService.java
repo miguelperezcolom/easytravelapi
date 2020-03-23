@@ -76,7 +76,8 @@ public interface TransferBookingService {
     @Path("/airports")
     @ApiOperation(value = "Use this method to get all available airports")
     public GetAirportsRS getAirports(
-            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @QueryParam("language") String language
 
     ) throws Throwable;
 
@@ -86,7 +87,8 @@ public interface TransferBookingService {
     public GetDestinationRS getDestinationsForAirport(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
              @ApiParam(value = "The airport key to get destinations")
-             @PathParam("airportId") String airportId
+             @PathParam("airportId") String airportId,
+            @QueryParam("language") String language
 
     ) throws Throwable;
 
@@ -94,7 +96,8 @@ public interface TransferBookingService {
     @Path("/destinations")
     @ApiOperation(value = "Use this method to get all available destinations from an airport key")
     public GetDestinationRS getDestinations(
-            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @QueryParam("language") String language
     ) throws Throwable;
 
     @GET

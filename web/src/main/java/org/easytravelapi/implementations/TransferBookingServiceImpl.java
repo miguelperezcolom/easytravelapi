@@ -396,7 +396,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
     }
 
     @Override
-    public GetAirportsRS getAirports(String token) throws Throwable {
+    public GetAirportsRS getAirports(String token, String language) throws Throwable {
         GetAirportsRS rs = new GetAirportsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
@@ -431,7 +431,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
     }
 
     @Override
-    public GetDestinationRS getDestinationsForAirport(String token, String airportId) throws Throwable {
+    public GetDestinationRS getDestinationsForAirport(String token, String airportId, String language) throws Throwable {
         GetDestinationRS rs = new GetDestinationRS();
 
         Resource d;
@@ -545,7 +545,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
     }
 
     @Override
-    public GetDestinationRS getDestinations(String token) throws Throwable {
+    public GetDestinationRS getDestinations(String token, String language) throws Throwable {
         return null;
     }
 }
