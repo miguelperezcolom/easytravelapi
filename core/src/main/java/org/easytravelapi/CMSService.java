@@ -22,6 +22,13 @@ import java.util.Map;
 public interface CMSService {
 
     @GET
+    @Path("/initialconfig")
+    @ApiOperation(value = "Use this method to know which hotels are available and their prices")
+    public GetInitialConfigRS getInitialConfig(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
+    ) throws Throwable;
+
+    @GET
     @Path("/hotelavailabilitycalendar")
     @ApiOperation(value = "Use this method to know which hotels are available and their prices")
     public GetHotelAvailabilityCalendarRS getHotelAvailabilityCalendar(
