@@ -479,6 +479,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         rs.setMsg("Booking confirmed ok");
 
         rs.setBookingId("5643135431");
+        rs.setFileId("5654646");
         rs.setAvailableServices(new ArrayList<String>());
         rs.getAvailableServices().add(new String("traslado"));
         rs.getAvailableServices().add(new String("excursion"));
