@@ -338,11 +338,11 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         for (Stay stay : rq.getStays()) if(stay.getSupplements() != null && stay.getSupplements() != "") {
             {
 
-                String[] parts = stay.getSupplements().split(",");
+                String[] parts = stay.getSupplements().split(";");
                 System.out.println(stay.getSupplements());
                 System.out.println(parts.length);
                 System.out.println(parts);
-                String[] parts2 = parts[0].split("-");
+                String[] parts2 = parts[0].split("#");
                 System.out.println(parts2.length);
                 System.out.println(parts);
 
