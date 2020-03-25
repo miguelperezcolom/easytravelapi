@@ -20,7 +20,7 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     private Price total;
 
     @ApiModelProperty(value = "Price detail, in form of lines")
-    private List<PriceLine> prices  = new ArrayList<PriceLine>();
+    private List<PriceLine> priceBreakdown = new ArrayList<PriceLine>();
 
     @ApiModelProperty(value = "Cancellation costs")
     private List<CancellationCost> cancellationCosts = new ArrayList<CancellationCost>();
@@ -63,12 +63,12 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
         this.total = total;
     }
 
-    public List<PriceLine> getPrices() {
-        return prices;
+    public List<PriceLine> getPriceBreakdown() {
+        return priceBreakdown;
     }
 
-    public void setPrices(List<PriceLine> prices) {
-        this.prices = prices;
+    public void setPriceBreakdown(List<PriceLine> priceBreakdown) {
+        this.priceBreakdown = priceBreakdown;
     }
 
     public List<CancellationCost> getCancellationCosts() {

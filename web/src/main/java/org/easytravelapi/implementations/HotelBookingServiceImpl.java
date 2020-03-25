@@ -267,7 +267,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
         {
             PriceLine pc;
-            rs.getPrices().add(pc = new PriceLine());
+            rs.getPriceBreakdown().add(pc = new PriceLine());
             {
                 Amount a;
                 pc.setTotal(a = new Amount());
@@ -286,7 +286,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
             {
                 PriceLine pc;
-                rs.getPrices().add(pc = new PriceLine());
+                rs.getPriceBreakdown().add(pc = new PriceLine());
                 {
                     Amount a;
                     pc.setTotal(a = new Amount());
@@ -314,7 +314,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 System.out.println(parts);
 
                 PriceLine pc;
-                rs.getPrices().add(pc = new PriceLine());
+                rs.getPriceBreakdown().add(pc = new PriceLine());
                 {
                     Amount a;
                     pc.setTotal(a = new Amount());
@@ -329,7 +329,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         }
         {
             PriceLine pc;
-            rs.getPrices().add(pc = new PriceLine());
+            rs.getPriceBreakdown().add(pc = new PriceLine());
             {
                 Amount a;
                 pc.setTotal(a = new Amount());
@@ -343,7 +343,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         }
         {
             PriceLine pc;
-            rs.getPrices().add(pc = new PriceLine());
+            rs.getPriceBreakdown().add(pc = new PriceLine());
             {
                 Amount a;
                 pc.setTotal(a = new Amount());
