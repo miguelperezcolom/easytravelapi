@@ -1,7 +1,6 @@
 package org.easytravelapi.agent;
 
 import org.easytravelapi.common.Amount;
-import org.easytravelapi.common.BestDeal;
 
 public class PlainActivityItem {
     private String id;

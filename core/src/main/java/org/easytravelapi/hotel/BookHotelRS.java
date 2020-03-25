@@ -15,8 +15,9 @@ public class BookHotelRS extends AbstractRS {
 
     @ApiModelProperty(value = "The booking id")
     private String bookingId;
+    @ApiModelProperty(value = "The file id")
     private String fileId;
-    @ApiModelProperty(value = "Available services to upsale your booking")
+    @ApiModelProperty(value = "Available services for upselling")
     private List<String> availableServices  = new ArrayList<>();
     @ApiModelProperty(value = "Generated URL to pay")
     private String paymentUrl;

@@ -15,7 +15,7 @@ public class GetGenericPriceDetailsRS extends AbstractRS{
 
     private List<PriceLine> priceLines = new ArrayList<>();
 
-    private BestDeal total;
+    private Price total;
 
     @ApiModelProperty(value = "Detailed Payment lines")
     private List<PaymentLine> paymentLines = new ArrayList<PaymentLine>();
@@ -49,9 +49,9 @@ public class GetGenericPriceDetailsRS extends AbstractRS{
 
     public void setPriceLines(List<PriceLine> priceLines) { this.priceLines = priceLines; }
 
-    public BestDeal getTotal() { return total; }
+    public Price getTotal() { return total; }
 
-    public void setTotal(BestDeal total) { this.total = total; }
+    public void setTotal(Price total) { this.total = total; }
 
     public List<PaymentLine> getPaymentLines() { return paymentLines; }
 

@@ -36,7 +36,7 @@ public interface HotelBookingService {
             @QueryParam("checkin") int checkIn,
             @ApiParam(value = "The locale checkout date in YYYYMMDD format")
             @QueryParam("checkout") int checkout,
-            @ApiParam(value = "List comma separated list of occupancies you need in <nr of rooms>x<pax>[-<age>]* format")
+            @ApiParam(value = "List comma separated list of occupancies you need in <nr of rooms>x<pax>[-<age>]* format. E.g.: 2x4-10-6-2,1x2 means 2 rooms occupied by 4 pax where 3 of them are 10, 6 and 2 years old and 1 room occupied by 2 pax")
             @QueryParam("occupancies") String occupancies,
             @ApiParam(value = "Set to true if you want the response to include static info (hotel description, main hotel image, ...). If false (default value) static info will not be included in order to make the response lighter")
             @QueryParam("includestaticinfo") boolean includeStaticInfo
@@ -47,7 +47,7 @@ public interface HotelBookingService {
     @ApiOperation(value = "Use this method to get available room rates for a hotel")
     public GetHotelRatesRS getRates(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            GetHotelRatesRQ rq
+            @ApiParam(value = "All the info needed to retrieve all available rates for a hotel and occupancies")GetHotelRatesRQ rq
     ) throws Throwable;
 
     @POST
@@ -55,7 +55,7 @@ public interface HotelBookingService {
     @ApiOperation(value = "Use this methos to guess cancellation costs and important remarks regarding a price")
     public GetHotelPriceDetailsRS getHotelPriceDetails(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            GetHotelPriceDetailsRQ rq
+            @ApiParam(value = "All the info needed to retrieve ")GetHotelPriceDetailsRQ rq
     ) throws Throwable;
 
     @PUT

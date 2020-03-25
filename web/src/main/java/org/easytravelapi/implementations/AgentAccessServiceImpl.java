@@ -5,13 +5,9 @@ import org.easytravelapi.activity.*;
 import org.easytravelapi.agent.*;
 import org.easytravelapi.cms.*;
 import org.easytravelapi.common.Amount;
-import org.easytravelapi.common.BestDeal;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Base64;
-import java.util.Currency;
 import java.util.List;
 
 public class AgentAccessServiceImpl implements AgentAccessService {

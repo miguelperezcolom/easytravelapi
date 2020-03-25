@@ -2,7 +2,7 @@ package org.easytravelapi.transfer;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.easytravelapi.common.BestDeal;
+import org.easytravelapi.common.Price;
 
 /**
  * Created by miguel on 26/7/17.
@@ -25,7 +25,7 @@ public class AvailableTransfer {
     @ApiModelProperty(value = "Main image from transfer.")
     private String image;
 
-    private BestDeal total;
+    private Price total;
 
 
     @ApiModelProperty(value = "A flag to state that this price is an offer")
@@ -116,11 +116,11 @@ public class AvailableTransfer {
         this.nonRefundable = nonRefundable;
     }
 
-    public BestDeal getTotal() {
+    public Price getTotal() {
         return total;
     }
 
-    public void setTotal(BestDeal total) {
+    public void setTotal(Price total) {
         this.total = total;
     }
 

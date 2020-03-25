@@ -40,16 +40,16 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
             a.setImage("https://cdn2.click-mallorca.com/imgdb/imagen_iex15277.jpg");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOffer(true);
-            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setBeforeOffer(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOfferText("Special offer for this activity");
 
 
@@ -64,14 +64,14 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
             a.setImage("https://cdn2.click-mallorca.com/imgdb/imagen_iex11965.png");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
 
@@ -84,14 +84,14 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             a.setDescription("Excursión muy interesante para ver los principales puntos de interés de la isla. Muy recomendada!");
             a.setImage("https://cdn1.click-mallorca.com/imgdb/foto1_exc2210.jpg");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
 
@@ -118,8 +118,8 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             av.setKey("23");
             av.setName("Variante 1");
             av.setDescription("Descripción de la variante 1");
-            av.setBestDeal(new BestDeal());
-            av.getBestDeal().setRetailPrice(new Amount("EUR", 200.34));
+            av.setBestDeal(new Price());
+            av.getBestDeal().setRetail(new Amount("EUR", 200.34));
 
             rs.setShifts(new ArrayList<>());
             ActivityShift s;
@@ -265,25 +265,18 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             r.setText("Have a nice day");
         }
         {
-            BestDeal tot;
-            rs.setTotal(tot = new BestDeal());
+            Price tot;
+            rs.setTotal(tot = new Price());
             {
                 Amount a;
-                tot.setRetailPrice(a = new Amount());
+                tot.setRetail(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(1500.32);
             }
 
             {
                 Amount a;
-                tot.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(250.31);
-            }
-
-            {
-                Amount a;
-                tot.setNetPrice(a = new Amount());
+                tot.setNet(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(1250.01);
             }

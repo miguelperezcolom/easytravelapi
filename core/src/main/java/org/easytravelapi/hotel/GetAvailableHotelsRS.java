@@ -17,10 +17,13 @@ public class GetAvailableHotelsRS extends AbstractRS {
     @ApiModelProperty(value = "List of available hotels, including prices")
     private List<AvailableHotel> hotels = new ArrayList<AvailableHotel>();
 
+    @ApiModelProperty(value = "List of labels found in all the available hotels")
     private List<Label> labels = new ArrayList<>();
 
+    @ApiModelProperty(value = "Min price found")
     private double minPrice;
 
+    @ApiModelProperty(value = "Max price found")
     private double maxPrice;
 
 

@@ -1,6 +1,6 @@
 package org.easytravelapi.activity;
 
-import org.easytravelapi.common.BestDeal;
+import org.easytravelapi.common.Price;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class AvailableDate {
 
     private String pricePer;
 
-    private BestDeal price;
+    private Price price;
 
     public int getDate() {
         return date;
@@ -49,11 +49,11 @@ public class AvailableDate {
         this.pricePer = pricePer;
     }
 
-    public BestDeal getPrice() {
+    public Price getPrice() {
         return price;
     }
 
-    public void setPrice(BestDeal price) {
+    public void setPrice(Price price) {
         this.price = price;
     }
 }

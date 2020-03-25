@@ -41,16 +41,16 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setVehicle("Shuttle bus");
             t.setImage("https://www.oregonexpressshuttle.com/wp-content/uploads/2017/05/DSC_4191.jpg");
 
-            BestDeal bd;
-            t.setTotal(bd = new BestDeal());
+            Price bd;
+            t.setTotal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOffer(true);
-            bd.setBeforeOfferPrice(new Amount("EUR",rp + 50));
+            bd.setBeforeOffer(new Amount("EUR",rp + 50));
             bd.setOfferText("Special 30% off");
         }
         {
@@ -62,14 +62,14 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setVehicle("Shuttle bus");
             t.setImage("https://www.oregonexpressshuttle.com/wp-content/uploads/2017/05/DSC_4191.jpg");
 
-            BestDeal bd;
-            t.setTotal(bd = new BestDeal());
+            Price bd;
+            t.setTotal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
         {
@@ -80,14 +80,14 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setDescription("Private taxi from PMI airport");
             t.setVehicle("TAXI 1-4");
             t.setImage("https://www.aeropuertomadrid-barajas.com/images/madrid-taxi.jpg");
-            BestDeal bd;
-            t.setTotal(bd = new BestDeal());
+            Price bd;
+            t.setTotal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
         {
@@ -98,14 +98,14 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setDescription("Private taxi from Palma port");
             t.setVehicle("TAXI 1-4");
             t.setImage("https://www.aeropuertomadrid-barajas.com/images/madrid-taxi.jpg");
-            BestDeal bd;
-            t.setTotal(bd = new BestDeal());
+            Price bd;
+            t.setTotal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
 
@@ -117,14 +117,14 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setDescription("Mercedes Benz limousine w/chofer from PMI airport");
             t.setVehicle("MB1-4");
             t.setImage("https://caranddriver.ru/wp-content/uploads/2017/03/Mercedes-Benz-V-Class-0-800x445.jpg");
-            BestDeal bd;
-            t.setTotal(bd = new BestDeal());
+            Price bd;
+            t.setTotal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
         {
@@ -135,14 +135,14 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setDescription("Mercedes Benz limousine w/chofer from Palma port");
             t.setVehicle("MB1-4");
             t.setImage("https://caranddriver.ru/wp-content/uploads/2017/03/Mercedes-Benz-V-Class-0-800x445.jpg");
-            BestDeal bd;
-            t.setTotal(bd = new BestDeal());
+            Price bd;
+            t.setTotal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
 
@@ -245,25 +245,18 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         }
 
         {
-            BestDeal tot;
-            rs.setTotal(tot = new BestDeal());
+            Price tot;
+            rs.setTotal(tot = new Price());
             {
                 Amount a;
-                tot.setRetailPrice(a = new Amount());
+                tot.setRetail(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(1500.32);
             }
 
             {
                 Amount a;
-                tot.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(250.31);
-            }
-
-            {
-                Amount a;
-                tot.setNetPrice(a = new Amount());
+                tot.setNet(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(1250.01);
             }
@@ -484,16 +477,16 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setVehicle("Shuttle bus");
             t.setImage("https://www.oregonexpressshuttle.com/wp-content/uploads/2017/05/DSC_4191.jpg");
 
-            BestDeal bd;
-            t.setTotal(bd = new BestDeal());
+            Price bd;
+            t.setTotal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOffer(true);
-            bd.setBeforeOfferPrice(new Amount("EUR", rp+50));
+            bd.setBeforeOffer(new Amount("EUR", rp+50));
             bd.setOfferText("Special offer filtered");
 
         }
@@ -506,16 +499,16 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setVehicle("Shuttle bus");
             t.setImage("https://www.oregonexpressshuttle.com/wp-content/uploads/2017/05/DSC_4191.jpg");
 
-            BestDeal bd;
-            t.setTotal(bd = new BestDeal());
+            Price bd;
+            t.setTotal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOffer(true);
-            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setBeforeOffer(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOfferText("Special offer for this transfer");
 
         }
@@ -530,14 +523,14 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             t.setDescription("Mercedes Benz limousine w/chofer from Palma port");
             t.setVehicle("MB1-4");
             t.setImage("https://caranddriver.ru/wp-content/uploads/2017/03/Mercedes-Benz-V-Class-0-800x445.jpg");
-            BestDeal bd;
-            t.setTotal(bd = new BestDeal());
+            Price bd;
+            t.setTotal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
 

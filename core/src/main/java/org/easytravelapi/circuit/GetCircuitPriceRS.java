@@ -2,7 +2,7 @@ package org.easytravelapi.circuit;
 
 import io.swagger.annotations.ApiModel;
 import org.easytravelapi.common.AbstractRS;
-import org.easytravelapi.common.BestDeal;
+import org.easytravelapi.common.Price;
 
 /**
  * Created by miguel on 26/7/17.
@@ -10,15 +10,15 @@ import org.easytravelapi.common.BestDeal;
 @ApiModel(description = "Container for the circuit price details")
 public class GetCircuitPriceRS extends AbstractRS {
 
-    private BestDeal total;
+    private Price total;
 
     private boolean available;
 
-    public BestDeal getTotal() {
+    public Price getTotal() {
         return total;
     }
 
-    public void setTotal(BestDeal total) {
+    public void setTotal(Price total) {
         this.total = total;
     }
 

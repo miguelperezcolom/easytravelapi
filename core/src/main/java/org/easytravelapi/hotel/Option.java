@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by miguel on 26/7/17.
  */
-@ApiModel(description = "An available room combination the fits your occcupation")
+@ApiModel(description = "An available room and board combination the fits your occupancy")
 public class Option {
 
     @ApiModelProperty(value = "This room type id")
@@ -24,9 +24,8 @@ public class Option {
     @ApiModelProperty(value = "List of available board basis and prices for each board")
     private List<BoardPrice> prices = new ArrayList<BoardPrice>();
 
-
+    @ApiModelProperty(value = "Number of available rooms. Check if you plan to use the same room several times")
     private int allotment;
-
 
     public String getRoomId() {
         return roomId;
@@ -44,6 +43,22 @@ public class Option {
         this.roomName = roomName;
     }
 
+    public String getRoomDescription() {
+        return roomDescription;
+    }
+
+    public void setRoomDescription(String roomDescription) {
+        this.roomDescription = roomDescription;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public List<BoardPrice> getPrices() {
         return prices;
     }
@@ -52,7 +67,6 @@ public class Option {
         this.prices = prices;
     }
 
-
     public int getAllotment() {
         return allotment;
     }
@@ -60,12 +74,4 @@ public class Option {
     public void setAllotment(int allotment) {
         this.allotment = allotment;
     }
-
-    public String getRoomDescription() { return roomDescription; }
-
-    public void setRoomDescription(String roomDescription) { this.roomDescription = roomDescription; }
-
-    public String getImage() { return image; }
-
-    public void setImage(String image) { this.image = image; }
 }

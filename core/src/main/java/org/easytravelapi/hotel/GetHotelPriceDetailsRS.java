@@ -13,14 +13,19 @@ import java.util.List;
 @ApiModel(description = "Container for the hotel price details response")
 public class GetHotelPriceDetailsRS extends AbstractRS {
 
+    @ApiModelProperty(value = "Status. Possible values are OK and ON REQUEST")
     private String status;
-    private BestDeal total;
-    @ApiModelProperty(value = "List of pricing")
+
+    @ApiModelProperty(value = "Total price")
+    private Price total;
+
+    @ApiModelProperty(value = "Price detail, in form of lines")
     private List<PriceLine> prices  = new ArrayList<PriceLine>();
 
-    @ApiModelProperty(value = "Cancellation costs for this activity")
+    @ApiModelProperty(value = "Cancellation costs")
     private List<CancellationCost> cancellationCosts = new ArrayList<CancellationCost>();
 
+    @ApiModelProperty(value = "No cancellation cost until this date, yyyy-MM-dd formatted")
     private String cancellationFreeDate;
 
     @ApiModelProperty(value = "Remarks which should be visible for the customer")
@@ -32,10 +37,13 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Detailed Payment lines")
     private List<PaymentLine> paymentLines = new ArrayList<PaymentLine>();
 
-    private String couponMsg;
+    @ApiModelProperty(value = "Promo code application result")
+    private String promoCodeMsg;
 
+    @ApiModelProperty(value = "Terms and conditions text. For website usage only")
     private String terms;
 
+    @ApiModelProperty(value = "Mailing unwanted text. For website usage only")
     private String mailingUnwantedText;
 
 
@@ -47,13 +55,21 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
         this.status = status;
     }
 
-    public BestDeal getTotal() { return total; }
+    public Price getTotal() {
+        return total;
+    }
 
-    public void setTotal(BestDeal total) { this.total = total; }
+    public void setTotal(Price total) {
+        this.total = total;
+    }
 
-    public List<PriceLine> getPrices() { return prices; }
+    public List<PriceLine> getPrices() {
+        return prices;
+    }
 
-    public void setPrices(List<PriceLine> prices) { this.prices = prices; }
+    public void setPrices(List<PriceLine> prices) {
+        this.prices = prices;
+    }
 
     public List<CancellationCost> getCancellationCosts() {
         return cancellationCosts;
@@ -61,6 +77,14 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
 
     public void setCancellationCosts(List<CancellationCost> cancellationCosts) {
         this.cancellationCosts = cancellationCosts;
+    }
+
+    public String getCancellationFreeDate() {
+        return cancellationFreeDate;
+    }
+
+    public void setCancellationFreeDate(String cancellationFreeDate) {
+        this.cancellationFreeDate = cancellationFreeDate;
     }
 
     public List<Remark> getRemarks() {
@@ -71,27 +95,43 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
         this.remarks = remarks;
     }
 
-    public List<RateKey> getRateKeys() { return rateKeys; }
+    public List<RateKey> getRateKeys() {
+        return rateKeys;
+    }
 
-    public void setRateKeys(List<RateKey> rateKeys) { this.rateKeys = rateKeys; }
+    public void setRateKeys(List<RateKey> rateKeys) {
+        this.rateKeys = rateKeys;
+    }
 
-    public List<PaymentLine> getPaymentLines() { return paymentLines;}
+    public List<PaymentLine> getPaymentLines() {
+        return paymentLines;
+    }
 
-    public void setPaymentLines(List<PaymentLine> paymentLines) { this.paymentLines = paymentLines; }
+    public void setPaymentLines(List<PaymentLine> paymentLines) {
+        this.paymentLines = paymentLines;
+    }
 
-    public String getCouponMsg() { return couponMsg; }
+    public String getPromoCodeMsg() {
+        return promoCodeMsg;
+    }
 
-    public void setCouponMsg(String couponMsg) { this.couponMsg = couponMsg; }
+    public void setPromoCodeMsg(String promoCodeMsg) {
+        this.promoCodeMsg = promoCodeMsg;
+    }
 
-    public String getTerms() { return terms; }
+    public String getTerms() {
+        return terms;
+    }
 
-    public void setTerms(String terms) { this.terms = terms; }
+    public void setTerms(String terms) {
+        this.terms = terms;
+    }
 
-    public String getMailingUnwantedText() { return mailingUnwantedText; }
+    public String getMailingUnwantedText() {
+        return mailingUnwantedText;
+    }
 
-    public void setMailingUnwantedText(String mailingUnwantedText) { this.mailingUnwantedText = mailingUnwantedText; }
-
-    public String getCancellationFreeDate() { return cancellationFreeDate; }
-
-    public void setCancellationFreeDate(String cancellationFreeDate) { this.cancellationFreeDate = cancellationFreeDate; }
+    public void setMailingUnwantedText(String mailingUnwantedText) {
+        this.mailingUnwantedText = mailingUnwantedText;
+    }
 }

@@ -19,12 +19,10 @@ public class BoardPrice {
     @ApiModelProperty(value = "Board basis name")
     private String boardBasisName;
 
-    private String rateClass;
-
+    @ApiModelProperty(value = "Retail price")
     private Amount retailPrice;
+    @ApiModelProperty(value = "Net price")
     private Amount netPrice;
-    private Amount commission;
-    private List<PaymentLine> paymentLines = new ArrayList<PaymentLine>();
 
 
     @ApiModelProperty(value = "A flag to state that this price is an offer")
@@ -40,31 +38,8 @@ public class BoardPrice {
     @ApiModelProperty(value = "A flag to state that this price is not refundable. No cancellation is allowed")
     private boolean nonRefundable;
 
+    @ApiModelProperty(value = "Rate id")
     private String rateId;
-
-    public String getRateId() {
-        return rateId;
-    }
-
-    public void setRateId(String rateId) {
-        this.rateId = rateId;
-    }
-
-    public String getRateClass() {
-        return rateClass;
-    }
-
-    public void setRateClass(String rateClass) {
-        this.rateClass = rateClass;
-    }
-
-    public List<PaymentLine> getPaymentLines() {
-        return paymentLines;
-    }
-
-    public void setPaymentLines(List<PaymentLine> paymentLines) {
-        this.paymentLines = paymentLines;
-    }
 
     public String getBoardBasisId() {
         return boardBasisId;
@@ -96,14 +71,6 @@ public class BoardPrice {
 
     public void setNetPrice(Amount netPrice) {
         this.netPrice = netPrice;
-    }
-
-    public Amount getCommission() {
-        return commission;
-    }
-
-    public void setCommission(Amount commission) {
-        this.commission = commission;
     }
 
     public boolean isOffer() {
@@ -144,5 +111,13 @@ public class BoardPrice {
 
     public void setNonRefundable(boolean nonRefundable) {
         this.nonRefundable = nonRefundable;
+    }
+
+    public String getRateId() {
+        return rateId;
+    }
+
+    public void setRateId(String rateId) {
+        this.rateId = rateId;
     }
 }

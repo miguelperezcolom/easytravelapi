@@ -19,7 +19,7 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
 
     private List<PriceLine> priceLines = new ArrayList<>();
 
-    private BestDeal total;
+    private Price total;
 
     @ApiModelProperty(value = "Detailed Payment lines")
     private List<PaymentLine> paymentLines = new ArrayList<PaymentLine>();
@@ -71,11 +71,11 @@ public class GetActivityPriceDetailsRS extends AbstractRS {
         this.priceLines = priceLines;
     }
 
-    public BestDeal getTotal() {
+    public Price getTotal() {
         return total;
     }
 
-    public void setTotal(BestDeal total) {
+    public void setTotal(Price total) {
         this.total = total;
     }
 

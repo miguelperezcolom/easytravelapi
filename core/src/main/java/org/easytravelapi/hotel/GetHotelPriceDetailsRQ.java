@@ -1,16 +1,26 @@
 package org.easytravelapi.hotel;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@ApiModel(value = "Rq to get hotel price details")
 public class GetHotelPriceDetailsRQ {
 
+    @ApiModelProperty(value = "2 char language iso code")
     private String language;
+    @ApiModelProperty(value = "hotel id, as retrieved from hote available hotels response")
     private String hotelId;
+    @ApiModelProperty(value = "The locale checkin date in YYYYMMDD format")
     private int checkin;
+    @ApiModelProperty(value = "The locale checkout date in YYYYMMDD format")
     private int checkout;
+    @ApiModelProperty(value = "List of stays (occupancies with desired room and board)")
     public List<Stay> stays = new ArrayList<Stay>();
-    private String coupon;
+    @ApiModelProperty(value = "Promo code")
+    private String promoCode;
 
 
     public String getLanguage() {
@@ -53,11 +63,11 @@ public class GetHotelPriceDetailsRQ {
         this.stays = stays;
     }
 
-    public String getCoupon() {
-        return coupon;
+    public String getPromoCode() {
+        return promoCode;
     }
 
-    public void setCoupon(String coupon) {
-        this.coupon = coupon;
+    public void setPromoCode(String promoCode) {
+        this.promoCode = promoCode;
     }
 }

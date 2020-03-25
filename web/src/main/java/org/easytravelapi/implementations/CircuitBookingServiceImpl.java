@@ -44,16 +44,16 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             a.setDescription("Visita las principales ciudades japonesas y conoce su cultura");
             a.setImage("http://bookingfaxnavia.com/catalogo/ambassadortours/2018/10/1560/page1.jpg");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOffer(true);
-            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setBeforeOffer(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOfferText(" offer");
 
         }
@@ -67,14 +67,14 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             a.setDescription("Conoce la India desde dentro con verdaderos expertos");
             a.setImage("http://bookingfaxnavia.com/catalogo/dimensionesclub/2018/04/1516/page1.jpg");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
 
@@ -87,16 +87,16 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             a.setDescription("Los mejores cruceros fluviales por Europa");
             a.setImage("http://bookingfaxnavia.com/catalogo/politours/2017/11/1428/page1.jpg");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOffer(true);
-            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setBeforeOffer(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOfferText(" offer");
         }
         {
@@ -108,14 +108,14 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             a.setDescription("Visita las principales ciudades japonesas y conoce su cultura");
             a.setImage("http://bookingfaxnavia.com/catalogo/ambassadortours/2018/10/1560/page1.jpg");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
 
         }
 
@@ -128,14 +128,14 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             a.setDescription("Conoce la India desde dentro con verdaderos expertos");
             a.setImage("http://bookingfaxnavia.com/catalogo/dimensionesclub/2018/04/1516/page1.jpg");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
 
@@ -148,14 +148,14 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             a.setDescription("Los mejores cruceros fluviales por Europa");
             a.setImage("http://bookingfaxnavia.com/catalogo/politours/2017/11/1428/page1.jpg");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
         }
 
 
@@ -181,8 +181,8 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             av.setKey("23");
             av.setName("Variante 1");
             av.setDescription("Descripción de la variante 1");
-            av.setBestDeal(new BestDeal());
-            av.getBestDeal().setRetailPrice(new Amount("EUR", 200.34));
+            av.setBestDeal(new Price());
+            av.getBestDeal().setRetail(new Amount("EUR", 200.34));
 
 
         } catch (Throwable e) {
@@ -306,25 +306,18 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             r.setText("Have a nice day");
         }
         {
-            BestDeal tot;
-            rs.setTotal(tot = new BestDeal());
+            Price tot;
+            rs.setTotal(tot = new Price());
             {
                 Amount a;
-                tot.setRetailPrice(a = new Amount());
+                tot.setRetail(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(1500.32);
             }
 
             {
                 Amount a;
-                tot.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(250.31);
-            }
-
-            {
-                Amount a;
-                tot.setNetPrice(a = new Amount());
+                tot.setNet(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(1250.01);
             }
@@ -484,14 +477,14 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             a.setDescription("Visita las principales ciudades japonesas y conoce su cultura");
             a.setImage("http://bookingfaxnavia.com/catalogo/ambassadortours/2018/10/1560/page1.jpg");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
 
 
         }
@@ -505,16 +498,16 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             a.setDescription("Conoce la India desde dentro con verdaderos expertos");
             a.setImage("http://bookingfaxnavia.com/catalogo/dimensionesclub/2018/04/1516/page1.jpg");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOffer(true);
-            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setBeforeOffer(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOfferText("Special Offer ");
 
         }
@@ -529,16 +522,16 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
             a.setDescription("Los mejores cruceros fluviales por Europa");
             a.setImage("http://bookingfaxnavia.com/catalogo/politours/2017/11/1428/page1.jpg");
 
-            BestDeal bd;
-            a.setBestDeal(bd = new BestDeal());
+            Price bd;
+            a.setBestDeal(bd = new Price());
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNetPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOffer(true);
-            bd.setBeforeOfferPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setBeforeOffer(new Amount("EUR", Math.round(rp * 85) / 100));
             bd.setOfferText("Special offer for this activity");
 
         }

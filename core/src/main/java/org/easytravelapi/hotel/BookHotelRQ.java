@@ -30,6 +30,7 @@ public class BookHotelRQ extends GetHotelPriceDetailsRQ {
     @ApiModelProperty(value = "Token for server validation captcha")
     private String captchaToken;
 
+    @ApiModelProperty(value = "Set to true if the customer does not want to receive publicity and info emails")
     private boolean mailingUnwanted;
 
     public static BookHotelRQ fromString(String json) {

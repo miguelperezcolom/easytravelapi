@@ -1,17 +1,23 @@
 package org.easytravelapi.hotel;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class PaxDetails {
-    private String name;
+    @ApiModelProperty(value = "Passenger first name")
+    private String firstName;
+    @ApiModelProperty(value = "Passenger surname")
     private String surname;
+    @ApiModelProperty(value = "Passenger age")
     private int age ;
+    @ApiModelProperty(value = "Passenger type. Possible values are: AD for adult and CH for child")
     private String type;
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getSurname() {

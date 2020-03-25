@@ -2,7 +2,6 @@ package org.easytravelapi.implementations;
 
 import org.easytravelapi.HotelBookingService;
 import org.easytravelapi.circuit.Label;
-import org.easytravelapi.common.Supplement;
 import org.easytravelapi.common.*;
 import org.easytravelapi.hotel.*;
 
@@ -67,20 +66,20 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             h.setLatitude( "39.6"+ (i%5) + "59261");
             h.setLongitude("2.6"+ (i%5) + "556");
             h.setMainImage("https://hi-cdn.t-rp.co.uk/images/hotels/225146/" + i%9 +"?width=870&height=480&crop=false");
-            BestDeal bd;
-            h.setBestDeal(bd = new BestDeal());
+            Price bd;
+            h.setBestDeal(bd = new Price());
             System.out.println(i%4);
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             if (i%4 ==0){
                 bd.setOffer(true);
                 bd.setOfferText("30% Descuento al contratar mas de 3 días en temporada baja, habitación doble");
-                bd.setBeforeOfferPrice(new Amount("EUR", rp + 100));
+                bd.setBeforeOffer(new Amount("EUR", rp + 100));
             }
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setRetailPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setRetail(new Amount("EUR", Math.round(rp * 85) / 100));
 
 
         }
@@ -297,8 +296,8 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         }
 
 
-        if(rq.getCoupon() != null && rq.getCoupon() != ""){
-            if (rq.getCoupon().length() > 5)
+        if(rq.getPromoCode() != null && rq.getPromoCode() != ""){
+            if (rq.getPromoCode().length() > 5)
             {
 
 
@@ -333,7 +332,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             }
             }
             else{
-                rs.setCouponMsg("Cupon no válido");
+                rs.setPromoCodeMsg("Cupon no válido");
             }
         }
         for (Stay stay : rq.getStays()) if(stay.getSupplements() != null && stay.getSupplements() != "") {
@@ -435,25 +434,18 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
         }
         {
-            BestDeal tot;
-            rs.setTotal(tot = new BestDeal());
+            Price tot;
+            rs.setTotal(tot = new Price());
             {
                 Amount a;
-                tot.setRetailPrice(a = new Amount());
+                tot.setRetail(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(1500.64);
             }
 
             {
                 Amount a;
-                tot.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(250.31);
-            }
-
-            {
-                Amount a;
-                tot.setNetPrice(a = new Amount());
+                tot.setNet(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(1250.01);
             }
@@ -524,7 +516,8 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             rs.getRemarks().add(r = new Remark());
             r.setType("WARNING");
             r.setText("You will have to pay 3 euros per pax and night for the Ecotasa local tax in any hotel at Illes Balears.");
-        }        {
+        }
+        {
             Remark r;
             rs.getRemarks().add(r = new Remark());
             r.setType("INFO");
@@ -606,17 +599,17 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             h.setLatitude( "39.6"+ (i%5) + "59261");
             h.setLongitude("2.6"+ (i%5) + "556");
             h.setMainImage("https://hi-cdn.t-rp.co.uk/images/hotels/225146/" + i%9 +"?width=870&height=480&crop=false");
-            BestDeal bd;
-            h.setBestDeal(bd = new BestDeal());
+            Price bd;
+            h.setBestDeal(bd = new Price());
             System.out.println(i%4);
             if (i%4 ==0){
                 bd.setOffer(true);
             }
             double rp;
             double x = r.nextDouble();
-            bd.setRetailPrice(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setRetailPrice(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setRetail(new Amount("EUR", Math.round(rp * 85) / 100));
 
 
 

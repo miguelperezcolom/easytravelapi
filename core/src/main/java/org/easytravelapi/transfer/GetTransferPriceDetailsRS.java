@@ -16,7 +16,7 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
 
     private List<PriceLine> priceLines = new ArrayList<>();
 
-    private BestDeal total;
+    private Price total;
 
     private List<Supplement> supplements = new ArrayList<>();
 
@@ -65,11 +65,11 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
         this.priceLines = priceLines;
     }
 
-    public BestDeal getTotal() {
+    public Price getTotal() {
         return total;
     }
 
-    public void setTotal(BestDeal total) {
+    public void setTotal(Price total) {
         this.total = total;
     }
 

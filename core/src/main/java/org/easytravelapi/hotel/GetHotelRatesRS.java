@@ -13,7 +13,7 @@ import java.util.List;
 @ApiModel(description = "Container for the getavailability response")
 public class GetHotelRatesRS extends AbstractRS {
 
-    @ApiModelProperty(value = "List of available hotels, including prices")
+    @ApiModelProperty(value = "List of occupancies with available rates and supplements")
     private List<Allocation> rates = new ArrayList<Allocation>();
 
     public List<Allocation> getRates() {

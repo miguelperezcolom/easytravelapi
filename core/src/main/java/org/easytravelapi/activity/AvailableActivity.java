@@ -3,7 +3,7 @@ package org.easytravelapi.activity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.circuit.Label;
-import org.easytravelapi.common.BestDeal;
+import org.easytravelapi.common.Price;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class AvailableActivity {
     @ApiModelProperty(value = "The main image for this activity")
     private String image;
 
-    private BestDeal bestDeal;
+    private Price bestDeal;
 
     private List<Label> labels = new ArrayList<>();
 
@@ -59,11 +59,11 @@ public class AvailableActivity {
         this.image = image;
     }
 
-    public BestDeal getBestDeal() {
+    public Price getBestDeal() {
         return bestDeal;
     }
 
-    public void setBestDeal(BestDeal bestDeal) {
+    public void setBestDeal(Price bestDeal) {
         this.bestDeal = bestDeal;
     }
 

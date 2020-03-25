@@ -1,6 +1,6 @@
 package org.easytravelapi.generic;
 
-import org.easytravelapi.common.BestDeal;
+import org.easytravelapi.common.Price;
 
 public class GenericVariant {
 
@@ -10,7 +10,7 @@ public class GenericVariant {
 
     private String description;
 
-    private BestDeal bestDeal;
+    private Price bestDeal;
 
     private String pricePer;
 
@@ -38,11 +38,11 @@ public class GenericVariant {
         this.description = description;
     }
 
-    public BestDeal getBestDeal() {
+    public Price getBestDeal() {
         return bestDeal;
     }
 
-    public void setBestDeal(BestDeal bestDeal) {
+    public void setBestDeal(Price bestDeal) {
         this.bestDeal = bestDeal;
     }
 

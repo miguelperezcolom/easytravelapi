@@ -1,6 +1,6 @@
 package org.easytravelapi.circuit;
 
-import org.easytravelapi.common.BestDeal;
+import org.easytravelapi.common.Price;
 
 public class Variant {
 
@@ -12,7 +12,7 @@ public class Variant {
 
     private String pricePer;
 
-    private BestDeal price;
+    private Price price;
 
 
     public String getId() {
@@ -40,11 +40,11 @@ public class Variant {
     }
 
 
-    public BestDeal getPrice() {
+    public Price getPrice() {
         return price;
     }
 
-    public void setPrice(BestDeal price) {
+    public void setPrice(Price price) {
         this.price = price;
     }
 

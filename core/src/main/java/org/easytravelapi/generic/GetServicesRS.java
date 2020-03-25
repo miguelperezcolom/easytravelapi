@@ -3,7 +3,6 @@ package org.easytravelapi.generic;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.AbstractRS;
-import org.easytravelapi.common.BestDeal;
 import org.easytravelapi.util.Helper;
 
 import java.util.ArrayList;

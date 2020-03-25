@@ -2,7 +2,7 @@ package org.easytravelapi.hotel;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.easytravelapi.common.BestDeal;
+import org.easytravelapi.common.Price;
 
 /**
  * Created by miguel on 26/7/17.
@@ -30,7 +30,7 @@ public class AvailableHotel {
     @ApiModelProperty(value = "Google latitude")
     private String latitude;
     @ApiModelProperty(value = "Best available rate. E.g. 153.45 EUR. NOTAVAILABLE when this hotel is not available.")
-    private BestDeal bestDeal;
+    private Price bestDeal;
 
     @ApiModelProperty(value = "The hotel address.")
     private String address;
@@ -87,11 +87,11 @@ public class AvailableHotel {
         this.latitude = latitude;
     }
 
-    public BestDeal getBestDeal() {
+    public Price getBestDeal() {
         return bestDeal;
     }
 
-    public void setBestDeal(BestDeal bestDeal) {
+    public void setBestDeal(Price bestDeal) {
         this.bestDeal = bestDeal;
     }
 
