@@ -1,28 +1,17 @@
 package org.easytravelapi.common;
 
-import org.easytravelapi.common.Amount;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+@ApiModel("holder for a price detail line")
 public class PriceLine {
 
-    private String id;
-
+    @ApiModelProperty("Price line description")
     private String description;
 
-    private Amount retailPrice;
+    @ApiModelProperty("Price line total")
+    private Amount total;
 
-    private Amount commission;
-
-    private Amount netPrice;
-
-    private String type;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getDescription() {
         return description;
@@ -32,31 +21,11 @@ public class PriceLine {
         this.description = description;
     }
 
-    public Amount getRetailPrice() {
-        return retailPrice;
+    public Amount getTotal() {
+        return total;
     }
 
-    public void setRetailPrice(Amount retailPrice) {
-        this.retailPrice = retailPrice;
+    public void setTotal(Amount total) {
+        this.total = total;
     }
-
-    public Amount getCommission() {
-        return commission;
-    }
-
-    public void setCommission(Amount commission) {
-        this.commission = commission;
-    }
-
-    public Amount getNetPrice() {
-        return netPrice;
-    }
-
-    public void setNetPrice(Amount netPrice) {
-        this.netPrice = netPrice;
-    }
-
-    public String getType() { return type; }
-
-    public void setType(String type) { this.type = type; }
 }

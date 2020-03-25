@@ -268,26 +268,11 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             rs.getPriceLines().add(pc = new PriceLine());
             {
                 Amount a;
-                pc.setRetailPrice(a = new Amount());
+                pc.setTotal(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(1500.32);
             }
 
-            {
-                Amount a;
-                pc.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(250.31);
-            }
-
-            {
-                Amount a;
-                pc.setNetPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1250.01);
-            }
-
-            pc.setType("AT_WEB");
             pc.setDescription("detailed price");
 
 
@@ -326,26 +311,11 @@ public class TransferBookingServiceImpl implements TransferBookingService {
                 rs.getPriceLines().add(pc = new PriceLine());
                 {
                     Amount a;
-                    pc.setRetailPrice(a = new Amount());
+                    pc.setTotal(a = new Amount());
                     a.setCurrencyIsoCode("EUR");
                     a.setValue(-750.16);
                 }
 
-                {
-                    Amount a;
-                    pc.setCommission(a = new Amount());
-                    a.setCurrencyIsoCode("EUR");
-                    a.setValue(250.31);
-                }
-
-                {
-                    Amount a;
-                    pc.setNetPrice(a = new Amount());
-                    a.setCurrencyIsoCode("EUR");
-                    a.setValue(1250.01);
-                }
-
-                pc.setType("AT_WEB");
                 pc.setDescription("Coupon discount 50%");
 
 

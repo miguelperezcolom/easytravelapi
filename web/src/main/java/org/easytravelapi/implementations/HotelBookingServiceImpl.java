@@ -270,29 +270,12 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             rs.getPrices().add(pc = new PriceLine());
             {
                 Amount a;
-                pc.setRetailPrice(a = new Amount());
+                pc.setTotal(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(600.00);
             }
 
-            {
-                Amount a;
-                pc.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(250.31);
-            }
-
-            {
-                Amount a;
-                pc.setNetPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1250.01);
-            }
-
-                pc.setType("AT_WEB");
-                pc.setDescription("Room double Standard");
-
-
+            pc.setDescription("Room double Standard");
         }
 
 
@@ -306,28 +289,12 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 rs.getPrices().add(pc = new PriceLine());
                 {
                     Amount a;
-                    pc.setRetailPrice(a = new Amount());
+                    pc.setTotal(a = new Amount());
                     a.setCurrencyIsoCode("EUR");
                     a.setValue(-750.16);
                 }
 
-                {
-                    Amount a;
-                    pc.setCommission(a = new Amount());
-                    a.setCurrencyIsoCode("EUR");
-                    a.setValue(250.31);
-                }
-
-                {
-                    Amount a;
-                    pc.setNetPrice(a = new Amount());
-                    a.setCurrencyIsoCode("EUR");
-                    a.setValue(1250.01);
-                }
-
-                pc.setType("AT_WEB");
                 pc.setDescription("Coupon discount 50%");
-
 
             }
             }
@@ -350,26 +317,11 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 rs.getPrices().add(pc = new PriceLine());
                 {
                     Amount a;
-                    pc.setRetailPrice(a = new Amount());
+                    pc.setTotal(a = new Amount());
                     a.setCurrencyIsoCode("EUR");
                     a.setValue(-750.16);
                 }
 
-                {
-                    Amount a;
-                    pc.setCommission(a = new Amount());
-                    a.setCurrencyIsoCode("EUR");
-                    a.setValue(250.31);
-                }
-
-                {
-                    Amount a;
-                    pc.setNetPrice(a = new Amount());
-                    a.setCurrencyIsoCode("EUR");
-                    a.setValue(1250.01);
-                }
-
-                pc.setType("AT_WEB");
                 pc.setDescription(parts2[1] + " x suplemento " + parts2[0]);
 
 
@@ -380,26 +332,11 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             rs.getPrices().add(pc = new PriceLine());
             {
                 Amount a;
-                pc.setRetailPrice(a = new Amount());
+                pc.setTotal(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(300.32);
             }
 
-            {
-                Amount a;
-                pc.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(250.31);
-            }
-
-            {
-                Amount a;
-                pc.setNetPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1250.01);
-            }
-
-            pc.setType("AT_WEB");
             pc.setDescription("Taxes");
 
 
@@ -409,26 +346,11 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             rs.getPrices().add(pc = new PriceLine());
             {
                 Amount a;
-                pc.setRetailPrice(a = new Amount());
+                pc.setTotal(a = new Amount());
                 a.setCurrencyIsoCode("EUR");
                 a.setValue(600.32);
             }
 
-            {
-                Amount a;
-                pc.setCommission(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(250.31);
-            }
-
-            {
-                Amount a;
-                pc.setNetPrice(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1250.01);
-            }
-
-            pc.setType("AT_WEB");
             pc.setDescription("Supplements ");
 
 
