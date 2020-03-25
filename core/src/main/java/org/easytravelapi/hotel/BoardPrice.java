@@ -14,9 +14,6 @@ import java.util.List;
 @ApiModel(description = "An availabe board basis and its price")
 public class BoardPrice {
 
-    @ApiModelProperty(value = "Identifier for this room combination and board basis. You will use it in next steps")
-    private String key;
-
     @ApiModelProperty(value = "Board basis id")
     private String boardBasisId;
     @ApiModelProperty(value = "Board basis name")
@@ -43,14 +40,14 @@ public class BoardPrice {
     @ApiModelProperty(value = "A flag to state that this price is not refundable. No cancellation is allowed")
     private boolean nonRefundable;
 
-    private String contractId;
+    private String rateId;
 
-    public String getContractId() {
-        return contractId;
+    public String getRateId() {
+        return rateId;
     }
 
-    public void setContractId(String contractId) {
-        this.contractId = contractId;
+    public void setRateId(String rateId) {
+        this.rateId = rateId;
     }
 
     public String getRateClass() {
@@ -67,14 +64,6 @@ public class BoardPrice {
 
     public void setPaymentLines(List<PaymentLine> paymentLines) {
         this.paymentLines = paymentLines;
-    }
-
-    public String getKey() {
-        return key;
-    }
-
-    public void setKey(String key) {
-        this.key = key;
     }
 
     public String getBoardBasisId() {

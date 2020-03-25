@@ -38,9 +38,6 @@ public class AvailableHotel {
     @ApiModelProperty(value = "Main image from hotel.")
     private String mainImage;
 
-    @ApiModelProperty(value = "Key for using in next step (get hotel rates)")
-    private String hotelKey;
-
 
     public String getHotelId() {
         return hotelId;
@@ -96,14 +93,6 @@ public class AvailableHotel {
 
     public void setBestDeal(BestDeal bestDeal) {
         this.bestDeal = bestDeal;
-    }
-
-    public String getHotelKey() {
-        return hotelKey;
-    }
-
-    public void setHotelKey(String hotelKey) {
-        this.hotelKey = hotelKey;
     }
 
     public String getMainImage() { return mainImage; }

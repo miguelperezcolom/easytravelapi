@@ -1,11 +1,17 @@
 package org.easytravelapi.hotel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GetHotelPriceDetailsRQ {
 
     private String language;
-    private String ratekeys;
+    private String hotelId;
+    private int checkin;
+    private int checkout;
+    public List<Stay> stays = new ArrayList<Stay>();
     private String coupon;
-    private String selectedServices;
+
 
     public String getLanguage() {
         return language;
@@ -15,15 +21,43 @@ public class GetHotelPriceDetailsRQ {
         this.language = language;
     }
 
-    public String getRatekeys() { return ratekeys; }
+    public String getHotelId() {
+        return hotelId;
+    }
 
-    public void setRatekeys(String ratekeys) { this.ratekeys = ratekeys; }
+    public void setHotelId(String hotelId) {
+        this.hotelId = hotelId;
+    }
 
-    public String getCoupon() { return coupon; }
+    public int getCheckin() {
+        return checkin;
+    }
 
-    public void setCoupon(String coupon) { this.coupon = coupon; }
+    public void setCheckin(int checkin) {
+        this.checkin = checkin;
+    }
 
-    public String getSelectedServices() { return selectedServices; }
+    public int getCheckout() {
+        return checkout;
+    }
 
-    public void setSelectedServices(String selectedServices) { this.selectedServices = selectedServices; }
+    public void setCheckout(int checkout) {
+        this.checkout = checkout;
+    }
+
+    public List<Stay> getStays() {
+        return stays;
+    }
+
+    public void setStays(List<Stay> stays) {
+        this.stays = stays;
+    }
+
+    public String getCoupon() {
+        return coupon;
+    }
+
+    public void setCoupon(String coupon) {
+        this.coupon = coupon;
+    }
 }

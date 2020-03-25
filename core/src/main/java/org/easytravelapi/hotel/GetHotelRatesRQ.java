@@ -6,7 +6,6 @@ public class GetHotelRatesRQ {
     @ApiModelProperty(value = "Key for using in next step (get hotel rates)")
     private String language;
     private String hotelId;
-    private String hotelKey;
     private int checkin;
     private int checkout;
     private String occupancies;
@@ -49,13 +48,5 @@ public class GetHotelRatesRQ {
 
     public void setOccupancies(String occupancies) {
         this.occupancies = occupancies;
-    }
-
-    public String getHotelKey() {
-        return hotelKey;
-    }
-
-    public void setHotelKey(String hotelKey) {
-        this.hotelKey = hotelKey;
     }
 }

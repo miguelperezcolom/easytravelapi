@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookingKey {
+public class Stay {
     private List<PaxDetails> occupancy  = new ArrayList<>();
     private int roomId;
     private String rateKey;

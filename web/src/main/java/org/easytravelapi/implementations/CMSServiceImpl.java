@@ -5,6 +5,11 @@ import org.easytravelapi.cms.*;
 
 public class CMSServiceImpl implements CMSService {
     @Override
+    public GetInitialConfigRS getInitialConfig(String token) throws Throwable {
+        return null;
+    }
+
+    @Override
     public GetHotelAvailabilityCalendarRS getHotelAvailabilityCalendar(String token, String resorts, int checkIn, int checkout, String occupancies) throws Throwable {
         GetHotelAvailabilityCalendarRS cal = new GetHotelAvailabilityCalendarRS();
 

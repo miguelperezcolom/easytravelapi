@@ -59,8 +59,6 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             h.setHotelId("hot_" + i);
             h.setHotelName("Hotel " + nombres[i % nombres.length] + " " + i);
 
-            h.setHotelKey("ied987yde9h29deb238eyb2389ev239evt2ed76f1329d");
-
             h.setHotelCategoryId("4s");
             h.setHotelCategoryName("****");
 
@@ -99,7 +97,6 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
         rs.setMsg("4 rates returned. It took 15 ms in the server.");
-        rs.setNewHotelkey( "newkey" + ratesRQ.getCheckin() + ratesRQ.getCheckout());
 
 
         {
@@ -117,7 +114,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732A");
+                p.setRateId("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732A");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
@@ -128,7 +125,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
+                p.setRateId("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
@@ -151,7 +148,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
+                p.setRateId("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
@@ -162,7 +159,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFET");
+                p.setRateId("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFET");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
@@ -195,7 +192,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED7327321");
+                p.setRateId("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED7327321");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
@@ -206,7 +203,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFE2");
+                p.setRateId("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFE2");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
@@ -229,7 +226,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED7327323");
+                p.setRateId("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED7327323");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
                 Amount n;
@@ -240,7 +237,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 BoardPrice p;
                 o.getPrices().add(p = new BoardPrice());
-                p.setKey("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFE4");
+                p.setRateId("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFE4");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
                 Amount n;
@@ -339,13 +336,11 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 rs.setCouponMsg("Cupon no válido");
             }
         }
-        if(rq.getSelectedServices() != null && rq.getSelectedServices() != "") {
-
-
+        for (Stay stay : rq.getStays()) if(stay.getSupplements() != null && stay.getSupplements() != "") {
             {
 
-                String[] parts = rq.getSelectedServices().split(",");
-                System.out.println(rq.getSelectedServices());
+                String[] parts = stay.getSupplements().split(",");
+                System.out.println(stay.getSupplements());
                 System.out.println(parts.length);
                 System.out.println(parts);
                 String[] parts2 = parts[0].split("-");
@@ -602,8 +597,6 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
             h.setHotelId("hot_" + i);
             h.setHotelName("Hotel " + nombres[i % nombres.length] + " " + i);
-
-            h.setHotelKey("ied987yde9h29deb238eyb2389ev239evt2ed76f1329d");
 
             h.setHotelCategoryId("4s");
             h.setHotelCategoryName("****");
