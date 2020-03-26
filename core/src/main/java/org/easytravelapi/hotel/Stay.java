@@ -9,8 +9,8 @@ import java.util.List;
 
 @ApiModel(description = "One instance for each occupancy (number of rooms - pax - ages)")
 public class Stay {
-    @ApiModelProperty(value = "List comma separated list of occupancies you need in <nr of rooms>x<pax>[-<age>]* format. E.g.: 2x4-10-6-2,1x2 means 2 rooms occupied by 4 pax where 3 of them are 10, 6 and 2 years old and 1 room occupied by 2 pax")
-    private String occupancies;
+    @ApiModelProperty(value = "Occupancy you need in <nr of rooms>x<pax>[-<age>]* format. E.g.: 2x4-10-6-2 2 rooms occupied by 4 pax where 3 of them are 10, 6 and 2 years old")
+    private String occupancy;
     @ApiModelProperty(value = "Desired room id")
     private String roomId;
     @ApiModelProperty(value = "Desired board id")
@@ -22,12 +22,12 @@ public class Stay {
     @ApiModelProperty(value = "Passengers info. Applies only when confirming")
     private List<PaxDetails> pax  = new ArrayList<>();
 
-    public String getOccupancies() {
-        return occupancies;
+    public String getOccupancy() {
+        return occupancy;
     }
 
-    public void setOccupancies(String occupancies) {
-        this.occupancies = occupancies;
+    public void setOccupancy(String occupancy) {
+        this.occupancy = occupancy;
     }
 
     public String getRoomId() {

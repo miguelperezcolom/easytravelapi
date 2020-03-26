@@ -31,9 +31,6 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Remarks which should be visible for the customer")
     private List<Remark> remarks = new ArrayList<Remark>();
 
-    @ApiModelProperty(value = "RateKey and occupation for each selected option")
-    private List<RateKey> rateKeys = new ArrayList<RateKey>();
-
     @ApiModelProperty(value = "Detailed Payment lines")
     private List<PaymentLine> paymentLines = new ArrayList<PaymentLine>();
 
@@ -95,13 +92,6 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
         this.remarks = remarks;
     }
 
-    public List<RateKey> getRateKeys() {
-        return rateKeys;
-    }
-
-    public void setRateKeys(List<RateKey> rateKeys) {
-        this.rateKeys = rateKeys;
-    }
 
     public List<PaymentLine> getPaymentLines() {
         return paymentLines;

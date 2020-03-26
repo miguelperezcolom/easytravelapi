@@ -446,23 +446,6 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             r.setText("Reception closed at night hours.");
         }
 
-        {
-            RateKey rk;
-            rs.getRateKeys().add(rk = new RateKey());
-            rk.setRequestPaymentData(true);
-            rk.setRoomName("DBL STANDART");
-            rk.setPaxPerRoom(2);
-            Service s ;
-            rk.getAvailableServices().add(s = new Service());
-            s.setId("1");
-            s.setDescription("suplemento 1");
-            Amount a ;
-            s.setRetailPrice(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(20d);
-            rk.setKey("xxx");
-        }
-
         rs.setTerms("<span>He leído y acepto los <a href=\"http://google.es\"> terminos y condiciones de uso</a></span > ");
         return rs;
     }
