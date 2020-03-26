@@ -3,7 +3,7 @@ package org.easytravelapi.hotel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(value = "Rq to get available hotel rates for each occupancy")
+@ApiModel(description = "Rq to get available hotel rates for each occupancy")
 public class GetHotelRatesRQ {
     @ApiModelProperty(value = "2 char language iso code")
     private String language;

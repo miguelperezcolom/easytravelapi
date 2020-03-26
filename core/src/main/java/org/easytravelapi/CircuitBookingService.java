@@ -43,7 +43,7 @@ public interface CircuitBookingService {
 
     @GET
     @Path("/check/{key}")
-    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
+    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info", nickname = "checkCircuit")
     public CheckCircuitRS check(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")

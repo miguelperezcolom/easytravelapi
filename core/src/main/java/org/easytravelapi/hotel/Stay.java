@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@ApiModel(value = "One instance for each occupancy (number of rooms - pax - ages)")
+@ApiModel(description = "One instance for each occupancy (number of rooms - pax - ages)")
 public class Stay {
     @ApiModelProperty(value = "List comma separated list of occupancies you need in <nr of rooms>x<pax>[-<age>]* format. E.g.: 2x4-10-6-2,1x2 means 2 rooms occupied by 4 pax where 3 of them are 10, 6 and 2 years old and 1 room occupied by 2 pax")
     private String occupancies;

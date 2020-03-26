@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
-@ApiModel(value = "Rq to get hotel price details")
+@ApiModel(description = "Rq to get hotel price details")
 public class GetHotelPriceDetailsRQ {
 
     @ApiModelProperty(value = "2 char language iso code")
