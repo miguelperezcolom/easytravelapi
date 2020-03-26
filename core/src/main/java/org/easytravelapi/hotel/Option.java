@@ -22,7 +22,7 @@ public class Option {
     private String image;
 
     @ApiModelProperty(value = "List of available board basis and prices for each board")
-    private List<BoardPrice> prices = new ArrayList<BoardPrice>();
+    private List<OptionBoardPrice> prices = new ArrayList<OptionBoardPrice>();
 
     @ApiModelProperty(value = "Number of available rooms. Check if you plan to use the same room several times")
     private int allotment;
@@ -59,11 +59,11 @@ public class Option {
         this.image = image;
     }
 
-    public List<BoardPrice> getPrices() {
+    public List<OptionBoardPrice> getPrices() {
         return prices;
     }
 
-    public void setPrices(List<BoardPrice> prices) {
+    public void setPrices(List<OptionBoardPrice> prices) {
         this.prices = prices;
     }
 

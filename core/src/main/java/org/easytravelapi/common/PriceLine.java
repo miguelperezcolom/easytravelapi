@@ -10,7 +10,7 @@ public class PriceLine {
     private String description;
 
     @ApiModelProperty("Price line total")
-    private Amount total;
+    private double total;
 
 
     public String getDescription() {
@@ -21,11 +21,11 @@ public class PriceLine {
         this.description = description;
     }
 
-    public Amount getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(Amount total) {
+    public void setTotal(double total) {
         this.total = total;
     }
 }

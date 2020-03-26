@@ -6,30 +6,41 @@ import io.swagger.annotations.ApiModelProperty;
 @ApiModel(description = "Holder for price")
 public class Price {
 
+    @ApiModelProperty(value = "Currency iso code for all prices")
+    private String currencyIsoCode;
+
     @ApiModelProperty(value = "Retail price")
-    private Amount retail;
+    private double retail;
     @ApiModelProperty(value = "Net price")
-    private Amount net;
+    private double net;
     @ApiModelProperty(value = "True if this an offer price")
     private boolean offer;
     @ApiModelProperty(value = "Offer title, if available")
     private String offerText;
     @ApiModelProperty(value = "Price before offer. Applies to retail price if present")
-    private Amount beforeOffer;
+    private double beforeOffer;
 
-    public Amount getRetail() {
+    public String getCurrencyIsoCode() {
+        return currencyIsoCode;
+    }
+
+    public void setCurrencyIsoCode(String currencyIsoCode) {
+        this.currencyIsoCode = currencyIsoCode;
+    }
+
+    public double getRetail() {
         return retail;
     }
 
-    public void setRetail(Amount retail) {
+    public void setRetail(double retail) {
         this.retail = retail;
     }
 
-    public Amount getNet() {
+    public double getNet() {
         return net;
     }
 
-    public void setNet(Amount net) {
+    public void setNet(double net) {
         this.net = net;
     }
 
@@ -49,11 +60,11 @@ public class Price {
         this.offerText = offerText;
     }
 
-    public Amount getBeforeOffer() {
+    public double getBeforeOffer() {
         return beforeOffer;
     }
 
-    public void setBeforeOffer(Amount beforeOffer) {
+    public void setBeforeOffer(double beforeOffer) {
         this.beforeOffer = beforeOffer;
     }
 }

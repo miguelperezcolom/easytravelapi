@@ -4,10 +4,12 @@ import org.easytravelapi.HotelBookingService;
 import org.easytravelapi.circuit.Label;
 import org.easytravelapi.common.*;
 import org.easytravelapi.hotel.*;
+import org.easytravelapi.hotel.Supplement;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -72,14 +74,15 @@ public class HotelBookingServiceImpl implements HotelBookingService {
 
             double rp;
             double x = r.nextDouble();
-            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setCurrencyIsoCode("EUR");
+            bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             if (i%4 ==0){
                 bd.setOffer(true);
                 bd.setOfferText("30% Descuento al contratar mas de 3 días en temporada baja, habitación doble");
-                bd.setBeforeOffer(new Amount("EUR", rp + 100));
+                bd.setBeforeOffer(rp + 100);
             }
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setRetail(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(Math.round(rp * 85) / 100);
 
 
         }
@@ -97,6 +100,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         rs.setStatusCode(200);
         rs.setMsg("4 rates returned. It took 15 ms in the server.");
 
+        rs.setCurrencyIsoCode("EUR");
 
         {
             Allocation a;
@@ -111,26 +115,20 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             a.setNumberOfRooms(1);
             a.setPaxPerRoom(2);
             {
-                BoardPrice p;
-                o.getPrices().add(p = new BoardPrice());
+                OptionBoardPrice p;
+                o.getPrices().add(p = new OptionBoardPrice());
                 p.setRateId("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732A");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
-                Amount n;
-                p.setRetailPrice(n = new Amount());
-                n.setCurrencyIsoCode("EUR");
-                n.setValue(200.35);
+                p.setRetailPrice(200.35);
             }
             {
-                BoardPrice p;
-                o.getPrices().add(p = new BoardPrice());
+                OptionBoardPrice p;
+                o.getPrices().add(p = new OptionBoardPrice());
                 p.setRateId("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFEW");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
-                Amount n;
-                p.setRetailPrice(n = new Amount());
-                n.setCurrencyIsoCode("EUR");
-                n.setValue(500.15);
+                p.setRetailPrice(500.15);
                 p.setOffer(true);
                 p.setOfferText("SPECIAL OFFER -30%");
                 p.setNonRefundable(true);
@@ -145,26 +143,20 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             a.setNumberOfRooms(1);
             a.setPaxPerRoom(2);
             {
-                BoardPrice p;
-                o.getPrices().add(p = new BoardPrice());
+                OptionBoardPrice p;
+                o.getPrices().add(p = new OptionBoardPrice());
                 p.setRateId("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED732732E");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
-                Amount n;
-                p.setRetailPrice(n = new Amount());
-                n.setCurrencyIsoCode("EUR");
-                n.setValue(230.35);
+                p.setRetailPrice(230.35);
             }
             {
-                BoardPrice p;
-                o.getPrices().add(p = new BoardPrice());
+                OptionBoardPrice p;
+                o.getPrices().add(p = new OptionBoardPrice());
                 p.setRateId("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFET");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
-                Amount n;
-                p.setRetailPrice(n = new Amount());
-                n.setCurrencyIsoCode("EUR");
-                n.setValue(610.15);
+                p.setRetailPrice(610.15);
                 p.setOffer(true);
                 p.setOfferText("SPECIAL OFFER -30%");
                 p.setOnRequest(true);
@@ -189,26 +181,20 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             a.setPaxPerRoom(3);
             a.setAges(new int[]{4});
             {
-                BoardPrice p;
-                o.getPrices().add(p = new BoardPrice());
+                OptionBoardPrice p;
+                o.getPrices().add(p = new OptionBoardPrice());
                 p.setRateId("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED7327321");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
-                Amount n;
-                p.setRetailPrice(n = new Amount());
-                n.setCurrencyIsoCode("EUR");
-                n.setValue(260.35);
+                p.setRetailPrice(260.35);
             }
             {
-                BoardPrice p;
-                o.getPrices().add(p = new BoardPrice());
+                OptionBoardPrice p;
+                o.getPrices().add(p = new OptionBoardPrice());
                 p.setRateId("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFE2");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
-                Amount n;
-                p.setRetailPrice(n = new Amount());
-                n.setCurrencyIsoCode("EUR");
-                n.setValue(570.15);
+                p.setRetailPrice(570.15);
                 p.setOffer(true);
                 p.setOfferText("SPECIAL OFFER -30%");
                 p.setNonRefundable(true);
@@ -223,26 +209,20 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             a.setNumberOfRooms(1);
             a.setPaxPerRoom(2);
             {
-                BoardPrice p;
-                o.getPrices().add(p = new BoardPrice());
+                OptionBoardPrice p;
+                o.getPrices().add(p = new OptionBoardPrice());
                 p.setRateId("5454646546542ECXSAEWUOIDWOEIDGWEDBWIED7327323");
                 p.setBoardBasisId("HB");
                 p.setBoardBasisName("Half board");
-                Amount n;
-                p.setRetailPrice(n = new Amount());
-                n.setCurrencyIsoCode("EUR");
-                n.setValue(320.35);
+                p.setRetailPrice(320.35);
             }
             {
-                BoardPrice p;
-                o.getPrices().add(p = new BoardPrice());
+                OptionBoardPrice p;
+                o.getPrices().add(p = new OptionBoardPrice());
                 p.setRateId("87893723idcyw8723879NKHDKBQEWBDEQW92394023DWFE4");
                 p.setBoardBasisId("FB");
                 p.setBoardBasisName("Full board");
-                Amount n;
-                p.setRetailPrice(n = new Amount());
-                n.setCurrencyIsoCode("EUR");
-                n.setValue(1020.15);
+                p.setRetailPrice(1020.15);
                 p.setOffer(true);
                 p.setOfferText("SPECIAL OFFER -30%");
                 p.setNonRefundable(true);
@@ -265,14 +245,34 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         rs.setStatusCode(200);
         rs.setMsg("Price details");
 
+        rs.setCurrencyIsoCode("EUR");
+
+        if (rq.getStays() != null) for (Stay stay : rq.getStays()) {
+            PricedStay ps;
+            rs.getStays().add(ps = new PricedStay());
+            ps.setOccupancy(stay.getOccupancy());
+            ps.setRoomId(stay.getRoomId());
+            ps.setRoomName("Habitación doble");
+            ps.setBoardId(stay.getBoardId());
+            ps.setBoardName("Media pensión");
+            ps.setNetPrice(1232.32);
+            ps.setRetailPrice( 1524.12);
+            ps.setNonRefundable(true);
+            ps.setOffer(true);
+            ps.setOfferText("30% descuento");
+            ps.setOnRequest(false);
+            ps.setOnRequestText("");
+            ps.setPax(stay.getPax());
+            ps.setSupplements(stay.getSupplements());
+            ps.setRateId(stay.getRateId());
+            ps.setAvailableSupplements(List.of(new Supplement("324", "Vista mar", 234.21), new Supplement("546", "Desayuno continental", 456.22)));
+        }
+
         {
             PriceLine pc;
             rs.getPriceBreakdown().add(pc = new PriceLine());
             {
-                Amount a;
-                pc.setTotal(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(600.00);
+                pc.setTotal(600.00);
             }
 
             pc.setDescription("Room double Standard");
@@ -288,10 +288,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 PriceLine pc;
                 rs.getPriceBreakdown().add(pc = new PriceLine());
                 {
-                    Amount a;
-                    pc.setTotal(a = new Amount());
-                    a.setCurrencyIsoCode("EUR");
-                    a.setValue(-750.16);
+                    pc.setTotal(-750.16);
                 }
 
                 pc.setDescription("Coupon discount 50%");
@@ -316,10 +313,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 PriceLine pc;
                 rs.getPriceBreakdown().add(pc = new PriceLine());
                 {
-                    Amount a;
-                    pc.setTotal(a = new Amount());
-                    a.setCurrencyIsoCode("EUR");
-                    a.setValue(-750.16);
+                    pc.setTotal(-750.16);
                 }
 
                 pc.setDescription(parts2[1] + " x suplemento " + parts2[0]);
@@ -331,10 +325,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             PriceLine pc;
             rs.getPriceBreakdown().add(pc = new PriceLine());
             {
-                Amount a;
-                pc.setTotal(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(300.32);
+                pc.setTotal(300.32);
             }
 
             pc.setDescription("Taxes");
@@ -345,10 +336,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             PriceLine pc;
             rs.getPriceBreakdown().add(pc = new PriceLine());
             {
-                Amount a;
-                pc.setTotal(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(600.32);
+                pc.setTotal(600.32);
             }
 
             pc.setDescription("Supplements ");
@@ -359,17 +347,11 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             Price tot;
             rs.setTotal(tot = new Price());
             {
-                Amount a;
-                tot.setRetail(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1500.64);
+                tot.setRetail(1500.64);
             }
 
             {
-                Amount a;
-                tot.setNet(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1250.01);
+                tot.setNet(1250.01);
             }
 
 
@@ -513,10 +495,10 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             }
             double rp;
             double x = r.nextDouble();
-            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setRetail(new Amount("EUR", Math.round(rp * 85) / 100));
-
+            bd.setNet( Math.round(rp * 85) / 100);
+            bd.setCurrencyIsoCode("EUR");
 
 
         }

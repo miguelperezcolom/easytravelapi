@@ -16,8 +16,14 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Status. Possible values are OK and ON REQUEST")
     private String status;
 
+    @ApiModelProperty(value = "Currency iso code for all rates")
+    private String currencyIsoCode;
+
     @ApiModelProperty(value = "Total price")
     private Price total;
+
+    @ApiModelProperty(value = "List of stays (occupancies with desired room and board)")
+    public List<PricedStay> stays = new ArrayList<PricedStay>();
 
     @ApiModelProperty(value = "Price detail, in form of lines")
     private List<PriceLine> priceBreakdown = new ArrayList<PriceLine>();
@@ -43,6 +49,13 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Mailing unwanted text. For website usage only")
     private String mailingUnwantedText;
 
+    public String getCurrencyIsoCode() {
+        return currencyIsoCode;
+    }
+
+    public void setCurrencyIsoCode(String currencyIsoCode) {
+        this.currencyIsoCode = currencyIsoCode;
+    }
 
     public String getStatus() {
         return status;
@@ -58,6 +71,14 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
 
     public void setTotal(Price total) {
         this.total = total;
+    }
+
+    public List<PricedStay> getStays() {
+        return stays;
+    }
+
+    public void setStays(List<PricedStay> stays) {
+        this.stays = stays;
     }
 
     public List<PriceLine> getPriceBreakdown() {
@@ -91,7 +112,6 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     public void setRemarks(List<Remark> remarks) {
         this.remarks = remarks;
     }
-
 
     public List<PaymentLine> getPaymentLines() {
         return paymentLines;

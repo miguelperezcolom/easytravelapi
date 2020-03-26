@@ -3,7 +3,6 @@ package org.easytravelapi.hotel;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.common.Amount;
-import org.easytravelapi.common.PaymentLine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,7 @@ import java.util.List;
  * Created by miguel on 26/7/17.
  */
 @ApiModel(description = "An availabe board basis and its price")
-public class BoardPrice {
+public class OptionBoardPrice {
 
     @ApiModelProperty(value = "Board basis id")
     private String boardBasisId;
@@ -42,6 +41,7 @@ public class BoardPrice {
     private String rateId;
 
 
+
     public String getBoardBasisId() {
         return boardBasisId;
     }
@@ -58,21 +58,6 @@ public class BoardPrice {
         this.boardBasisName = boardBasisName;
     }
 
-    public double getRetailPrice() {
-        return retailPrice;
-    }
-
-    public void setRetailPrice(double retailPrice) {
-        this.retailPrice = retailPrice;
-    }
-
-    public double getNetPrice() {
-        return netPrice;
-    }
-
-    public void setNetPrice(double netPrice) {
-        this.netPrice = netPrice;
-    }
 
     public boolean isOffer() {
         return offer;
@@ -120,5 +105,21 @@ public class BoardPrice {
 
     public void setRateId(String rateId) {
         this.rateId = rateId;
+    }
+
+    public double getRetailPrice() {
+        return retailPrice;
+    }
+
+    public void setRetailPrice(double retailPrice) {
+        this.retailPrice = retailPrice;
+    }
+
+    public double getNetPrice() {
+        return netPrice;
+    }
+
+    public void setNetPrice(double netPrice) {
+        this.netPrice = netPrice;
     }
 }
