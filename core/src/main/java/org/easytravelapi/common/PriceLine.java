@@ -3,7 +3,7 @@ package org.easytravelapi.common;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel("holder for a price detail line")
+@ApiModel(description = "holder for a price detail line")
 public class PriceLine {
 
     @ApiModelProperty("Price line description")
