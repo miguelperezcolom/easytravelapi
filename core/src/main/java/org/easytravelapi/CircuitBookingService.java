@@ -32,7 +32,7 @@ public interface CircuitBookingService {
 
     @GET
     @Path("/rates/{key}")
-    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
+    @ApiOperation(value = "Get circuit rates", notes = "By passing a price key you get extra info")
     public GetCircuitRatesRS getCircuitRates(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The circuit price key, as provided in the /circuit/available step")
@@ -43,7 +43,7 @@ public interface CircuitBookingService {
 
     @GET
     @Path("/check/{key}")
-    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info", nickname = "checkCircuit")
+    @ApiOperation(value = "Check circuit availability", notes = "By passing a price key you get extra info", nickname = "checkCircuit")
     public CheckCircuitRS check(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
@@ -58,7 +58,7 @@ public interface CircuitBookingService {
 
     @GET
     @Path("/pricedetails/{key}")
-    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
+    @ApiOperation(value = "Get circuit price details", notes = "By passing a price key you get extra info")
     public GetCircuitPriceDetailsRS getCircuitPriceDetails(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The circuit price key, as provided in the /circuit/available step")
@@ -73,7 +73,7 @@ public interface CircuitBookingService {
 
     @PUT
     @Path("/booking")
-    @ApiOperation(value = "Book an circuit", notes = "Here you can confirm a circuit booking. You must provide a price key and some additional data (lead name, comments, ...)")
+    @ApiOperation(value = "Book a circuit", notes = "Here you can confirm a circuit booking. You must provide a price key and some additional data (lead name, comments, ...)")
     public BookCircuitRS bookCircuit(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             BookCircuitRQ rq

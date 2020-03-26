@@ -25,7 +25,7 @@ public interface HotelBookingService {
 
     @GET
     @Path("/available")
-    @ApiOperation(value = "Use this method to know which hotels are available and their prices")
+    @ApiOperation(value = "Get available hotels", notes = "Use this method to know which hotels are available and their prices")
     public GetAvailableHotelsRS getAvailableHotels(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "2 chars language iso code")
@@ -44,7 +44,7 @@ public interface HotelBookingService {
 
     @POST
     @Path("/rates")
-    @ApiOperation(value = "Use this method to get available room rates for a hotel")
+    @ApiOperation(value = "Get available hotel rates", notes = "Use this method to get available room rates for a hotel")
     public GetHotelRatesRS getRates(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "All the info needed to retrieve all available rates for a hotel and occupancies")GetHotelRatesRQ rq
@@ -52,7 +52,7 @@ public interface HotelBookingService {
 
     @POST
     @Path("/pricedetails")
-    @ApiOperation(value = "Use this methos to guess cancellation costs and important remarks regarding a price")
+    @ApiOperation(value = "Get hotel price details", notes = "Use this methos to guess cancellation costs and important remarks regarding a price")
     public GetHotelPriceDetailsRS getHotelPriceDetails(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "All the info needed to retrieve ")GetHotelPriceDetailsRQ rq
@@ -60,13 +60,13 @@ public interface HotelBookingService {
 
     @PUT
     @Path("/booking")
-    @ApiOperation(value = "Use this method to confirm a hotel service")
+    @ApiOperation(value = "Confirm hotel booking", notes = "Use this method to confirm a hotel service")
     public BookHotelRS bookHotel(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
                                  BookHotelRQ rq) throws Throwable;
 
     @GET
     @Path("/filter")
-    @ApiOperation(value = "Use this method to filter hotels available and their prices")
+    @ApiOperation(value = "Get available hotels filtered", notes = "Use this method to filter hotels available and their prices")
     public GetAvailableHotelsRS getFilteredHotels(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "2 chars language iso code")

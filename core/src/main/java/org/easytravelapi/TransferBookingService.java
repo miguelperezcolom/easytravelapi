@@ -24,7 +24,7 @@ public interface TransferBookingService {
 
     @GET
     @Path("/available")
-    @ApiOperation(value = "Use this method to know which transfers are available and their prices")
+    @ApiOperation(value = "Get available transfers", notes = "Use this method to know which transfers are available and their prices")
     public GetAvailableTransfersRS getAvailabeTransfers(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "Transfer origin, as got in the getportfolio response")
@@ -52,7 +52,7 @@ public interface TransferBookingService {
 
     @GET
     @Path("/pricedetails/{key}")
-    @ApiOperation(value = "Use this method to guess cancellation costs and important remarks")
+    @ApiOperation(value = "Get transfer price details", notes = "Use this method to guess cancellation costs and important remarks")
     public GetTransferPriceDetailsRS getTransferPriceDetails(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The hotel price key, as provided in the /transfer/available step")
@@ -65,7 +65,7 @@ public interface TransferBookingService {
 
     @PUT
     @Path("/booking")
-    @ApiOperation(value = "Use this method to confirm a transfer service booking")
+    @ApiOperation(value = "Confirm transfer booking", notes = "Use this method to confirm a transfer service booking")
     public BookTransferRS bookTransfer(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             BookTransferRQ rq
@@ -74,7 +74,7 @@ public interface TransferBookingService {
 
     @GET
     @Path("/airports")
-    @ApiOperation(value = "Use this method to get all available airports")
+    @ApiOperation(value = "Get airports list", notes = "Use this method to get all available airports")
     public GetAirportsRS getAirports(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
 
@@ -82,7 +82,7 @@ public interface TransferBookingService {
 
     @GET
     @Path("/airports/{airportId}/destinations")
-    @ApiOperation(value = "Use this method to get all available destinations from an airport key")
+    @ApiOperation(value = "Get destinations for airport", notes = "Use this method to get all available destinations from an airport key")
     public GetDestinationRS getDestinationsForAirport(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
              @ApiParam(value = "The airport key to get destinations")
@@ -92,14 +92,14 @@ public interface TransferBookingService {
 
     @GET
     @Path("/destinations")
-    @ApiOperation(value = "Use this method to get all available destinations from an airport key")
+    @ApiOperation(value = "Get all destinations", notes = "Use this method to get all available destinations from an airport key")
     public GetDestinationRS getDestinations(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
     ) throws Throwable;
 
     @GET
     @Path("/filter")
-    @ApiOperation(value = "Use this method to filter transfers wich are available and their prices")
+    @ApiOperation(value = "Aget available transfers filtered", notes = "Use this method to filter transfers wich are available and their prices")
     public GetAvailableTransfersRS getFilteredTransfers(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "Transfer origin, as got in the getportfolio response")

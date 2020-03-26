@@ -35,7 +35,7 @@ public interface ActivityBookingService {
 
     @GET
     @Path("/rates/{activityId}")
-    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
+    @ApiOperation(value = "Get activity rates", notes = "By passing a price key you get extra info")
     public GetActivityRatesRS getActivityRates(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
@@ -46,7 +46,7 @@ public interface ActivityBookingService {
 
     @GET
     @Path("/check/{key}")
-    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info", nickname = "checkActivity")
+    @ApiOperation(value = "Check activity availability", notes = "By passing a price key you get extra info", nickname = "checkActivity")
     public CheckActivityRS check(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
@@ -63,7 +63,7 @@ public interface ActivityBookingService {
 
     @GET
     @Path("/pricedetails/{key}")
-    @ApiOperation(value = "Get extra info", notes = "By passing a price key you get extra info")
+    @ApiOperation(value = "Get activity price details", notes = "By passing a price key you get extra info")
     public GetActivityPriceDetailsRS getActivityPriceDetails(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The activity price key, as provided in the /activity/available step")
