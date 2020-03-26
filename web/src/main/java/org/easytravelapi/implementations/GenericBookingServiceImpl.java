@@ -110,18 +110,15 @@ public class GenericBookingServiceImpl implements GenericBookingService {
         {
             Price tot;
             rs.setTotal(tot = new Price());
+            tot.setCurrencyIsoCode("EUR");
             {
                 Amount a;
-                tot.setRetail(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1500.32);
+                tot.setRetail(1500.32);
             }
 
             {
                 Amount a;
-                tot.setNet(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1250.01);
+                tot.setNet(1250.01);
             }
 
 
@@ -131,9 +128,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             rs.getPriceLines().add(pc = new PriceLine());
             {
                 Amount a;
-                pc.setTotal(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1500.32);
+                pc.setTotal(1500.32);
             }
 
             pc.setDescription("detailed price");
@@ -179,9 +174,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
                     rs.getPriceLines().add(pc = new PriceLine());
                     {
                         Amount a;
-                        pc.setTotal(a = new Amount());
-                        a.setCurrencyIsoCode("EUR");
-                        a.setValue(-750.16);
+                        pc.setTotal(-750.16);
                     }
 
                     pc.setDescription("Coupon discount 50%");
@@ -252,12 +245,12 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
             Price bd;
             g.setBestDeal(bd = new Price());
-
+            bd.setCurrencyIsoCode("EUR");
             double rp;
             double x = r.nextDouble();
-            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(Math.round(rp * 85) / 100);
             g.setDescription("Moto tipo scooter de 49 c.c.");
             g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
             g.setName("Moto scooter");
@@ -271,14 +264,14 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
             Price bd;
             g.setBestDeal(bd = new Price());
-
+            bd.setCurrencyIsoCode("EUR");
             double rp;
             double x = r.nextDouble();
-            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(Math.round(rp * 85) / 100);
             bd.setOffer(true);
-            bd.setBeforeOffer(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setBeforeOffer(Math.round(rp * 85) / 100);
             bd.setOfferText("Special offer for this activity");
 
             g.setDescription("Moto tipo scooter electrica");
@@ -294,12 +287,12 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
             Price bd;
             g.setBestDeal(bd = new Price());
-
+            bd.setCurrencyIsoCode("EUR");
             double rp;
             double x = r.nextDouble();
-            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(Math.round(rp * 85) / 100);
             g.setDescription("Moto tipo scooter de 49 c.c.");
             g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
             g.setName("Moto scooter");
@@ -313,12 +306,12 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
             Price bd;
             g.setBestDeal(bd = new Price());
-
+            bd.setCurrencyIsoCode("EUR");
             double rp;
             double x = r.nextDouble();
-            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(Math.round(rp * 85) / 100);
             g.setDescription("Moto tipo scooter electrica");
             g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
             g.setName("Moto electrica");
@@ -332,12 +325,12 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
             Price bd;
             g.setBestDeal(bd = new Price());
-
+            bd.setCurrencyIsoCode("EUR");
             double rp;
             double x = r.nextDouble();
-            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(Math.round(rp * 85) / 100);
             g.setDescription("Moto tipo scooter de 49 c.c.");
             g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
             g.setName("Moto scooter");
@@ -351,12 +344,12 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
             Price bd;
             g.setBestDeal(bd = new Price());
-
+            bd.setCurrencyIsoCode("EUR");
             double rp;
             double x = r.nextDouble();
-            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(Math.round(rp * 85) / 100);
             g.setDescription("Moto tipo scooter electrica");
             g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
             g.setName("Moto electrica");
@@ -384,10 +377,8 @@ public class GenericBookingServiceImpl implements GenericBookingService {
         v.setKey("11");
         Price bd;
         v.setBestDeal(bd = new Price());
-        Amount amount;
-        bd.setRetail(amount = new Amount());
-        amount.setValue(12d);
-        amount.setCurrencyIsoCode("EUR");
+        bd.setRetail(12d);
+        bd.setCurrencyIsoCode("EUR");
         v.setPricePer("Unit");
 
 
@@ -435,14 +426,14 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
                 Price bd;
                 g.setBestDeal(bd = new Price());
-
+                bd.setCurrencyIsoCode("EUR");
                 double rp;
                 double x = r.nextDouble();
-                bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+                bd.setRetail(rp = Math.round(100 + x * 900) / 100);
                 System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+                bd.setNet(Math.round(rp * 85) / 100);
                 bd.setOffer(true);
-                bd.setBeforeOffer(new Amount("EUR", Math.round(rp * 85) / 100));
+                bd.setBeforeOffer(Math.round(rp * 85) / 100);
                 bd.setOfferText("Special offer for this activity");
 
                 g.setDescription("Moto tipo scooter de 49 c.c.");
@@ -458,12 +449,12 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
                 Price bd;
                 g.setBestDeal(bd = new Price());
-
+                bd.setCurrencyIsoCode("EUR");
                 double rp;
                 double x = r.nextDouble();
-                bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+                bd.setRetail(rp = Math.round(100 + x * 900) / 100);
                 System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+                bd.setNet(Math.round(rp * 85) / 100);
                 g.setDescription("Moto tipo scooter electrica");
                 g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
                 g.setName("Moto electrica");
@@ -477,12 +468,12 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
                 Price bd;
                 g.setBestDeal(bd = new Price());
-
+                bd.setCurrencyIsoCode("EUR");
                 double rp;
                 double x = r.nextDouble();
-                bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+                bd.setRetail(rp = Math.round(100 + x * 900) / 100);
                 System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+                bd.setNet(Math.round(rp * 85) / 100);
                 g.setDescription("Moto tipo scooter de 49 c.c.");
                 g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
                 g.setName("Moto scooter");
@@ -498,12 +489,12 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
                 Price bd;
                 g.setBestDeal(bd = new Price());
-
+                bd.setCurrencyIsoCode("EUR");
                 double rp;
                 double x = r.nextDouble();
-                bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+                bd.setRetail(rp = Math.round(100 + x * 900) / 100);
                 System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+                bd.setNet(Math.round(rp * 85) / 100);
                 g.setDescription("Entrada concierto Rock");
                 g.setImage("https://ep01.epimg.net/verne/imagenes/2015/10/18/articulo/1445171361_981733_1445201957_noticia_normal.jpg");
                 g.setName("Entrada Concierto");

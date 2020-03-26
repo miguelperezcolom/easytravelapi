@@ -42,14 +42,14 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
             Price bd;
             a.setBestDeal(bd = new Price());
-
+            bd.setCurrencyIsoCode("EUR");
             double rp;
             double x = r.nextDouble();
-            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(Math.round(rp * 85) / 100);
             bd.setOffer(true);
-            bd.setBeforeOffer(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setBeforeOffer(Math.round(rp * 85) / 100);
             bd.setOfferText("Special offer for this activity");
 
 
@@ -66,12 +66,12 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
             Price bd;
             a.setBestDeal(bd = new Price());
-
+            bd.setCurrencyIsoCode("EUR");
             double rp;
             double x = r.nextDouble();
-            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(Math.round(rp * 85) / 100);
         }
 
 
@@ -86,12 +86,12 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
 
             Price bd;
             a.setBestDeal(bd = new Price());
-
+            bd.setCurrencyIsoCode("EUR");
             double rp;
             double x = r.nextDouble();
-            bd.setRetail(new Amount("EUR", rp = Math.round(100 + x * 900) / 100));
+            bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(new Amount("EUR", Math.round(rp * 85) / 100));
+            bd.setNet(Math.round(rp * 85) / 100);
         }
 
 
@@ -119,7 +119,8 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             av.setName("Variante 1");
             av.setDescription("Descripción de la variante 1");
             av.setBestDeal(new Price());
-            av.getBestDeal().setRetail(new Amount("EUR", 200.34));
+            av.getBestDeal().setCurrencyIsoCode("EUR");
+            av.getBestDeal().setRetail(200.34);
 
             rs.setShifts(new ArrayList<>());
             ActivityShift s;
@@ -267,18 +268,15 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
         {
             Price tot;
             rs.setTotal(tot = new Price());
+            tot.setCurrencyIsoCode("EUR");
             {
                 Amount a;
-                tot.setRetail(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1500.32);
+                tot.setRetail(1500.32);
             }
 
             {
                 Amount a;
-                tot.setNet(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1250.01);
+                tot.setNet(1250.01);
             }
 
 
@@ -288,9 +286,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
             rs.getPriceLines().add(pc = new PriceLine());
             {
                 Amount a;
-                pc.setTotal(a = new Amount());
-                a.setCurrencyIsoCode("EUR");
-                a.setValue(1500.32);
+                pc.setTotal(1500.32);
             }
 
             pc.setDescription("detailed price");
@@ -304,9 +300,7 @@ public class ActivityBookingServiceImpl implements ActivityBookingService {
                 rs.getPriceLines().add(pc = new PriceLine());
                 {
                     Amount a;
-                    pc.setTotal(a = new Amount());
-                    a.setCurrencyIsoCode("EUR");
-                    a.setValue(-750.16);
+                    pc.setTotal(-750.16);
                 }
 
                 pc.setDescription("Coupon discount 50%");
