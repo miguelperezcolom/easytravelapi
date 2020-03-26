@@ -197,7 +197,7 @@ public class CircuitBookingServiceImpl implements CircuitBookingService {
     }
 
     @Override
-    public CheckCircuitRS check(String token, String key, int date, String language, int adults, int children, String variant) throws Throwable {
+    public CheckCircuitRS checkCircuit(String token, String key, int date, String language, int adults, int children, String variant) throws Throwable {
         CheckCircuitRS rs = new CheckCircuitRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
