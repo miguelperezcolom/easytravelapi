@@ -293,7 +293,7 @@ public class CMSServiceImpl implements CMSService {
     }
 
     @Override
-    public GetLoginRS login(String token, GetLoginRQ login) throws Throwable {
+    public GetLoginRS loginToTicketsApp(String token, GetLoginRQ login) throws Throwable {
         GetLoginRS rs = new GetLoginRS();
 
         System.out.println("user :" + login.getUser());

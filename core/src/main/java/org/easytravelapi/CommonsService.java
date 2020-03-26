@@ -70,7 +70,7 @@ public interface CommonsService {
     @GET
     @Path("/booking/{email}/{bookingid}")
     @ApiOperation(value = "Method to get a booking")
-    public GetBookingRS getBooking(
+    public GetBookingRS getBookingForWeb(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @PathParam("email") String email,
             @PathParam("bookingid") String bookingId) throws Throwable;

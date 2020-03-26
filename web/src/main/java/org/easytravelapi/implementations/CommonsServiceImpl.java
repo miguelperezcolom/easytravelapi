@@ -367,7 +367,7 @@ public class CommonsServiceImpl implements CommonsService {
     }
 
     @Override
-    public GetBookingRS getBooking(String token, String email, String bookingId) throws Throwable {
+    public GetBookingRS getBookingForWeb(String token, String email, String bookingId) throws Throwable {
         GetBookingRS rs = new GetBookingRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));

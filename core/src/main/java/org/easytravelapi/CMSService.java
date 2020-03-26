@@ -117,7 +117,7 @@ public interface CMSService {
     @POST
     @Path("/login")
     @ApiOperation(value = "Use this method to login the tickets app")
-    public GetLoginRS login(
+    public GetLoginRS loginToTicketsApp(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             GetLoginRQ login
 
