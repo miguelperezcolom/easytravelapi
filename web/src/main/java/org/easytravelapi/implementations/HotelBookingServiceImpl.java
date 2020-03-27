@@ -245,8 +245,6 @@ public class HotelBookingServiceImpl implements HotelBookingService {
         rs.setStatusCode(200);
         rs.setMsg("Price details");
 
-        rs.setCurrencyIsoCode("EUR");
-
         if (rq.getStays() != null) for (Stay stay : rq.getStays()) {
             PricedStay ps;
             rs.getStays().add(ps = new PricedStay());
