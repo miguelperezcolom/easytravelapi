@@ -332,6 +332,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         rs.setMsg("Booking confirmed ok");
 
         rs.setBookingId("5643135431");
+        rs.setFileId("54654");
         rs.setAvailableServices(new ArrayList<String>());
         rs.getAvailableServices().add(new String("hotel"));
         rs.getAvailableServices().add(new String("circuito"));
