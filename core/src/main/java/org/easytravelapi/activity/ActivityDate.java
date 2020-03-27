@@ -18,10 +18,9 @@ public class ActivityDate {
     @ApiModelProperty(value = "Id for this price")
     private String key;
 
-    private Amount retailPrice;
-    private Amount netPrice;
-    private Amount commission;
-
+    private String currencyIsoCode;
+    private Double retailPrice;
+    private Double netPrice;
 
 
     public int getDate() {
@@ -48,27 +47,27 @@ public class ActivityDate {
         this.key = key;
     }
 
-    public Amount getRetailPrice() {
+    public String getCurrencyIsoCode() {
+        return currencyIsoCode;
+    }
+
+    public void setCurrencyIsoCode(String currencyIsoCode) {
+        this.currencyIsoCode = currencyIsoCode;
+    }
+
+    public Double getRetailPrice() {
         return retailPrice;
     }
 
-    public void setRetailPrice(Amount retailPrice) {
+    public void setRetailPrice(Double retailPrice) {
         this.retailPrice = retailPrice;
     }
 
-    public Amount getNetPrice() {
+    public Double getNetPrice() {
         return netPrice;
     }
 
-    public void setNetPrice(Amount netPrice) {
+    public void setNetPrice(Double netPrice) {
         this.netPrice = netPrice;
-    }
-
-    public Amount getCommission() {
-        return commission;
-    }
-
-    public void setCommission(Amount commission) {
-        this.commission = commission;
     }
 }

@@ -29,9 +29,9 @@ public class PricedStay {
 
 
     @ApiModelProperty(value = "Retail price")
-    private double retailPrice;
+    private Double retailPrice;
     @ApiModelProperty(value = "Net price")
-    private double netPrice;
+    private Double netPrice;
 
 
     @ApiModelProperty(value = "A flag to state that this price is an offer")
@@ -114,19 +114,19 @@ public class PricedStay {
         this.pax = pax;
     }
 
-    public double getRetailPrice() {
+    public Double getRetailPrice() {
         return retailPrice;
     }
 
-    public void setRetailPrice(double retailPrice) {
+    public void setRetailPrice(Double retailPrice) {
         this.retailPrice = retailPrice;
     }
 
-    public double getNetPrice() {
+    public Double getNetPrice() {
         return netPrice;
     }
 
-    public void setNetPrice(double netPrice) {
+    public void setNetPrice(Double netPrice) {
         this.netPrice = netPrice;
     }
 

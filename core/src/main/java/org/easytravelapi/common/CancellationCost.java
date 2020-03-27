@@ -7,9 +7,8 @@ public class CancellationCost {
 
     private String GMTtime;
 
-    private Amount retail;
-    private Amount commission;
-    private Amount net;
+    private Double retail;
+    private Double net;
 
 
     public String getGMTtime() {
@@ -20,27 +19,19 @@ public class CancellationCost {
         this.GMTtime = GMTtime;
     }
 
-    public Amount getRetail() {
+    public Double getRetail() {
         return retail;
     }
 
-    public void setRetail(Amount retail) {
+    public void setRetail(Double retail) {
         this.retail = retail;
     }
 
-    public Amount getCommission() {
-        return commission;
-    }
-
-    public void setCommission(Amount commission) {
-        this.commission = commission;
-    }
-
-    public Amount getNet() {
+    public Double getNet() {
         return net;
     }
 
-    public void setNet(Amount net) {
+    public void setNet(Double net) {
         this.net = net;
     }
 }

@@ -8,11 +8,9 @@ public class Supplement {
 
     private String description;
 
-    private Amount retailPrice;
+    private Double retailPrice;
 
-    private Amount commission;
-
-    private Amount netPrice;
+    private Double netPrice;
 
     private String priceType;
 
@@ -24,6 +22,14 @@ public class Supplement {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -32,33 +38,21 @@ public class Supplement {
         this.description = description;
     }
 
-    public Amount getRetailPrice() {
+    public Double getRetailPrice() {
         return retailPrice;
     }
 
-    public void setRetailPrice(Amount retailPrice) {
+    public void setRetailPrice(Double retailPrice) {
         this.retailPrice = retailPrice;
     }
 
-    public Amount getCommission() {
-        return commission;
-    }
-
-    public void setCommission(Amount commission) {
-        this.commission = commission;
-    }
-
-    public Amount getNetPrice() {
+    public Double getNetPrice() {
         return netPrice;
     }
 
-    public void setNetPrice(Amount netPrice) {
+    public void setNetPrice(Double netPrice) {
         this.netPrice = netPrice;
     }
-
-    public String getName() { return name; }
-
-    public void setName(String name) { this.name = name; }
 
     public String getPriceType() {
         return priceType;

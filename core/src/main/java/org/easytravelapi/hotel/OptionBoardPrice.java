@@ -19,9 +19,9 @@ public class OptionBoardPrice {
     private String boardBasisName;
 
     @ApiModelProperty(value = "Retail price")
-    private double retailPrice;
+    private Double retailPrice;
     @ApiModelProperty(value = "Net price")
-    private double netPrice;
+    private Double netPrice;
 
 
     @ApiModelProperty(value = "A flag to state that this price is an offer")
@@ -41,7 +41,6 @@ public class OptionBoardPrice {
     private String rateId;
 
 
-
     public String getBoardBasisId() {
         return boardBasisId;
     }
@@ -58,6 +57,21 @@ public class OptionBoardPrice {
         this.boardBasisName = boardBasisName;
     }
 
+    public Double getRetailPrice() {
+        return retailPrice;
+    }
+
+    public void setRetailPrice(Double retailPrice) {
+        this.retailPrice = retailPrice;
+    }
+
+    public Double getNetPrice() {
+        return netPrice;
+    }
+
+    public void setNetPrice(Double netPrice) {
+        this.netPrice = netPrice;
+    }
 
     public boolean isOffer() {
         return offer;
@@ -105,21 +119,5 @@ public class OptionBoardPrice {
 
     public void setRateId(String rateId) {
         this.rateId = rateId;
-    }
-
-    public double getRetailPrice() {
-        return retailPrice;
-    }
-
-    public void setRetailPrice(double retailPrice) {
-        this.retailPrice = retailPrice;
-    }
-
-    public double getNetPrice() {
-        return netPrice;
-    }
-
-    public void setNetPrice(double netPrice) {
-        this.netPrice = netPrice;
     }
 }

@@ -48,7 +48,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             double x = r.nextDouble();
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
             bd.setOffer(true);
             bd.setBeforeOffer(rp + 50);
             bd.setCurrencyIsoCode("EUR");
@@ -71,7 +71,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setCurrencyIsoCode("EUR");
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
         }
 
         {
@@ -90,7 +90,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setCurrencyIsoCode("EUR");
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
         }
 
         {
@@ -109,7 +109,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setCurrencyIsoCode("EUR");
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
         }
 
 
@@ -129,7 +129,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setCurrencyIsoCode("EUR");
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
         }
 
         {
@@ -148,7 +148,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setCurrencyIsoCode("EUR");
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
         }
 
 
@@ -210,20 +210,14 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             CancellationCost c;
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2018, 06, 05, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
-            Amount a;
-            c.setNet(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(250.32);
+            c.setNet(250.32);
         }
 
         {
             CancellationCost c;
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2018, 07, 01, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
-            Amount a;
-            c.setNet(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(400);
+            c.setNet(400d);
         }
 
         {
@@ -283,10 +277,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             sp.setId("22");
             sp.setName("buffet incluido" );
             sp.setDescription("buffet incluido durante toda la estancia, incluye desayuno, almuerzo y cena");
-            Amount a;
-            sp.setRetailPrice(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(130.99);
+            sp.setRetailPrice(130.99);
             sp.setPriceType("PAX");
 
 
@@ -297,10 +288,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             sp.setId("33");
             sp.setName("Paquetes extras" );
             sp.setDescription("Paquetes extras que incluyen varias ofertas de nuesstros mejores servicios" );
-            Amount a;
-            sp.setRetailPrice(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(350.00);
+            sp.setRetailPrice(350.0);
             sp.setPriceType("ROOM");
 
 
@@ -453,7 +441,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setCurrencyIsoCode("EUR");
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
             bd.setOffer(true);
             bd.setBeforeOffer(rp+50);
             bd.setOfferText("Special offer filtered");
@@ -476,7 +464,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setCurrencyIsoCode("EUR");
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
             bd.setOffer(true);
             bd.setBeforeOffer(Math.round(rp * 85) / 100);
             bd.setOfferText("Special offer for this transfer");
@@ -501,7 +489,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
             bd.setCurrencyIsoCode("EUR");
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
         }
 
 

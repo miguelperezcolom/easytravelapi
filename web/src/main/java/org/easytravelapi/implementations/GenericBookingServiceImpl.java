@@ -68,20 +68,14 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             CancellationCost c;
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2018, 06, 05, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
-            Amount a;
-            c.setNet(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(250.32);
+            c.setNet(250.32);
         }
 
         {
             CancellationCost c;
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2018, 07, 01, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
-            Amount a;
-            c.setNet(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(400);
+            c.setNet(400d);
         }
 
         {
@@ -142,10 +136,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             sp.setId("22");
             sp.setName("buffet incluido" );
             sp.setDescription("buffet incluido durante toda la estancia, incluye desayuno, almuerzo y cena");
-            Amount a;
-            sp.setRetailPrice(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(130.99);
+            sp.setRetailPrice(130.99);
             sp.setPriceType("PAX");
 
 
@@ -156,10 +147,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             sp.setId("33");
             sp.setName("Paquetes extras" );
             sp.setDescription("Paquetes extras que incluyen varias ofertas de nuesstros mejores servicios" );
-            Amount a;
-            sp.setRetailPrice(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(350.00);
+            sp.setRetailPrice(350.0);
             sp.setPriceType("ROOM");
 
 
@@ -250,7 +238,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             double x = r.nextDouble();
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
             g.setDescription("Moto tipo scooter de 49 c.c.");
             g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
             g.setName("Moto scooter");
@@ -269,7 +257,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             double x = r.nextDouble();
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
             bd.setOffer(true);
             bd.setBeforeOffer(Math.round(rp * 85) / 100);
             bd.setOfferText("Special offer for this activity");
@@ -292,7 +280,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             double x = r.nextDouble();
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
             g.setDescription("Moto tipo scooter de 49 c.c.");
             g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
             g.setName("Moto scooter");
@@ -311,7 +299,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             double x = r.nextDouble();
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
             g.setDescription("Moto tipo scooter electrica");
             g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
             g.setName("Moto electrica");
@@ -330,7 +318,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             double x = r.nextDouble();
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
             g.setDescription("Moto tipo scooter de 49 c.c.");
             g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
             g.setName("Moto scooter");
@@ -349,7 +337,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
             double x = r.nextDouble();
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
             g.setDescription("Moto tipo scooter electrica");
             g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
             g.setName("Moto electrica");
@@ -431,7 +419,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
                 double x = r.nextDouble();
                 bd.setRetail(rp = Math.round(100 + x * 900) / 100);
                 System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNet(Math.round(rp * 85) / 100);
+                bd.setNet(Math.round(rp * 85) / 100d);
                 bd.setOffer(true);
                 bd.setBeforeOffer(Math.round(rp * 85) / 100);
                 bd.setOfferText("Special offer for this activity");
@@ -454,7 +442,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
                 double x = r.nextDouble();
                 bd.setRetail(rp = Math.round(100 + x * 900) / 100);
                 System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNet(Math.round(rp * 85) / 100);
+                bd.setNet(Math.round(rp * 85) / 100d);
                 g.setDescription("Moto tipo scooter electrica");
                 g.setImage("https://sc02.alicdn.com/kf/HTB1W3yaRVXXXXbwapXXq6xXFXXXA/2017-FIRE-STAR-electric-motorcycle-moto-electric.jpg");
                 g.setName("Moto electrica");
@@ -473,7 +461,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
                 double x = r.nextDouble();
                 bd.setRetail(rp = Math.round(100 + x * 900) / 100);
                 System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNet(Math.round(rp * 85) / 100);
+                bd.setNet(Math.round(rp * 85) / 100d);
                 g.setDescription("Moto tipo scooter de 49 c.c.");
                 g.setImage("https://www.electromotos.net/wp-content/uploads/2017/11/Askoll-eS1-600x400.jpg");
                 g.setName("Moto scooter");
@@ -494,7 +482,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
                 double x = r.nextDouble();
                 bd.setRetail(rp = Math.round(100 + x * 900) / 100);
                 System.out.println("x=" + x + ", rp=" + rp);
-                bd.setNet(Math.round(rp * 85) / 100);
+                bd.setNet(Math.round(rp * 85) / 100d);
                 g.setDescription("Entrada concierto Rock");
                 g.setImage("https://ep01.epimg.net/verne/imagenes/2015/10/18/articulo/1445171361_981733_1445201957_noticia_normal.jpg");
                 g.setName("Entrada Concierto");

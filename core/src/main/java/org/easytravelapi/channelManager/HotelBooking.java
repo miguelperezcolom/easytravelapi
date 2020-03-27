@@ -41,7 +41,6 @@ public class HotelBooking {
 
     private Amount retailValue;
     private Amount netValue;
-    private Amount commissionValue;
 
     @ApiModelProperty(value = "Comments from the customer")
     private String commentsToProvider;
@@ -146,14 +145,6 @@ public class HotelBooking {
 
     public void setNetValue(Amount netValue) {
         this.netValue = netValue;
-    }
-
-    public Amount getCommissionValue() {
-        return commissionValue;
-    }
-
-    public void setCommissionValue(Amount commissionValue) {
-        this.commissionValue = commissionValue;
     }
 
     public String getCommentsToProvider() {

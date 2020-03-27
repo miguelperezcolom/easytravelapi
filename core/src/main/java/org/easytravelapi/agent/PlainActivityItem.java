@@ -33,6 +33,14 @@ public class PlainActivityItem {
         this.description = description;
     }
 
+    public String getHtmlDescription() {
+        return htmlDescription;
+    }
+
+    public void setHtmlDescription(String htmlDescription) {
+        this.htmlDescription = htmlDescription;
+    }
+
     public String getActivityId() {
         return activityId;
     }
@@ -47,14 +55,6 @@ public class PlainActivityItem {
 
     public void setRetailPrice(Amount retailPrice) {
         this.retailPrice = retailPrice;
-    }
-
-    public String getHtmlDescription() {
-        return htmlDescription;
-    }
-
-    public void setHtmlDescription(String htmlDescription) {
-        this.htmlDescription = htmlDescription;
     }
 
     public String getGroupReference() {

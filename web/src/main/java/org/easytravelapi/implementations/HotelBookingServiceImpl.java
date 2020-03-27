@@ -82,7 +82,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
                 bd.setBeforeOffer(rp + 100);
             }
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet(Math.round(rp * 85) / 100);
+            bd.setNet(Math.round(rp * 85) / 100d);
 
 
         }
@@ -393,20 +393,14 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             CancellationCost c;
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2018, 06, 05, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
-            Amount a;
-            c.setRetail(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(250.32);
+            c.setRetail(250.32);
         }
 
         {
             CancellationCost c;
             rs.getCancellationCosts().add(c = new CancellationCost());
             c.setGMTtime(LocalDateTime.of(2018, 07, 01, 12, 00).format(DateTimeFormatter.ISO_DATE_TIME));
-            Amount a;
-            c.setRetail(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(400);
+            c.setRetail(400d);
         }
 
         {
@@ -497,7 +491,7 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             double x = r.nextDouble();
             bd.setRetail(rp = Math.round(100 + x * 900) / 100);
             System.out.println("x=" + x + ", rp=" + rp);
-            bd.setNet( Math.round(rp * 85) / 100);
+            bd.setNet( Math.round(rp * 85) / 100d);
             bd.setCurrencyIsoCode("EUR");
 
 
