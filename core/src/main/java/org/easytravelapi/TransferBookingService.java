@@ -60,7 +60,7 @@ public interface TransferBookingService {
             @QueryParam("language") String language,
             @QueryParam("supplements") String supplements,
             @ApiParam(value = "Discount coupons")
-            @QueryParam("coupon") String coupon
+            @QueryParam("promoCode") String promoCode
     ) throws Throwable;
 
     @PUT

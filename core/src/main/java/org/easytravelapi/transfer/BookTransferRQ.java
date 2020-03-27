@@ -3,7 +3,6 @@ package org.easytravelapi.transfer;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.easytravelapi.util.Helper;
-import org.easytravelapi.common.AbstractAuthenticatedRQ;
 
 /**
  * Created by miguel on 26/7/17.
@@ -58,8 +57,8 @@ public class BookTransferRQ {
     private String language;
     @ApiModelProperty(value = "Booking extras")
     private String supplements;
-    @ApiModelProperty(value = "Booking coupon discount")
-    private String coupon;
+    @ApiModelProperty(value = "Booking promo code for discount")
+    private String promoCode;
 
     private boolean mailingUnwanted;
 
@@ -200,10 +199,10 @@ public class BookTransferRQ {
 
     public void setSupplements(String supplements) { this.supplements = supplements; }
 
-    public String getCoupon() { return coupon; }
+    public String getPromoCode() { return promoCode; }
 
-    public void setCoupon(String coupon) {
-        this.coupon = coupon;
+    public void setPromoCode(String promoCode) {
+        this.promoCode = promoCode;
     }
 
     public boolean isMailingUnwanted() { return mailingUnwanted; }
