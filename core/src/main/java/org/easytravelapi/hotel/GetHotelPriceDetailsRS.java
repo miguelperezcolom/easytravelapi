@@ -16,9 +16,6 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Status. Possible values are OK and ON REQUEST")
     private String status;
 
-    @ApiModelProperty(value = "Currency iso code for all rates")
-    private String currencyIsoCode;
-
     @ApiModelProperty(value = "Total price")
     private Price total;
 
@@ -49,13 +46,6 @@ public class GetHotelPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Mailing unwanted text. For website usage only")
     private String mailingUnwantedText;
 
-    public String getCurrencyIsoCode() {
-        return currencyIsoCode;
-    }
-
-    public void setCurrencyIsoCode(String currencyIsoCode) {
-        this.currencyIsoCode = currencyIsoCode;
-    }
 
     public String getStatus() {
         return status;

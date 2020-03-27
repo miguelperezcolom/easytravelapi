@@ -167,45 +167,6 @@ public class TransferBookingServiceImpl implements TransferBookingService {
 
         Random rand = new Random();
 
-
-        ArrayList<PaymentMethod> pms;
-        rs.setPaymentMethods(pms = new ArrayList<>());
-        {
-            PaymentMethod pm;
-            pms.add(pm = new PaymentMethod());
-            pm.setKey("1");
-            pm.setName("Cash");
-            pm.setCurrencyIsoCode("EUR");
-        }
-        {
-            PaymentMethod pm;
-            pms.add(pm = new PaymentMethod());
-            pm.setKey("1");
-            pm.setName("Cash");
-            pm.setCurrencyIsoCode("USD");
-        }
-        {
-            PaymentMethod pm;
-            pms.add(pm = new PaymentMethod());
-            pm.setKey("1");
-            pm.setName("Cash");
-            pm.setCurrencyIsoCode("GBP");
-        }
-        {
-            PaymentMethod pm;
-            pms.add(pm = new PaymentMethod());
-            pm.setKey("1");
-            pm.setName("VISA");
-            pm.setCurrencyIsoCode("EUR");
-        }
-        {
-            PaymentMethod pm;
-            pms.add(pm = new PaymentMethod());
-            pm.setKey("1");
-            pm.setName("VISA");
-            pm.setCurrencyIsoCode("USD");
-        }
-
         {
             CancellationCost c;
             rs.getCancellationCosts().add(c = new CancellationCost());
@@ -261,7 +222,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         }
         {
             PriceLine pc;
-            rs.getPriceLines().add(pc = new PriceLine());
+            rs.getPriceBreakdown().add(pc = new PriceLine());
             {
                 Amount a;
                 pc.setTotal(1500.32);
@@ -273,7 +234,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         }
         {
             Supplement sp;
-            rs.getSupplements().add(sp = new Supplement() );
+            rs.getAvailableSupplements().add(sp = new Supplement() );
             sp.setId("22");
             sp.setName("buffet incluido" );
             sp.setDescription("buffet incluido durante toda la estancia, incluye desayuno, almuerzo y cena");
@@ -284,7 +245,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         }
         {
             Supplement sp;
-            rs.getSupplements().add(sp = new Supplement() );
+            rs.getAvailableSupplements().add(sp = new Supplement() );
             sp.setId("33");
             sp.setName("Paquetes extras" );
             sp.setDescription("Paquetes extras que incluyen varias ofertas de nuesstros mejores servicios" );
@@ -296,7 +257,7 @@ public class TransferBookingServiceImpl implements TransferBookingService {
         if(coupon != null && coupon != ""){
             {
                 PriceLine pc;
-                rs.getPriceLines().add(pc = new PriceLine());
+                rs.getPriceBreakdown().add(pc = new PriceLine());
                 {
                     Amount a;
                     pc.setTotal(-750.16);

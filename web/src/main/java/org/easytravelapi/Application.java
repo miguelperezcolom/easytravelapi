@@ -13,7 +13,7 @@ public class Application  extends javax.ws.rs.core.Application {
         BeanConfig beanConfig = new BeanConfig();
         beanConfig.setTitle("EasyTravelApi");
         beanConfig.setDescription("API for travel agents");
-        beanConfig.setVersion("0.1.16");
+        beanConfig.setVersion("0.1.17");
         beanConfig.setSchemes(new String[]{"https"});
         beanConfig.setHost("test.easytravelapi.com");
         beanConfig.setBasePath("/rest");

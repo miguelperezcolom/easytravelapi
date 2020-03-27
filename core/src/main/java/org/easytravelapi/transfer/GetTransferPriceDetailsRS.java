@@ -1,7 +1,7 @@
 package org.easytravelapi.transfer;
 
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.easytravelapi.activity.PaymentMethod;
 import org.easytravelapi.common.Supplement;
 import org.easytravelapi.common.*;
 
@@ -11,20 +11,23 @@ import java.util.List;
 /**
  * Created by miguel on 26/7/17.
  */
+@ApiModel(description = "Holder for the transfer price details response")
 public class GetTransferPriceDetailsRS extends AbstractRS {
 
+    @ApiModelProperty(value = "Price detail, in form of lines")
+    private List<PriceLine> priceBreakdown = new ArrayList<PriceLine>();
 
-    private List<PriceLine> priceLines = new ArrayList<>();
-
+    @ApiModelProperty(value = "Totals and currency for all prices")
     private Price total;
 
-    private List<Supplement> supplements = new ArrayList<>();
+    @ApiModelProperty(value = "Available supplements")
+    private List<Supplement> availableSupplements = new ArrayList<>();
 
+    @ApiModelProperty(value = "Arrival instructions")
     private String arrivalInstructions;
 
+    @ApiModelProperty(value = "Departure instructions")
     private String departureInstructions;
-
-    private List<PaymentMethod> paymentMethods = new ArrayList<>();
 
     @ApiModelProperty(value = "Detailed Payment lines")
     private List<PaymentLine> paymentLines = new ArrayList<PaymentLine>();
@@ -35,34 +38,19 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Remarks which should be visible for the customer")
     private List<Remark> remarks = new ArrayList<Remark>();
 
+    @ApiModelProperty(value = "Text for terms and conditions")
     private String terms;
 
+    @ApiModelProperty(value = "Text for rejecting or acepting mailing")
     private String mailingUnwantedText;
 
-    public List<CancellationCost> getCancellationCosts() {
-        return cancellationCosts;
+
+    public List<PriceLine> getPriceBreakdown() {
+        return priceBreakdown;
     }
 
-    public void setCancellationCosts(List<CancellationCost> cancellationCosts) {
-        this.cancellationCosts = cancellationCosts;
-    }
-
-    private String cancellationFreeDate;
-
-    public List<Remark> getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(List<Remark> remarks) {
-        this.remarks = remarks;
-    }
-
-    public List<PriceLine> getPriceLines() {
-        return priceLines;
-    }
-
-    public void setPriceLines(List<PriceLine> priceLines) {
-        this.priceLines = priceLines;
+    public void setPriceBreakdown(List<PriceLine> priceBreakdown) {
+        this.priceBreakdown = priceBreakdown;
     }
 
     public Price getTotal() {
@@ -73,17 +61,13 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
         this.total = total;
     }
 
-    public List<PaymentMethod> getPaymentMethods() {
-        return paymentMethods;
+    public List<Supplement> getAvailableSupplements() {
+        return availableSupplements;
     }
 
-    public void setPaymentMethods(List<PaymentMethod> paymentMethods) {
-        this.paymentMethods = paymentMethods;
+    public void setAvailableSupplements(List<Supplement> availableSupplements) {
+        this.availableSupplements = availableSupplements;
     }
-
-    public List<PaymentLine> getPaymentLines() { return paymentLines; }
-
-    public void setPaymentLines(List<PaymentLine> paymentLines) { this.paymentLines = paymentLines; }
 
     public String getArrivalInstructions() {
         return arrivalInstructions;
@@ -101,19 +85,43 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
         this.departureInstructions = departureInstructions;
     }
 
-    public String getTerms() { return terms; }
+    public List<PaymentLine> getPaymentLines() {
+        return paymentLines;
+    }
 
-    public void setTerms(String terms) { this.terms = terms; }
+    public void setPaymentLines(List<PaymentLine> paymentLines) {
+        this.paymentLines = paymentLines;
+    }
 
-    public String getMailingUnwantedText() { return mailingUnwantedText; }
+    public List<CancellationCost> getCancellationCosts() {
+        return cancellationCosts;
+    }
 
-    public void setMailingUnwantedText(String mailingUnwantedText) { this.mailingUnwantedText = mailingUnwantedText; }
+    public void setCancellationCosts(List<CancellationCost> cancellationCosts) {
+        this.cancellationCosts = cancellationCosts;
+    }
 
-    public String getCancellationFreeDate() { return cancellationFreeDate; }
+    public List<Remark> getRemarks() {
+        return remarks;
+    }
 
-    public void setCancellationFreeDate(String cancellationFreeDate) { this.cancellationFreeDate = cancellationFreeDate; }
+    public void setRemarks(List<Remark> remarks) {
+        this.remarks = remarks;
+    }
 
-    public List<Supplement> getSupplements() { return supplements; }
+    public String getTerms() {
+        return terms;
+    }
 
-    public void setSupplements(List<Supplement> supplements) { this.supplements = supplements; }
+    public void setTerms(String terms) {
+        this.terms = terms;
+    }
+
+    public String getMailingUnwantedText() {
+        return mailingUnwantedText;
+    }
+
+    public void setMailingUnwantedText(String mailingUnwantedText) {
+        this.mailingUnwantedText = mailingUnwantedText;
+    }
 }
