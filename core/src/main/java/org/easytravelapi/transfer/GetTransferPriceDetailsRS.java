@@ -44,6 +44,7 @@ public class GetTransferPriceDetailsRS extends AbstractRS {
     @ApiModelProperty(value = "Text for rejecting or acepting mailing")
     private String mailingUnwantedText;
 
+    @ApiModelProperty(value = "No cancellation costs until this date, in yyyy-MM-dd format")
     private String cancellationFreeDate;
 
     public String getCancellationFreeDate() {
