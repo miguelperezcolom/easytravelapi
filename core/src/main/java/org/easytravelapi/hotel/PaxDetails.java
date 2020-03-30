@@ -11,6 +11,8 @@ public class PaxDetails {
     private int age ;
     @ApiModelProperty(value = "Passenger type. Possible values are: AD for adult and CH for child")
     private String type;
+    @ApiModelProperty(value = "E.g.: room number, vehicle, .... For presentation purposes only")
+    private String groupId;
 
     public String getFirstName() {
         return firstName;
@@ -42,5 +44,29 @@ public class PaxDetails {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public PaxDetails(String type, String groupId) {
+        this.type = type;
+        this.groupId = groupId;
+    }
+
+    public PaxDetails() {
+    }
+
+    public PaxDetails(String firstName, String surname, int age, String type, String groupId) {
+        this.firstName = firstName;
+        this.surname = surname;
+        this.age = age;
+        this.type = type;
+        this.groupId = groupId;
     }
 }
