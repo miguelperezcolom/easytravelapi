@@ -120,6 +120,14 @@ public interface CommonsService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @PathParam("fileid") String FileId) throws Throwable;
 
+    @GET
+    @Path("/file/{email}/{fileid}")
+    @ApiOperation(value = "Method to get a file")
+    public GetFileRS getFileForWeb(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @PathParam("email") String email,
+            @PathParam("fileid") String fileId) throws Throwable;
+
     @DELETE
     @Path("/file/{fileid}")
     @ApiOperation(value = "Method to cancel a service file")

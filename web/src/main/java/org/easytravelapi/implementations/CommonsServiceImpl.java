@@ -561,6 +561,11 @@ public class CommonsServiceImpl implements CommonsService {
     }
 
     @Override
+    public GetFileRS getFileForWeb(String token, String email, String fileId) throws Throwable {
+        return getFile(token, fileId);
+    }
+
+    @Override
     public CancelFileRS cancelFile(String token, String fileId) throws Throwable {
         return null;
     }
