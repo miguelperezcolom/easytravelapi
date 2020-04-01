@@ -68,7 +68,7 @@ public interface CommonsService {
     ) throws Throwable;
 
     @GET
-    @Path("/booking/{email}/{bookingid}")
+    @Path("/bookingforweb/{email}/{bookingid}")
     @ApiOperation(value = "Method to get a booking")
     public GetBookingRS getBookingForWeb(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
@@ -121,7 +121,7 @@ public interface CommonsService {
             @PathParam("fileid") String FileId) throws Throwable;
 
     @GET
-    @Path("/file/{email}/{fileid}")
+    @Path("/fileforweb/{email}/{fileid}")
     @ApiOperation(value = "Method to get a file")
     public GetFileRS getFileForWeb(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
