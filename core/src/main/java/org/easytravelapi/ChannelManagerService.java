@@ -61,4 +61,5 @@ public interface ChannelManagerService {
             @ApiParam(value = "Ending date you want service bookings starting from. In YYYYMMDD format")
             @QueryParam("startingto") int toStartDate
     ) throws Throwable;
+
 }
