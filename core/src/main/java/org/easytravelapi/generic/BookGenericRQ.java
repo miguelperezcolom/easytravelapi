@@ -6,6 +6,9 @@ import org.easytravelapi.activity.BookActivityRQ;
 import org.easytravelapi.util.Helper;
 @ApiModel(description = "Parameters needed to confirm an generic product booking")
 public class BookGenericRQ {
+
+    private String fileId;
+
     private String key;
     private String supplementIds;
 
@@ -48,6 +51,14 @@ public class BookGenericRQ {
         return Helper.toJson(this);
     }
 
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
 
     public String getKey() {
         return key;

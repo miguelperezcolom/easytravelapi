@@ -12,6 +12,8 @@ import java.util.List;
 @ApiModel(description = "Container for the hotel booking confirmation request")
 public class BookHotelRQ extends GetHotelPriceDetailsRQ {
 
+    private String fileId;
+
     @ApiModelProperty(value = "A free text reference you want to appear in the final invoice, so you can match it when validating our invoices")
     private String bookingReference;
 
@@ -40,6 +42,14 @@ public class BookHotelRQ extends GetHotelPriceDetailsRQ {
     @Override
     public String toString() {
         return Helper.toJson(this);
+    }
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
     }
 
     public String getBookingReference() {

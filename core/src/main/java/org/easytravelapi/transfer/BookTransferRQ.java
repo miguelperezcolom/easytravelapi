@@ -10,6 +10,8 @@ import org.easytravelapi.util.Helper;
 @ApiModel(description = "Container for the transfer service confirmation request")
 public class BookTransferRQ {
 
+    private String fileId;
+
     @ApiModelProperty(value = "The price id, as we got it when we asked for available transfer")
     public String key;
 
@@ -69,6 +71,15 @@ public class BookTransferRQ {
     @Override
     public String toString() {
         return Helper.toJson(this);
+    }
+
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
     }
 
     public String getKey() {

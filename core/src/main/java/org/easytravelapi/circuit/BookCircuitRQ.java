@@ -10,6 +10,8 @@ import org.easytravelapi.util.Helper;
 @ApiModel(description = "Parameters needed to confirm an circuit booking")
 public class BookCircuitRQ {
 
+    private String fileId;
+
     private String key;
 
     private int date;
@@ -61,6 +63,14 @@ public class BookCircuitRQ {
         return Helper.toJson(this);
     }
 
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
 
     public int getDate() {
         return date;

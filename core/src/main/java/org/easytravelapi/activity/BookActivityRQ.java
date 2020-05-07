@@ -11,6 +11,8 @@ import org.easytravelapi.common.AbstractAuthenticatedRQ;
 @ApiModel(description = "Parameters needed to confirm an activity booking")
 public class BookActivityRQ {
 
+    private String fileId;
+
     private String key;
 
     private String pickup;
@@ -70,6 +72,14 @@ public class BookActivityRQ {
         return Helper.toJson(this);
     }
 
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
 
     public String getKey() {
         return key;
