@@ -23,6 +23,9 @@ public class BookHotelRQ extends GetHotelPriceDetailsRQ {
     @ApiModelProperty(value = "User Email. Used to locate your bookings")
     private String email;
 
+    @ApiModelProperty(value = "Your phone number to contact with you")
+    private String phoneNumber;
+
     @ApiModelProperty(value = "Comments from the customer which should arrive to the activity provider")
     private String commentsToProvider;
 
@@ -50,6 +53,14 @@ public class BookHotelRQ extends GetHotelPriceDetailsRQ {
 
     public void setFileId(String fileId) {
         this.fileId = fileId;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getBookingReference() {
