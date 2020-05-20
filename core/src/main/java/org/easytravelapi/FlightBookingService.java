@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
  * Created by miguel on 26/7/17.
  */
 @WebService
-@Path("{authtoken}/transfer")
+@Path("{authtoken}/flight")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 @Api(description = "Set of available operations related to transfer booking process")
