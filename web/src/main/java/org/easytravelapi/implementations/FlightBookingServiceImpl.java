@@ -360,8 +360,9 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         return rs;
     }
 
+
     @Override
-    public GetAirportsRS getOriginAirports(String token, String destinationAirportId) throws Throwable {
+    public GetAirportsRS getAirportsByName(String token, String text, String language) throws Throwable {
         GetAirportsRS rs = new GetAirportsRS();
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
@@ -401,7 +402,47 @@ public class FlightBookingServiceImpl implements FlightBookingService {
     }
 
     @Override
-    public GetAirportsRS getDestinationAirports(String token, String originAirportId) throws Throwable {
+    public GetAirportsRS getOriginAirports(String token, String destinationAirportId, String language) throws Throwable {
+        GetAirportsRS rs = new GetAirportsRS();
+        rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        rs.setStatusCode(200);
+        rs.setMsg("done");
+
+        {
+            Airport a;
+            rs.getAirports().add(a = new Airport());
+            a.setId("PMI");
+            a.setName("Palma de Mallorca");
+            a.setCity("Palma de Mallorca");
+            a.setState("Baleares");
+            a.setCountry("España");
+        }
+
+        {
+            Airport a;
+            rs.getAirports().add(a = new Airport());
+            a.setId("MAD");
+            a.setName("Adolfo Suárez");
+            a.setCity("Madrid");
+            a.setState("Madrid");
+            a.setCountry("España");
+        }
+
+        {
+            Airport a;
+            rs.getAirports().add(a = new Airport());
+            a.setId("XRY");
+            a.setName("Jerez");
+            a.setCity("Jerez de la frontera");
+            a.setState("Andalucía");
+            a.setCountry("España");
+        }
+
+        return rs;
+    }
+
+    @Override
+    public GetAirportsRS getDestinationAirports(String token, String originAirportId, String language) throws Throwable {
         GetAirportsRS rs = new GetAirportsRS();
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         rs.setStatusCode(200);
