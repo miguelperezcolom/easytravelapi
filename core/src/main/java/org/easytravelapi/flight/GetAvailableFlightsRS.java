@@ -7,6 +7,8 @@ import java.util.List;
 
 public class GetAvailableFlightsRS extends AbstractRS {
 
+    private String currency;
+
     private List<FlightBestPrice> departureBestPrices = new ArrayList<>();
 
     private List<AvailableFlight> departureFlights = new ArrayList<>();
@@ -14,6 +16,14 @@ public class GetAvailableFlightsRS extends AbstractRS {
     private List<FlightBestPrice> returnBestPrices = new ArrayList<>();
 
     private List<AvailableFlight> returnFlights = new ArrayList<>();
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 
     public List<FlightBestPrice> getDepartureBestPrices() {
         return departureBestPrices;

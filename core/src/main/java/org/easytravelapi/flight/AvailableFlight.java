@@ -5,7 +5,13 @@ import java.util.List;
 
 public class AvailableFlight {
 
+    private String origin;
+
+    private String destination;
+
     private String company;
+
+    private String companyLogo;
 
     private String departureDate;
 
@@ -24,6 +30,30 @@ public class AvailableFlight {
     private double businessPrice;
 
     private List<FlightSegment> segments = new ArrayList<>();
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public String getCompanyLogo() {
+        return companyLogo;
+    }
+
+    public void setCompanyLogo(String companyLogo) {
+        this.companyLogo = companyLogo;
+    }
 
     public String getCompany() {
         return company;

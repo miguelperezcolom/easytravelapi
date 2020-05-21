@@ -12,6 +12,8 @@ public class FlightSegment {
 
     private String company;
 
+    private String companyLogo;
+
     private String flightNumber;
 
     private String airplane;
@@ -25,6 +27,14 @@ public class FlightSegment {
     private String arrivalTime;
 
     private String duration;
+
+    public String getCompanyLogo() {
+        return companyLogo;
+    }
+
+    public void setCompanyLogo(String companyLogo) {
+        this.companyLogo = companyLogo;
+    }
 
     public String getFlightNumber() {
         return flightNumber;

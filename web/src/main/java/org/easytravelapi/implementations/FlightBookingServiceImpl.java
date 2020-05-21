@@ -18,6 +18,8 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         rs.setStatusCode(200);
         rs.setMsg("3 flights found. It consumed 24 ms in the server.");
 
+        rs.setCurrency("EUR");
+
         rs.getDepartureBestPrices().add(new FlightBestPrice("Sat 20", 30.89, false));
         rs.getDepartureBestPrices().add(new FlightBestPrice("Sun 21", 40.89, false));
         rs.getDepartureBestPrices().add(new FlightBestPrice("Mon 22", 50.01, false));
@@ -31,6 +33,9 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getDepartureFlights().add(f = new AvailableFlight());
+            f.setOrigin("PMI");
+            f.setDestination("XRY");
+            f.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_IB.svg");
             f.setArrivalDate("");
             f.setArrivalTime("08:30");
             f.setBusinessPrice(60.15);
@@ -42,6 +47,7 @@ public class FlightBookingServiceImpl implements FlightBookingService {
             f.setOperatedBy("Iberia");
             FlightSegment s;
             f.getSegments().add(s = new FlightSegment());
+            s.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_IB.svg");
             s.setAirplane("Airbus-A320");
             s.setArrivalDate("Dom. 23 Diciembre");
             s.setArrivalTime("08:30");
@@ -59,6 +65,9 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getDepartureFlights().add(f = new AvailableFlight());
+            f.setOrigin("PMI");
+            f.setDestination("XRY");
+            f.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_IB.svg");
             f.setArrivalDate("");
             f.setArrivalTime("10:30");
             f.setBusinessPrice(60.15);
@@ -70,6 +79,7 @@ public class FlightBookingServiceImpl implements FlightBookingService {
             f.setOperatedBy("Iberia");
             FlightSegment s;
             f.getSegments().add(s = new FlightSegment());
+            s.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_IB.svg");
             s.setAirplane("Airbus-A320");
             s.setArrivalDate("Dom. 23 Diciembre");
             s.setArrivalTime("10:30");
@@ -87,6 +97,9 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getDepartureFlights().add(f = new AvailableFlight());
+            f.setOrigin("PMI");
+            f.setDestination("XRY");
+            f.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_BA.svg");
             f.setArrivalDate("");
             f.setArrivalTime("18:30");
             f.setBusinessPrice(60.15);
@@ -98,6 +111,7 @@ public class FlightBookingServiceImpl implements FlightBookingService {
             f.setOperatedBy("Iberia");
             FlightSegment s;
             f.getSegments().add(s = new FlightSegment());
+            s.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_IB.svg");
             s.setAirplane("Airbus-A320");
             s.setArrivalDate("Dom. 23 Diciembre");
             s.setArrivalTime("18:30");
@@ -129,6 +143,9 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getReturnFlights().add(f = new AvailableFlight());
+            f.setOrigin("PMI");
+            f.setDestination("XRY");
+            f.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_IB.svg");
             f.setArrivalDate("");
             f.setArrivalTime("08:30");
             f.setBusinessPrice(60.15);
@@ -140,6 +157,7 @@ public class FlightBookingServiceImpl implements FlightBookingService {
             f.setOperatedBy("Iberia");
             FlightSegment s;
             f.getSegments().add(s = new FlightSegment());
+            s.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_IB.svg");
             s.setAirplane("Airbus-A320");
             s.setArrivalDate("Dom. 23 Diciembre");
             s.setArrivalTime("08:30");
@@ -157,6 +175,9 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getReturnFlights().add(f = new AvailableFlight());
+            f.setOrigin("PMI");
+            f.setDestination("XRY");
+            f.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_AA.svg");
             f.setArrivalDate("");
             f.setArrivalTime("10:30");
             f.setBusinessPrice(60.15);
@@ -168,6 +189,7 @@ public class FlightBookingServiceImpl implements FlightBookingService {
             f.setOperatedBy("Iberia");
             FlightSegment s;
             f.getSegments().add(s = new FlightSegment());
+            s.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_IB.svg");
             s.setAirplane("Airbus-A320");
             s.setArrivalDate("Dom. 23 Diciembre");
             s.setArrivalTime("10:30");
@@ -185,6 +207,9 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getReturnFlights().add(f = new AvailableFlight());
+            f.setOrigin("PMI");
+            f.setDestination("XRY");
+            f.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_IB.svg");
             f.setArrivalDate("");
             f.setArrivalTime("18:30");
             f.setBusinessPrice(60.15);
@@ -196,6 +221,7 @@ public class FlightBookingServiceImpl implements FlightBookingService {
             f.setOperatedBy("Iberia");
             FlightSegment s;
             f.getSegments().add(s = new FlightSegment());
+            s.setCompanyLogo("https://test.easytravelsystem.org/images/logo_pos_IB.svg");
             s.setAirplane("Airbus-A320");
             s.setArrivalDate("Dom. 23 Diciembre");
             s.setArrivalTime("18:30");
