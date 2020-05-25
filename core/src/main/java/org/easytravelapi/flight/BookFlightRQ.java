@@ -1,8 +1,12 @@
 package org.easytravelapi.flight;
 
 import io.swagger.annotations.ApiModelProperty;
+import org.easytravelapi.common.PaxDetails;
 import org.easytravelapi.transfer.BookTransferRQ;
 import org.easytravelapi.util.Helper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookFlightRQ {
 
@@ -34,6 +38,113 @@ public class BookFlightRQ {
     private String promoCode;
 
     private boolean mailingUnwanted;
+
+    @ApiModelProperty(value = "Passengers info. Applies only when confirming")
+    private List<PaxDetails> pax  = new ArrayList<>();
+
+    public String getFileId() {
+        return fileId;
+    }
+
+    public void setFileId(String fileId) {
+        this.fileId = fileId;
+    }
+
+    public String getDepartureKey() {
+        return departureKey;
+    }
+
+    public void setDepartureKey(String departureKey) {
+        this.departureKey = departureKey;
+    }
+
+    public String getReturnKey() {
+        return returnKey;
+    }
+
+    public void setReturnKey(String returnKey) {
+        this.returnKey = returnKey;
+    }
+
+    public String getBookingReference() {
+        return bookingReference;
+    }
+
+    public void setBookingReference(String bookingReference) {
+        this.bookingReference = bookingReference;
+    }
+
+    public String getLeadName() {
+        return leadName;
+    }
+
+    public void setLeadName(String leadName) {
+        this.leadName = leadName;
+    }
+
+    public String getCommentsToProvider() {
+        return commentsToProvider;
+    }
+
+    public void setCommentsToProvider(String commentsToProvider) {
+        this.commentsToProvider = commentsToProvider;
+    }
+
+    public String getPrivateComments() {
+        return privateComments;
+    }
+
+    public void setPrivateComments(String privateComments) {
+        this.privateComments = privateComments;
+    }
+
+    public String getCaptchaToken() {
+        return captchaToken;
+    }
+
+    public void setCaptchaToken(String captchaToken) {
+        this.captchaToken = captchaToken;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    public String getSupplements() {
+        return supplements;
+    }
+
+    public void setSupplements(String supplements) {
+        this.supplements = supplements;
+    }
+
+    public String getPromoCode() {
+        return promoCode;
+    }
+
+    public void setPromoCode(String promoCode) {
+        this.promoCode = promoCode;
+    }
+
+    public boolean isMailingUnwanted() {
+        return mailingUnwanted;
+    }
+
+    public void setMailingUnwanted(boolean mailingUnwanted) {
+        this.mailingUnwanted = mailingUnwanted;
+    }
+
+    public List<PaxDetails> getPax() {
+        return pax;
+    }
+
+    public void setPax(List<PaxDetails> pax) {
+        this.pax = pax;
+    }
 
     public static BookTransferRQ fromString(String json) {
         return Helper.fromString(BookTransferRQ.class, json);

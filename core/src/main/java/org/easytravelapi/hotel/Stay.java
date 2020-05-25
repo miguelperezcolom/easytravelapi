@@ -2,6 +2,7 @@ package org.easytravelapi.hotel;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import org.easytravelapi.common.PaxDetails;
 
 import java.util.ArrayList;
 import java.util.List;
