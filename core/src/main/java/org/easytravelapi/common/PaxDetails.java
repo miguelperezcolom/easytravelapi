@@ -13,10 +13,20 @@ public class PaxDetails {
     private int birthDate ;
     @ApiModelProperty(value = "Passenger type. Possible values are: AD for adult and CH for child")
     private String type;
+    @ApiModelProperty(value = "Document type. Possible values are: DNI for DNI and PASS for passport")
+    private String documentType;
     @ApiModelProperty(value = "Passenger document id")
     private String documentId;
     @ApiModelProperty(value = "E.g.: room number, vehicle, .... For presentation purposes only")
     private String groupId;
+
+    public String getDocumentType() {
+        return documentType;
+    }
+
+    public void setDocumentType(String documentType) {
+        this.documentType = documentType;
+    }
 
     public int getBirthDate() {
         return birthDate;
