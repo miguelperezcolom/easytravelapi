@@ -28,6 +28,11 @@ public class BookFlightRQ {
     @ApiModelProperty(value = "Your comments for us. They will not be visible to the customer neither to the activity provider")
     private String privateComments;
 
+    @ApiModelProperty(value = "Contact telephone number")
+    private String contactPhone;
+    @ApiModelProperty(value = "User Email. Used to locate your bookings")
+    private String email;
+
     @ApiModelProperty(value = "Token for server validation captcha")
     private String captchaToken;
     @ApiModelProperty(value = "User language")
@@ -41,6 +46,23 @@ public class BookFlightRQ {
 
     @ApiModelProperty(value = "Passengers info. Applies only when confirming")
     private List<PaxDetails> pax  = new ArrayList<>();
+
+
+    public String getContactPhone() {
+        return contactPhone;
+    }
+
+    public void setContactPhone(String contactPhone) {
+        this.contactPhone = contactPhone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getFileId() {
         return fileId;
