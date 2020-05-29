@@ -623,6 +623,58 @@ public class CMSServiceImpl implements CMSService {
     }
 
     @Override
+    public CartCompletionRS cartCompletion(String token, CartCompletionRQ rq) throws Throwable {
+        CartCompletionRS rs = new CartCompletionRS();
+        rs.setStatusCode(200);
+
+        {
+            AdditionalServiceLink l;
+            rs.getAdditionalServicesLinks().add(l = new AdditionalServiceLink());
+            l.setType("hotel");
+            l.setUri("#/dispo?iddestino=cou_es&destino=España&entrada=2020-07-06&salida=2020-07-09&ocupacion=1x2");
+        }
+
+
+        {
+            AdditionalServiceLink l;
+            rs.getAdditionalServicesLinks().add(l = new AdditionalServiceLink());
+            l.setType("transfer");
+            l.setUri("#/dispo?destino=tp_3424234&destinoname=Hotel%20Valparaiso&origen=tp_213&origenname=Hotel%20Playa%20de%20Palma&entrada=2020-07-06&salida=2020-08-06&idioma=es&bike=0&golf=0&ski=0&wheelchair=0&bigluggage=0&pax=1");
+        }
+
+        {
+            AdditionalServiceLink l;
+            rs.getAdditionalServicesLinks().add(l = new AdditionalServiceLink());
+            l.setType("flight");
+            l.setUri("#/dispo?destino=MAD&destinoname=Adolfo%20Suárez&origen=PMI&origenname=Palma%20de%20Mallorca&trayecto=roundtrip&entrada=2020-07-06&salida=2020-07-09&idioma=es&adult=1&child=0&infant=0");
+        }
+
+        {
+            AdditionalServiceLink l;
+            rs.getAdditionalServicesLinks().add(l = new AdditionalServiceLink());
+            l.setType("excursion");
+            l.setUri("#/dispo?destino=cou_es&entrada=2020-07-06&destinoname=España");
+        }
+
+        {
+            AdditionalServiceLink l;
+            rs.getAdditionalServicesLinks().add(l = new AdditionalServiceLink());
+            l.setType("circuit");
+            l.setUri("#/");
+        }
+
+        {
+            AdditionalServiceLink l;
+            rs.getAdditionalServicesLinks().add(l = new AdditionalServiceLink());
+            l.setType("generic");
+            l.setUri("#/dispo?destino=cou_es&destinoname=España");
+        }
+
+
+        return rs;
+    }
+
+    @Override
     public GetTermsRS getTerms(String token, String language) throws Throwable {
         GetTermsRS rs = new GetTermsRS();
         rs.setTerms("Acepto los <a href=\"http:\\www.google.es\"> términinos y condiciones </a>");

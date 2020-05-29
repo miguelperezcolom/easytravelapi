@@ -151,6 +151,14 @@ public interface CMSService {
 
     ) throws Throwable;
 
+    @POST
+    @Path("/cartcompletion")
+    @ApiOperation(value = "Use this method to syncronize data from offline tickets app")
+    public CartCompletionRS cartCompletion(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            CartCompletionRQ rq
+    ) throws Throwable;
+
     @GET
     @Path("/terms")
     @ApiOperation(value = "Use this method to get  terms and conditions from backoffice")
