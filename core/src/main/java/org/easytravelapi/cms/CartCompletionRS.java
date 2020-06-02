@@ -11,7 +11,6 @@ public class CartCompletionRS extends AbstractRS {
 
     private TravelInsuranceData travelInsurance;
 
-
     //todo: añadir parámetros por defecto buscadores
 
 

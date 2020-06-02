@@ -670,6 +670,22 @@ public class CMSServiceImpl implements CMSService {
             l.setUri("#/dispo?destino=cou_es&destinoname=España");
         }
 
+        TravelInsuranceData d;
+        rs.setTravelInsurance(d = new TravelInsuranceData());
+        d.setName("Seguro viaje todo riesgo");
+        d.setDescription("La presente cobertura otorga seguro de viaje a los Beneficiarios respecto de aquellos viajes realizados fuera del País de \" +\n" +
+                "\"residencia del Beneficiario que se hubieran reservado durante el Periodo de seguro siempre que al menos el 50% de\" +\n" +
+                "\"todos los costes del viaje y alojamiento hubieran sido pagados con la Tarjeta asegurada. Los viajes realizados en un\" +\n" +
+                "\"vehículo privado quedarán cubiertos cuando al menos el 50% de todos los gastos de alojamiento hubieran sido pagados\" +\n" +
+                "\"con la Tarjeta asegurada con anterioridad al inicio del viaje desde el País de residencia del Beneficiario. Los viajes\" +\n" +
+                "\"dentro del País de residencia del Beneficiario quedarán cubiertos cuando al menos se hubieran reservado con\" +\n" +
+                "\"antelación 2 noches de alojamiento con la Tarjeta asegurada y el destino se encontrara a más de 150 km de la\" +\n" +
+                "\"residencia del Beneficiario. El viaje deberá haberse reservado y haber finalizado durante el Periodo de Seguro, y su\" +\n" +
+                "\"duración total no podrá ser superior a 90 días");
+        d.setCurrency("EUR");
+        d.setIcon("https://segurosonline.eu/wp-content/uploads/2013/01/Fenix-Directo.jpg");
+        d.setValue(250.6);
+        d.setTotalIfIncluded(1230.45);
 
         return rs;
     }

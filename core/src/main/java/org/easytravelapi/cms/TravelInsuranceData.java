@@ -10,7 +10,25 @@ public class TravelInsuranceData {
 
     private double value;
 
-    private boolean included;
+    private String currency;
+
+    private double totalIfIncluded;
+
+    public double getTotalIfIncluded() {
+        return totalIfIncluded;
+    }
+
+    public void setTotalIfIncluded(double totalIfIncluded) {
+        this.totalIfIncluded = totalIfIncluded;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
 
     public String getName() {
         return name;
@@ -42,13 +60,5 @@ public class TravelInsuranceData {
 
     public void setValue(double value) {
         this.value = value;
-    }
-
-    public boolean isIncluded() {
-        return included;
-    }
-
-    public void setIncluded(boolean included) {
-        this.included = included;
     }
 }

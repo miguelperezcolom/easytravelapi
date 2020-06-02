@@ -15,6 +15,8 @@ public class BookCMSRQ {
 
     private boolean mailingUnwanted;
 
+    private boolean  travelAssuranceWanted;
+
     public Map<String, Object>[] getBookings() {
         return bookings;
     }
@@ -37,5 +39,13 @@ public class BookCMSRQ {
 
     public void setMailingUnwanted(boolean mailingUnwanted) {
         this.mailingUnwanted = mailingUnwanted;
+    }
+
+    public boolean isTravelAssuranceWanted() {
+        return travelAssuranceWanted;
+    }
+
+    public void setTravelAssuranceWanted(boolean travelAssuranceWanted) {
+        this.travelAssuranceWanted = travelAssuranceWanted;
     }
 }
