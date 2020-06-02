@@ -672,6 +672,7 @@ public class CMSServiceImpl implements CMSService {
 
         TravelInsuranceData d;
         rs.setTravelInsurance(d = new TravelInsuranceData());
+        d.setId("654qd64ewd");
         d.setName("Seguro viaje todo riesgo");
         d.setDescription("La presente cobertura otorga seguro de viaje a los Beneficiarios respecto de aquellos viajes realizados fuera del País de \" +\n" +
                 "\"residencia del Beneficiario que se hubieran reservado durante el Periodo de seguro siempre que al menos el 50% de\" +\n" +
