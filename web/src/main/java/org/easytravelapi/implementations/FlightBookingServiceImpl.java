@@ -20,15 +20,15 @@ public class FlightBookingServiceImpl implements FlightBookingService {
 
         rs.setCurrency("EUR");
 
-        rs.getDepartureBestPrices().add(new FlightBestPrice("Sat 20", 30.89, false));
-        rs.getDepartureBestPrices().add(new FlightBestPrice("Sun 21", 40.89, false));
-        rs.getDepartureBestPrices().add(new FlightBestPrice("Mon 22", 50.01, false));
-        rs.getDepartureBestPrices().add(new FlightBestPrice("Tue 23", 20.66, false));
-        rs.getDepartureBestPrices().add(new FlightBestPrice("Wed 24", 30.89, true));
-        rs.getDepartureBestPrices().add(new FlightBestPrice("Thu 25", 60.98, false));
-        rs.getDepartureBestPrices().add(new FlightBestPrice("Fri 26", 70.10, false));
-        rs.getDepartureBestPrices().add(new FlightBestPrice("Sat 27", 60.14, false));
-        rs.getDepartureBestPrices().add(new FlightBestPrice("Sun 28", 30.89, false));
+        rs.getDepartureBestPrices().add(new FlightBestPrice("Sat 20", "2020-06-20", 30.89, false));
+        rs.getDepartureBestPrices().add(new FlightBestPrice("Sun 21", "2020-06-20", 40.89, false));
+        rs.getDepartureBestPrices().add(new FlightBestPrice("Mon 22", "2020-06-20", 50.01, false));
+        rs.getDepartureBestPrices().add(new FlightBestPrice("Tue 23", "2020-06-20", 20.66, false));
+        rs.getDepartureBestPrices().add(new FlightBestPrice("Wed 24", "2020-06-20", 30.89, true));
+        rs.getDepartureBestPrices().add(new FlightBestPrice("Thu 25", "2020-06-20", 60.98, false));
+        rs.getDepartureBestPrices().add(new FlightBestPrice("Fri 26", "2020-06-20", 70.10, false));
+        rs.getDepartureBestPrices().add(new FlightBestPrice("Sat 27", "2020-06-20", 60.14, false));
+        rs.getDepartureBestPrices().add(new FlightBestPrice("Sun 28", "2020-06-20", 30.89, false));
 
         {
             AvailableFlight f;
@@ -136,15 +136,15 @@ public class FlightBookingServiceImpl implements FlightBookingService {
 
 
 
-        rs.getReturnBestPrices().add(new FlightBestPrice("Sat 20", 30.89, false));
-        rs.getReturnBestPrices().add(new FlightBestPrice("Sun 21", 40.89, false));
-        rs.getReturnBestPrices().add(new FlightBestPrice("Mon 22", 50.01, false));
-        rs.getReturnBestPrices().add(new FlightBestPrice("Tue 23", 20.66, false));
-        rs.getReturnBestPrices().add(new FlightBestPrice("Wed 24", 30.89, true));
-        rs.getReturnBestPrices().add(new FlightBestPrice("Thu 25", 60.98, false));
-        rs.getReturnBestPrices().add(new FlightBestPrice("Fri 26", 70.10, false));
-        rs.getReturnBestPrices().add(new FlightBestPrice("Sat 27", 60.14, false));
-        rs.getReturnBestPrices().add(new FlightBestPrice("Sun 28", 30.89, false));
+        rs.getReturnBestPrices().add(new FlightBestPrice("Sat 20", "2020-06-20", 30.89, false));
+        rs.getReturnBestPrices().add(new FlightBestPrice("Sun 21", "2020-06-20", 40.89, false));
+        rs.getReturnBestPrices().add(new FlightBestPrice("Mon 22", "2020-06-20", 50.01, false));
+        rs.getReturnBestPrices().add(new FlightBestPrice("Tue 23", "2020-06-20", 20.66, false));
+        rs.getReturnBestPrices().add(new FlightBestPrice("Wed 24", "2020-06-20", 30.89, true));
+        rs.getReturnBestPrices().add(new FlightBestPrice("Thu 25", "2020-06-20", 60.98, false));
+        rs.getReturnBestPrices().add(new FlightBestPrice("Fri 26", "2020-06-20", 70.10, false));
+        rs.getReturnBestPrices().add(new FlightBestPrice("Sat 27", "2020-06-20", 60.14, false));
+        rs.getReturnBestPrices().add(new FlightBestPrice("Sun 28", "2020-06-20", 30.89, false));
 
         {
             AvailableFlight f;
