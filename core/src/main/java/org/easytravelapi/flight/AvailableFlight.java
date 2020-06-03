@@ -5,7 +5,9 @@ import java.util.List;
 
 public class AvailableFlight {
 
-    private String key;
+    private String economyKey;
+
+    private String businessKey;
 
     private String origin;
 
@@ -33,12 +35,20 @@ public class AvailableFlight {
 
     private List<FlightSegment> segments = new ArrayList<>();
 
-    public String getKey() {
-        return key;
+    public String getEconomyKey() {
+        return economyKey;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setEconomyKey(String economyKey) {
+        this.economyKey = economyKey;
+    }
+
+    public String getBusinessKey() {
+        return businessKey;
+    }
+
+    public void setBusinessKey(String businessKey) {
+        this.businessKey = businessKey;
     }
 
     public String getOrigin() {

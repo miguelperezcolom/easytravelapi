@@ -33,7 +33,8 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getDepartureFlights().add(f = new AvailableFlight());
-            f.setKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
+            f.setEconomyKey("654we6d54wed4we6d54we6d4");
+            f.setBusinessKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
             f.setOrigin("PMI");
             f.setDestination("XRY");
             f.setCompanyLogo("https://test.easytravelapi.com/images/logo_pos_IB.svg");
@@ -66,7 +67,8 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getDepartureFlights().add(f = new AvailableFlight());
-            f.setKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
+            f.setEconomyKey("654we6d54wed4we6d54we6d4");
+            f.setBusinessKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
             f.setOrigin("PMI");
             f.setDestination("XRY");
             f.setCompanyLogo("https://test.easytravelapi.com/images/logo_pos_IB.svg");
@@ -99,7 +101,8 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getDepartureFlights().add(f = new AvailableFlight());
-            f.setKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
+            f.setEconomyKey("654we6d54wed4we6d54we6d4");
+            f.setBusinessKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
             f.setOrigin("PMI");
             f.setDestination("XRY");
             f.setCompanyLogo("https://test.easytravelapi.com/images/logo_pos_BA.svg");
@@ -146,7 +149,8 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getReturnFlights().add(f = new AvailableFlight());
-            f.setKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
+            f.setEconomyKey("654we6d54wed4we6d54we6d4");
+            f.setBusinessKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
             f.setOrigin("PMI");
             f.setDestination("XRY");
             f.setCompanyLogo("https://test.easytravelapi.com/images/logo_pos_IB.svg");
@@ -179,7 +183,8 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getReturnFlights().add(f = new AvailableFlight());
-            f.setKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
+            f.setEconomyKey("654we6d54wed4we6d54we6d4");
+            f.setBusinessKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
             f.setOrigin("PMI");
             f.setDestination("XRY");
             f.setCompanyLogo("https://test.easytravelapi.com/images/logo_pos_AA.svg");
@@ -212,7 +217,8 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         {
             AvailableFlight f;
             rs.getReturnFlights().add(f = new AvailableFlight());
-            f.setKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
+            f.setEconomyKey("654we6d54wed4we6d54we6d4");
+            f.setBusinessKey("ohdiuhweiudhweidfnweiuhfdwieufhwefhiwefh9w88w7efef");
             f.setOrigin("PMI");
             f.setDestination("XRY");
             f.setCompanyLogo("https://test.easytravelapi.com/images/logo_pos_IB.svg");
