@@ -2,8 +2,6 @@ package org.easytravelapi.common;
 
 import io.swagger.annotations.ApiModelProperty;
 
-import java.util.List;
-
 /**
  * Created by miguel on 26/7/17.
  */
@@ -35,13 +33,8 @@ public class Booking {
     @ApiModelProperty(value = "This service lead name")
     private String leadName;
 
-    private double retail;
-    private double net;
-
-    private String currencyIsoCode;
-
-    private List<CancellationCost> cancellationCost;
-
+    private Amount retailValue;
+    private Amount netValue;
 
     @ApiModelProperty(value = "Comments from the customer")
     private String commentsToProvider;
@@ -129,28 +122,20 @@ public class Booking {
         this.leadName = leadName;
     }
 
-    public double getRetail() {
-        return retail;
+    public Amount getRetailValue() {
+        return retailValue;
     }
 
-    public void setRetail(double retail) {
-        this.retail = retail;
+    public void setRetailValue(Amount retailValue) {
+        this.retailValue = retailValue;
     }
 
-    public double getNet() {
-        return net;
+    public Amount getNetValue() {
+        return netValue;
     }
 
-    public void setNet(double net) {
-        this.net = net;
-    }
-
-    public String getCurrencyIsoCode() {
-        return currencyIsoCode;
-    }
-
-    public void setCurrencyIsoCode(String currencyIsoCode) {
-        this.currencyIsoCode = currencyIsoCode;
+    public void setNetValue(Amount netValue) {
+        this.netValue = netValue;
     }
 
     public String getCommentsToProvider() {
@@ -167,13 +152,5 @@ public class Booking {
 
     public void setPrivateComments(String privateComments) {
         this.privateComments = privateComments;
-    }
-
-    public List<CancellationCost> getCancellationCost() {
-        return cancellationCost;
-    }
-
-    public void setCancellationCost(List<CancellationCost> cancellationCost) {
-        this.cancellationCost = cancellationCost;
     }
 }
