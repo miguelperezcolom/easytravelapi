@@ -351,6 +351,9 @@ public class HotelBookingServiceImpl implements HotelBookingService {
             {
                 tot.setNet(1250.01);
             }
+            {
+                tot.setCurrencyIsoCode("EUR");
+            }
 
 
         }
