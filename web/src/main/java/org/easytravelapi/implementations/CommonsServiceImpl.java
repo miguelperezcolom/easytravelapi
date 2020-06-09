@@ -3,6 +3,7 @@ package org.easytravelapi.implementations;
 import org.easytravelapi.CommonsService;
 import org.easytravelapi.common.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -325,10 +326,8 @@ public class CommonsServiceImpl implements CommonsService {
             b.setStart("20180106");
             b.setEnd("20180112");
             b.setBookingId("9866230462GGWED76");
-            Amount a;
-            b.setRetailValue(a = new Amount());
-            a.setCurrencyIsoCode("EUR");
-            a.setValue(750.42);
+            b.setRetail(750.42d);
+            b.setCurrencyIsoCode("EUR");
             b.setServiceType("HOTEL");
             b.setServiceDescription("Hotel " + nombres[i % nombres.length]);
             b.setStatus((i % 4 == 0)?"CANCELLED":"OK");
@@ -355,10 +354,8 @@ public class CommonsServiceImpl implements CommonsService {
         b.setStart(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b.setEnd(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b.setBookingId("9866230462GGWED76");
-        Amount a;
-        b.setRetailValue(a = new Amount());
-        a.setCurrencyIsoCode("EUR");
-        a.setValue(750.42);
+        b.setRetail(750.42d);
+        b.setCurrencyIsoCode("EUR");
         b.setServiceType("HOTEL");
         b.setServiceDescription("Hotel ");
         b.setStatus("OK");
@@ -384,10 +381,8 @@ public class CommonsServiceImpl implements CommonsService {
         b.setStart(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b.setEnd(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b.setBookingId("9866230462GGWED76");
-        Amount a;
-        b.setRetailValue(a = new Amount());
-        a.setCurrencyIsoCode("EUR");
-        a.setValue(750.42);
+        b.setRetail(750.42d);
+        b.setCurrencyIsoCode("EUR");
         b.setServiceType("HOTEL");
         b.setServiceDescription("Hotel ");
         b.setStatus("OK");
@@ -521,10 +516,10 @@ public class CommonsServiceImpl implements CommonsService {
         b.setStart(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b.setEnd(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b.setBookingId("9866230462GGWED76");
-        Amount a;
-        b.setRetailValue(a = new Amount());
-        a.setCurrencyIsoCode("EUR");
-        a.setValue(750.42);
+
+        b.setRetail(750.42d);
+        b.setCurrencyIsoCode("EUR");
+
         b.setServiceType("HOTEL");
         b.setServiceDescription("Hotel Bellver 2 pax Double room");
         b.setStatus("OK");
@@ -541,16 +536,28 @@ public class CommonsServiceImpl implements CommonsService {
         b2.setStart(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b2.setEnd(LocalDateTime.of(2017, 03, 14, 23, 34, 15).format(DateTimeFormatter.ISO_DATE_TIME));
         b2.setBookingId("9866230462GGWED76");
-        Amount a2;
-        b2.setRetailValue(a2 = new Amount());
-        a2.setCurrencyIsoCode("EUR");
-        a2.setValue(750.42);
+
+        b2.setRetail(100.00d);
+        b2.setCurrencyIsoCode("EUR");
+
         b2.setServiceType("TRANSFER");
         b2.setServiceDescription("Shuttle 2 pax from Ibiza Airport to Hotel bellver");
         b2.setStatus("OK");
         f.getBookings().add(b2);
 
-        f.setTotalPrice(a);
+        Amount a;
+        f.setTotalPrice(a = new Amount()) ;
+        a.setValue(850.42d);
+        a.setCurrencyIsoCode("EUR");
+
+        List<CancellationCost> cc =  new ArrayList<>();
+        CancellationCost ccost;
+        cc.add(ccost = new CancellationCost());
+        ccost.setGMTtime(LocalDate.now().toString());
+        ccost.setRetail(150.00d);
+
+        b.setCancellationCost(cc) ;
+
 
         f.setEmail("email@quotravel.com");
         rs.setFile(f);
