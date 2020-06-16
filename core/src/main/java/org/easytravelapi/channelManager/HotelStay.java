@@ -10,7 +10,7 @@ import java.util.List;
  * Created by miguel on 26/7/17.
  */
 @ApiModel(description = "A stay line inside a hotel booking service")
-public class Stay {
+public class HotelStay {
 
     @ApiModelProperty(value = "When this stay starts in locale. In YYYYMMDD format")
     private int start;

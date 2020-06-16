@@ -48,7 +48,7 @@ public class HotelBooking {
     private String privateComments;
 
     @ApiModelProperty(value = "List of stays (rooms, occupation and boards)")
-    private List<Stay> stays = new ArrayList<Stay>();
+    private List<HotelStay> stays = new ArrayList<HotelStay>();
 
 
     public String getBookingId() {
@@ -163,11 +163,11 @@ public class HotelBooking {
         this.privateComments = privateComments;
     }
 
-    public List<Stay> getStays() {
+    public List<HotelStay> getStays() {
         return stays;
     }
 
-    public void setStays(List<Stay> stays) {
+    public void setStays(List<HotelStay> stays) {
         this.stays = stays;
     }
 }

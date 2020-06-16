@@ -3,12 +3,9 @@ package org.easytravelapi.implementations;
 import org.easytravelapi.ChannelManagerService;
 import org.easytravelapi.channelManager.*;
 import org.easytravelapi.common.Amount;
-import org.easytravelapi.common.Booking;
 
-import javax.ws.rs.FormParam;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 /**
  * Created by miguel on 27/7/17.
@@ -99,8 +96,8 @@ public class ChannelManagerServiceImpl implements ChannelManagerService {
             b.setStatus((i % 4 == 0)?"CANCELLED":"OK");
 
             {
-                Stay s;
-                b.getStays().add(s = new Stay());
+                HotelStay s;
+                b.getStays().add(s = new HotelStay());
                 s.setStart(20180106);
                 s.setEnd(20180112);
                 s.setRoomId("DBL");

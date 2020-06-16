@@ -70,7 +70,7 @@ public interface FlightBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The airport id to get destinations")
             @QueryParam("destinationAirportId") String destinationAirportId
-            , @QueryParam("originAirportId") String language
+            , @QueryParam("language") String language
     ) throws Throwable;
 
     @GET
@@ -80,7 +80,7 @@ public interface FlightBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The airport id to get destinations")
             @QueryParam("originAirportId") String originAirportId
-            , @QueryParam("originAirportId") String language
+            , @QueryParam("language") String language
     ) throws Throwable;
 
     @GET
@@ -90,7 +90,7 @@ public interface FlightBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "The airport id to get destinations")
             @QueryParam("text") String text
-            , @QueryParam("originAirportId") String language
+            , @QueryParam("language") String language
     ) throws Throwable;
 
 }
