@@ -24,7 +24,7 @@ public interface GenericBookingService {
     public GetAvailableGenericsRS getAvailableGenerics(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @QueryParam("destination") String  destination,
-            @QueryParam("servicetype") String  serviceType,
+            @QueryParam("productType") String  productType,
             @QueryParam("language") String language
     ) throws Throwable;
 
@@ -85,7 +85,7 @@ public interface GenericBookingService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             @ApiParam(value = "List of type of product to filter by separated by ,")
             @QueryParam("destination") String destination,
-            @QueryParam("servicetype") String  serviceType,
+            @QueryParam("productType") String  productType,
             @QueryParam("language") String language,
             @QueryParam("labels") String labels,
             @ApiParam(value = "Min price range to filter")
