@@ -213,7 +213,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
     }
 
     @Override
-    public GetAvailableGenericsRS getAvailableGenerics(String token, String serviceType, String language) throws Throwable {
+    public GetAvailableGenericsRS getAvailableGenerics(String token, String destination, String serviceType, String language) throws Throwable {
 
         GetAvailableGenericsRS rs = new GetAvailableGenericsRS();
 
@@ -392,7 +392,7 @@ public class GenericBookingServiceImpl implements GenericBookingService {
 
 
     @Override
-    public GetAvailableGenericsRS getFilteredGeneric(String token, String language, String destination, String labels, double minPrice, double maxPrice) throws Throwable {
+    public GetAvailableGenericsRS getFilteredGeneric(String token, String language, String destination, String serviceType, String labels, double minPrice, double maxPrice) throws Throwable {
         GetAvailableGenericsRS rs = new GetAvailableGenericsRS();
 
         rs.setSystemTime(LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
