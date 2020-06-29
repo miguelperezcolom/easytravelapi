@@ -4,9 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.easytravelapi.activity.GetActivityRatesRS;
-import org.easytravelapi.agent.GetPlainListRS;
-import org.easytravelapi.agent.GetUpdatedCartsRQ;
-import org.easytravelapi.agent.UpdateBookingRS;
+import org.easytravelapi.agent.*;
 import org.easytravelapi.cms.*;
 
 import javax.jws.WebService;
@@ -49,4 +47,21 @@ public interface AgentAccessService {
             GetUpdatedCartsRQ cartList
 
     ) throws Throwable;
+
+    @GET
+    @Path("/passengerdetails")
+    @ApiOperation(value = "Get available generic products", notes = "you get a list of the available generic products by type")
+    public GetPassengerDetailsRS getPassengerDetails(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @QueryParam("q") String  q
+    ) throws Throwable;
+
+    @GET
+    @Path("/productioncenters")
+    @ApiOperation(value = "Get available generic products", notes = "you get a list of the available generic products by type")
+    public GetProductionCentersListRS getProductionCentersList(
+            @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
+            @QueryParam("user") String  user
+    ) throws Throwable;
+
 }

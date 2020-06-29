@@ -342,4 +342,35 @@ public class AgentAccessServiceImpl implements AgentAccessService {
         rs.setMsg("Registered records");
         return rs;
     }
+
+    @Override
+    public GetPassengerDetailsRS getPassengerDetails(String token, String q) throws Throwable {
+        GetPassengerDetailsRS rs = new GetPassengerDetailsRS();
+        rs.setStatusCode(200);
+        rs.setMsg("Found");
+
+        rs.setAgency("TUI");
+        rs.setComments("VIP");
+        rs.setEmail("udhuehd@uwhued.ee");
+        rs.setFileId("464646");
+        rs.setFound(true);
+        rs.setHotelName("Hotel Saratoga");
+        rs.setLeadName("Mr test");
+        rs.setProdCenterId("23");
+        rs.setRoomNumber("230");
+        rs.setTelephone("+34 626 629 444");
+        return rs;
+    }
+
+    @Override
+    public GetProductionCentersListRS getProductionCentersList(String token, String user) throws Throwable {
+        GetProductionCentersListRS rs = new GetProductionCentersListRS();
+        rs.setStatusCode(200);
+        rs.setMsg("Found");
+
+        rs.getProductionCenters().add(new ProductionCenter("1", "Hotel Saratoga", "Hotel Saratoga"));
+        rs.getProductionCenters().add(new ProductionCenter("2", "Hotel Alcudiamar", "Hotel Alcudiamar"));
+        rs.getProductionCenters().add(new ProductionCenter("3", "Hotel Bonsol", "Hotel Bonsol"));
+        return rs;
+    }
 }
