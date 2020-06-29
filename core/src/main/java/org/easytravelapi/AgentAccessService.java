@@ -29,8 +29,7 @@ public interface AgentAccessService {
     @ApiOperation(value = "Use this method to get  all lists of available activities for an agent")
     public GetPlainListRS getPlainList(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
-            @ApiParam(value = "Date of activities ")
-            @QueryParam("agentid") int agentId
+            @QueryParam("user") String user
     ) throws Throwable;
 
 
@@ -40,7 +39,6 @@ public interface AgentAccessService {
     public GetLoginRS login(
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,
             GetLoginRQ login
-
     ) throws Throwable;
 
     @POST

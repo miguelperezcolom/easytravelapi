@@ -47,7 +47,7 @@ public class AgentAccessServiceImpl implements AgentAccessService {
     }
 
     @Override
-    public GetPlainListRS getPlainList(String token, int agentId) throws Throwable {
+    public GetPlainListRS getPlainList(String token, String user) throws Throwable {
         GetPlainListRS plrs = new GetPlainListRS();
 
 
