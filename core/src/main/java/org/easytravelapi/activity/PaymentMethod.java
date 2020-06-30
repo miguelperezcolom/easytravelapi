@@ -8,6 +8,8 @@ public class PaymentMethod {
 
     private String currencyIsoCode;
 
+    private double exchangeRateToLcy;
+
     public String getKey() {
         return key;
     }
@@ -30,5 +32,13 @@ public class PaymentMethod {
 
     public void setCurrencyIsoCode(String currencyIsoCode) {
         this.currencyIsoCode = currencyIsoCode;
+    }
+
+    public double getExchangeRateToLcy() {
+        return exchangeRateToLcy;
+    }
+
+    public void setExchangeRateToLcy(double exchangeRateToLcy) {
+        this.exchangeRateToLcy = exchangeRateToLcy;
     }
 }
