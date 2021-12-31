@@ -142,7 +142,7 @@ public interface CMSService {
 
     ) throws Throwable;
 
-    @PUT
+    @POST
     @Path("/cartbooking")
     @ApiOperation(value = "Use this method to syncronize data from offline tickets app")
     public BookCMSRS cartBooking(

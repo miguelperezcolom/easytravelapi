@@ -30,7 +30,7 @@ public interface ChannelManagerService {
             @ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token
     ) throws Throwable;
 
-    @PUT
+    @POST
     @Path("/hotel/inventory")
     @ApiOperation(value = "Use this method to update hotel inventory")
     public UpdateRS update(

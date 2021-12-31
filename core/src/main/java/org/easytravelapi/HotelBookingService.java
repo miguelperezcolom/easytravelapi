@@ -58,7 +58,7 @@ public interface HotelBookingService {
             @ApiParam(value = "All the info needed to retrieve ")GetHotelPriceDetailsRQ rq
     ) throws Throwable;
 
-    @PUT
+    @POST
     @Path("/booking")
     @ApiOperation(value = "Confirm hotel booking", notes = "Use this method to confirm a hotel service")
     public BookHotelRS bookHotel(@ApiParam(value = "Auth token provided by your partner, and possibly renewed by using the /commons/newtoken method") @PathParam("authtoken") String token,

@@ -63,7 +63,7 @@ public interface TransferBookingService {
             @QueryParam("promoCode") String promoCode
     ) throws Throwable;
 
-    @PUT
+    @POST
     @Path("/booking")
     @ApiOperation(value = "Confirm transfer booking", notes = "Use this method to confirm a transfer service booking")
     public BookTransferRS bookTransfer(

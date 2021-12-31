@@ -76,7 +76,7 @@ public interface ActivityBookingService {
 
 
 
-    @PUT
+    @POST
     @Path("/booking")
     @ApiOperation(value = "Book an activity", notes = "Here you can confirm an activity booking. You must provide a price key and some additional data (lead name, comments, ...)")
     public BookActivityRS bookActivity(

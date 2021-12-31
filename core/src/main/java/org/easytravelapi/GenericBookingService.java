@@ -70,7 +70,7 @@ public interface GenericBookingService {
 
 
 
-    @PUT
+    @POST
     @Path("/booking")
     @ApiOperation(value = "Book a Generic Product", notes = "Here you can confirm Generic booking. You must provide a price key and some additional data (lead name, comments, ...)")
     public BookGenericRS bookGeneric(

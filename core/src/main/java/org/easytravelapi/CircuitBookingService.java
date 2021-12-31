@@ -71,7 +71,7 @@ public interface CircuitBookingService {
 
 
 
-    @PUT
+    @POST
     @Path("/booking")
     @ApiOperation(value = "Book a circuit", notes = "Here you can confirm a circuit booking. You must provide a price key and some additional data (lead name, comments, ...)")
     public BookCircuitRS bookCircuit(
